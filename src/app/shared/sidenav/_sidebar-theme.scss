@@ -10,4 +10,11 @@
             color: mat-color($primary);
         }
     }
+    .avatar{
+        text-align: center; width:100% ;margin-top: 18px;
+        border-radius: 25px !important;
+    }
+    .avatarimage{
+        border-radius: 100px !important;
+    }
 }
