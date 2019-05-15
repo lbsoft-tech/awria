@@ -11,6 +11,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AwiraMaterialModule } from './material-module';
 import { PostsComponent } from './pages/dashboard/posts/posts.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { RefundsComponent } from './pages/dashboard/income/refunds/refunds.component';
+import { PayoutsComponent } from './pages/dashboard/income/payouts/payouts.component';
+import { PaymentsComponent } from './pages/dashboard/income/payments/payments.component';
+import { VatComponent } from './pages/dashboard/income/vat/vat.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SidenavComponent,
     FooterComponent,
     PostsComponent,
-    DashboardComponent
+    DashboardComponent,
+    RefundsComponent,
+    PayoutsComponent,
+    PaymentsComponent,
+    VatComponent
   ],
   imports: [
     BrowserModule,
