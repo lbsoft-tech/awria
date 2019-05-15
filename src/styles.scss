@@ -61,10 +61,11 @@ input[type="text"] {
   }
 }
 
+
 .mat-button {
   .mat-button-wrapper {
     font-size: 0.7rem;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 1px;
   }
   .mat-icon {
