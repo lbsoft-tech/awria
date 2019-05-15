@@ -28,7 +28,8 @@
     }
 }
 .sidenav {
-    box-shadow: 10px 0 40px -4px rgba(0,0,0,.3);
+    // box-shadow: 10px 0 40px -4px rgba(0,0,0,.3);
+    width: 200px
 }
 .sidenav.mat-sidenav.mat-sidenav-side {
     z-index: 2;
