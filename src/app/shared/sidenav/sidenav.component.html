@@ -20,27 +20,20 @@
       <button mat-button><mat-icon>home</mat-icon></button>
       <button mat-button><mat-icon>home</mat-icon></button> -->
               
-  <a [routerLink]="'/posts'" routerLinkActive="active">
-    <mat-icon color="accent">list_alt</mat-icon><span routerLink="/posts" class="">Posts</span>
+  <a [routerLink]="'/posts'" routerLinkActive="active" class="menu">
+    <mat-icon color="accent">list_alt</mat-icon><span routerLink="/posts" >Posts</span>
   </a>
   
   <a [routerLink]="'/queue'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">queue_music</mat-icon><span class="invisible">Queue</span>
+    <mat-icon color="accent">queue_music</mat-icon><span >Patrons</span>
   </a>
   <a [routerLink]="'/playlists/explore'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">search</mat-icon><span class="invisible">Explore</span>
+    <mat-icon color="accent">search</mat-icon><span>Promote</span>
   </a>
   <a [routerLink]="'/playlists/me'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">headset</mat-icon><span class="invisible">My playlists</span>
+    <mat-icon color="accent">headset</mat-icon><span >Income</span>
   </a>
-  <a [routerLink]="'/ui'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">view_quilt</mat-icon><span class="invisible">UI Elements</span>
-  </a>
-  <a routerLinkActive="active" class="menu">
-    <mat-icon color="accent">settings</mat-icon>
-  </a>
-  <a routerLinkActive="active" class="menu">
-    <mat-icon color="accent">done_all</mat-icon>
-  </a>
+  
+
 </div>
  
