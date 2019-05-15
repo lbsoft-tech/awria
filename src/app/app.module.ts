@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AvatarModule } from 'ngx-avatar';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,7 +27,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     AwiraMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    // Specify AvatarModule as an import
+    AvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

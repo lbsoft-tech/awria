@@ -1,11 +1,58 @@
 <div class="side-menu">
-   <div  class="avatar" >
-<img class="avatarimage" src="../../../assets/images/posts/icon-camera.png">
-                <p>Samantha Jones</p>
-              </div>
+    <div class="avatar" >
+        <ngx-avatar  src="../../../assets/images/posts/icon-camera.png" name="Jane Doe" value="28%" bgColor="#000000" fgColor="#58D3F7" size="60" textSizeRatio="2.5" [round]="true" class="center"></ngx-avatar>
+
+      </div>
+      <p class="name" >Samantha Jones</p>
+      <small>Creator Account</small>
+      <mat-grid-list cols="3" rowHeight="100px">
+          <mat-grid-tile class="iconheight" mat-fill
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows"
+           
+              >
+            <!-- {{tile.text}} -->
+            <button mat-button ><mat-icon class="profilebuttons">{{tile.text}}</mat-icon></button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      <!-- <button mat-button><mat-icon>home</mat-icon></button>
+      <button mat-button><mat-icon>home</mat-icon></button>
+      <button mat-button><mat-icon>home</mat-icon></button> -->
+              
   <a [routerLink]="'/posts'" routerLinkActive="active">
-    <mat-icon color="accent">list_alt</mat-icon><span routerLink="/posts" class="invisible">Artists</span>
+    <mat-icon color="accent">list_alt</mat-icon><span routerLink="/posts" class="">Posts</span>
   </a>
+  <div class="collapse navbar-collapse">
+               
+      <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+        <li class="nav-item"> 
+          <button class="checkbtn" class="nav-link dropdown-nav-btn"> 
+                <i class="fa fa-list fa-fw" style=" margin: 0 11px 0px -7px;"></i>  Posts
+          </button>
+          <div class="dropdown-nav-container">
+            <a class="nav-link" href="#">New</a>
+            <a class="nav-link" href="#">Draft</a>
+            <a class="nav-link" href="#">Scheduled</a>
+            <a class="nav-link" href="#">Published</a>
+            <a class="nav-link" href="#">Post Dashboard</a>
+            <a class="nav-link" href="#">Engagement</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pl-0"><i class="fa fa-history fa-fw" style=" margin: 0 15px 0px 0px;"></i> <span
+              class="d-none d-md-inline">Patrons</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pl-0"><i class="fa fa-bullhorn fa-fw" style=" margin: 0 15px 0px 0px;"></i> <span
+              class="d-none d-md-inline">Promote</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pl-0"><i class="fa fa-usd fa-fw"  style=" margin: 0 15px 0px 0px;"></i> <span
+              class="d-none d-md-inline">Income</span></a>
+        </li>
+      </ul>
+    </div>
   <a [routerLink]="'/queue'" routerLinkActive="active" class="menu">
     <mat-icon color="accent">queue_music</mat-icon><span class="invisible">Queue</span>
   </a>
