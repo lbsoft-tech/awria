@@ -11,7 +11,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Awira';
+  title = 'Awria';
   @ViewChild('sidenav') sidenav: MatSidenav;
   navMode = 'side';
   playerCollapsed = true;
