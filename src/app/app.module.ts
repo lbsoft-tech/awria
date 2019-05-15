@@ -9,13 +9,17 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AwiraMaterialModule } from './material-module';
+import { PostsComponent } from './pages/dashboard/posts/posts.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidenavComponent,
-    FooterComponent
+    FooterComponent,
+    PostsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
