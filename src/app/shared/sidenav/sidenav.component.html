@@ -1,23 +1,29 @@
 <div class="side-menu">
+<<<<<<< HEAD
   <a [routerLink]="'/posts'" routerLinkActive="active">
     <mat-icon color="accent">list_alt</mat-icon><span routerLink="/posts" class="invisible">Artists</span>
+=======
+  <a [routerLink]="'/artists'" routerLinkActive="active" class="menu">
+    <mat-icon color="notes">album</mat-icon>
+    <span class="">Posts</span>
+>>>>>>> c4ffd661fd7c6fd92caf2290eea1f5a6e227cc28
   </a>
-  <a [routerLink]="'/queue'" routerLinkActive="active">
+  <a [routerLink]="'/queue'" routerLinkActive="active" class="menu">
     <mat-icon color="accent">queue_music</mat-icon><span class="invisible">Queue</span>
   </a>
-  <a [routerLink]="'/playlists/explore'" routerLinkActive="active">
+  <a [routerLink]="'/playlists/explore'" routerLinkActive="active" class="menu">
     <mat-icon color="accent">search</mat-icon><span class="invisible">Explore</span>
   </a>
-  <a [routerLink]="'/playlists/me'" routerLinkActive="active">
+  <a [routerLink]="'/playlists/me'" routerLinkActive="active" class="menu">
     <mat-icon color="accent">headset</mat-icon><span class="invisible">My playlists</span>
   </a>
-  <a [routerLink]="'/ui'" routerLinkActive="active">
+  <a [routerLink]="'/ui'" routerLinkActive="active" class="menu">
     <mat-icon color="accent">view_quilt</mat-icon><span class="invisible">UI Elements</span>
   </a>
-  <a routerLinkActive="active">
+  <a routerLinkActive="active" class="menu">
     <mat-icon color="accent">settings</mat-icon>
   </a>
-  <a routerLinkActive="active">
+  <a routerLinkActive="active" class="menu">
     <mat-icon color="accent">done_all</mat-icon>
   </a>
 </div>
