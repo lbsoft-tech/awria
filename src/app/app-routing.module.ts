@@ -7,11 +7,16 @@ import { PayoutsComponent } from './pages/dashboard/income/payouts/payouts.compo
 import { PaymentsComponent } from './pages/dashboard/income//payments/payments.component'
 import { RefundsComponent } from './pages/dashboard/income/refunds/refunds.component'
 import { VatComponent } from './pages/dashboard/income/vat/vat.component'
+import { LoginComponent } from './pages/login/login.component'
 
 const routes: Routes = [{
   path: '',
   component: DashboardComponent,
   pathMatch: 'full'
+},
+{
+  path: 'login',
+  component: LoginComponent
 },
 {
   path: 'dashboard',
@@ -21,6 +26,7 @@ const routes: Routes = [{
   path: 'posts',
   component: PostsComponent
 },
+
 {
   path: 'payouts',
   component: PayoutsComponent

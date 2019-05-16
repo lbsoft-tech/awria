@@ -17,6 +17,7 @@ import { RefundsComponent } from './pages/dashboard/income/refunds/refunds.compo
 import { PayoutsComponent } from './pages/dashboard/income/payouts/payouts.component';
 import { PaymentsComponent } from './pages/dashboard/income/payments/payments.component';
 import { VatComponent } from './pages/dashboard/income/vat/vat.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { VatComponent } from './pages/dashboard/income/vat/vat.component';
     RefundsComponent,
     PayoutsComponent,
     PaymentsComponent,
-    VatComponent
+    VatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
