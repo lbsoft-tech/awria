@@ -38,62 +38,60 @@ const routes: Routes = [{
   path: 'payouts',
   component: PayoutsComponent
 }
-,
+  ,
 {
   path: 'payments',
   component: PaymentsComponent
 }
-,
+  ,
 {
   path: 'refunds',
   component: RefundsComponent
 }
-,
+  ,
 {
   path: 'vat',
   component: VatComponent
 }
-,
+  ,
 {
   path: 'edit',
   component: EditComponent,
   children: [
-    { 
-      path : 'demo1',
-      component : Demo1Component
+    {
+      path: 'demo1',
+      component: Demo1Component
     },
-    { 
-      path : 'about',
-      component : AboutComponent
+    {
+      path: 'about',
+      component: AboutComponent
     },
-    { 
-      path : 'tiers',
-      component : TiersComponent
+    {
+      path: 'tiers',
+      component: TiersComponent
     },
-    { 
-      path : 'goals',
-      component : GoalsComponent
+    {
+      path: 'goals',
+      component: GoalsComponent
     },
-    { 
-      path : 'thanks',
-      component : ThanksComponent
+    {
+      path: 'thanks',
+      component: ThanksComponent
     },
-    { 
-      path : 'paymentstabs',
-      component : PaymentstabComponent
-    },
-
-    { 
-      path : 'poststab',
-      component : PoststabComponent
+    {
+      path: 'paymentstabs',
+      component: PaymentstabComponent
     },
 
-    { 
-      path : 'offers',
-      component : OffersComponent
+    {
+      path: 'poststab',
+      component: PoststabComponent
     },
 
-
+    {
+      path: 'offers',
+      component: OffersComponent
+    },
   ]
 }];
 
