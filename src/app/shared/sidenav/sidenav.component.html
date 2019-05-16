@@ -1,25 +1,45 @@
 <div class="side-menu">
-  <a [routerLink]="'/artists'" routerLinkActive="active" class="menu">
-    <mat-icon color="notes">album</mat-icon>
-    <span class="">Posts</span>
+  <ngx-avatar
+      src="../../../assets/images/posts/icon-camera.png"
+      name="Jane Doe"
+      value="30%"
+      bgColor="#000000"
+      fgColor="#58D3F7"
+      size="80"
+      textSizeRatio="2.5"
+      [round]="true"
+      class="custom-avatar"
+    ></ngx-avatar>
+  <h5 class="navbar-brand">Samantha Jones</h5>
+  <small>Creator Account</small>
+  <mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile
+      class="iconheight"
+      mat-fill
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+    >
+      <button mat-button>
+        <mat-icon class="custom-mat-trios">{{ tile.text }}</mat-icon>
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <a [routerLink]="'/posts'" routerLinkActive="active" class="custom-sidemenu-item">
+    <mat-icon color="accent">assignment</mat-icon
+    ><span class="">Posts</span>
   </a>
-  <a [routerLink]="'/queue'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">queue_music</mat-icon><span class="invisible">Queue</span>
+  <a class="custom-sidemenu-item">
+    <mat-icon color="accent">payment</mat-icon
+    ><span class="">Patrons</span>
   </a>
-  <a [routerLink]="'/playlists/explore'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">search</mat-icon><span class="invisible">Explore</span>
+  <a class="custom-sidemenu-item">
+    <mat-icon color="accent">public</mat-icon
+    ><span class="">Promote</span>
   </a>
-  <a [routerLink]="'/playlists/me'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">headset</mat-icon><span class="invisible">My playlists</span>
-  </a>
-  <a [routerLink]="'/ui'" routerLinkActive="active" class="menu">
-    <mat-icon color="accent">view_quilt</mat-icon><span class="invisible">UI Elements</span>
-  </a>
-  <a routerLinkActive="active" class="menu">
-    <mat-icon color="accent">settings</mat-icon>
-  </a>
-  <a routerLinkActive="active" class="menu">
-    <mat-icon color="accent">done_all</mat-icon>
+  <a class="custom-sidemenu-item">
+    <mat-icon color="accent">monetization_on</mat-icon
+    ><span class="">Income</span>
   </a>
 </div>
- 
