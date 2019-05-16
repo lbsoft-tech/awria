@@ -4,6 +4,7 @@ import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,16 @@ import { PayoutsComponent } from './pages/dashboard/income/payouts/payouts.compo
 import { PaymentsComponent } from './pages/dashboard/income/payments/payments.component';
 import { VatComponent } from './pages/dashboard/income/vat/vat.component';
 import { LoginComponent } from './pages/login/login.component';
+import { EditComponent } from './pages/dashboard/edit/edit.component';
+import { Demo1Component } from './pages/dashboard/edit/demo1/demo1.component';
+import { AboutComponent } from './pages/dashboard/edit/about/about.component';
+import { TiersComponent } from './pages/dashboard/edit/tiers/tiers.component';
+import { GoalsComponent } from './pages/dashboard/edit/goals/goals.component';
+import { ThanksComponent } from './pages/dashboard/edit/thanks/thanks.component';
+import { OffersComponent } from './pages/dashboard/edit/offers/offers.component';
+import { PoststabComponent } from './pages/dashboard/edit/poststab/poststab.component';
+import { PaymentstabComponent } from './pages/dashboard/edit/paymentstab/paymentstab.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +42,16 @@ import { LoginComponent } from './pages/login/login.component';
     PayoutsComponent,
     PaymentsComponent,
     VatComponent,
-    LoginComponent
+    LoginComponent,
+    EditComponent,
+    Demo1Component,
+    AboutComponent,
+    TiersComponent,
+    GoalsComponent,
+    ThanksComponent,
+    OffersComponent,
+    PoststabComponent,
+    PaymentstabComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +60,8 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserAnimationsModule,
     HttpClientModule,
     // Specify AvatarModule as an import
-    AvatarModule
+    AvatarModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

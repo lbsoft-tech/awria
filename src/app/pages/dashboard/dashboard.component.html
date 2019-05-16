@@ -1,2 +1,7 @@
+<mat-sidenav-container class="main-app" [ngClass]="{'player-collapsed': playerCollapsed}">
+    <mat-sidenav #sidenav [mode]="navMode" class="sidenav">
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
 
-      <router-outlet></router-outlet>
