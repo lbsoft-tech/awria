@@ -27,6 +27,20 @@ import { ThanksComponent } from './pages/dashboard/edit/thanks/thanks.component'
 import { OffersComponent } from './pages/dashboard/edit/offers/offers.component';
 import { PoststabComponent } from './pages/dashboard/edit/poststab/poststab.component';
 import { PaymentstabComponent } from './pages/dashboard/edit/paymentstab/paymentstab.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ArtistPortalComponent } from './artist-portal/artist-portal.component';
+import { HeaderArtistComponent } from './shared/header-artist/header-artist.component';
+import { ArtistPostsComponent } from './artist-portal/artist-posts/artist-posts.component';
+import { NewPostsComponent } from './artist-portal/artist-posts/new-posts/new-posts.component';
+import { ArtistSettingsComponent } from './artist-portal/artist-settings/artist-settings.component';
+import { ArtistEditComponent } from './artist-portal/artist-edit/artist-edit.component';
+import { ArtistEditAboutComponent } from './artist-portal/artist-edit/artist-edit-about/artist-edit-about.component';
+import { ArtistEditTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/artist-edit-tiers.component';
+import { ArtistEditGoalComponent } from './artist-portal/artist-edit/artist-edit-goal/artist-edit-goal.component';
+import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-edit-thanks/artist-edit-thanks.component';
+import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
+import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
+import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
 
 
 @NgModule({
@@ -49,7 +63,21 @@ import { PaymentstabComponent } from './pages/dashboard/edit/paymentstab/payment
     ThanksComponent,
     OffersComponent,
     PoststabComponent,
-    PaymentstabComponent
+    PaymentstabComponent,
+    HomePageComponent,
+    ArtistPortalComponent,
+    HeaderArtistComponent,
+    ArtistPostsComponent,
+    NewPostsComponent,
+    ArtistSettingsComponent,
+    ArtistEditComponent,
+    ArtistEditAboutComponent,
+    ArtistEditTiersComponent,
+    ArtistEditGoalComponent,
+    ArtistEditThanksComponent,
+    ArtistEditPaymentstabsComponent,
+    ArtistEditPoststabComponent,
+    ArtistEditOffersComponent
   ],
   imports: [
     BrowserModule,
