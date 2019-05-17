@@ -3,7 +3,6 @@ import { MatSidenav } from '@angular/material';
 import { isPlatformBrowser } from '@angular/common';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Router, NavigationEnd } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @Component({
