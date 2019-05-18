@@ -24,8 +24,8 @@
     -webkit-box-flex: 1;
     flex: 1 1 auto;
     display: flex;
-    padding-bottom: 80px;
-    height: -webkit-fill-available;
+    padding-bottom: 0px;
+    height: inherit;
     &.player-collapsed {
         padding-bottom: 55px;
         @include breakpoint($narrow-devices) {
