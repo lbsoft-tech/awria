@@ -14,73 +14,89 @@ import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/art
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
 import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
+import { LoginComponent } from './home-page/login/login.component';
+import { RegisterComponent } from './home-page/register/register.component';
 
 
 
 
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/home-page'
+  },
+  {
+    path: 'home-page',
+    component: HomePageComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      }
+    ]
+  },
+  {
+    path: 'artist-portal',
+    component: ArtistPortalComponent,
+    children: [
+      {
+        path: 'posts',
+        component: ArtistPostsComponent,
+        children: [
+          {
+            path: 'new',
+            component: NewPostsComponent
+          },
+          {
+            path: 'text',
+            component: TextComponent
+          }
+        ]
+      },
+      {
+        path: 'edit',
+        component: ArtistEditComponent,
+        children: [
+          {
+            path: 'about',
+            component: ArtistEditAboutComponent
+          },
+          {
+            path: 'tiers',
+            component: ArtistEditTiersComponent
+          },
+          {
+            path: 'goals',
+            component: ArtistEditGoalComponent
+          },
+          {
+            path: 'thanks',
+            component: ArtistEditThanksComponent
+          },
+          {
+            path: 'paymentstabs',
+            component: ArtistEditPaymentstabsComponent
+          },
 
-const routes: Routes = [{
-  path: '',
-  component: HomePageComponent,
-  pathMatch: 'full'
-},
-{
-  path: 'artist-portal',
-  component: ArtistPortalComponent,
-  children: [
-    {
-      path: 'posts',
-      component: ArtistPostsComponent,
-      children: [
-        {
-          path: 'new',
-          component: NewPostsComponent,
-       
-        },
-        {
-          path: 'text',
-          component: TextComponent
-        }
-      ]
-    },
-    {
-      path: 'edit',
-      component: ArtistEditComponent,
-      children: [
-        {
-          path: 'about',
-          component: ArtistEditAboutComponent
-        },
-        {
-          path: 'tiers',
-          component: ArtistEditTiersComponent
-        },
-        {
-          path: 'goals',
-          component: ArtistEditGoalComponent
-        },
-        {
-          path: 'thanks',
-          component: ArtistEditThanksComponent
-        },
-        {
-          path: 'paymentstabs',
-          component: ArtistEditPaymentstabsComponent
-        },
+          {
+            path: 'poststab',
+            component: ArtistEditPoststabComponent
+          },
 
-        {
-          path: 'poststab',
-          component: ArtistEditPoststabComponent
-        },
-
-        {
-          path: 'offers',
-          component: ArtistEditOffersComponent
-        },
-      ]
-    }
-  ]
-}];
+          {
+            path: 'offers',
+            component: ArtistEditOffersComponent
+          },
+        ]
+      }
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

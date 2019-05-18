@@ -27,6 +27,8 @@ import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/art
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
 import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
+import { LoginComponent } from "./home-page/login/login.component";
+import { RegisterComponent } from "./home-page/register/register.component";
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.
     ArtistEditPaymentstabsComponent,
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
-    TextComponent
+    TextComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
