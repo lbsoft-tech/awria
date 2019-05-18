@@ -28,6 +28,7 @@ import { ThanksComponent } from './pages/dashboard/edit/thanks/thanks.component'
 import { OffersComponent } from './pages/dashboard/edit/offers/offers.component';
 import { PoststabComponent } from './pages/dashboard/edit/poststab/poststab.component';
 import { PaymentstabComponent } from './pages/dashboard/edit/paymentstab/paymentstab.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { PaymentstabComponent } from './pages/dashboard/edit/paymentstab/payment
     ThanksComponent,
     OffersComponent,
     PoststabComponent,
-    PaymentstabComponent
+    PaymentstabComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

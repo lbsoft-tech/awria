@@ -17,6 +17,7 @@ import { ThanksComponent } from './pages/dashboard/edit/thanks/thanks.component'
 import { PaymentstabComponent } from './pages/dashboard/edit/paymentstab/paymentstab.component'
 import { PoststabComponent } from './pages/dashboard/edit/poststab/poststab.component'
 import { OffersComponent } from './pages/dashboard/edit/offers/offers.component'
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +27,10 @@ const routes: Routes = [{
 {
   path: 'login',
   component: LoginComponent
+},
+{
+  path: 'register',
+  component: RegisterComponent
 },
 {
   path: 'dashboard',
