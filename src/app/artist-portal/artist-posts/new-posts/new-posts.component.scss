@@ -1,0 +1,219 @@
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+
+// .dropdown-nav-container {
+//   display: none;
+//   padding-left: 8px;
+// }
+
+// .dropdown-nav-container a {
+//   display: block;
+// }
+
+// /* Drop down btn styling
+// padding: 6px 8px 6px 16px;
+//     text-decoration: none;
+//     font-size: 20px;
+//     color: #818181;
+//     width: 100%;
+//     cursor: pointer;
+//     outline: none;
+// */
+
+// .dropdown-nav-btn {
+//   display: block;
+//   border: none;
+//   background: none;
+//   text-align: left;
+// }
+// .active,
+// .checkbtn:hover {
+//   color: #014c81 !important;
+//   background: none;
+// }
+// .checkbtn:focus {
+//   color: #014c81;
+//   background: olive;
+// }
+// .checkbtn:hover {
+//   background: #014c81;
+//   color: white;
+// }
+
+// .center {
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   width: max-content;
+// }
+
+// .notification {
+//   background-color: #e5e3dc;
+//   color: #676161;
+//   text-decoration: none;
+//   padding: 6px 0 14px;
+//   position: relative;
+//   display: inline-block;
+//   border-radius: 79%;
+//   height: 38px;
+//   width: 38px;
+// }
+
+// .notification:hover {
+//   background: #014c81;
+//   color: white;
+// }
+
+// .notification .badge {
+//   position: absolute;
+//   height: 17px;
+//   width: 17px;
+//   top: 0px;
+//   right: -10px;
+//   padding: 2px 0 9px;
+//   border-radius: 50%;
+//   background: #014c81;
+//   color: white;
+// }
+
+// * {
+//   box-sizing: border-box;
+// }
+
+/* Create three equal columns that floats next to each other */
+// .column {
+//   float: left;
+//   width: 30%;
+//   padding: 10px;
+//   height: auto; /* Should be removed. Only for demonstration */
+// }
+
+/* Clear floats after the columns */
+// .row:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+// @media screen and (max-width: 450px) {
+//   .row {
+//     float: left;
+//     width: 100%;
+//     display: block;
+//     margin-bottom: 20px;
+//   }
+// }
+
+// .example-container {
+//   position: absolute;
+//   top: 60px;
+//   bottom: 60px;
+//   left: 0;
+//   right: 0;
+// }
+
+// .example-sidenav {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 200px;
+//   background: rgba(255, 0, 0, 0.5);
+// }
+
+// .example-header {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+// }
+
+// .example-footer {
+//   position: fixed;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+// }
+
+// .mat-card {
+//   height: 100%;
+//   // display: inline-flex;
+//   border: 1.25px solid rgba(0, 0, 0, 0.125) !important;
+//   padding: 25%;
+//   margin: 0 16px;
+//   text-align: center;
+// }
+
+// .il {
+//   // display: inline-flex;
+//   flex-flow: row wrap;
+// }
+// .custom-border-box {
+//   /* border: 0.25px solid lightgray !important; */
+//   padding-left: 0px !important;
+//   padding-right: 0px !important;
+//   // height: 150px !important;
+//   border-right: 1px solid lightgray !important;
+//   border-bottom: 1px solid lightgray !important;
+// }
+
+// .custom-border-box ul {
+//   list-style: none;
+//   text-align: center;
+//   padding: 0px !important;
+// }
+
+// .custom-border-box ul li img {
+//   padding-top: 5px !important;
+// }
+
+// .custom-border-box:hover {
+//   background: #dad9d582;
+// }
+
+// .custom-col-4 {
+//   padding-left: 0px !important;
+//   padding-right: 0px !important;
+// }
+
+// .custom-card-body {
+//   //   padding-left: 15px !important;
+//   //   padding-right: 15px !important;
+//   padding-top: 0px !important;
+//   padding-bottom: 0px !important;
+// }
+
+// .custom-card {
+//   border: 1.25px solid rgba(0, 0, 0, 0.125) !important;
+//   width: 25%;
+
+// }
+
+// .fontstyle {
+//   font-family: unset;
+//   font-weight: 500;
+//   font-size: large;
+// }
+
+.imagestyle {
+  height: 50px;
+  //margin: 21px 0 13px 0px;
+}
+
+.custom-new-post-type {
+  border: 0.5px solid lightgrey;
+  height: 100%;
+
+}
+
+.custom-col-lg-4
+{
+  padding: 0px !important;
+}
+
+.custom-new-post-type ul {
+  padding: 5px;
+  list-style: none;
+  text-align: center;
+}
+.custom-new-post-type ul li {
+  padding-top: 15px !important;
+}

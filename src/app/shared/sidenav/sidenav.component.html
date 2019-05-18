@@ -1,15 +1,15 @@
 <div class="side-menu">
   <ngx-avatar
-      src="../../../assets/images/posts/icon-camera.png"
-      name="Jane Doe"
-      value="30%"
-      bgColor="#000000"
-      fgColor="#58D3F7"
-      size="80"
-      textSizeRatio="2.5"
-      [round]="true"
-      class="custom-avatar"
-    ></ngx-avatar>
+    src="../../../assets/images/posts/icon-camera.png"
+    name="Jane Doe"
+    value="30%"
+    bgColor="#000000"
+    fgColor="#58D3F7"
+    size="80"
+    textSizeRatio="2.5"
+    [round]="true"
+    class="custom-avatar"
+  ></ngx-avatar>
   <h5 class="navbar-brand">Samantha Jones</h5>
   <small>Creator Account</small>
   <mat-grid-list cols="3" rowHeight="100px">
@@ -20,15 +20,63 @@
       [colspan]="tile.cols"
       [rowspan]="tile.rows"
     >
-      <button mat-button>
+      <button mat-button routerLink='{{tile.route}}' routerLinkActive="active"  >
         <mat-icon class="custom-mat-trios">{{ tile.text }}</mat-icon>
       </button>
     </mat-grid-tile>
   </mat-grid-list>
 
-  <a [routerLink]="'/posts'" routerLinkActive="active" class="custom-sidemenu-item">
+  <!-- <a
+    [routerLink]="'/posts'"
+    routerLinkActive="active"
+    class="custom-sidemenu-item"
+  >
     <mat-icon color="accent">assignment</mat-icon><span class="">Posts</span>
-  </a>
+  </a> -->
+  <uL class="reciept-list">
+    <li>
+      <a routerLinkActive="active" class="custom-sidemenu-item caret-reciept">
+        <mat-icon color="accent">assignment</mat-icon
+        ><span class="">Posts</span>
+      </a>
+      <ul class="nested-reciept-list">
+        <li>
+          <a
+          class="nav-link custom-navlink"
+            routerLinkActive="active"
+            routerLink ="/artist-portal/posts/new"
+          >
+            <span class="">New</span>
+          </a>
+        </li>
+        <li> <a
+          class="nav-link custom-navlink"
+          >
+            <span class="">Draft</span>
+          </a></li>
+        <li> <a
+          class="nav-link custom-navlink"
+          >
+            <span class="">Scheduled</span>
+          </a></li>
+        <li> <a
+          class="nav-link custom-navlink"
+          >
+            <span class="">Published</span>
+          </a></li>
+        <li> <a
+          class="nav-link custom-navlink"
+          >
+            <span class="">Posts dashboard</span>
+          </a></li>
+        <li> <a
+          class="nav-link custom-navlink"
+          >
+            <span class="">Engagement</span>
+          </a></li>
+      </ul>
+    </li>
+  </uL>
   <a class="custom-sidemenu-item">
     <mat-icon color="accent">payment</mat-icon><span class="">Patrons</span>
   </a>

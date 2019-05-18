@@ -1,0 +1,14 @@
+@import "./../../../assets/settings/breakpoints.scss";
+
+
+ .toggleSidenav {
+   background: transparent;
+   border: none;
+     @include breakpoint($narrow-devices) {
+         display: none;
+     }
+ }
+
+.toggleSidenav mat-icon {
+  padding-top: 5px;
+}

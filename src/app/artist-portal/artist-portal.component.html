@@ -1,0 +1,16 @@
+<app-header-artist (onToggleSidenav)="toggleSidenav()" [title]="title"></app-header-artist>
+<div class="wrapper" [ngClass]="{ 'zondimo-dark-theme': darkTheme }">
+  <mat-sidenav-container
+    class="main-app"
+    [ngClass]="{ 'player-collapsed': playerCollapsed }"
+  >
+    <mat-sidenav #sidenav [mode]="navMode" class="sidenav">
+      <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content class="custom-sidenav-content">
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
