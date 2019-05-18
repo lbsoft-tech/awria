@@ -13,6 +13,7 @@ import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-ed
 import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
+import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
 
 
 
@@ -33,7 +34,12 @@ const routes: Routes = [{
       children: [
         {
           path: 'new',
-          component: NewPostsComponent
+          component: NewPostsComponent,
+       
+        },
+        {
+          path: 'text',
+          component: TextComponent
         }
       ]
     },

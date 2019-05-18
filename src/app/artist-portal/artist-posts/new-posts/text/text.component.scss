@@ -1,0 +1,78 @@
+.imagestyle {
+    height: 30px;
+    margin: 0px 0px 0px 0px !important;
+    //margin: 21px 0 13px 0px;
+  }
+  .text{
+    margin-top: 13px;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 0px 0px 0px 0px !important;
+  }
+  .col-1{
+    margin: 0px 0px 0px 0px !important;
+    padding: 0 0 0 0 !important;  
+  }
+  .cancel{
+    // text-align: right !important;
+    text-align: right;
+  }
+  .card-header{
+      border: 1px solid  #E8ECED;
+  }
+  .card-body{
+    border: 1px solid  #E8ECED;
+  }
+  .card-footer{
+    border: 1px solid  #E8ECED;
+  }
+  input[type="text"]
+{
+    background: transparent;
+    border: none;
+    // height:200px;
+    width: 100%;
+    font-size:28px;
+    font-weight: 600;
+}
+.textarea{
+    background: transparent;
+    border: none;
+
+    width: 100%;
+}
+.tarea{
+     padding-top: 40px;
+}
+.btn {
+    border: none;
+    background-color: inherit;
+ margin-right: 30px !important;
+    font-size: 16px;
+    // cursor: pointer;
+    // display: inline-block;
+color: blue
+  }
+  .example-chip-list {
+    width: 100%;
+  }
+  .button{
+    background-color: #00497C;
+    width: 100% !important;
+    // height: fit-content;
+    border-radius: 50px;
+    text-align: center;
+    color:white !important;
+    line-height: 3;
+  }
+  .matbutton{
+    height: 60px;
+    background-color: #00497C;
+    text-align: center;
+    color:white !important;
+    border-radius: 50px;
+  }
+.side{
+    padding: 0px;
+    margin: 0px;
+}
