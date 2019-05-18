@@ -26,8 +26,8 @@ import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-ed
 import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './shared/login/login.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 @NgModule({
   declarations: [

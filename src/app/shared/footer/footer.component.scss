@@ -1,0 +1,538 @@
+.container-fluid{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: #552b5d;
+    height: 379px;
+    padding: 60px 50px;
+    font-family: aktiv-grotesk, sans-serif;
+  }
+  .logo{
+      width:200px;
+      height: auto;
+  }
+  .tl{
+      text-align: left;
+  }
+  small{
+      color: white;
+  }
+.content-main {
+    height: 200vh;
+  }
+  h3 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+  }
+ .footer-links {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    text-align: left;
+  }
+ .footer-links li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .footer-links li a {
+    color: white;
+    text-decoration: none;
+  }
+  .footer-links li a:hover {
+    text-decoration: underline;
+  }
+  
+//   @media only screen and (min-width: 768px) {
+//     .example {background: blue;}
+
+//   } 
+// //   .logo{
+// //     width:20%;
+// //     height: auto;
+// //     position: relative;
+// // }
+//   .fh5co-bg {
+//     background-size: cover;
+//     background-position: center center;
+//     position: relative;
+//     width: 100%;
+//     float: left;
+//   }
+//   .fh5co-bg .overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(0, 0, 0, 0.5);
+//     -webkit-transition: 0.5s;
+//     -o-transition: 0.5s;
+//     transition: 0.5s;
+//   }
+  
+//   .fh5co-bg-section {
+//     background: rgba(0, 0, 0, 0.05);
+//   }
+  
+//   #fh5co-footer {
+//     padding: 7em 0;
+//     clear: both;
+//   }
+
+//   /* ----------- iPad Pro ----------- */
+// /* Portrait and Landscape */
+// @media only screen 
+// and (min-width: 1024px) 
+// and (max-height: 1366px) 
+// and (-webkit-min-device-pixel-ratio: 1.5) {
+//   .listt {
+//     margin-left: 20px;
+//   }
+//   .col-md-4 {
+//     -webkit-box-flex: 0;
+//     -ms-flex: 0 0 27.333333%;
+//     flex: 0 0 27.333333%;
+//     max-width: 27.333333%;
+// }
+// }
+
+// /* Portrait */
+// @media only screen 
+// and (min-width: 1024px) 
+// and (max-height: 1366px) 
+// and (orientation: portrait) 
+// and (-webkit-min-device-pixel-ratio: 1.5) {
+// }
+
+// /* Landscape */
+// @media only screen 
+// and (min-width: 1024px) 
+// and (max-height: 1366px) 
+// and (orientation: landscape) 
+// and (-webkit-min-device-pixel-ratio: 1.5) {
+
+// }
+  
+//   #fh5co-footer {
+//     position: relative;
+    
+//   }
+//   .button11 {
+      
+//     width: 30%;
+    
+//     background-color: #0FA3B1;
+//     color: #FFFFFF;
+//     text-transform: uppercase;
+//     font-weight: 600;
+//     border-radius: 0px 3px 3px 0px;
+    
+//     cursor: pointer;
+//     transition: all 0.25s ease-out;
+//     border: 1px solid #0FA3B1;
+//     padding: 12px
+
+    
+//   }
+//   .button12 {
+      
+//     width: 30%;
+    
+//     background-color: #0FA3B1;
+//     color: #FFFFFF;
+//     text-transform: uppercase;
+//     font-weight: 400;
+//     border-radius: 0px 3px 3px 0px;
+    
+//     cursor: pointer;
+//     transition: all 0.25s ease-out;
+//     border: 1px solid #0FA3B1;
+//     padding: 12px
+
+    
+//   }
+//   .buttonc {
+      
+//     width: 90%;
+    
+//     background-color: #FFFFFF;
+//     color:black;
+//     text-transform: uppercase;
+//     font-weight: 600;
+//     border-radius: 0px 3px 3px 0px;
+//     text-align: left;
+//     cursor: pointer;
+//     transition: all 0.25s ease-out;
+//     border: 1px solid #FFFFFF;
+//     padding: 10px
+
+    
+//   }
+
+//   .text2{
+//     margin-bottom: 15px;
+//     /* font-weight: bold; */
+//     font-size: 10px;    
+//     letter-spacing: 1px;
+    
+    
+//   }
+  
+//   .text11 {
+//     width: 65%;
+//     float: left;
+//     padding: 12px;
+//     border: 1px solid #0FA3B1;
+//     border-radius: 3px 0px 0px 3px;
+    
+    
+//   }
+//   .text12 {
+//     width: 65%;
+//     float: left;
+//     padding: 12px;
+//     border: 1px solid #0FA3B1;
+//     border-radius: 3px 0px 0px 3px;
+    
+    
+//   }
+//   @media only screen and (min-width: 1200px) {
+//     .example {background: pink;}
+//   }
+//   a:hover{
+//       color: #008CBA !important; 
+//   }
+//   .button2 {background-color: #008CBA;}
+//   #fh5co-footer .overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(255, 255, 255, 255);
+//     -webkit-transition: 0.5s;
+//     -o-transition: 0.5s;
+//     transition: 0.5s;
+//   }
+//   #fh5co-footer h3 {
+//     margin-bottom: 15px;
+//     font-weight: bold;
+//     font-size: 15px;
+//     letter-spacing: 2px;
+//     text-transform: uppercase;
+//     color: rgba(0, 0, 0, 0.8);
+//   }
+//   #fh5co-footer .fh5co-footer-links {
+//     padding: 0;
+//     margin: 0;
+//   }
+//   #fh5co-footer .fh5co-footer-links li {
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//   }
+//   #fh5co-footer .fh5co-footer-links li a {
+//     // color: rgba(0, 0, 0, 0.8);
+//     color: white;
+//     text-decoration: none;
+//   }
+//   #fh5co-footer .fh5co-footer-links li a:hover {
+//     text-decoration: underline;
+//   }
+//   #fh5co-footer .fh5co-widget {
+//     margin-bottom: 30px;
+//   }
+//   @media screen and (max-width: 768px) {
+//     #fh5co-footer .fh5co-widget {
+//       text-align: left;
+//     }
+//   }
+//   #fh5co-footer .fh5co-widget h3 {
+//     margin-bottom: 15px;
+//     font-weight: bold;
+//     font-size: 15px;
+//     letter-spacing: 2px;
+//     text-transform: uppercase;
+//   }
+//   #fh5co-footer .copyright .block {
+//     display: block;
+//   }
+  
+  
+//   .btn-primary {
+//     background: #F85A16;
+//     color: #fff;
+//     border: 2px solid #F85A16;
+//   }
+//   .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+//     background: #f96c2f !important;
+//     border-color: #f96c2f !important;
+//   }
+//   .btn-primary.btn-outline {
+//     background: transparent;
+//     color: #F85A16;
+//     border: 1px solid #F85A16;
+//   }
+//   .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
+//     background: #F85A16;
+//     color: #fff;
+//   }
+  
+
+
+// .left_bar { background:#00008B;}
+// .right_bar { background:#008000;}
+// .content { background:#00CD66;
+// }
+
+// @media (max-width:701px) {
+//   .row-fluid {
+//  display:none;
+//   }
+ 
+
+// }
+// /*////////*/
+// @media(min-width:700px){
+//   .button122 {
+      
+//     width: 40%;
+    
+//     background-color: #0FA3B1;
+//     color: #FFFFFF;
+//     text-transform: uppercase;
+//     font-weight: 600;
+//     border-radius: 0px 3px 3px 0px;
+    
+//     cursor: pointer;
+//     transition: all 0.25s ease-out;
+//     border: 1px solid #0FA3B1;
+//     padding: 12px
+
+    
+//   }
+//   .text112 {
+//     width: 30%;
+//     float: left;
+//     padding: 12px;
+//     border: 1px solid #0FA3B1;
+//     border-radius: 3px 0px 0px 3px;
+    
+    
+//   }
+    
+// }
+// /*/////////*/
+// @media(min-width:700px){
+//   .row-fluid1 {
+//     display: none;
+//     }
+    
+// }
+  
+// @media(max-width:500px){
+//   .text11 {
+//     width: 55%;
+//     float: left;
+//     padding: 12px;
+//     border: 1px solid #0FA3B1;
+//     border-radius: 3px 0px 0px 3px;
+    
+    
+//   }
+//   .button11 {
+      
+//     width: 40%;
+    
+//     background-color: #0FA3B1;
+//     color: #FFFFFF;
+//     text-transform: uppercase;
+//     font-weight: 600;
+//     border-radius: 0px 3px 3px 0px;
+    
+//     cursor: pointer;
+//     transition: all 0.25s ease-out;
+//     border: 1px solid #0FA3B1;
+//     padding: 12px
+
+    
+//   }
+// }
+
+
+
+
+
+// /* ///////////////////////////////////////////////// */
+
+// * {
+//   box-sizing: border-box;
+// }
+
+// .font_class_heading
+// {
+//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//   color: #dcab00;
+// }
+
+// .font_class
+// {
+//   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// }
+// body {
+
+//   font-family: Arial, Helvetica, sans-serif;
+// }
+
+// .color
+// {
+//   color: #dcab00;
+// }
+
+// /* Float four columns side by side */
+// .column {
+//   float: left;
+//   width: 15%;
+//   padding: 0 10px;
+// }
+
+// .column1 {
+//   float: left;
+//   width: 7.5%;
+//   padding: 0 0px;
+// }
+
+// .column4 {
+//   float: left;
+//   width: 30%;
+//   padding: 0 10px;
+// }
+
+// .column6 {
+//   float: left;
+//   width: 50%;
+//   padding: 0 10px;
+// }
+
+// /* Remove extra left and right margins, due to padding in columns */
+// .row {margin: 0 -5px;}
+
+// /* Clear floats after the columns */
+// /*
+// .row:after {
+//   content: "";
+//   display: table;
+//   clear: both;
+// }
+
+// /* Style the counter cards */
+
+
+// /* Responsive columns - one column layout (vertical) on small screens */
+// /*@media screen and (max-width: 600px) {
+// /* 
+//   .column {
+//     width: 100%;
+//     display: block;
+//     margin-bottom: 20px;
+//   }
+
+//   .column1{
+//     display: none
+//     }
+
+//   .column4 {
+//       width: 100%;
+//       display: block;
+//       margin-bottom: 20px;
+//     }
+
+//     .column6 {
+//       float: left;
+//       width: 100%;
+//       padding: 0 10px;
+//     }
+
+//     .column8 {
+//       width: 100%;
+//       display: block;
+//       margin-bottom: 20px;
+//     }
+// }
+//  */
+
+
+
+
+
+
+
+// .row {
+//   display: -ms-flexbox; /* IE10 */
+//   display: flex;
+//   -ms-flex-wrap: wrap; /* IE10 */
+//   flex-wrap: wrap;
+//   margin: 0 -16px;
+// }
+
+// .col-25 {
+//   -ms-flex: 25%; /* IE10 */
+//   flex: 25%;
+// }
+// .col-10 {
+//   -ms-flex: 10%; /* IE10 */
+//   flex: 10%;
+// }
+// .col-5 {
+//   -ms-flex: 5%; /* IE10 */
+//   flex: 5%;
+// }
+// .col-50 {
+//   -ms-flex: 50%; /* IE10 */
+//   flex: 50%;
+// }
+// .col-30 {
+//   -ms-flex: 30%; /* IE10 */
+//   flex: 30%;
+// }
+
+// .col-75 {
+//   -ms-flex: 75%; /* IE10 */
+//   flex: 75%;
+// }
+
+// .col-25,
+// .col-50,
+// .col-75,
+// .col-5,
+// .col-10 {
+//   padding: 0 16px;
+// }
+
+
+
+// @media (max-width: 1300px) {
+//   .row {
+//     flex-direction: column;
+//   }
+//   .col-10 {
+//     margin-bottom: 30px;
+//   }
+// .about{
+//   margin-left: -4px
+// }
+//   .col-50
+//   {
+//       -ms-flex: 50%; /* IE10 */
+//       flex: 50%;
+
+//   }
+// }
