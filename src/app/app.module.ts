@@ -29,6 +29,7 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
 import { LoginComponent } from "./home-page/login/login.component";
 import { RegisterComponent } from "./home-page/register/register.component";
+import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { RegisterComponent } from "./home-page/register/register.component";
     TextComponent,
     LoginComponent,
     RegisterComponent,
+    HeaderProfileBtnComponent,
   ],
   imports: [
     BrowserModule,
