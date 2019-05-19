@@ -12,6 +12,8 @@
 
 .wrapper {
     height: 100%;
+    margin-top: 65px;
+    width: initial;
 }
 
 
@@ -50,7 +52,7 @@
     }
     width: 100%;
     height: -webkit-fill-available;
-    overflow: hidden;
+   // overflow: hidden;
     @include breakpoint($narrow-devices) {
         padding: 2rem;
         padding: {
