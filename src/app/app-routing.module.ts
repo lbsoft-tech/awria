@@ -13,9 +13,11 @@ import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-ed
 import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
-import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
+import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 
 
 
@@ -54,7 +56,15 @@ const routes: Routes = [
           },
           {
             path: 'text',
-            component: TextComponent
+            component: NewPostTextComponent
+          },
+          {
+            path: 'video',
+            component: NewPostVideoComponent
+          },
+          {
+            path: 'image',
+            component: NewPostImageComponent
           }
         ]
       },

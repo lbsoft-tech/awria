@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -26,11 +27,13 @@ import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-ed
 import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
-import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
-import { LoginComponent } from "./home-page/login/login.component";
-import { RegisterComponent } from "./home-page/register/register.component";
+import { LoginComponent } from './home-page/login/login.component';
+import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-
+import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 
 @NgModule({
   declarations: [
@@ -52,10 +55,12 @@ import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile
     ArtistEditPaymentstabsComponent,
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
-    TextComponent,
     LoginComponent,
     RegisterComponent,
     HeaderProfileBtnComponent,
+    NewPostTextComponent,
+    NewPostVideoComponent,
+    NewPostImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,10 @@ import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile
     HttpClientModule,
     // Specify AvatarModule as an import
     AvatarModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AmazingTimePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,289 @@
+
+<div class="row">
+    <!-- <div class="col-sm-1">
+      <div class="row">
+          <mat-icon>cancel</mat-icon>
+      </div> -->
+
+    <!-- </div> -->
+    <div class="col-sm-8">
+
+      <div class="card-header bg-white ">
+        <div class="row">
+          <div class="col-1 textalign"><mat-icon>camera_enhance</mat-icon></div>
+          <div class="col-1">
+            <h6 class="text-uppercase text">IMAGE</h6>
+          </div>
+          <div class="col-9"></div>
+          <div class="col-1 cancel">
+            <mat-icon routerLink="/artist-portal/posts/new">cancel</mat-icon>
+          </div>
+        </div>
+
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div  class="card custom ">
+
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="text-align: center !important;    margin: 65px 0 65px 0;">
+                        <div class="file btn btn-lg btn-primary" style="  position: relative;
+                        overflow: hidden;">
+                          Select image file
+                            <input style="  position: absolute;
+                            font-size: 50px;
+                            opacity: 0;
+                            right: 0;
+                            top: 0;" type="file" name="file"/>
+                          </div>
+                   </div>
+                    <div class="col-4"></div>
+
+
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="input-group input-group-lg" style="padding: 5px 0 15px 0 !important">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-lg"><mat-icon>link</mat-icon></span>
+                    </div>
+                    <input type="text" placeholder="Type or paste image URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12"> <input type="text" class="inputfield" placeholder="Post Title (required)"></div>
+        </div>
+        <div class="row">
+          <div class="col-12 tarea">
+
+            <textarea rows="6" class="textarea" placeholder="Tell a story "></textarea>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-1">
+
+              <label class="btn btn-default btn-file">
+                  <mat-icon >camera</mat-icon><input type="file" style="display: none;">
+              </label>
+          </div>
+        </div> -->
+        <div class="row">
+
+          <div class="col-1">
+            <mat-icon>attach_file</mat-icon>
+          </div>
+          <div class="col-1">
+            <!-- <mat-icon>attach_file</mat-icon> -->
+            <p><b>ATTACHMENTS</b></p>
+          </div>
+          <div class="col-8"></div>
+          <div class="col-1">
+            <label class="btn btn-default btn-file">
+              <u>UPLOAD</u> <input type="file" style="display: none;">
+          </label>
+        </div>
+          <div class="col-1"></div>
+        </div>
+
+      </div>
+      <div class="card-footer bg-white">
+        <div class="row">
+          <div class="col-1">
+            <mat-icon>label</mat-icon>
+          </div>
+          <div class="col-1">
+            <p><b>TAGS</b></p>
+          </div>
+        </div>
+        <div class="row">
+          <mat-form-field class="example-chip-list">
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let fruit of tags" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Add Tags..." [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="row sidebuttons">
+        <div class="col-9 side">
+          <button type="button" *ngIf="published" class="btn button">Publish now</button>
+          <button type="button" *ngIf="scheduled" class="btn button">Schedule</button>
+          <button type="button" *ngIf="saveasdrafted" class="btn button">Save as draft</button>
+        </div>
+        <div class="col-3 side">
+
+          <button mat-button [matMenuTriggerFor]="menu" class="matbutton">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="publish()">Publish now </button>
+            <button mat-menu-item (click)="schedule()">Schedule</button>
+            <button mat-menu-item (click)="saveasdraft()">Save as draft</button>
+          </mat-menu>
+
+
+        </div>
+      </div>
+      <div class="card sidetab" *ngIf="scheduled">
+        <div class="card-body">
+  <div class="row">
+    <div class="col-1" style="padding-left: 10px !important"><mat-icon>calendar_today</mat-icon></div>
+    <div class="col-11">
+      <p><b>SCHEDULE</b></p>
+    </div>
+  </div>
+  <div class="row" >
+      <div class="col-1"></div>
+      <div class="col-11">
+          <mat-form-field class="example-full-width">
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker></mat-datepicker>
+            </mat-form-field>
+
+
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-1"></div>
+      <div class="col-8"> <input (click)="open()" placeholder=" Choose time"/> <mat-icon>access_time</mat-icon></div>
+
+    </div>
+
+
+        </div>
+      </div>
+      <div class="card sidetab">
+      <div class="card-body ">
+
+
+        <div class="row  content">
+          <div class="col-1">
+            <mat-icon>lock</mat-icon>
+          </div>
+          <div class="col-7 post">
+            <p><b>WHO CAN SEE THIS POST?</b></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4">
+            <mat-radio-button (click)="public()" checked value="2">Public</mat-radio-button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4">
+            <mat-radio-button (click)="patrons()" value="2">Patrons Only</mat-radio-button>
+          </div>
+          <hr>
+        </div>
+        <div *ngIf="patronspost">
+        <div class="row" style="padding-top:30px !important">
+          <div class="col-1"></div>
+          <div class="col-5" >
+            <p style="margin-bottom: 0px !important"> <b>EARLY ACCESS</b></p>
+          </div>
+          <div class="col-5"></div>
+          <div class="col-1">
+              <mat-checkbox [(ngModel)]="chekckbox" value="true"></mat-checkbox>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+            <p style="margin-bottom: 0px !important">Offer patrons early access to content before the rest of the world.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4">
+            <p style="color: blue"> <u>Learn more</u></p>
+          </div>
+        </div>
+        <div class="row" *ngIf="chekckbox">
+          <div class="col-1"></div>
+          <div class="col-11">
+            <p><b>This post will become public on:</b></p>
+          </div>
+        </div>
+        <div class="row" *ngIf="chekckbox">
+            <div class="col-1"></div>
+            <div class="col-11">
+                <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                  </mat-form-field>
+
+
+            </div>
+          </div>
+          <div class="row" *ngIf="chekckbox">
+            <div class="col-1"></div>
+            <div class="col-8"> <input style="width: 100%" (click)="open()" placeholder=" Choose time"/> <mat-icon>access_time</mat-icon></div>
+
+          </div>
+
+        <div class="row" style="padding-top:30px !important">
+            <div class="col-1"></div>
+            <div class="col-5" >
+              <p style="margin-bottom: 0px !important"> <b>TEASER TEXT</b></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <p style="margin-bottom: 0px !important">Teaser text will display publicly to fans and patrons who do not have access to this post.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4">
+              <p style="color: blue"> <u>Learn more</u></p>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-1"></div>
+              <div class="col-11">
+                  <mat-form-field [style.fontSize]="12">
+                      <mat-label>Add public teaser text ..</mat-label>
+                      <textarea matInput
+                                cdkTextareaAutosize
+                                #autosize="cdkTextareaAutosize"
+                                cdkAutosizeMinRows="4"
+                                cdkAutosizeMaxRows="6"></textarea>
+                    </mat-form-field>
+              </div>
+            </div>
+
+          </div>
+      </div>
+    </div>
+      <div class="row deletepost">
+        <div class="col-3"></div>
+        <div class="col-sm-1"><mat-icon>delete</mat-icon></div>
+        <div class="col-5"><a><b>DELETE POST</b></a></div>
+      </div>
+
+
+    </div>
+  </div>
