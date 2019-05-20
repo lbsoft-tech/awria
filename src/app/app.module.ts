@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AngularEditorModule} from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -75,7 +76,8 @@ import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-pr
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
-    AmazingTimePickerModule
+    AmazingTimePickerModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
