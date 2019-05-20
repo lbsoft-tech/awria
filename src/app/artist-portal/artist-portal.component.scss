@@ -18,16 +18,17 @@
 
 
 
-.custom-sidenav-content {
-  width: 100%;
-}
+// .custom-sidenav-content {
+//   width: 100%;
+// }
 
 .main-app {
     -webkit-box-flex: 1;
     flex: 1 1 auto;
-    display: flex;
+    display: block;
     padding-bottom: 5px;
-    height: inherit;
+    //height: inherit;
+    overflow: auto;
     &.player-collapsed {
         padding-bottom: 5px;
         @include breakpoint($narrow-devices) {
@@ -50,8 +51,8 @@
     padding: {
         bottom: 5px;
     }
-    width: 100%;
-    height: -webkit-fill-available;
+    //width: auto;
+    //height: -webkit-fill-available;
    // overflow: hidden;
     @include breakpoint($narrow-devices) {
         padding: 2rem;
