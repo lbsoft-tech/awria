@@ -16,7 +16,15 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
-
+import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
+import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
+import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
+import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
+import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
+import { ArtistMessageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-read/artist-message-read.component';
+import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
+import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
+import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 
 
 
@@ -58,6 +66,48 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: 'message',
+        component: ArtistMessageComponent,
+        children: [
+          {
+            path: 'page',
+            component: ArtistMessagePageComponent,
+            children: [
+              {
+                path: 'all',
+                component: ArtistMessageAllComponent
+              },
+              {
+                path: 'unread',
+                component: ArtistMessageUnreadComponent
+              },
+              {
+                path: 'read',
+                component: ArtistMessageReadComponent
+              },
+            ]
+          },
+          {
+            path: 'profile',
+            component: ArtistMessageProfileComponent,
+            children: [
+              {
+                path: 'all',
+                component: ArtistMessageProfileAllComponent
+              },
+              {
+                path: 'unread',
+                component: ArtistMessageProfileUnreadComponent
+              },
+              {
+                path: 'read',
+                component: ArtistMessageProfileReadComponent
+              },
+            ]
+          },
+        ]
+        },
       {
         path: 'edit',
         component: ArtistEditComponent,

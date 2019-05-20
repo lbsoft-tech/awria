@@ -30,6 +30,15 @@ import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.
 import { LoginComponent } from "./home-page/login/login.component";
 import { RegisterComponent } from "./home-page/register/register.component";
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
+import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
+import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
+import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
+import { ArtistMessageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-read/artist-message-read.component';
+import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
+import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
+import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
+import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
+import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 
 
 @NgModule({
@@ -56,6 +65,15 @@ import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile
     LoginComponent,
     RegisterComponent,
     HeaderProfileBtnComponent,
+    ArtistMessageComponent,
+    ArtistMessageAllComponent,
+    ArtistMessageUnreadComponent,
+    ArtistMessageReadComponent,
+    ArtistMessageProfileComponent,
+    ArtistMessagePageComponent,
+    ArtistMessageProfileReadComponent,
+    ArtistMessageProfileAllComponent,
+    ArtistMessageProfileUnreadComponent,
   ],
   imports: [
     BrowserModule,
