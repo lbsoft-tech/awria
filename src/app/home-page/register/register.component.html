@@ -1,0 +1,26 @@
+<h2>Sign Up</h2>
+<div class="container col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2" >
+
+<form >
+    <label for="name">Name</label><br>
+    <input type="text" formControlName="name" class="form-control" /><br>
+
+<label for="email">Email</label><br>
+<input type="email" formControlName="email" class="form-control" /><br>
+
+<label for="con_email">Confirm Email</label><br>
+<input type="email" formControlName="con_email" class="form-control" /><br>
+
+
+<label for="email">Password</label><br>
+<input type="text" type="password" formControlName="password" class="form-control" /><br>
+
+<input type="checkbox" class="checkbox" ng-class = "{'checked': register.term, 'unchecked' : !register.term}"><p>You agree to our <a href="#">Term of use</a> and <a href="#">Privacy Policy</a></p><br>
+  <button class="btn">Sign Up</button>
+  <br>
+<p class="text">or sign up with Facebook</p>
+  <button class="btn btn-fb">Sign up with Facebook</button><br>
+  <p>Already have an account?</p><button class="btn-fp">Log in</button>
+</form>
+
+</div>

@@ -26,8 +26,11 @@ import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-ed
 import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
-import { LoginComponent } from './shared/login/login.component';
-import { RegisterComponent } from './shared/register/register.component';
+import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
+import { LoginComponent } from "./home-page/login/login.component";
+import { RegisterComponent } from "./home-page/register/register.component";
+import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
+
 
 @NgModule({
   declarations: [
@@ -49,8 +52,10 @@ import { RegisterComponent } from './shared/register/register.component';
     ArtistEditPaymentstabsComponent,
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
+    TextComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderProfileBtnComponent,
   ],
   imports: [
     BrowserModule,

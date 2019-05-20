@@ -12,6 +12,8 @@
 
 .wrapper {
     height: 100%;
+    margin-top: 65px;
+    width: initial;
 }
 
 
@@ -24,12 +26,12 @@
     -webkit-box-flex: 1;
     flex: 1 1 auto;
     display: flex;
-    padding-bottom: 80px;
-    height: 100%;
+    padding-bottom: 5px;
+    height: inherit;
     &.player-collapsed {
-        padding-bottom: 55px;
+        padding-bottom: 5px;
         @include breakpoint($narrow-devices) {
-            padding-bottom: 80px;
+            padding-bottom: 5px;
         }
     }
 }
@@ -46,15 +48,15 @@
     background: white;
     padding: 1rem;
     padding: {
-        bottom: 4rem;
+        bottom: 5px;
     }
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: -webkit-fill-available;
+   // overflow: hidden;
     @include breakpoint($narrow-devices) {
         padding: 2rem;
         padding: {
-            bottom: 100px;
+            bottom: 5px;
         }
     }
 }
