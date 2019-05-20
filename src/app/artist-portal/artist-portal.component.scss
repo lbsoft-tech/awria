@@ -19,15 +19,16 @@
 
 
 .custom-sidenav-content {
-  width: 100%;
+  overflow:initial;
 }
 
 .main-app {
     -webkit-box-flex: 1;
     flex: 1 1 auto;
-    display: flex;
+    display: block;
     padding-bottom: 5px;
-    height: inherit;
+    //height: inherit;
+    //overflow: auto;
     &.player-collapsed {
         padding-bottom: 5px;
         @include breakpoint($narrow-devices) {
@@ -36,8 +37,15 @@
     }
 }
 .sidenav {
+<<<<<<< HEAD
     // box-shadow: 10px 0 40px -4px rgba(0,0,0,.3);
     width: 250px
+=======
+    box-shadow: 10px 0 40px -4px rgba(0,0,0,.3);
+    width: 250px;
+    position: fixed;
+    margin-top: 65px;
+>>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
 }
 .sidenav.mat-sidenav.mat-sidenav-side {
     z-index: 2;
@@ -50,8 +58,8 @@
     padding: {
         bottom: 5px;
     }
-    width: 100%;
-    height: -webkit-fill-available;
+    //width: auto;
+    //height: -webkit-fill-available;
    // overflow: hidden;
     @include breakpoint($narrow-devices) {
         padding: 2rem;
