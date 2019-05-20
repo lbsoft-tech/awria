@@ -34,6 +34,7 @@ import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
+    ArtistProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,7 @@ import { RegisterComponent } from './home-page/register/register.component';
 import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 
 
 
@@ -103,6 +104,10 @@ const routes: Routes = [
             component: ArtistEditOffersComponent
           },
         ]
+      },
+      {
+        path: 'profile',
+        component: ArtistProfileComponent
       }
     ]
   }
