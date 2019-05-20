@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AngularEditorModule} from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,10 +28,10 @@ import { ArtistEditThanksComponent } from './artist-portal/artist-edit/artist-ed
 import { ArtistEditPaymentstabsComponent } from './artist-portal/artist-edit/artist-edit-paymentstabs/artist-edit-paymentstabs.component';
 import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-edit-poststab/artist-edit-poststab.component';
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
-import { TextComponent } from './artist-portal/artist-posts/new-posts/text/text.component';
-import { LoginComponent } from "./home-page/login/login.component";
-import { RegisterComponent } from "./home-page/register/register.component";
+import { LoginComponent } from './home-page/login/login.component';
+import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
+<<<<<<< HEAD
 import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
 import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
 import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
@@ -40,6 +42,13 @@ import { ArtistMessageProfileReadComponent } from './artist-portal/artist-messag
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 
+=======
+import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
+>>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
 
 @NgModule({
   declarations: [
@@ -61,10 +70,10 @@ import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-mess
     ArtistEditPaymentstabsComponent,
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
-    TextComponent,
     LoginComponent,
     RegisterComponent,
     HeaderProfileBtnComponent,
+<<<<<<< HEAD
     ArtistMessageComponent,
     ArtistMessageAllComponent,
     ArtistMessageUnreadComponent,
@@ -74,6 +83,12 @@ import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-mess
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
     ArtistMessageProfileUnreadComponent,
+=======
+    NewPostTextComponent,
+    NewPostVideoComponent,
+    NewPostImageComponent,
+    ArtistProfileComponent,
+>>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
   ],
   imports: [
     BrowserModule,
@@ -83,7 +98,11 @@ import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-mess
     HttpClientModule,
     // Specify AvatarModule as an import
     AvatarModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AmazingTimePickerModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

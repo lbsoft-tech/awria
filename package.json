@@ -21,7 +21,12 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+<<<<<<< HEAD
     "@ng-bootstrap/ng-bootstrap": "^4.1.3",
+=======
+    "@kolkov/angular-editor": "^0.14.5",
+    "amazing-time-picker": "^1.8.0",
+>>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",

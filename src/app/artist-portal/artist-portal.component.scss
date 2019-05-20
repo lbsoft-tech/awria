@@ -37,16 +37,10 @@
     }
 }
 .sidenav {
-<<<<<<< HEAD
-    // box-shadow: 10px 0 40px -4px rgba(0,0,0,.3);
-    width: 250px
-=======
     box-shadow: 10px 0 40px -4px rgba(0,0,0,.3);
     width: 250px;
     position: fixed;
     margin-top: 65px;
->>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
-}
 .sidenav.mat-sidenav.mat-sidenav-side {
     z-index: 2;
     height: calc(100% - 80px);
