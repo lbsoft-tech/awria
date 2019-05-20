@@ -18,9 +18,9 @@
 
 
 
-// .custom-sidenav-content {
-//   width: 100%;
-// }
+.custom-sidenav-content {
+  overflow:initial;
+}
 
 .main-app {
     -webkit-box-flex: 1;
@@ -28,7 +28,7 @@
     display: block;
     padding-bottom: 5px;
     //height: inherit;
-    overflow: auto;
+    //overflow: auto;
     &.player-collapsed {
         padding-bottom: 5px;
         @include breakpoint($narrow-devices) {
