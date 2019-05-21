@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{RouterModule}from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AngularEditorModule} from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './ar
 import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 
 import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/artist-settings-account/artist-settings-account.component';
 import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
@@ -72,12 +74,16 @@ import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist
     NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
+<<<<<<< HEAD
 
     ArtistSettingsAccountComponent,
     ArtistSettingsTeamComponent,
     ArtistSettingsAppsComponent,
     ArtistSettingsYouremailsettingsComponent,
    
+=======
+    ArtistProfileComponent,
+>>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
   ],
   imports: [
     BrowserModule,
@@ -91,7 +97,8 @@ import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
-    AmazingTimePickerModule
+    AmazingTimePickerModule,
+    AngularEditorModule
   ],
   entryComponents: [DialogOverviewExampleDialogComponent,IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,

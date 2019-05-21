@@ -1,5 +1,9 @@
 <div class="side-menu">
-  <ngx-avatar
+  <a
+
+    class="custom-avatar"
+    routerLink="/artist-portal/profile"
+    routerLinkActive="active"><ngx-avatar
     src="../../../assets/images/posts/icon-camera.png"
     name="Jane Doe"
     value="30%"
@@ -8,8 +12,7 @@
     size="80"
     textSizeRatio="2.5"
     [round]="true"
-    class="custom-avatar"
-  ></ngx-avatar>
+  ></ngx-avatar></a>
   <h5 class="navbar-brand">Samantha Jones</h5>
   <small>Creator Account</small>
   <mat-grid-list cols="3" rowHeight="100px">

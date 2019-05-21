@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist-edit',
@@ -17,29 +16,9 @@ export class ArtistEditComponent implements OnInit {
     { path: 'artist-portal/edit/poststab', label: 'Posts' },
     { path: 'artist-portal/edit/offers', label: 'Offers' },
   ];
-  constructor( private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-    
-    about()
-    {  this.router.navigateByUrl('/artist-portal/edit/about')  }
-    
-    tiers()
-    {  this.router.navigateByUrl('artist-portal/edit/tiers')  }
-    
-    goals()
-    {  this.router.navigateByUrl('artist-portal/edit/goals')  }
-    
-    payments()
-    {  this.router.navigateByUrl('artist-portal/edit/paymentstabs')  }
-    
-    posts()
-    {  this.router.navigateByUrl('artist-portal/edit/poststab')  }
-    
-    offers()
-    {  this.router.navigateByUrl('artist-portal/edit/offers')  }
-    
-    
 
 }

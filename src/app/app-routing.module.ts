@@ -23,6 +23,7 @@ import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/
 import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
 import { ArtistSettingsAppsComponent } from './artist-portal/artist-settings/artist-settings-apps/artist-settings-apps.component';
 import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist-settings/artist-settings-youremailsettings/artist-settings-youremailsettings.component';
+import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 
 
 
@@ -129,6 +130,9 @@ const routes: Routes = [
             component:ArtistSettingsYouremailsettingsComponent
           }
         ]
+      }, {
+        path: 'profile',
+        component: ArtistProfileComponent
       }
     ]
   }
