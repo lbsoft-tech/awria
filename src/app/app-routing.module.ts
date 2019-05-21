@@ -28,7 +28,10 @@ import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
-
+import { ArtistSettingsComponent } from './artist-portal/artist-settings/artist-settings.component';
+import { ArtistSettingsAboutComponent } from './artist-portal/artist-settings/artist-settings-about/artist-settings-about.component';
+import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
+import { ArtistSettingsEmailComponent } from './artist-portal/artist-settings/artist-settings-email/artist-settings-email.component';
 
 
 
@@ -76,6 +79,24 @@ const routes: Routes = [
             path: 'image',
             component: NewPostImageComponent
           }
+        ]
+      },
+      {
+        path: 'settings',
+        component: ArtistSettingsComponent,
+        children: [
+          {
+            path: 'about',
+            component: ArtistSettingsAboutComponent
+          },
+          {
+            path: 'team',
+            component: ArtistSettingsTeamComponent
+          },
+          {
+            path: 'email',
+            component: ArtistSettingsEmailComponent
+          },
         ]
       },
       {

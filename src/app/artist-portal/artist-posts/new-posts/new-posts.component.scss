@@ -203,6 +203,19 @@
   height: 100%;
 
 }
+.custom-new-post-type:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: rgba(104, 117, 104, 0.2);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
 
 .custom-col-lg-4
 {
