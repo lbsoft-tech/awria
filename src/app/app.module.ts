@@ -31,7 +31,6 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-<<<<<<< HEAD
 import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
 import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
 import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
@@ -42,13 +41,11 @@ import { ArtistMessageProfileReadComponent } from './artist-portal/artist-messag
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 
-=======
 import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
->>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
 
 @NgModule({
   declarations: [
@@ -73,7 +70,6 @@ import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-pr
     LoginComponent,
     RegisterComponent,
     HeaderProfileBtnComponent,
-<<<<<<< HEAD
     ArtistMessageComponent,
     ArtistMessageAllComponent,
     ArtistMessageUnreadComponent,
@@ -83,12 +79,10 @@ import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-pr
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
     ArtistMessageProfileUnreadComponent,
-=======
     NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
     ArtistProfileComponent,
->>>>>>> 921135eaaca4e445e344dc29e05cf47e4b89e86a
   ],
   imports: [
     BrowserModule,
