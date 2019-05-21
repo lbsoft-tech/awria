@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, ElementRef } from '@angular/core';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { MatChipInputEvent } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 @Component({
   selector: 'app-new-post-video',
   templateUrl: './new-post-video.component.html',
@@ -12,7 +16,8 @@ export class NewPostVideoComponent implements OnInit {
 
   visible = true;
   chekckbox = false;
-
+  animal: string;
+  name: string;
   selectable = true;
   removable = true;
   addOnBlur = true;
@@ -26,9 +31,21 @@ export class NewPostVideoComponent implements OnInit {
   publicpost = true;
   patronspost = false;
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VDialogOverviewExampleDialogComponent, {
+      width: '550px',
+      // height:'550px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
   add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -86,3 +103,18 @@ export class NewPostVideoComponent implements OnInit {
     });
   }
 }
+
+@Component({
+  selector: 'dialog-overview',
+  templateUrl: './dialog-overview.html',
+  styleUrls: ['./dialog-overview.scss']
+})
+export class VDialogOverviewExampleDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<VDialogOverviewExampleDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }}

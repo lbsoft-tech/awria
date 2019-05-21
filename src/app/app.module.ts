@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import{RouterModule}from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -30,10 +30,17 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
-import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+
+import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
+
+import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/artist-settings-account/artist-settings-account.component';
+import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
+import { ArtistSettingsAppsComponent } from './artist-portal/artist-settings/artist-settings-apps/artist-settings-apps.component';
+import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist-settings/artist-settings-youremailsettings/artist-settings-youremailsettings.component';
+
 
 @NgModule({
   declarations: [
@@ -56,15 +63,26 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
     LoginComponent,
+    DialogOverviewExampleDialogComponent,
+    IDialogOverviewExampleDialogComponent,
+    VDialogOverviewExampleDialogComponent,
+    DeletePostDialog,
     RegisterComponent,
     HeaderProfileBtnComponent,
     NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
+
+    ArtistSettingsAccountComponent,
+    ArtistSettingsTeamComponent,
+    ArtistSettingsAppsComponent,
+    ArtistSettingsYouremailsettingsComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     AwiraMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -74,6 +92,10 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
     FormsModule,
     ReactiveFormsModule,
     AmazingTimePickerModule
+  ],
+  entryComponents: [DialogOverviewExampleDialogComponent,IDialogOverviewExampleDialogComponent,
+    VDialogOverviewExampleDialogComponent,
+    DeletePostDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

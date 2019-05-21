@@ -26,8 +26,8 @@
           <div  class="card custom ">
 
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4" style="text-align: center !important;    margin: 65px 0 65px 0;">
+                    <div class="col-lg-4 col-sm-4"></div>
+                    <div class="col-lg-4 col-sm-4" style="text-align: center !important;    margin: 65px 0 65px 0;">
                         <div class="file btn btn-lg btn-primary" style="  position: relative;
                         overflow: hidden;">
                           Select image file
@@ -38,7 +38,7 @@
                             top: 0;" type="file" name="file"/>
                           </div>
                    </div>
-                    <div class="col-4"></div>
+                    <div class="col-lg-4 col-sm-4"></div>
 
 
             </div>
@@ -68,14 +68,14 @@
             <textarea rows="6" class="textarea" placeholder="Tell a story "></textarea>
           </div>
         </div>
-        <!-- <div class="row">
+        <div class="row">
           <div class="col-1">
-
+  
               <label class="btn btn-default btn-file">
-                  <mat-icon >camera</mat-icon><input type="file" style="display: none;">
+                  <mat-icon (click)="openDialog()" >camera</mat-icon>
               </label>
           </div>
-        </div> -->
+        </div>
         <div class="row">
 
           <div class="col-1">
@@ -281,7 +281,7 @@
       <div class="row deletepost">
         <div class="col-3"></div>
         <div class="col-sm-1"><mat-icon>delete</mat-icon></div>
-        <div class="col-5"><a><b>DELETE POST</b></a></div>
+        <div class="col-5" (click)="openDeleteDialog()"><a><b>DELETE POST</b></a></div>
       </div>
 
 

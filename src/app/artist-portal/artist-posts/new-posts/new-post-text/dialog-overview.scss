@@ -1,0 +1,13 @@
+@import "../../../../../assets/settings/breakpoints.scss";
+
+.custom{
+    margin: 35px 35px 20px 35px !important;
+    max-height: 170px;
+    border: 1px dashed grey;
+    background: #FAFAFA;
+    }
+    .custom-sm-6{
+        @include breakpoint($narrow-devices) {
+            padding:0px !important;
+        }
+    }
