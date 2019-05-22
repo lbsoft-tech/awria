@@ -1,6 +1,28 @@
 <div class="row py-2">
   <div class="col-lg-12">
-    <p class="text-center welcome-text"><b>Welcome, Aabi!</b> This is your public profile and creator page.<a class="edit-your-page-btn">Edit your page</a></p>
+    <p class="text-center welcome-text">
+      These are the settings for you as a artist/user. Creator account settings live in the left menu.
+      <!-- <a class="edit-your-page-btn">Edit your page</a> -->
+    </p>
 
   </div>
 </div>
+<div class="row">
+    <div class="col-lg-10 col-sm-12 offset-lg-1">
+<nav mat-tab-nav-bar class="navExpand">
+    <a mat-tab-link
+       *ngFor="let link of navLinks"
+       [routerLink]="['/'+link.path]"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      {{link.label}}
+    </a>
+  </nav>
+  </div>
+  </div>
+
+  <div class="row">
+      <div class="col-lg-10 col-sm-12 offset-lg-1">
+        <router-outlet></router-outlet>
+      </div>
+    </div>

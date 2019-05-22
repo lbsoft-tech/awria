@@ -27,11 +27,16 @@ import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-mess
 import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
-import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
+
 import { ArtistSettingsComponent } from './artist-portal/artist-settings/artist-settings.component';
-import { ArtistSettingsAboutComponent } from './artist-portal/artist-settings/artist-settings-about/artist-settings-about.component';
+import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/artist-settings-account/artist-settings-account.component';
 import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
-import { ArtistSettingsEmailComponent } from './artist-portal/artist-settings/artist-settings-email/artist-settings-email.component';
+import { ArtistSettingsAppsComponent } from './artist-portal/artist-settings/artist-settings-apps/artist-settings-apps.component';
+import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist-settings/artist-settings-youremailsettings/artist-settings-youremailsettings.component';
+import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
+
+import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-profile/artist-profile-emailsettings/artist-profile-emailsettings.component';
+import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
 
 
 
@@ -80,25 +85,7 @@ const routes: Routes = [
             component: NewPostImageComponent
           }
         ]
-      },
-      {
-        path: 'settings',
-        component: ArtistSettingsComponent,
-        children: [
-          {
-            path: 'about',
-            component: ArtistSettingsAboutComponent
-          },
-          {
-            path: 'team',
-            component: ArtistSettingsTeamComponent
-          },
-          {
-            path: 'email',
-            component: ArtistSettingsEmailComponent
-          },
-        ]
-      },
+      },      
       {
         path: 'message',
         component: ArtistMessageComponent,
@@ -176,10 +163,40 @@ const routes: Routes = [
             component: ArtistEditOffersComponent
           },
         ]
-      },
-      {
+      },{
+        path:'setting',
+        component:ArtistSettingsComponent,
+        children:[
+          {
+            path:'setting-account',
+            component:ArtistSettingsAccountComponent,
+          },
+          {
+            path:'setting-team',
+            component:ArtistSettingsTeamComponent
+          },
+          {
+            path:'setting-apps',
+            component:ArtistSettingsAppsComponent
+          },
+          {
+            path:'setting-email-setting',
+            component:ArtistSettingsYouremailsettingsComponent
+          }
+        ]
+      }, {
         path: 'profile',
-        component: ArtistProfileComponent
+        component: ArtistProfileComponent,
+        children:[
+          {
+            path:'user-profile',
+            component:ArtistProfileUserprofileComponent,
+          },
+          {
+            path:'email-settings',
+            component:ArtistProfileEmailsettingsComponent,
+          },
+        ]
       }
     ]
   }

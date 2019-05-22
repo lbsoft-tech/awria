@@ -29,12 +29,14 @@
             "styles": [
               "src/styles.scss",
               "src/material_theme.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/country-select-js/build/css/countrySelect.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/hammerjs/hammer.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/country-select-js/build/js/countrySelect.js"
             ],
             "es5BrowserSupport": true
           },

@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import{RouterModule}from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AngularEditorModule} from '@kolkov/angular-editor';
+// import { NgxCountrySelectModule } from 'ngx-country-select/dist';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,14 +42,23 @@ import { ArtistMessageProfileReadComponent } from './artist-portal/artist-messag
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 
-import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
-import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+// import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+// import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+// import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+
+import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
-import { ArtistSettingsAboutComponent } from './artist-portal/artist-settings/artist-settings-about/artist-settings-about.component';
+
+import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/artist-settings-account/artist-settings-account.component';
 import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
-import { ArtistSettingsEmailComponent } from './artist-portal/artist-settings/artist-settings-email/artist-settings-email.component';
+import { ArtistSettingsAppsComponent } from './artist-portal/artist-settings/artist-settings-apps/artist-settings-apps.component';
+import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist-settings/artist-settings-youremailsettings/artist-settings-youremailsettings.component';
+import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-profile/artist-profile-emailsettings/artist-profile-emailsettings.component';
+import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
+
 
 @NgModule({
   declarations: [
@@ -71,6 +81,10 @@ import { ArtistSettingsEmailComponent } from './artist-portal/artist-settings/ar
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
     LoginComponent,
+    DialogOverviewExampleDialogComponent,
+    IDialogOverviewExampleDialogComponent,
+    VDialogOverviewExampleDialogComponent,
+    DeletePostDialog,
     RegisterComponent,
     HeaderProfileBtnComponent,
     ArtistMessageComponent,
@@ -85,14 +99,19 @@ import { ArtistSettingsEmailComponent } from './artist-portal/artist-settings/ar
     NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
-    ArtistProfileComponent,
-    ArtistSettingsAboutComponent,
+
+    ArtistSettingsAccountComponent,
     ArtistSettingsTeamComponent,
-    ArtistSettingsEmailComponent,
+    ArtistSettingsAppsComponent,
+    ArtistSettingsYouremailsettingsComponent,   
+    ArtistProfileComponent,
+    ArtistProfileEmailsettingsComponent,
+    ArtistProfileUserprofileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     AwiraMaterialModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -103,6 +122,11 @@ import { ArtistSettingsEmailComponent } from './artist-portal/artist-settings/ar
     ReactiveFormsModule,
     AmazingTimePickerModule,
     AngularEditorModule
+    // NgxCountrySelectModule
+  ],
+  entryComponents: [DialogOverviewExampleDialogComponent,IDialogOverviewExampleDialogComponent,
+    VDialogOverviewExampleDialogComponent,
+    DeletePostDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

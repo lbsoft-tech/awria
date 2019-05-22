@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, ElementRef } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
 import { AmazingTimePickerService } from 'amazing-time-picker';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 @Component({
   selector: 'app-new-post-text',
   templateUrl: './new-post-text.component.html',
@@ -18,7 +22,8 @@ export class NewPostTextComponent implements OnInit {
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   tags = [];
-
+  animal: string;
+  name: string;
   published = true;
   scheduled = false;
 
@@ -26,9 +31,21 @@ export class NewPostTextComponent implements OnInit {
   publicpost = true;
   patronspost = false;
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+      width: '550px',
+      // height:'550px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
   add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -86,3 +103,17 @@ export class NewPostTextComponent implements OnInit {
     });
   }
 }
+@Component({
+  selector: 'dialog-overview',
+  templateUrl: './dialog-overview.html',
+  styleUrls: ['./dialog-overview.scss']
+})
+export class DialogOverviewExampleDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }}

@@ -11,7 +11,7 @@ export class SidenavComponent implements OnInit {
   tiles = [
     {text: 'forum', cols: 1, rows: 1, color: 'lightblue', route: 'message'},
     { text: 'edit', cols: 1, rows: 1, color: 'lightgreen', route: 'edit/about'},
-    { text: 'settings', cols: 1, rows: 1, color: 'lightpink', route: 'settings'},
+    { text: 'settings', cols: 1, rows: 1, color: 'lightpink', route: 'setting'},
     // {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
   constructor() { }
