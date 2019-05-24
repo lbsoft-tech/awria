@@ -58,6 +58,8 @@ import { ArtistSettingsAppsComponent } from './artist-portal/artist-settings/art
 import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist-settings/artist-settings-youremailsettings/artist-settings-youremailsettings.component';
 import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-profile/artist-profile-emailsettings/artist-profile-emailsettings.component';
 import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
+import { HomeComponent } from './home-page/home/home.component';
+import { PricingComponent } from './home-page/pricing/pricing.component';
 
 
 @NgModule({
@@ -107,6 +109,8 @@ import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profil
     ArtistProfileComponent,
     ArtistProfileEmailsettingsComponent,
     ArtistProfileUserprofileComponent,
+    HomeComponent,
+    PricingComponent,
   ],
   imports: [
     BrowserModule,

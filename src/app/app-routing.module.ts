@@ -37,7 +37,8 @@ import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-pr
 
 import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-profile/artist-profile-emailsettings/artist-profile-emailsettings.component';
 import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
-
+import { HomeComponent } from './home-page/home/home.component';
+import { PricingComponent } from './home-page/pricing/pricing.component';
 
 
 const routes: Routes = [
@@ -51,13 +52,21 @@ const routes: Routes = [
     component: HomePageComponent,
     children: [
       {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
         path: 'login',
         component: LoginComponent
       },
       {
         path: 'register',
         component: RegisterComponent
-      }
+      },
+      {
+        path: 'pricing',
+        component: PricingComponent,
+      },
     ]
   },
   {
