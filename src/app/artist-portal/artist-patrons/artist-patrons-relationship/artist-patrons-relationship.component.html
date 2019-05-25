@@ -11,7 +11,7 @@
   </div>
 
   <div class="col15">
-      <mat-form-field>
+      <mat-form-field class="custom-form-field">
           <mat-select placeholder="Membership Type" [formControl]="toppings" multiple>
             <mat-select-trigger>
               {{toppings.value ? toppings.value[0] : ''}}
