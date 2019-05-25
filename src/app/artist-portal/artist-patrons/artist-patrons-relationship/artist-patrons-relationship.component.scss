@@ -747,16 +747,6 @@
 
 //dropdown custom ends here
 
-//// Test ////
-
-.custom-form-field{
-  //padding-bottom: 1.25em;
-  padding-left: 10px !important;
-  border: none !important;
-}
-
-.custom-form-field div.mat-form-field-underline.ng-tns-c15-2.ng-star-inserted
-{
-  height: 0px !important;
-  display: none !important;
+.mat-input-underline {
+  background-color: white;
 }
