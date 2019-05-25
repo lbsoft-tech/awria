@@ -118,3 +118,17 @@
 
 
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+#sac{
+
+.mat-form-field-underline {
+    background-color: white
+    ;
+  }
+  .mat-form-field-ripple {
+    background-color: white;
+  }
+  .placeholder {
+    display: none;
+  }
+}
