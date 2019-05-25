@@ -29,6 +29,15 @@ import { ArtistProfileOverviewComponent } from './artist-portal/artist-profile/a
 import { ArtistProfilePostsComponent } from './artist-portal/artist-profile/artist-profile-posts/artist-profile-posts.component';
 import { ArtistPatronsComponent } from './artist-portal/artist-patrons/artist-patrons.component';
 import { ArtistPatronsRelationshipComponent } from './artist-portal/artist-patrons/artist-patrons-relationship/artist-patrons-relationship.component';
+import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
+import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
+import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
+import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
+import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
+import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
+import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
+import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
+import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
 
 
 
@@ -114,25 +123,26 @@ const routes: Routes = [
             component: ArtistEditOffersComponent
           },
         ]
-      },{
-        path:'setting',
-        component:ArtistSettingsComponent,
-        children:[
+      },
+      {
+        path: 'setting',
+        component: ArtistSettingsComponent,
+        children: [
           {
-            path:'setting-account',
-            component:ArtistSettingsAccountComponent,
+            path: 'setting-account',
+            component: ArtistSettingsAccountComponent,
           },
           {
-            path:'setting-team',
-            component:ArtistSettingsTeamComponent
+            path: 'setting-team',
+            component: ArtistSettingsTeamComponent
           },
           {
-            path:'setting-apps',
-            component:ArtistSettingsAppsComponent
+            path: 'setting-apps',
+            component: ArtistSettingsAppsComponent
           },
           {
-            path:'setting-email-setting',
-            component:ArtistSettingsYouremailsettingsComponent
+            path: 'setting-email-setting',
+            component: ArtistSettingsYouremailsettingsComponent
           }
         ]
       }, {
@@ -156,6 +166,48 @@ const routes: Routes = [
           {
             path: 'relationship',
             component: ArtistPatronsRelationshipComponent
+          }
+        ]
+      },
+      {
+        path: 'message',
+        component: ArtistMessageComponent,
+        children: [
+          {
+            path: 'profile',
+            component: ArtistMessageProfileComponent,
+            children: [
+              {
+                path: 'all',
+                component: ArtistMessageProfileAllComponent
+              },
+              {
+                path: 'read',
+                component: ArtistMessageProfileReadComponent
+              },
+              {
+                path: 'unread',
+                component: ArtistMessageProfileUnreadComponent
+              }
+            ]
+          },
+          {
+            path: 'page',
+            component: ArtistMessagePageComponent,
+            children: [
+              {
+                path: 'all',
+                component: ArtistMessagePageAllComponent
+              },
+              {
+                path: 'read',
+                component: ArtistMessagePageReadComponent
+              },
+              {
+                path: 'unread',
+                component: ArtistMessagePageUnreadComponent
+              }
+            ]
           }
         ]
       },
