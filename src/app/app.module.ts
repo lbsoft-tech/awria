@@ -47,6 +47,15 @@ import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/
 import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
 import { ArtistSettingsAppsComponent } from './artist-portal/artist-settings/artist-settings-apps/artist-settings-apps.component';
 import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist-settings/artist-settings-youremailsettings/artist-settings-youremailsettings.component';
+import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
+import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
+import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
+import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
+import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
+import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
+import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
+import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
+import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
 
 
 @NgModule({
@@ -89,6 +98,15 @@ import { ArtistSettingsYouremailsettingsComponent } from './artist-portal/artist
     ArtistSettingsAppsComponent,
     ArtistSettingsYouremailsettingsComponent,
     ArtistProfileComponent,
+    ArtistMessageComponent,
+    ArtistMessageProfileComponent,
+    ArtistMessagePageComponent,
+    ArtistMessagePageAllComponent,
+    ArtistMessagePageReadComponent,
+    ArtistMessagePageUnreadComponent,
+    ArtistMessageProfileUnreadComponent,
+    ArtistMessageProfileReadComponent,
+    ArtistMessageProfileAllComponent,
   ],
   imports: [
     BrowserModule,
