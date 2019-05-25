@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-4 col-xs-2 custom-sm-6">
+        <label><b>Add image</b></label>
+    </div>
+    <div class="col-lg-7  col-xs-1"></div>
+    <div class="col-lg-1 col-xs-1"> <mat-icon (click)="onNoClick()">cancel</mat-icon></div>
+</div>
+<div class="card" style="border: none !important">
+    <div class="card-body custom-sm-6">
+      <div  class="card custom ">
+
+            <div class="row">
+                <div class="col-lg-4 col-sm-0"></div>
+                <div class="col-lg-4 col-sm-12" style="text-align: center !important;    margin: 65px 0 65px 0;">
+                    <div class="file btn btn-lg btn-primary" style="  position: relative ; background-color: #00497C;
+                    overflow: hidden;">
+                   <small  style="font-size:x-small !important">Select image file</small>   
+                        <input style="  position: absolute;
+                        font-size: 50px;
+                        opacity: 0;
+                        right: 0;
+                        top: 0;" type="file" name="file"/>
+                      </div>
+               </div>
+                <div class="col-4"></div>
+
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-lg-10 col-sm-12">
+            <div class="input-group input-group-lg" style="padding: 5px 0 15px 0 !important">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-lg"><mat-icon>link</mat-icon></span>
+                </div>
+                <input type="text" placeholder="Type or paste image URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
