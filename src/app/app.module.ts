@@ -36,6 +36,11 @@ import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/ne
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
+import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
+import { ArtistProfilePostsComponent } from './artist-portal/artist-profile/artist-profile-posts/artist-profile-posts.component';
+import { ArtistProfileOverviewComponent } from './artist-portal/artist-profile/artist-profile-overview/artist-profile-overview.component';
+import { ArtistPatronsComponent } from './artist-portal/artist-patrons/artist-patrons.component';
+import { ArtistPatronsRelationshipComponent } from './artist-portal/artist-patrons/artist-patrons-relationship/artist-patrons-relationship.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +69,11 @@ import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-pr
     NewPostVideoComponent,
     NewPostImageComponent,
     ArtistProfileComponent,
+    ArtistNotificationsComponent,
+    ArtistProfilePostsComponent,
+    ArtistProfileOverviewComponent,
+    ArtistPatronsComponent,
+    ArtistPatronsRelationshipComponent,
   ],
   imports: [
     BrowserModule,

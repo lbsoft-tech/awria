@@ -19,6 +19,11 @@ import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
+import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
+import { ArtistProfileOverviewComponent } from './artist-portal/artist-profile/artist-profile-overview/artist-profile-overview.component';
+import { ArtistProfilePostsComponent } from './artist-portal/artist-profile/artist-profile-posts/artist-profile-posts.component';
+import { ArtistPatronsComponent } from './artist-portal/artist-patrons/artist-patrons.component';
+import { ArtistPatronsRelationshipComponent } from './artist-portal/artist-patrons/artist-patrons-relationship/artist-patrons-relationship.component';
 
 
 
@@ -107,7 +112,31 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        component: ArtistProfileComponent
+        component: ArtistProfileComponent,
+        children: [
+          {
+            path: 'overview',
+            component: ArtistProfileOverviewComponent
+          },
+          {
+            path: 'posts',
+            component: ArtistProfilePostsComponent
+          },
+        ]
+      },
+      {
+        path: 'patron',
+        component: ArtistPatronsComponent,
+        children: [
+          {
+            path: 'relationship',
+            component: ArtistPatronsRelationshipComponent
+          }
+        ]
+      },
+      {
+        path: 'notifications',
+        component: ArtistNotificationsComponent
       }
     ]
   }

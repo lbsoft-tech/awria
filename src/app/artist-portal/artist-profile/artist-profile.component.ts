@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist-profile',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistProfileComponent implements OnInit {
 
-  constructor() { }
+  navLinks = [
+    { path: 'artist-portal/profile/overview', label: 'Overview' },
+    { path: 'artist-portal/profile/posts', label: 'Posts' },
+  ];
+
+  constructor(public router: Router) { }
 
   ngOnInit() {
+  }
+
+  overview() {
+    this.router.navigateByUrl('/artist-portal/profile/overview')
+  }
+
+  posts() {
+    this.router.navigateByUrl('/artist-portal/profile/posts')
   }
 
 }
