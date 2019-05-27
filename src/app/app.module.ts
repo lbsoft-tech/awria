@@ -68,6 +68,8 @@ import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
+import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
+import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
 
 
 @NgModule({
@@ -138,6 +140,8 @@ import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message
     ArtistMessageProfileUnreadComponent,
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
+    ArtistIncomeComponent,
+    ArtistPayoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -47,6 +47,9 @@ import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-prof
 import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
 import { HomeComponent } from './home-page/home/home.component';
 import { PricingComponent } from './home-page/pricing/pricing.component';
+import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
+import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
+
 
 
 const routes: Routes = [
@@ -232,6 +235,16 @@ const routes: Routes = [
           {
             path: 'relationship',
             component: ArtistPatronsRelationshipComponent
+          }
+        ]
+      },
+      {
+        path: 'income',
+        component: ArtistIncomeComponent,
+        children: [
+          {
+            path: 'payout',
+            component: ArtistPayoutComponent
           }
         ]
       },

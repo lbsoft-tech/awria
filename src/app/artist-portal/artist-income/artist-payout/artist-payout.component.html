@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-6">
+    <div class="card" style="margin-top: 20px">
+      <div class="card-body">
+        <div class="row bb p">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>WHO ARE YOU?</b></span>
+          </div>
+        </div>
+        <div class="row p">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>Who are you based?</b></span>
+          </div>
+        </div>
+        <div class="row col60">
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button class="col60" value="usa" [checked]="true">I am a USA person or corporation (USA)</mat-radio-button>
+            <mat-radio-button value="international">I am a non-USA person or corporation (International)
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="row p">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>What are you?</b></span>
+          </div>
+        </div>
+        <div class="row">
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="individual" [checked]="true">I am an individual</mat-radio-button>
+            <mat-radio-button value="corporation">I am a corporation / I represent a corporation </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 20px">
+      <div class="card-body">
+        <div class="row bb">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>Payment Method</b></span>
+          </div><br>
+        </div>
+        <div class="row p">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>How would you like to get paid?</b></span>
+          </div>
+        </div>
+        <div class="row">
+          <mat-radio-group aria-label="How would you like to get paid?">
+            <mat-radio-button value="directdeposit">Direct Deposit <br>
+              Payout fee is $0.25 USD per payout <br>
+              <a href="#">Learn More</a></mat-radio-button>
+            <mat-radio-button value="payoneer">
+              Payoneer <br>
+              Payout fee is $1 USD per payout*<br>
+              Option to withdraw funds to your local bank account <br> 
+              or the Payoneer Prepaid Debit MasterCard®<br>
+              <a href="#">Learn More</a></mat-radio-button>
+          <mat-radio-button value="paypal">
+            Pay Pal <br>
+            Payout fee is $0.25 USD per payout <br>
+            <a href="#">Learn More</a></mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px">
+      <div class="card-body">
+        <div class="row bb p">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>TAX INFORMATION</b></span>
+          </div><br>
+        </div>
+        <div class="row p">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>2019 gross earnings</b></span>
+          </div>
+        </div>
+        <div class="row">
+          <p>$0</p>
+        </div>
+        <div class="row p">
+          <p>Patreon requires W-9 forms for US-based creators who have earned a certain amount of money from Patreon in
+            a given tax year. The amount is $600 for creators who reside in Massachusetts or Vermont and $20,000
+            anywhere else.</p>
+        </div>
+        <div class="row">
+          <a href="#">Update state of residence</a><br>
+        </div><br>
+        <div class="row">
+          <button class="btnn" mat-button>Fill out W-9 Form</button>
+        </div><br>
+        <div class="row">
+          <a href="#">Learn more about taxes</a><br>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-lg-4">
+    <div class="card" style="margin-top: 20px">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>$0</b></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 col-sm-10">
+            <span><b>Current account balance</b></span>
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-lg-10 col-sm-10">
+            <button class="btnn" mat-button>WITHDRAW BALANCE</button>
+          </div>
+        </div><br>
+        <div class="row bb">
+          <p>Please enter a payment method for your payout.</p>
+        </div>
+        <div class="row">
+          <p><b>Automatic Transfer</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div class="col-lg-8 col-sm-8">
+  </div>
+  <div class="col-lg-2 col-sm-2">
+    <button class="btnn" mat-button>Save Preferences</button>
+  </div>
+</div>
+<br>
