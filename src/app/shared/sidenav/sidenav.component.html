@@ -1,18 +1,19 @@
 <div class="side-menu">
   <a
-
     class="custom-avatar"
-    routerLink="/artist-portal/profile"
-    routerLinkActive="active"><ngx-avatar
-    src="../../../assets/images/posts/icon-camera.png"
-    name="Jane Doe"
-    value="30%"
-    bgColor="#000000"
-    fgColor="#58D3F7"
-    size="80"
-    textSizeRatio="2.5"
-    [round]="true"
-  ></ngx-avatar></a>
+    routerLink="/artist-portal/profile/overview"
+    routerLinkActive="active"
+    ><ngx-avatar
+      src="../../../assets/images/posts/icon-camera.png"
+      name="Jane Doe"
+      value="30%"
+      bgColor="#000000"
+      fgColor="#58D3F7"
+      size="80"
+      textSizeRatio="2.5"
+      [round]="true"
+    ></ngx-avatar
+  ></a>
   <h5 class="navbar-brand">Samantha Jones</h5>
   <small>Creator Account</small>
   <mat-grid-list cols="3" rowHeight="100px">
@@ -23,7 +24,11 @@
       [colspan]="tile.cols"
       [rowspan]="tile.rows"
     >
-      <button mat-button routerLink='{{tile.route}}' routerLinkActive="active"  >
+      <button
+        mat-button
+        routerLink="{{ tile.route }}"
+        routerLinkActive="active"
+      >
         <mat-icon class="custom-mat-trios">{{ tile.text }}</mat-icon>
       </button>
     </mat-grid-tile>
@@ -45,42 +50,140 @@
       <ul class="nested-reciept-list">
         <li>
           <a
-          class="nav-link custom-navlink"
+            class="nav-link custom-navlink"
             routerLinkActive="active"
-            routerLink ="/artist-portal/posts/new"
+            routerLink="/artist-portal/posts/new"
           >
             <span class="">New</span>
           </a>
         </li>
-        <li> <a
-          class="nav-link custom-navlink"
-          >
+        <li>
+          <a class="nav-link custom-navlink">
             <span class="">Draft</span>
-          </a></li>
-        <li> <a
-          class="nav-link custom-navlink"
-          >
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
             <span class="">Scheduled</span>
-          </a></li>
-        <li> <a
-          class="nav-link custom-navlink"
-          >
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
             <span class="">Published</span>
-          </a></li>
-        <li> <a
-          class="nav-link custom-navlink"
-          >
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
             <span class="">Posts dashboard</span>
-          </a></li>
-        <li> <a
-          class="nav-link custom-navlink"
-          >
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
             <span class="">Engagement</span>
-          </a></li>
+          </a>
+        </li>
       </ul>
     </li>
   </uL>
-  <a class="custom-sidemenu-item">
+  <uL class="reciept-list">
+    <li>
+      <a routerLinkActive="active" class="custom-sidemenu-item caret-reciept">
+        <mat-icon color="accent">payment</mat-icon><span class="">Patrons</span>
+      </a>
+      <ul class="nested-reciept-list">
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Benefits</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/artist-portal/patron/relationship" routerLinkActive="router-link-active"  class="nav-link custom-navlink">
+            <span class="">Relationship Manager</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Blocked Users</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Exit Surveys</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </uL>
+  <uL class="reciept-list">
+    <li>
+      <a routerLinkActive="active" class="custom-sidemenu-item caret-reciept">
+        <mat-icon color="accent">public</mat-icon><span class="">Promote</span>
+      </a>
+      <ul class="nested-reciept-list">
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Special offers</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Embed button</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </uL>
+  <uL class="reciept-list">
+    <li>
+      <a routerLinkActive="active" class="custom-sidemenu-item caret-reciept">
+        <mat-icon color="accent">monetization_on</mat-icon
+        ><span class="">Income</span>
+      </a>
+      <ul class="nested-reciept-list">
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Earnings</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Pledge growth</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Patronage</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Refunds</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Declines</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Pay out balance</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">Pay out history</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link custom-navlink">
+            <span class="">VAT</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </uL>
+  <!-- <a class="custom-sidemenu-item">
     <mat-icon color="accent">payment</mat-icon><span class="">Patrons</span>
   </a>
   <a class="custom-sidemenu-item">
@@ -88,5 +191,5 @@
   </a>
   <a class="custom-sidemenu-item">
     <mat-icon color="accent">monetization_on</mat-icon><span class="">Income</span>
-  </a>
+  </a> -->
 </div>

@@ -32,15 +32,6 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
-import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
-import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
-import { ArtistMessageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-read/artist-message-read.component';
-import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
-import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
-import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
-import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
-import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 
 // import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 // import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
@@ -51,6 +42,11 @@ import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './a
 import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
+import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
+import { ArtistProfilePostsComponent } from './artist-portal/artist-profile/artist-profile-posts/artist-profile-posts.component';
+import { ArtistProfileOverviewComponent } from './artist-portal/artist-profile/artist-profile-overview/artist-profile-overview.component';
+import { ArtistPatronsComponent } from './artist-portal/artist-patrons/artist-patrons.component';
+import { ArtistPatronsRelationshipComponent } from './artist-portal/artist-patrons/artist-patrons-relationship/artist-patrons-relationship.component';
 
 import { ArtistSettingsAccountComponent } from './artist-portal/artist-settings/artist-settings-account/artist-settings-account.component';
 import { ArtistSettingsTeamComponent } from './artist-portal/artist-settings/artist-settings-team/artist-settings-team.component';
@@ -60,6 +56,18 @@ import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-prof
 import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
 import { HomeComponent } from './home-page/home/home.component';
 import { PricingComponent } from './home-page/pricing/pricing.component';
+import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
+import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
+import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
+import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
+import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
+import { ArtistMessageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-read/artist-message-read.component';
+import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
+import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
+import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
+import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
+import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
+import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
 
 
 @NgModule({
@@ -111,6 +119,25 @@ import { PricingComponent } from './home-page/pricing/pricing.component';
     ArtistProfileUserprofileComponent,
     HomeComponent,
     PricingComponent,
+    ArtistNotificationsComponent,
+    ArtistProfilePostsComponent,
+    ArtistProfileOverviewComponent,
+    ArtistPatronsComponent,
+    ArtistPatronsRelationshipComponent,
+    ArtistSettingsAccountComponent,
+    ArtistSettingsTeamComponent,
+    ArtistSettingsAppsComponent,
+    ArtistSettingsYouremailsettingsComponent,
+    ArtistProfileComponent,
+    ArtistMessageComponent,
+    ArtistMessageProfileComponent,
+    ArtistMessagePageComponent,
+    ArtistMessagePageAllComponent,
+    ArtistMessagePageReadComponent,
+    ArtistMessagePageUnreadComponent,
+    ArtistMessageProfileUnreadComponent,
+    ArtistMessageProfileReadComponent,
+    ArtistMessageProfileAllComponent,
   ],
   imports: [
     BrowserModule,

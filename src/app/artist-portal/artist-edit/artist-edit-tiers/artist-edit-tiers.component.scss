@@ -1,0 +1,129 @@
+.title
+{
+    text-align: center;
+    margin-top: 20px
+}
+.h3_title
+{
+    color: rgb(36, 30, 18);
+    font-family: aktiv-grotesk, sans-serif;
+    position: relative;
+    text-align: center;
+    font-weight: 700 !important;
+    font-size: 1.625rem !important;
+    line-height: 1.25 !important;
+    margin: 0px;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+
+@media (min-width: 61rem)
+{
+.h3_title {
+    line-height: 1.25 !important;
+}
+}
+@media (min-width: 61rem)
+{
+.h3_title {
+    font-size: 2.125rem !important;
+}
+}
+.p_title
+{
+    color: rgb(112, 108, 100);
+    font-family: aktiv-grotesk, sans-serif;
+    position: relative;
+    text-align: center;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    margin: 0.5rem 0rem !important;
+}
+
+
+
+.container {
+    margin: 40px 0 40px 0;
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 0 0 0;
+  }
+
+
+  .center {
+    margin: auto;
+    width: 480px;
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    padding: 20px 28px;
+    text-align: center;
+
+  }
+
+  @media (max-width: 600px)
+      {
+        .center
+        {
+            width: 100%;
+        }
+
+        .h2_leftbar
+          {
+              padding: 0px 0 0 0px;
+          }
+      }
+
+
+.h2_leftbar
+     {
+        color: rgb(36, 30, 18);
+        font-family: aktiv-grotesk, sans-serif;
+        position: relative;
+        font-weight: 700 !important;
+        font-size: 1.3125rem !important;
+        line-height: 1.25 !important;
+        margin: 0px;
+        transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+        padding: 12px 0 12px 0px;
+        text-transform: none;
+     }
+.span_awria
+     {
+       color: rgb(112, 108, 100);
+       font-family: aktiv-grotesk, sans-serif;
+       position: relative;
+       font-weight: 400 !important;
+       font-size: 1rem !important;
+       line-height: 1.5 !important;
+     }
+
+
+     .extended-fab-button {
+        width: 92px;
+        padding: 0 7px;
+        border-radius: 29px;
+        background: #004c81;
+        color: white;
+         height: 36px;
+        line-height: 0px !important;
+        margin: 0px 0 0 0;
+        transition: none !important;
+        box-shadow: none !important;
+        margin: 24px 0px 16px 0;
+
+        .mat-icon {
+          margin-right: 10px;
+        }
+
+        .extended-fab-button__text {
+          font-weight: 500;
+          letter-spacing: .08em;
+          text-transform: none;
+          line-height: 0px !important;
+          margin: 0px 0px 0 0;
+        }
+      }

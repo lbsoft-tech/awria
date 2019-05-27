@@ -1,3 +1,85 @@
-<p>
-  artist-edit-thanks works!
-</p>
+<div class="title">
+  <h3 class="h3_title">Thanks</h3>
+  <p class="p_title">Let your patrons know you appreciate them by setting up a custom thank you message for their support</p>
+</div>
+
+
+<div class="container">
+
+
+<div class="left70">
+
+    <div class="border" style="margin-top: 0px;margin-right: 18px;">
+
+      <div class="row70" style="margin: 10px 0 0 0px;">
+          <div style=" margin: 20px 0 12px 0px; " >
+              <h2 class="h2_leftbar">How do you want to thank your patrons? </h2>
+          </div>
+
+
+          <span class="pad" style="padding: 0px 0px 20px 20px">
+            <p color="gray2" class="paragraph">Give your patrons confidence - securely verify your accounts and display links on your page. We’ll never post on your behalf.</p></span>
+      </div>
+
+      <div class="editor_container">
+          <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+      </div>
+
+      <div class="row70" style="margin-top: 16px;">
+          <div class="col40" style=" margin: 20px 0 20px 0px; " >
+              <h2 class="h2_leftbar" style="color: #241e12;font-size: 1.1rem !important;padding: 10px 4px 0px 20px !important">Thank you Video</h2>
+          </div>
+          <div class="col60">
+                <mat-form-field  appearance="none" class="input_mat">
+                  <input matInput type="text" name="btn" class="chkbtn" placeholder="Video URL">
+                </mat-form-field>
+          </div>
+        </div>
+
+        <p class="p_center">
+          <a href="#">View Current Thank You Page</a>
+        </p>
+
+    </div>  <!-- border ends here -->
+</div>
+<!-- div 70 ends here -->
+
+
+<div class="right30">
+
+    <button mat-flat-button class="btn1">
+      <span class="bt1_text"> Save Changes </span>
+    </button>
+
+    <div class="border">
+
+      <h2 class="h2_rightbar">Launch Checklist</h2>
+        <mat-list role="list" >
+            <mat-list-item role="listitem"  class="mat_item" style="margin-top: 8px">
+              <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+              Upload profile picture</mat-list-item>
+            <mat-list-item role="listitem" class="mat_item">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+                Upload cover image</mat-list-item>
+            <mat-list-item role="listitem" class="mat_item">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+                Create about section</mat-list-item>
+            <mat-list-item role="listitem" class="mat_item" style="margin-bottom: 8px">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+                Verify phone number</mat-list-item>
+          </mat-list>
+      </div>
+
+
+      <div class="border">
+
+          <h2 class="h2_rightbar">Learn More</h2>
+          <ul >
+            <li class="ul_li">
+              <span><a href="#" class="aa">Why Does a Thank Your Page Matter?</a></span>
+            </li>
+
+          </ul>
+        </div>
+</div>
+</div>

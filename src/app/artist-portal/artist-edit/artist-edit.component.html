@@ -1,22 +1,26 @@
- <nav mat-tab-nav-bar class="navExpand">
-      <a mat-tab-link
-         *ngFor="let link of navLinks"
-         [routerLink]="['/'+link.path]"
-         routerLinkActive #rla="routerLinkActive"
-         [active]="rla.isActive">
-        {{link.label}}
-      </a>
-    </nav>
+ <div class="tabs" >
+    <nav mat-tab-nav-bar mat-align-tabs="left" class="navExpand">
+        <a mat-tab-link style="/*margin: 0px -36px 0 -36px;*/ padding: 0 0 0 0"
+           *ngFor="let link of navLinks"
+           [routerLink]="['/'+link.path]"
+           routerLinkActive #rla="routerLinkActive"
+           [active]="rla.isActive">
+          {{link.label}}
+        </a>
+      </nav>
+
+ </div>
 
 
 
-    <mat-expansion-panel class="matExpand">
+
+    <mat-expansion-panel class="matExpand" (click)="clickactive()" [expanded]="panelOpenState">
       <mat-expansion-panel-header >
-        This is the expansion title
+        {{active_item}}
       </mat-expansion-panel-header>
 
       <mat-action-row class="forhover" (click)="about()">
-        <span>  About</span>
+        <span> About</span>
       </mat-action-row>
 
       <mat-action-row  class="forhover" (click)="tiers()">
@@ -25,6 +29,10 @@
 
       <mat-action-row class="forhover" (click)="goals()">
             <span>  Goals</span>
+      </mat-action-row>
+
+      <mat-action-row class="forhover" (click)="thanks()">
+          <span>  Thanks</span>
       </mat-action-row>
 
       <mat-action-row class="forhover" (click)="payments()">

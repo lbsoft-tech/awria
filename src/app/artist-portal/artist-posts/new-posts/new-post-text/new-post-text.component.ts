@@ -7,6 +7,23 @@ export interface DialogData {
   animal: string;
   name: string;
 }
+
+@Component({
+  selector: 'dialog-overview',
+  templateUrl: './dialog-overview.html',
+  styleUrls: ['./dialog-overview.scss']
+})
+export class DialogOverviewExampleDialogComponent {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
 @Component({
   selector: 'app-new-post-text',
   templateUrl: './new-post-text.component.html',
@@ -103,17 +120,4 @@ export class NewPostTextComponent implements OnInit {
     });
   }
 }
-@Component({
-  selector: 'dialog-overview',
-  templateUrl: './dialog-overview.html',
-  styleUrls: ['./dialog-overview.scss']
-})
-export class DialogOverviewExampleDialogComponent {
 
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }}

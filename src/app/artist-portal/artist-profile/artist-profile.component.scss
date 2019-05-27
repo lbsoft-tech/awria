@@ -2,32 +2,109 @@
   cursor: pointer;
   text-decoration: none;
   -webkit-box-align: center;
-    align-items: center;
-    backface-visibility: hidden;
-    background-color: rgb(152, 74, 92);
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-flex;
-    font-weight: 500;
-    height: unset;
-    -webkit-box-pack: center;
-    justify-content: center;
-    position: relative;
-    pointer-events: unset;
-    text-align: center;
-    text-transform: none;
-    user-select: none;
-    white-space: unset;
-    width: unset;
-    color: rgb(255, 255, 255) !important;
-    font-size: 0.875rem !important;
-    border-radius: 9999px;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    padding: 0.594rem 1rem;
-    text-decoration: none;
-    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
-    margin: 5px 5px !important;
+  align-items: center;
+  backface-visibility: hidden;
+  background-color: rgb(152, 74, 92);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 500;
+  height: unset;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  pointer-events: unset;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  white-space: unset;
+  width: unset;
+  color: rgb(255, 255, 255) !important;
+  font-size: 0.875rem !important;
+  border-radius: 9999px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 0.594rem 1rem;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  margin: 5px 5px !important;
 }
+
+.custom-cover-photo {
+  background-size: cover;
+  height: calc(25vw - 3.25rem);
+  min-height: 12rem;
+  width: 100%;
+  align-items: flex-end;
+  display: flex;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: lightgrey;
+}
+
+.custom-profile-photo {
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding-top: 0rem;
+  padding-right: 0rem;
+  padding-bottom: 0rem;
+  padding-left: 0rem;
+  margin-top: 1rem;
+  margin-right: 0rem;
+  margin-bottom: 1rem;
+  margin-left: 0rem;
+  transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+.custom-profile-photo p {
+  font-size: 1.625rem !important;
+  margin-bottom: 0px !important;
+}
+.custom-avatar {
+  align-content: flex-end !important;
+  margin: auto;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
+
+
+/////  tab css copied ////
+.mat-action-row {
+    border-top-style: solid;
+    border-top-width: 1px;
+    display: flex;
+    flex-direction: row;
+     justify-content: flex-start !important;
+    padding: 16px 8px 16px 24px;
+}
+
+.forhover:hover
+{
+    border-top-style: solid;
+    border-top-width: 1px;
+    display: flex;
+    flex-direction: row;
+     justify-content: flex-start !important;
+    padding: 16px 8px 16px 24px;
+    background: #2fa3ded9;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (min-width: 600px) {
+    .matExpand {
+      display: none
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    .navExpand {
+      display: none
+    }
+
+  }
