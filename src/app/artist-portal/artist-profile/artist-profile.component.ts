@@ -10,9 +10,6 @@ export class ArtistProfileComponent implements OnInit {
   navLinks = [
     { path: 'artist-portal/profile/user-profile', label: 'User Profile' },
     { path: 'artist-portal/profile/email-settings', label: 'Email Settings' },
-  ];
-
-  navLinks = [
     { path: 'artist-portal/profile/overview', label: 'Overview' },
     { path: 'artist-portal/profile/posts', label: 'Posts' },
   ];

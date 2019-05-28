@@ -49,6 +49,9 @@ import { HomeComponent } from './home-page/home/home.component';
 import { PricingComponent } from './home-page/pricing/pricing.component';
 import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
 import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
+import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
+import { ArtistHomeAllpostComponent } from './artist-portal/artist-home/artist-home-allpost/artist-home-allpost.component';
+import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/artist-home-patrononlypost/artist-home-patrononlypost.component';
 
 
 
@@ -83,6 +86,7 @@ const routes: Routes = [
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
+
     children: [
       {
         path: 'posts',
@@ -104,6 +108,20 @@ const routes: Routes = [
             path: 'image',
             component: NewPostImageComponent
           }
+        ]
+      },
+      {
+        path: 'home',
+        component: ArtistHomeComponent,
+        children: [
+          {
+            path: 'allpost',
+            component: ArtistHomeAllpostComponent,
+          },
+          {
+            path: 'patrononlypost',
+            component: ArtistHomePatrononlypostComponent
+          },
         ]
       },
       {

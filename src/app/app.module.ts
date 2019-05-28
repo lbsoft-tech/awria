@@ -70,6 +70,9 @@ import { ArtistMessageProfileReadComponent } from './artist-portal/artist-messag
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
 import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
 import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
+import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
+import { ArtistHomeAllpostComponent } from './artist-portal/artist-home/artist-home-allpost/artist-home-allpost.component';
+import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/artist-home-patrononlypost/artist-home-patrononlypost.component';
 
 
 @NgModule({
@@ -142,6 +145,9 @@ import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payo
     ArtistMessageProfileAllComponent,
     ArtistIncomeComponent,
     ArtistPayoutComponent,
+    ArtistHomeComponent,
+    ArtistHomeAllpostComponent,
+    ArtistHomePatrononlypostComponent,
   ],
   imports: [
     BrowserModule,
