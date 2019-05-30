@@ -56,6 +56,10 @@ import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
+import { ProfileSettingComponent } from './artist-portal/profile-setting/profile-setting.component';
+import { MyProfileComponent } from './artist-portal/profile-setting/my-profile/my-profile.component';
+import { MyappComponent } from './artist-portal/profile-setting/myapp/myapp.component';
+import { MyemailsettingComponent } from './artist-portal/profile-setting/myemailsetting/myemailsetting.component';
 
 
 @NgModule({
@@ -107,6 +111,10 @@ import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message
     ArtistMessageProfileUnreadComponent,
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
+    ProfileSettingComponent,
+    MyProfileComponent,
+    MyappComponent,
+    MyemailsettingComponent,
   ],
   imports: [
     BrowserModule,

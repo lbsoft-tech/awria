@@ -38,6 +38,10 @@ import { ArtistMessagePageComponent } from './artist-portal/artist-message/artis
 import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
 import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
 import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
+import { ProfileSettingComponent } from './artist-portal/profile-setting/profile-setting.component';
+import { MyProfileComponent } from './artist-portal/profile-setting/my-profile/my-profile.component';
+import { MyappComponent } from './artist-portal/profile-setting/myapp/myapp.component';
+import { MyemailsettingComponent } from './artist-portal/profile-setting/myemailsetting/myemailsetting.component';
 
 
 
@@ -88,6 +92,26 @@ const routes: Routes = [
           }
         ]
       },
+
+      {
+        path: 'profile-setting',
+        component: ProfileSettingComponent,
+        children: [
+          {
+            path: 'my-profile',
+            component: MyProfileComponent
+          }, {
+            path: 'my-app',
+            component: MyappComponent
+          },{
+            path:'my-email',
+            component:MyemailsettingComponent
+          }
+        ]
+
+
+      },
+
       {
         path: 'edit',
         component: ArtistEditComponent,
