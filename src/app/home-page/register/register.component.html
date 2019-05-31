@@ -2,18 +2,64 @@
 <div class="container col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2" >
 
 <form >
-    <label for="name">Name</label><br>
-    <input type="text"  [(ngModel)]="name" name="name" class="form-control" /><br>
+    <!-- <label for="name">Name</label><br>
+    <input type="text"  [(ngModel)]="name" name="name"  class="form-control" /><br> -->
 
-<label for="email">Email</label><br>
-<input type="email"  [(ngModel)]="email" name="email" class="form-control" /><br>
+    <div class="form-group" [class.has-error]="fname.touched ">
+      <label for="fname" class="control-label"> Name</label>
+      <input required type="text" id=firstName name="firstname"  class="form-control" #fname="ngModel" [(ngModel)]="user.name"
+        placeholder="Enter First Name">
+      <small style="color:red" class="help-block" *ngIf=" fname.touched && fname.errors?.required ">
+         Required
+      </small>
+    </div><br>
+
+
+
+    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+      <label for="email" class="control-label">Email</label>
+      <input required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" name="email" #email="ngModel"
+        [(ngModel)]="user.email" id="email" placeholder="Enter Email" class="form-control">
+
+      <small style="color:red" class="help-block" *ngIf="email.errors?.required  && email.touched">
+        Email is required
+      </small>
+      <small style="color:red" class="help-block" *ngIf=" email.errors?.pattern && email.touched">
+        Email is Badly formated
+      </small>
+    </div>
+
+
+<!-- <label for="email">Email</label><br>
+<input type="email"  [(ngModel)]="email" name="email" class="form-control" /> -->
+<br>
 
 <label for="con_email">Confirm Email</label><br>
 <input type="email"  [(ngModel)]="cemail" name="cemail" class="form-control" /><br>
+<small style="color:red" class="help-block" *ngIf=" user.email != cemail">
+  Email not matched
+</small>
 
 
+
+<div class="form-group" [class.has-error]="pass.invalid && pass.touched">
+  <label for="psw"><b>Password</b></label>
+  <input required pattern="(?=.*[#/?//&/@/$/!/%////\/'/'/}/{/}])(?=.*\d).{7,}" type="password"
+    placeholder="Enter Password" name="psw" #pass="ngModel" [(ngModel)]="user.password" class="form-control" >
+
+  <small id="msg" style="color:red" class="help-block" *ngIf="pass.touched && pass.errors?.required">
+    Required
+  </small>
+  <small id="msg" style="color:red;font-size: 15px" class="help-block"
+    *ngIf=" pass.touched && pass.errors?.pattern">
+    Must contain at least one number and Special character, and at least 7.
+  </small>
+</div>
+
+<!-- 
 <label for="email">Password</label><br>
-<input type="text" type="password"  [(ngModel)]="password" name="password" class="form-control" /><br>
+<input type="text" type="password"  [(ngModel)]="password" name="password" class="form-control" /> -->
+<br>
 
 <input type="checkbox" class="checkbox" ng-class = "{'checked': register.term, 'unchecked' : !register.term}"><p>You agree to our <a (click)="signup()">Term of use</a> and <a href="#">Privacy Policy</a></p><br>
   <button class="btn" type="button" (click)="signup()">Sign Up</button>
