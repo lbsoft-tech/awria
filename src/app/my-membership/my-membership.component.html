@@ -1,0 +1,41 @@
+ <div class="main">
+    <div class="main2">
+      <div class="center">
+          <span class="title">Your memberships</span>
+        </div>
+
+        <div class="tabs" style="margin-top: 12px;" >
+            <nav mat-tab-nav-bar mat-align-tabs="left" color="primary" class="navExpand">
+                <a mat-tab-link color="primary" 
+                  *ngFor="let link of navLinks"
+                  [routerLink]="['/'+link.path]"
+                  routerLinkActive #rla="routerLinkActive"
+                  [active]="rla.isActive">
+                  {{link.label}}
+                </a>
+              </nav>
+        </div>
+
+        <mat-expansion-panel class="matExpand" (click)="clickactive()" [expanded]="panelOpenState">
+          <mat-expansion-panel-header >
+            {{active_item}}
+          </mat-expansion-panel-header>
+    
+          <mat-action-row class="forhover" (click)="membership()">
+            <span> Active Memberships </span>
+          </mat-action-row>
+
+          <mat-action-row class="forhover" (click)="billing()">
+            <span> Billing History</span>
+          </mat-action-row>
+
+          <mat-action-row class="forhover" (click)="payment()">
+            <span> Payment Methods</span>
+          </mat-action-row>
+    
+        </mat-expansion-panel>
+    
+
+        <router-outlet></router-outlet>
+    </div>
+  </div>  

@@ -1,0 +1,219 @@
+<div class="container">
+
+  <div class="newtier_btn">
+    <button class="extended-fab-button" mat-fab (click)="createfirstTier()">
+        <p class="extended-fab-button__text">Create your first tier</p>
+    </button>
+  </div>
+
+  <div *ngIf="first_tier_flag">
+
+      <div class="row">
+
+            <div class="col-lg-3 custom_padding0" >
+                <h2 class="h2_leftbar">Tier price</h2>
+                <span class="pad">Required</span>
+            </div>
+            <div class="col-lg-9 custom_padding0" style="flex: 60% !important; display: flex ">
+
+              <mat-form-field  appearance="none" class="input_mat" style="width: 62px; padding: 0px 0px 0px 0px;">
+                <input matInput type="text" name="btn" class="chkbtn" disabled value="$" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+              </mat-form-field>
+
+                  <mat-form-field  appearance="none" class="input_mat">
+                    <input matInput type="text" name="btn" class="chkbtn" placeholder="1234567-1" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                  </mat-form-field>
+            </div>
+      </div>
+
+
+      <div class="row">
+
+          <div class="col-lg-3 custom_padding0" >
+              <h2 class="h2_leftbar"> Tier title</h2>
+              <span class="pad">Required</span>
+          </div>
+          <div class="col-lg-9 custom_padding0" style="flex: 60% !important; display: flex ">
+
+                <mat-form-field  appearance="none" class="input_mat">
+                  <input matInput type="text" name="btn" class="chkbtn" placeholder="(e.g Unicorns)">
+                </mat-form-field>
+          </div>
+    </div>
+
+
+    <div class="row">
+          <div class="col-lg-3 custom_padding0" >
+              <h2 class="h2_leftbar"> Tier description</h2>
+              <span class="pad">Visible to everyone</span>
+          </div>
+          <div class="col-lg-9 custom_padding0">
+
+                <mat-form-field  appearance="none" class="input_mat">
+                  <input matInput type="text" name="btn" (input)="abc($event)" [(ngModel)]="description" class="input_no_radius" placeholder="(e.g Unicorns are the ultimate tier.)">
+                </mat-form-field>
+
+            <div style="margin-top: -20px;">
+                    <p class="characters"> {{description_length}} characters</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 custom_padding0" >
+                <h2 class="h2_leftbar"> Benefits to track</h2>
+                <span class="pad">Only visible to you</span>
+            </div>
+            <div class="col-lg-9 custom_padding0 ">
+                <button class="light_extended-fab-button custom_margin" mat-fab >
+                    <p class="extended-fab-button__text">ADD BENIFIT</p>
+                </button>
+
+                <div style="margin-top: 14px;">
+                  <p class="p_text"> Add benefits to track who gets what, when. <a>Learn more</a></p>
+                </div>      
+            </div>
+      </div>
+
+      <div class="row">
+          <div class="col-lg-3 custom_padding0" >
+              <h2 class="h2_leftbar"> Tier image</h2>
+          </div>
+          <div class="col-lg-9 custom_padding0 ">
+              <button class="light_extended-fab-button custom_margin" mat-fab >
+                  <p class="extended-fab-button__text">Select tier image</p>
+              </button>
+
+              <div>
+                <p class="small_text"> Recommended size: 460 by 200 pixels</p>
+              </div>      
+          </div>
+        </div>
+
+
+        <div class="row" style="padding-bottom: 12px;">
+              <div class="col-lg-3 custom_padding0" >
+                  <h2 class="h2_leftbar"> Patron limit</h2>
+              </div>
+              <div class="col-lg-9 custom_padding0 ">
+
+                <label class="checkbox">
+                  <input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event)"/>
+                  <p class="p_checkbox">Limit number of patrons</p>
+                  <span class="checkmark"></span>
+                </label>
+
+
+                <div class="row" style="padding: 0 24px 0 16px;">
+                  <div class="col-lg-7 col-md-6 custom_padding0 "> 
+                      <div *ngIf="marked" style="flex: 60% !important; display: flex ">
+                          <!-- <mat-form-field  appearance="none" class="input_mat" style="width: 62px; padding: 0px 0px 0px 0px;">
+                              <input matInput type="text" name="btn" class="chkbtn" disabled value="$" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+                            </mat-form-field> -->
+          
+                            <div style=" padding: 18px 0 0 0;">
+                                  <i class="fa fa-user-circle chkbtn " aria-hidden="true" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;margin: 3px 0 0 0;padding: 16px 18px 16px 18px;"></i>   
+                            </div>
+          
+                  
+                                <mat-form-field  appearance="none" class="input_mat">
+                                  <input matInput type="text" name="btn" class="chkbtn" placeholder="1" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                                </mat-form-field>
+          
+                      </div>
+                  </div>
+
+                  <div *ngIf="marked" class="col-lg-5 col-md-6 colcustom_padding0" >
+                      <p class="p_text paddingtop">patrons can get this tier</p>
+                  </div>
+
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-3 custom_padding0" >
+                  <h2 class="h2_leftbar">Shipping address</h2>
+              </div>
+              <div class="col-lg-9 custom_padding0 ">
+                <label class="checkbox">
+                  <input type="checkbox" [(ngModel)]="theCheckbox2"  data-md-icheck (change)="toggleVisibility($event)"/>
+                  <p class="p_checkbox">Ask for shipping address during pledge checkout</p>
+                  <span class="checkmark"></span>
+                </label>   
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-3 custom_padding0" >
+                  <h2 class="h2_leftbar"> Discord Roles</h2>
+                  <p class="pad"><a>learn more</a></p>
+              </div>
+              <div class="col-lg-9 custom_padding0 ">
+                  
+
+                  <div style="margin-top: 14px;">
+                      <p class="p_checkbox" style="margin: 0px 0px 0 0px;padding: 6px 0 0 0;">Enable access to your server to add Discord roles to your benefits. </p>
+                    <p class="characters"> Gives patrons access to selected roles on Discord.</p>
+                  </div>  
+
+
+                  <button class="big_extended-fab-button custom_margin" mat-fab >
+                      <p class="extended-fab-button__text">
+                        <i class="fa fa-book" aria-hidden="true" style="padding: 0 12px 0 0;"></i>
+                        Connect to Discord
+                      </p>
+                  </button>
+            
+              </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-3 custom_padding0" >
+                <h2 class="h2_leftbar"> Discord Roles</h2>
+            </div>
+            <div class="col-lg-9 custom_padding0 ">
+                
+
+                <div style="margin-top: 14px;">
+                    <p class="p_checkbox" style="margin: 0px 0px 0 0px;padding: 6px 0 0 0;">
+                        Offer your patrons the benefit of community by connecting one or more of these apps.
+                    </p>
+                </div>  
+
+                <div class="border_image">
+                    <div>
+                        <img src="../../../assets/images/posts/its_easy_if_you_try-5332.jpg" alt="Paris" style="width:62px;height: 62px;">
+                    </div>
+                </div>
+
+          
+              </div>
+            </div>
+
+            <mat-divider style="margin-top: 20px"></mat-divider>
+
+            <div class="row">
+                <button class="extended-fab-button custom_margin" mat-fab style="margin-left: 20px; margin-right: 12px;">
+                    <p class="extended-fab-button__text">Save Tier</p>
+                </button>
+
+                <button class="light_extended-fab-button custom_margin" mat-fab >
+                    <p class="extended-fab-button__text">Cancel</p>
+                </button>
+
+            </div>
+
+            <mat-divider style="margin-left: -26px;margin-top: 20px;margin-right: -26px;margin-bottom: 33px;"></mat-divider>
+
+              <div class="newtier_btn">
+                  <button class="gray_extended-fab-button" mat-fab >
+                      <p class="extended-fab-button__text">Create new tier</p>
+                  </button>
+              </div>
+            
+   </div>
+
+</div>

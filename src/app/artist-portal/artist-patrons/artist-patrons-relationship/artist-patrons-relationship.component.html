@@ -11,7 +11,7 @@
   </div>
 
   <div class="col15">
-      <mat-form-field floatLabel="never" id="sac">
+      <mat-form-field id="sac"> <!--to remove under lines  id="sac" in style.css-->
           <mat-select placeholder="Membership Type" [formControl]="toppings" multiple>
             <mat-select-trigger>
               {{toppings.value ? toppings.value[0] : ''}}
@@ -25,7 +25,7 @@
   </div>
 
   <div class="col15">
-      <mat-form-field>
+      <mat-form-field  id="sac">
           <select matNativeControl required>
             <option >All Rewards</option>
             <option value="saab">No Rewards</option>
@@ -72,7 +72,7 @@
 
 
   <div class="col15">
-      <mat-form-field>
+      <mat-form-field  id="sac">
           <select matNativeControl required>
             <option value="all" >All Charge Statuses</option>
             <option value="paid">Paid</option>

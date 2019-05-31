@@ -56,6 +56,15 @@ import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
+import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
+import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
+import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
+import { MyMembershipComponent } from './my-membership/my-membership.component';
+import { ActiveMembershipsComponent } from './my-membership/active-memberships/active-memberships.component';
+import { BillingHistoryComponent } from './my-membership/billing-history/billing-history.component';
+import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
+import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
+import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
 
 
 @NgModule({
@@ -107,6 +116,15 @@ import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message
     ArtistMessageProfileUnreadComponent,
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
+    DraftsComponent,
+    ScheduledComponent,
+    PublishedComponent,
+    MyMembershipComponent,
+    ActiveMembershipsComponent,
+    BillingHistoryComponent,
+    PaymentMethodsComponent,
+    YourTiersComponent,
+    BestPracticesComponent,
   ],
   imports: [
     BrowserModule,

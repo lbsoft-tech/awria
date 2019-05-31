@@ -38,6 +38,15 @@ import { ArtistMessagePageComponent } from './artist-portal/artist-message/artis
 import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
 import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
 import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
+import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
+import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
+import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
+import { MyMembershipComponent } from './my-membership/my-membership.component';
+import { ActiveMembershipsComponent } from './my-membership/active-memberships/active-memberships.component';
+import { BillingHistoryComponent } from './my-membership/billing-history/billing-history.component';
+import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
+import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
+import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
 
 
 
@@ -63,6 +72,24 @@ const routes: Routes = [
     ]
   },
   {
+  path: 'my-membership',
+    component: MyMembershipComponent,
+    children: [
+      {
+        path: 'active-memberships',
+        component: ActiveMembershipsComponent
+      },
+      {
+        path : 'billing-history',
+        component: BillingHistoryComponent
+      },
+      {
+        path : 'payment-methods',
+        component : PaymentMethodsComponent
+      }
+    ]
+    },
+  {
     path: 'artist-portal',
     component: ArtistPortalComponent,
     children: [
@@ -85,6 +112,18 @@ const routes: Routes = [
           {
             path: 'image',
             component: NewPostImageComponent
+          },
+          {
+            path: 'drafts',
+            component: DraftsComponent
+          },
+          {
+            path: 'scheduled',
+            component: ScheduledComponent
+          },
+          {
+            path: 'published',
+            component: PublishedComponent
           }
         ]
       },
@@ -98,7 +137,17 @@ const routes: Routes = [
           },
           {
             path: 'tiers',
-            component: ArtistEditTiersComponent
+            component: ArtistEditTiersComponent,
+            children: [
+                {
+                  path : 'your-tiers',
+                  component : YourTiersComponent
+                },
+                {
+                  path : 'best-practices',
+                  component : BestPracticesComponent
+                }
+            ]
           },
           {
             path: 'goals',
