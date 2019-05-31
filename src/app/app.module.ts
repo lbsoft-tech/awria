@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import{RouterModule}from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import { AngularEditorModule} from '@kolkov/angular-editor';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,8 +33,8 @@ import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
 import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 
-import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent, IDialogOverviewExampleDialogComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
@@ -69,6 +69,13 @@ import { ProfileSettingComponent } from './artist-portal/profile-setting/profile
 import { MyProfileComponent } from './artist-portal/profile-setting/my-profile/my-profile.component';
 import { MyappComponent } from './artist-portal/profile-setting/myapp/myapp.component';
 import { MyemailsettingComponent } from './artist-portal/profile-setting/myemailsetting/myemailsetting.component';
+import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
+import { ArtistIncomePayoutComponent } from './artist-portal/artist-income/artist-income-payout/artist-income-payout.component';
+import { ArtistIncomePayoutTaxformComponent } from './artist-portal/artist-income/artist-income-payout/artist-income-payout-taxform/artist-income-payout-taxform.component';
+import { ArtistPatronsExitSurveyComponent } from './artist-portal/artist-patrons/artist-patrons-exit-survey/artist-patrons-exit-survey.component';
+import { ArtistPatronsBlockedUsersComponent } from './artist-portal/artist-patrons/artist-patrons-blocked-users/artist-patrons-blocked-users.component';
+import { ArtistIncomeEarningsComponent } from './artist-portal/artist-income/artist-income-earnings/artist-income-earnings.component';
+import { ArtistIncomePledgeGrowthComponent } from './artist-portal/artist-income/artist-income-pledge-growth/artist-income-pledge-growth.component';
 
 
 @NgModule({
@@ -133,6 +140,13 @@ import { MyemailsettingComponent } from './artist-portal/profile-setting/myemail
     MyProfileComponent,
     MyappComponent,
     MyemailsettingComponent,
+    ArtistIncomeComponent,
+    ArtistIncomePayoutComponent,
+    ArtistIncomePayoutTaxformComponent,
+    ArtistPatronsExitSurveyComponent,
+    ArtistPatronsBlockedUsersComponent,
+    ArtistIncomeEarningsComponent,
+    ArtistIncomePledgeGrowthComponent,
   ],
   imports: [
     BrowserModule,
@@ -149,7 +163,7 @@ import { MyemailsettingComponent } from './artist-portal/profile-setting/myemail
     AmazingTimePickerModule,
     AngularEditorModule
   ],
-  entryComponents: [DialogOverviewExampleDialogComponent,IDialogOverviewExampleDialogComponent,
+  entryComponents: [DialogOverviewExampleDialogComponent, IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog
   ],

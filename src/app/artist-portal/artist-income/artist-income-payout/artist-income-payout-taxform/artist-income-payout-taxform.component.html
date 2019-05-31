@@ -1,0 +1,328 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 offset-lg-1 offset-md-1 offset-sm-0">
+      <div class="row">
+
+        <div class="col-12" style="margin-top: 0px">
+          <mat-icon (click)="backToPayment()">arrow_back</mat-icon><u style="color: blue ;font-size: large; cursor: pointer;" (click)="backToPayment()"> Go back to Payout Settings</u>
+        </div>
+      </div>
+      <div class="row"  style="margin-top: 50px !important">
+        <div class="col-12">
+          <h2>Form W-9</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11">
+          <p>This is a request for the Taxpayer Identification Number and Certification. Go to www.irs.gov/FormW9 for instructions and the latest information.
+            </p>
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+
+        <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-11">
+             <div class="row">
+
+               <div class="col-lg-4 col-md-11 col-sm-11">
+                 <div class="row">
+                   <div class="col-12">
+                    <label>First name</label>
+                 </div>
+                </div>
+                 <div class="row">
+                    <div class="col-12">
+                    <input type="text"  placeholder="As shown on your income tax" class="form-control text" id="usr">
+                 </div>
+                </div>
+
+               </div>
+               <div class="col-lg-4 col-md-11 col-sm-11">
+                  <div class="row">
+                    <div class="col-12">
+                     <label>Middle name</label>
+                  </div>
+                 </div>
+                  <div class="row">
+                     <div class="col-12">
+                     <input type="text" placeholder="As shown on your income tax" class="form-control text" id="usr">
+                  </div>
+                 </div>
+
+                </div>
+                <div class="col-lg-4 col-md-11 col-sm-11">
+                    <div class="row">
+                      <div class="col-12">
+                       <label>
+                          Last name</label>
+                    </div>
+                   </div>
+                    <div class="row">
+                       <div class="col-12">
+                       <input type="text"  placeholder="As shown on your income tax" class="form-control text" id="usr">
+                    </div>
+                   </div>
+
+                  </div>
+
+
+             </div>
+             <div class="row" style="    margin-top: 20px !important;">
+               <div class="col-12">
+                <div class="row">
+                  <div class="col-11 col-md-11 sol-sm-11">
+                   <label>
+                    Business name (if different from above)</label>
+                </div>
+               </div>
+                <div class="row">
+                   <div class="col-lg-12 col-md-11 sol-sm-11">
+                   <input type="text"  class="form-control text" id="usr">
+                </div>
+               </div>
+               </div>
+             </div>
+             <div class="row" style="    margin-top: 20px !important;">
+               <div class="col-lg-6 col-md-11 col-sm-11">
+                <div class="row">
+                  <div class="col-12">
+                   <label>
+                    Federal tax classification</label>
+                </div>
+               </div>
+                <div class="row">
+                   <div class="col-12">
+                    <select matNativeControl required class="select">
+                      <option value="volvo"  selected style="color: red"> None Selected</option>
+                      <option value="saab">Saab</option>
+                      <option value="mercedes">Mercedes</option>
+                      <option value="audi">Audi</option>
+                    </select>
+                </div>
+               </div>
+               </div>
+               <div class="col-lg-6 col-md-11 col-sm-11">
+
+                <div class="row">
+                  <div class="col-12">
+                   <label>
+
+
+Other tax classification (if not listed)</label>
+                </div>
+               </div>
+                <div class="row">
+                   <div class="col-12">
+                   <input type="text"  class="form-control text" id="usr">
+                </div>
+               </div>
+
+              </div>
+             </div>
+             <div class="row" style="    margin-top: 20px !important;">
+              <div class="col-lg-6 col-md-11 col-sm-11">
+               <div class="row">
+                 <div class="col-12">
+                  <label>
+                    Exempt payee code (if any)</label>
+               </div>
+              </div>
+               <div class="row">
+                  <div class="col-12">
+                    <input type="text"  class="form-control text" id="usr">
+               </div>
+              </div>
+              </div>
+              <div class="col-lg-6 col-md-11 col-sm-11">
+
+               <div class="row">
+                 <div class="col-12">
+                  <label>
+
+Exemption from FATCA reporting code (if any)</label>
+               </div>
+              </div>
+               <div class="row">
+                  <div class="col-12">
+                  <input type="text"  class="form-control text" id="usr">
+               </div>
+              </div>
+
+             </div>
+            </div>
+            <div class="row" style="    margin-top: 20px !important;">
+              <div class="col-12">
+               <div class="row">
+                 <div class="col-11 col-md-11 sol-sm-11">
+                  <label>
+                    Address</label>
+               </div>
+              </div>
+               <div class="row">
+                  <div class="col-lg-12 col-md-11 sol-sm-11">
+                  <input type="text"  placeholder="Number,street and apt or suite no." class="form-control text" id="usr">
+               </div>
+              </div>
+              </div>
+            </div>
+
+            <div class="row" style="    margin-top: 20px !important;">
+
+              <div class="col-lg-4 col-md-11 col-sm-11">
+                <div class="row">
+                  <div class="col-12">
+                   <label>City</label>
+                </div>
+               </div>
+                <div class="row">
+                   <div class="col-12">
+                   <input type="text"   class="form-control text" id="usr">
+                </div>
+               </div>
+
+              </div>
+              <div class="col-lg-4 col-md-11 col-sm-11">
+                 <div class="row">
+                   <div class="col-12">
+                    <label>
+                      State/Province</label>
+                 </div>
+                </div>
+                 <div class="row">
+                    <div class="col-12">
+                    <input type="text"  class="form-control text" id="usr">
+                 </div>
+                </div>
+
+               </div>
+               <div class="col-lg-4 col-md-11 col-sm-11">
+                   <div class="row">
+                     <div class="col-12">
+                      <label>
+
+ZIP code</label>
+                   </div>
+                  </div>
+                   <div class="row">
+                      <div class="col-12">
+                      <input type="text"  class="form-control text" id="usr">
+                   </div>
+                  </div>
+
+                 </div>
+
+
+            </div>
+
+            <div class="row" style="    margin-top: 20px !important;">
+              <div class="col-12">
+               <div class="row">
+                 <div class="col-11 col-md-11 sol-sm-11">
+                  <label>
+                    Patreon account number</label>
+               </div>
+              </div>
+               <div class="row">
+                  <div class="col-lg-12 col-md-11 sol-sm-11">
+                  <input type="text" disabled value="2145555" class="form-control text" id="usr">
+               </div>
+              </div>
+              </div>
+            </div>
+            </div>
+            <div class="col-1"></div>
+          </div>
+
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-11">
+              <h2>Taxpayer Identification Number (TIN)</h2>
+            </div>
+          </div>
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-11">
+              <p>Enter your TIN (without hypens) in the appropriate field. The TIN provided must match the name above to avoid backup withholding.
+                </p>
+            </div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-11">
+              <div class="row">
+                <div class="col-lg-6 col-md-11 col-sm-11">
+                 <div class="row">
+                   <div class="col-12">
+                    <label>
+                      Social security number</label>
+                 </div>
+                </div>
+                 <div class="row">
+                    <div class="col-12">
+                      <input type="text"  class="form-control text" id="usr">
+                 </div>
+                </div>
+                </div>
+                <div class="col-lg-6 col-md-11 col-sm-11">
+
+                 <div class="row">
+                   <div class="col-12">
+                    <label>
+
+
+OR Employer identification number</label>
+                 </div>
+                </div>
+                 <div class="row">
+                    <div class="col-12">
+                    <input type="text"  class="form-control text" id="usr">
+                 </div>
+                </div>
+
+               </div>
+              </div>
+            </div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-11">
+              <h2>Certification</h2>
+            </div>
+          </div>
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-11">
+              <p>Under penalties of perjury, I certify that: 1. The number shown on this form is my correct taxpayer identification number (or I am waiting for a number to be issued to me); and 2. I am not subject to backup withholding because: (a) I am exempt from backup withholding, or (b) I have not been notified by the Internal Revenue Service (IRS) that I am subject to backup withholding as a result of a failure to report all interest or dividends, or (c) the IRS has notified me that I am no longer subject to backup withholding; and 3. I am a U.S. citizen or other U.S. person (defined below); and 4. The FATCA code(s) entered on this form (if any) indicating that I am exempt from FATCA reporting is correct.
+                </p>
+            </div>
+            <div class="col-1"></div>
+          </div>
+
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-12">
+             <div class="row">
+               <div class="col-11 col-md-11 sol-sm-11">
+                <label>
+                  Signature of U.S. person (Required)</label>
+             </div>
+            </div>
+             <div class="row">
+                <div class="col-lg-11 col-md-11 sol-sm-11">
+                <input type="text"  placeholder="Type name to sign" class="form-control text" id="usr">
+             </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-lg-4 col-md-2 col-sm-2"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-4 col-md-6 col-sm-6" style="text-align: center"><button class="button1" mat-button>Cancel</button></div>
+          </div>
+          <div class="row" style="    margin-top: 20px !important;">
+            <div class="col-lg-4 col-md-2 col-sm-2"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4"></div>
+            <div class="col-lg-3 col-md-6 col-sm-6" style="text-align: center"><button class="button2" mat-button>Submit this form</button></div>
+          </div>
+
+    </div>
+  </div>
+</div>

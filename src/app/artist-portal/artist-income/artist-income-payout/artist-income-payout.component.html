@@ -1,0 +1,227 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-11 col-sm-11 col-lg-7  offset-lg-1 offset-md-1">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12 col-12">
+
+            <div class="card-header">
+              <div class="row">
+                <div class="col-12">
+                  <h6>WHO ARE YOU?</h6>
+                </div>
+              </div>
+
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class=" col-md-12 col-12 pad">
+                  <span><b>Where are you based? </b></span>
+                </div>
+                <div class="col-md-12 col-12">
+                  <ul style="list-style:none ;padding-left: 0px;">
+                    <li class="lil">
+                      <mat-radio-button value="1"></mat-radio-button>
+                      I am a USA person or corporation (USA)
+                    </li>
+                    <li class="lil">
+                      <mat-radio-button value="1"></mat-radio-button>
+                      I am a non-USA person or corporation (International)
+                    </li>
+                  </ul>
+                  <!-- <mat-list role="list">
+                        <mat-list-item role="listitem"> </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <mat-radio-button value="1"></mat-radio-button></mat-list-item>
+
+                      </mat-list> -->
+                </div>
+              </div>
+              <div class="row">
+                <div class=" col-md-12 col-12 pad">
+                  <span><b>What are you? </b></span>
+                </div>
+                <div class="col-md-12 col-12">
+                  <ul style="list-style:none ;padding-left: 0px;">
+                    <li class="lil">
+                      <mat-radio-button value="1"></mat-radio-button>
+                      I am an individual
+                    </li>
+                    <li class="lil">
+                      <mat-radio-button value="1"></mat-radio-button>
+
+                      I am a corporation / I represent a corporation
+                    </li>
+                  </ul>
+                  <!-- <mat-list role="list">
+                          <mat-list-item role="listitem"> </mat-list-item>
+                          <mat-list-item role="listitem">
+                              <mat-radio-button value="1"></mat-radio-button></mat-list-item>
+
+                        </mat-list> -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div class="card" style="margin: 15px 0px 15px 0px;">
+          <div class="row">
+            <div class="col-md-12 col-12">
+
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-12">
+                    <h6>PAYOUT METHOD</h6>
+                  </div>
+                </div>
+
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class=" col-md-12 col-12 pad">
+                    <span><b>How would you like to get paid? </b></span>
+                  </div>
+                  <div class="col-md-12 col-12">
+                    <ul style="list-style:none ;padding-left: 0px;">
+                      <li style="font-weight: 500">
+                        <mat-radio-button value="1"></mat-radio-button>
+                        Direct Deposit
+                      </li>
+                      <p class="p">Payout fee is $0.25 USD per payout</p>
+                      <span class="p"><u style="color: blue">Learn More</u></span>
+                      <li style="font-weight: 500">
+                        <mat-radio-button value="1"></mat-radio-button>
+                        PayPal
+                      </li>
+                      <p class="p">Payout fee is 1% of the amount transferred, with a minimum of $0.25 USD and a maximum of $20 USD</p>
+                      <span class="p"><u style="color: blue">Learn More</u></span>
+                    </ul>
+                    <!-- <mat-list role="list">
+                          <mat-list-item role="listitem"> </mat-list-item>
+                          <mat-list-item role="listitem">
+                              <mat-radio-button value="1"></mat-radio-button></mat-list-item>
+
+                        </mat-list> -->
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="card" style="margin:15px 0px 15px 0px">
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="card-header">
+                  <div class="row">
+                      <div class="col-12">
+                        <h6>TAX INFORMATION</h6>
+                      </div>
+                    </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <span>2019 gross earnings</span>
+                  </div>
+                  <div class="col-12">
+                    0$
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <p>Patreon requires W-9 forms for US-based creators who have earned a certain amount of money from Patreon in a given tax year. The amount is $600 for creators who reside in Massachusetts or Vermont and $20,000 anywhere else.
+
+                    </p>
+                  </div>
+                  <div class="col-12">
+                    <span><u style="color: blue">Update state of residence</u></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                      <button mat-button class="navbtn" (click)="taxForm()">Fill Out W-9 Form</button>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <p style="color: gray"> We encrypt your forms with 2048bit RSA encryption. Each time you want to update your W-9 form, you will have to fill it out again.
+
+                        We do not withhold any taxes from your funds raised on Patreon. Please consult your tax professional to understand your tax obligations.</p>
+                  </div>
+                  <div class="col-12">
+                      <span><u style="color: blue">Learn more about taxes</u></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-lg-4 offset-md-1 offset-lg-0 ">
+      <div class="card">
+        <div class="row">
+
+          <div class="col-12">
+<h3 style="margin: 10px 0 0 33px; font-weight: bolder">$0</h3>
+          </div>
+        </div>
+        <div class="row" style="display: inline">
+          <div class="col-1"></div>
+          <div class="col-11" style="display: inline">
+            <span><b style="    font-size: 13px;
+              margin-left: 33px;">Current account balance
+              </b></span>  <i data-toggle="tooltip" data-placement="top" ngbTooltip="your message">?</i>
+          </div>
+          <!-- <div class="col-1">
+
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+              <button mat-button class="btn1">WITHDRAW BALANCE</button>
+          </div>
+          <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+        <p style="color: red ;margin-top:10px">Please enter a payment method for your payout.</p>
+            </div>
+            <div class="col-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <mat-divider></mat-divider>
+            </div>
+
+          </div>
+
+          <div class="row" style="padding: 20px 0 20px 0;">
+            <div class="col-1">
+
+            </div>
+            <div class="col-6" >
+              <span class="head" style="font-weight: 600" >Automatic Transfer</span>
+            </div>
+            <div class="col-1"><mat-icon>help</mat-icon></div>
+            <div class="col-3"> <mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-1"></div>
+          </div>
+    </div>
+  </div>
+</div>
