@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-artist-edit-tiers',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistEditTiersComponent implements OnInit {
 
-  constructor() { }
+  upgradflag = false;
+
+  navLinks = [
+    { path: 'artist-portal/edit/tiers/your-tiers', label: 'Your Tiers' },
+    { path: 'artist-portal/edit/tiers/best-practices', label: 'Best Practices' },
+
+  ];
+  constructor(
+    private router : Router
+  ) { }
 
   ngOnInit() {
   }
 
+  upgrade()
+  {
+    this.upgradflag = true;
+    this.router.navigateByUrl('artist-portal/edit/tiers/your-tiers')
+    console.log("upgrade")
+  }
 }
