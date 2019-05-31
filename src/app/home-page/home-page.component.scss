@@ -46,15 +46,15 @@
     background: white;
     padding: 1rem;
     padding: {
-        bottom: 4rem;
+        bottom: 5px;
     }
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    //width: auto;
+    //height: -webkit-fill-available;
+   // overflow: hidden;
     @include breakpoint($narrow-devices) {
         padding: 2rem;
         padding: {
-            bottom: 100px;
+            bottom: 5px;
         }
     }
 }
