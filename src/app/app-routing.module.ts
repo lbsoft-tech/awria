@@ -38,6 +38,7 @@ import { ArtistMessagePageComponent } from './artist-portal/artist-message/artis
 import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
 import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
 import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
+<<<<<<< HEAD
 import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
 import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
 import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
@@ -47,6 +48,12 @@ import { BillingHistoryComponent } from './my-membership/billing-history/billing
 import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
 import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
 import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
+=======
+import { ProfileSettingComponent } from './artist-portal/profile-setting/profile-setting.component';
+import { MyProfileComponent } from './artist-portal/profile-setting/my-profile/my-profile.component';
+import { MyappComponent } from './artist-portal/profile-setting/myapp/myapp.component';
+import { MyemailsettingComponent } from './artist-portal/profile-setting/myemailsetting/myemailsetting.component';
+>>>>>>> d4d00841ba276893f252eb38dcc8d097c0f1f95f
 
 
 
@@ -127,6 +134,26 @@ const routes: Routes = [
           }
         ]
       },
+
+      {
+        path: 'profile-setting',
+        component: ProfileSettingComponent,
+        children: [
+          {
+            path: 'my-profile',
+            component: MyProfileComponent
+          }, {
+            path: 'my-app',
+            component: MyappComponent
+          },{
+            path:'my-email',
+            component:MyemailsettingComponent
+          }
+        ]
+
+
+      },
+
       {
         path: 'edit',
         component: ArtistEditComponent,

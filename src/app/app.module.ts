@@ -65,6 +65,10 @@ import { BillingHistoryComponent } from './my-membership/billing-history/billing
 import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
 import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
 import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
+import { ProfileSettingComponent } from './artist-portal/profile-setting/profile-setting.component';
+import { MyProfileComponent } from './artist-portal/profile-setting/my-profile/my-profile.component';
+import { MyappComponent } from './artist-portal/profile-setting/myapp/myapp.component';
+import { MyemailsettingComponent } from './artist-portal/profile-setting/myemailsetting/myemailsetting.component';
 
 
 @NgModule({
@@ -125,6 +129,10 @@ import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-
     PaymentMethodsComponent,
     YourTiersComponent,
     BestPracticesComponent,
+    ProfileSettingComponent,
+    MyProfileComponent,
+    MyappComponent,
+    MyemailsettingComponent,
   ],
   imports: [
     BrowserModule,
