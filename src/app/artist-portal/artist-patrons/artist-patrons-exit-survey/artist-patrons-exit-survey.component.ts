@@ -28,8 +28,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./artist-patrons-exit-survey.component.scss']
 })
 
-
-
 export class ArtistPatronsExitSurveyComponent implements OnInit {
   displayedColumns: string[] = ['date', 'PledgeAmount', 'Reasons', 'Feedback'];
   dataSource = ELEMENT_DATA;
