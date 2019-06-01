@@ -5,19 +5,15 @@ import { first } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = `//localhost:27017/awria-database`;
+  readonly baseUrl= 'http://localhost:3000';
   constructor(private httpClient: HttpClient) { }
 
 
   login(data) {
-    return this.httpClient.post(this.baseUrl + '/api/auth/login', data, { headers: { 'content-type': 'application/json' } })
-      .pipe(first())
-      .toPromise();
+    return this.httpClient.post(this.baseUrl + '/auth/login', data);
   }
 
   signup(data) {
-    return this.httpClient.post(this.baseUrl + '/api/users/signup', data, { responseType: 'text' })
-      .pipe(first())
-      .toPromise();
+    return this.httpClient.post(this.baseUrl + '/auth/register', data);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
+
 
 @Component({
   selector: 'app-register',
@@ -11,22 +13,36 @@ user={
   name:'',
   email:'',
   password:'',
+  cemail:''
 }
-  constructor() { }
+  constructor(private auth:AuthService) { }
 
   ngOnInit() {
   }
   signup(){
-    let data={
-      name:this.user.name,
-      email:this.user.email,
-      password:this.user.password,
-      
+    console.log(this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$"));
+    try {
+      if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")
+        && this.user.password.match("(?=.*[#/?//&/@/$/!/%////\/'/'/}/{/}])(?=.*).{7,}")
+        && this.user.name != ''
+        && this.user.email == this.user.cemail
+      ) {
+console.log("object");
+let data={
+  name:this.user.name,
+  email:this.user.email,
+  password:this.user.password
+}
+this.auth.signup(data).subscribe(res=>{
+  console.log("registered");
+})
+      }
+      else {
+        console.log("Email is not in format")
+      }
     }
-    console.log(data);
-  
- 
-  
+    catch (error) {
+      console.log(error.message);
+    }
   }
-
 }

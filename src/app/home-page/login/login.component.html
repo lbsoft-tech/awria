@@ -2,14 +2,43 @@
 <div class="container col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2" >
 
 <form>
-<label for="email">Email</label><br>
-<input type="email" formControlName="email" class="form-control" /><br>
+
+    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+        <!-- <label class="control-label"> -->
+        <p for="pass">Email</p>
+        <!-- </label> -->
+        <input autocomplete="off" required email type="text" name="email" #email="ngModel" [(ngModel)]="user.email" id="email"
+          placeholder="Enter Email"  class="form-control">
+  
+        <small style="color:red" class="help-block" *ngIf="email.errors?.required  && email.touched">
+          Email is required
+        </small>
+        <small style="color:red" class="help-block" *ngIf=" email.errors?.email && email.touched">
+          Email is Badly formated
+        </small>
+      </div>
+
+
+<!-- <label for="email">Email</label><br>
+<input type="email" formControlName="email" class="form-control" /> -->
+<br>
+<!-- <div class="form-group" [class.has-error]="pass.touched">
+    <p for="pass">Password</p>
+    <input required type="password" name="password" id="password" #pass="ngModel" [(ngModel)]="user.password"
+      placeholder="Enter Password" class="form-control">
+    <small style="color:red" class="help-block" *ngIf=" pass.touched && pass.errors?.required">
+      Password is required
+    </small>
+  </div> -->
+
 
 <label for="email">Password</label><br>
-<input type="text" type="password" formControlName="password" class="form-control" /><br>
+<input autocomplete="on" type="password"  class="form-control" />
+
+<br>
 
 <button class="btn-fp">Forget Your password</button><br>
-  <button class="btn">Login</button>
+  <button class="btn" (click)="login()" type="button" >Login</button>
   <br>
 
   <button class="btn btn-fb">Continue with Facebook</button><br>
