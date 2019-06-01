@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="col-lg-3">
+    <div class="card">
+      <div class="card-header">
+          <ngx-avatar
+          src="../../../assets/images/posts/icon-camera.png"
+          name="Jane Doe"
+          value="30%"
+          bgColor="#000000"
+          fgColor="#58D3F7"
+          size="120"
+          textSizeRatio="2.5"
+          [round]="true"
+          class="custom-avatar"
+        ></ngx-avatar>
+      </div>
+        <div class="card-body">
+          <div class="row bb">
+                  <span><b>SUPPORTING</b></span>
+          </div>
+          <div class="row">
+           <p>You aren’t supporting any creators yet.</p>
+          </div>
+
+        </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="row">
+        <nav mat-tab-nav-bar class="navExpand">
+            <a mat-tab-link
+               *ngFor="let link of navLinks"
+               [routerLink]="['/'+link.path]"
+               routerLinkActive #rla="routerLinkActive"
+               [active]="rla.isActive">
+              {{link.label}}
+            </a>
+          </nav>
+    </div>
+    <br>
+    <router-outlet></router-outlet>
+    <br>
+  </div>
+  <div class="col-lg-3">
+      <div class="card">
+      <div class="card-header">
+          <span><b>FIND CREATORS YOU LOVE</b></span>
+      </div>
+          <div class="card-body">
+            <div class="row">
+            <p>The creators you already love may be on Awria – connect your social media to find them.</p>
+           </div>
+            <div class="row">
+                <button class="btn" mat-button>Find Creators</button>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,325 @@
+<div class="row">
+  <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 offset-lg-1 ">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-5">
+        <h2>Earnings</h2>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-4"></div>
+      <div class="col-lg-2 col-md-2 col-sm-3">
+        <button class="btn1" mat-button>Download CSV</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-11">
+        <p>
+          Earnings are the amount of income you take home from the money pledged to you as a creator on Patreon.
+          Earnings correspond to the time that Patreon successfully processed your pledges and refunds, rather than the
+          time when you performed the work or published paid posts.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 offset-lg-1" style="     padding: 5px 20px 0px 20px;">
+    <div class="row">
+      <div
+        class="card"
+        style="width: 100%;
+        padding: 20px;
+        "
+      >
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12 ">
+            <h5>Earnings before tax</h5>
+          </div>
+
+          <div class="col-lg-6 col-md-12 col-sm-12" style="text-align: right">
+            <button class="btn1" mat-button>6 Months</button>
+            <button class="btn1" mat-button>1 Year</button>
+            <button class="btn1" mat-button>All Time</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <canvas id="lineChart" style="padding: 15px 5px 5px 20px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-11 col-md-11 col-sm-11 offset-lg-1 ">
+    <div class="row" style="margin-top: 20px">
+      <div class=" col-xl-4 col-lg-12 col-md-12 col-sm-12" style="padding: 5px">
+        <div
+          class="card card1"
+          style="width: 100%;
+      padding: 20px;
+      "
+        >
+          <div class="row">
+            <div class="col-12">
+              <span style="font-weight: 700">Get more patrons by mentioning Patreon</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <p>
+                75% of patrons discover a creator’s membership business because the creator mentioned Patreon on social
+                media
+              </p>
+            </div>
+            <div class="col-3 man">
+              <div class="sc-cSHVUG jlogeD">
+                <img
+                  src="https://c5.patreon.com/external/insights/tips/earnings_promotional_tactics.png"
+                  width="26px"
+                />
+              </div>
+            </div>
+            <div class="col-12">
+              <span>
+                <u style="color: blue">Lear more</u>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-xl-4 col-lg-12 col-md-12 col-sm-12" style="padding: 5px">
+        <div
+          class="card card1"
+          style="width: 100%;
+        padding: 20px;
+        "
+        >
+          <div class="row">
+            <div class="col-12">
+              <span style="font-weight: 700">Give yourself a raise with a Special Offer</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <p>
+                Feeling stuck in an earnings plateau? Break free with a Special Offer to your fans.
+              </p>
+            </div>
+            <div class="col-3 man">
+              <div class="sc-cSHVUG jlogeD">
+                <img src="https://c5.patreon.com/external/insights/tips/special_offers.png" width="26px" />
+              </div>
+            </div>
+            <div class="col-12">
+              <span>
+                <u style="color: blue">Create</u>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" col-xl-4 col-lg-12 col-md-12 col-sm-12" style="padding: 5px">
+        <div
+          class="card card1"
+          style="width: 100%;
+          padding: 20px;
+          "
+        >
+          <div class="row">
+            <div class="col-12">
+              <span style="font-weight: 700">Find exciting ways to connect with patrons</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <p>
+                Our app integrations make it easy to send videos, emails, and more to your patrons
+              </p>
+            </div>
+            <div class="col-3 man">
+              <div class="sc-cSHVUG jlogeD">
+                <img src="https://c5.patreon.com/external/insights/tips/earnings_connect.png" width="26px" />
+              </div>
+            </div>
+            <div class="col-12">
+              <span>
+                <u style="color: blue">See apps</u>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-11 col-md-11 col-sm-0 offset-lg-1 p-1">
+    <!-- <div class="card">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+              <ng-container matColumnDef="month">
+                <th mat-header-cell *matHeaderCellDef>Month <mat-icon>contact_support</mat-icon> </th>
+                <td mat-cell *matCellDef="let element" > {{element.month}}</td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="newPledge">
+                <th mat-header-cell *matHeaderCellDef> New Pledges </th>
+                <td mat-cell *matCellDef="let element" style="font-family: cursive ;text-align: center">
+                  ${{element.newPledge}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="increasedPledge">
+                <th mat-header-cell *matHeaderCellDef>
+
+Increased Pledges</th>
+                <td mat-cell *matCellDef="let element" style="text-align: center"> ${{element.increasedPledge}}</td>
+              </ng-container>
+              <ng-container matColumnDef="deletePledge">
+                <th mat-header-cell *matHeaderCellDef>
+
+                    Deleted Pledges </th>
+                <td mat-cell *matCellDef="let element" style="text-align: center">${{element.deletePledge}} </td>
+              </ng-container>
+              <ng-container matColumnDef="decreasedPledge">
+                  <th mat-header-cell *matHeaderCellDef>
+                      Decreased Pledges </th>
+                  <td mat-cell *matCellDef="let element" style="text-align: center">${{element.decreasedPledge}} </td>
+                </ng-container>
+                <ng-container matColumnDef="totalChange">
+                    <th mat-header-cell *matHeaderCellDef>
+                        Total Change </th>
+                    <td mat-cell *matCellDef="let element" style="text-align: center">${{element.totalChange}}
+                        +0 pledges </td>
+                  </ng-container>
+                  <ng-container matColumnDef="endOfMonth">
+                      <th mat-header-cell *matHeaderCellDef>
+
+Amount Pledged At End of Month</th>
+                      <td mat-cell *matCellDef="let element" style="text-align: center"> ${{element.endOfMonth}}
+                         </td>
+                    </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div> -->
+
+    <div class="card table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="month">
+          <th mat-header-cell *matHeaderCellDef>Month</th>
+          <td mat-cell *matCellDef="let element">{{ element.month }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="newPledge">
+          <th mat-header-cell *matHeaderCellDef>EARNINGS BEFORE REFUNDS</th>
+          <td mat-cell *matCellDef="let element" style="font-family: cursive ;text-align: center">
+            ${{ element.newPledge }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="increasedPledge">
+          <th mat-header-cell *matHeaderCellDef>
+            TOTAL REFUNDS
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center">${{ element.increasedPledge }}</td>
+        </ng-container>
+        <ng-container matColumnDef="deletePledge">
+          <th mat-header-cell *matHeaderCellDef>
+            EARNINGS BEFORE FEES
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center">${{ element.deletePledge }}</td>
+        </ng-container>
+        <ng-container matColumnDef="decreasedPledge">
+          <th mat-header-cell *matHeaderCellDef>
+            PAYMENT PROCESSING FEES
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center">${{ element.decreasedPledge }}</td>
+        </ng-container>
+        <ng-container matColumnDef="totalChange">
+          <th mat-header-cell *matHeaderCellDef>
+            PLATFORM FEES
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center">${{ element.totalChange }} +0 pledges</td>
+        </ng-container>
+        <ng-container matColumnDef="endOfMonth">
+          <th mat-header-cell *matHeaderCellDef>
+            EARNINGS BEFORE TAX
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center">${{ element.endOfMonth }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+    <div class="card table2">
+      <div class="row" style="    padding: 15px 0 0 15px;">
+        <div class="col-12">
+          <h5>
+            May 2019
+          </h5>
+        </div>
+      </div>
+      <div class="row" style="   padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>EARNINGS BEFORE REFUNDS </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+
+      <div class="row" style="   padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>TOTAL REFUNDS </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+
+      <div class="row" style="  padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>EARNINGS BEFORE FEES </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+
+      <div class="row" style="    padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>PAYMENT PROCESSING FEES </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+
+      <div class="row" style="   padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>PLATFORM FEES </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+
+      <div class="row" style="   padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>EARNINGS BEFORE TAX </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+
+      <div class="row" style=" padding: 20px 0px 0px 20px;">
+        <div class="col-12">
+          <span><b>EARNINGS BEFORE REFUNDS </b></span><mat-icon>help</mat-icon>
+        </div>
+        <div class="col-12" style="    margin-top: 10px;">
+          $0.00
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
