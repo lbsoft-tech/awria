@@ -9,17 +9,17 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-user={
-  name:'',
-  email:'',
-  password:'',
-  cemail:''
-}
-  constructor(private auth:AuthService) { }
+  user = {
+    name: '',
+    email: '',
+    password: '',
+    cemail: ''
+  }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
-  signup(){
+  signup() {
     console.log(this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$"));
     try {
       if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")
@@ -27,15 +27,14 @@ user={
         && this.user.name != ''
         && this.user.email == this.user.cemail
       ) {
-console.log("object");
-let data={
-  name:this.user.name,
-  email:this.user.email,
-  password:this.user.password
-}
-this.auth.signup(data).subscribe(res=>{
-  console.log("registered");
-})
+        const data = {
+          name: this.user.name,
+          email: this.user.email,
+          password: this.user.password
+        };
+        this.auth.signup(data).subscribe(res => {
+
+        });
       }
       else {
         console.log("Email is not in format")
