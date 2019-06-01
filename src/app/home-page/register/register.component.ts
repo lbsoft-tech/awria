@@ -6,32 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-name;
-email;
-password;
-cemail;
+
+user={
+  name:'',
+  email:'',
+  password:'',
+}
   constructor() { }
 
   ngOnInit() {
   }
   signup(){
     let data={
-      name:this.name,
-      email:this.email,
-      password:this.password,
+      name:this.user.name,
+      email:this.user.email,
+      password:this.user.password,
       
     }
     console.log(data);
   
-    if(this.email===this.cemail){
-      let data={
-        name:this.name,
-        email:this.email,
-        password:this.password,
-        
-      }
-      console.log(data);
-    }
+ 
   
   }
 
