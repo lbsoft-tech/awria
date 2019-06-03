@@ -27,17 +27,6 @@ export class RegisterComponent implements OnInit {
         && this.user.name != ''
         && this.user.email == this.user.cemail
       ) {
-<<<<<<< HEAD
-console.log("object");
-let data={
-  name:this.user.name,
-  email:this.user.email.toLowerCase().trim(),
-  password:this.user.password
-}
-this.auth.signup(data).subscribe(res=>{
-  console.log("registered");
-})
-=======
         const data = {
           name: this.user.name,
           email: this.user.email,
@@ -46,7 +35,6 @@ this.auth.signup(data).subscribe(res=>{
         this.auth.signup(data).subscribe(res => {
 
         });
->>>>>>> 766e0cc6a8dbbbd6b5b55babbe2f9df7ca20be42
       }
       else {
         console.log("Email is not in format")

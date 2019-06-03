@@ -45,8 +45,14 @@ user={
       },
     ]
   }
+form:FormGroup
+  constructor(private fb:FormBuilder) {
+this.form=this.fb.group([
+  
+])
 
-  constructor() { }
+
+   }
 
   ngOnInit() {
   }
