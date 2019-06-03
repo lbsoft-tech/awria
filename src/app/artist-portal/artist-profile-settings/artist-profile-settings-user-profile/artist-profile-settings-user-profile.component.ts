@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import{ FormGroup,FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-artist-profile-settings-user-profile',
@@ -8,6 +9,19 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 })
 export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
+password={
+  oldPassword:'',
+  newPassword:'',
+  cPassword:''
+}
+htmlContent='';
+user={
+  name:'',
+  email:'',
+  country:'',
+  about:'',
+
+}
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -36,5 +50,17 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
   ngOnInit() {
   }
+country(event:any){
+  console.log(event.target.value);
+}
+changePasssword(){
+  
 
+
+
+}
+imageUpload(event){
+console.log(event);
+console.log(this.htmlContent);
+}
 }

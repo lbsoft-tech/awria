@@ -30,7 +30,7 @@ user={
 console.log("object");
 let data={
   name:this.user.name,
-  email:this.user.email,
+  email:this.user.email.toLowerCase().trim(),
   password:this.user.password
 }
 this.auth.signup(data).subscribe(res=>{

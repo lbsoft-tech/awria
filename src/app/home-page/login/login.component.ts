@@ -19,7 +19,7 @@ login(){
   console.log("object");
   if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")){
     let data={
-      email:this.user.email,
+      email:this.user.email.toLowerCase().trim(),
       password:this.user.password
     }
   this.auth.login(data).subscribe(res=>{
