@@ -61,6 +61,8 @@ import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.com
 import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-home-all-posts/artist-home-all-posts.component';
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
+import { AuthGuard } from './_guards/authguard/auth.guard';
+import { RoleGuard } from './_guards/roleguard/role.guard';
 
 
 
@@ -69,7 +71,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home-page'
+    redirectTo: '/home-page/home'
   },
   {
     path: 'home-page',
@@ -110,10 +112,13 @@ const routes: Routes = [
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'posts',
         component: ArtistPostsComponent,
+        canActivate: [RoleGuard],
+        data: { role: 'Artist' },
         children: [
           {
             path: 'new',

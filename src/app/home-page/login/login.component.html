@@ -9,7 +9,7 @@
         <!-- </label> -->
         <input autocomplete="off" required email type="text" name="email" #email="ngModel" [(ngModel)]="user.email" id="email"
           placeholder="Enter Email"  class="form-control">
-  
+
         <small style="color:red" class="help-block" *ngIf="email.errors?.required  && email.touched">
           Email is required
         </small>
@@ -19,18 +19,8 @@
       </div>
 
 
-<!-- <label for="email">Email</label><br>
-<input type="email" formControlName="email" class="form-control" /> -->
-<br>
-<!-- <div class="form-group" [class.has-error]="pass.touched">
-    <p for="pass">Password</p>
-    <input required type="password" name="password" id="password" #pass="ngModel" [(ngModel)]="user.password"
-      placeholder="Enter Password" class="form-control">
-    <small style="color:red" class="help-block" *ngIf=" pass.touched && pass.errors?.required">
-      Password is required
-    </small>
-  </div> -->
 
+<br>
 
 <label for="email">Password</label><br>
 <input autocomplete="on" type="password"  class="form-control" />
@@ -38,7 +28,7 @@
 <br>
 
 <button class="btn-fp">Forget Your password</button><br>
-  <button class="btn" (click)="login()" type="button" >Login</button>
+  <button class="btn" (click)="login()" type="button" disabled="">Login</button>
   <br>
 
   <button class="btn btn-fb">Continue with Facebook</button><br>
