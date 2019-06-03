@@ -11,5 +11,7 @@ export class DatabaseService {
   getUser(id){
  return  this.httpClient.get(this.baseUrl+'/users/'+id);
   }
-
+updatePassword(id,data){
+  return this.httpClient.post(this.baseUrl+'/users/'+id,data);
+}
 }

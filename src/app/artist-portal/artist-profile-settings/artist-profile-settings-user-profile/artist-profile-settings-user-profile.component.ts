@@ -61,11 +61,32 @@ country(event:any){
   console.log(event.target.value);
 }
 changePasssword(){
-  let id =localStorage.getItem('uid');
-  this.api.getUser(id).subscribe(res=>{
-this.userData=res;
+  if(this.password.newPassword===this.password.cPassword){
+
+    let id =localStorage.getItem('uid');
+    this.api.getUser(id).subscribe(res=>{
+  this.userData=res;
+  if (this.password.cPassword==this.userData.password){
+  let data={
+    name: this.userData.name,
+    email: this.userData.email,
+    password: this.password.newPassword
+  }
+  this.api.updatePassword(id,data).subscribe(res=>{
+  console.log("PasswordUpdated");
   })
   
+  }
+  else{
+    console.log("old password not matched");
+  }
+    })
+    
+  }
+  else{
+    console.log("Incorrect passwords");
+  }
+
 
 
 
