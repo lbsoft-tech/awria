@@ -71,7 +71,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home-page'
+    redirectTo: '/home-page/home'
   },
   {
     path: 'home-page',
