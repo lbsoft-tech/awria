@@ -16,13 +16,22 @@ password={
   cPassword:''
 }
 htmlContent='';
-user={
-  name:'',
-  email:'',
-  country:'',
-  about:'',
 
-}
+  name;
+  email;
+  country;
+  about ;
+  image;
+  shipping={
+    name:'',
+    address:'',
+    apt:'',
+    city:'',
+    sCountry:'',
+    state:'',
+    postCode:'',
+  }
+
 userData;
   config: AngularEditorConfig = {
     editable: true,
@@ -57,8 +66,13 @@ userData;
 
   ngOnInit() {
   }
-country(event:any){
+getCountry(event:any){
   console.log(event.target.value);
+  this.country=event.target.value;
+}
+getShippingCountry(event:any){
+  console.log(event.target.value);
+  this.shipping.sCountry=event.target.value;
 }
 changePasssword(){
   if(this.password.newPassword===this.password.cPassword){
@@ -86,13 +100,47 @@ changePasssword(){
   else{
     console.log("Incorrect passwords");
   }
-
-
-
-
 }
 imageUpload(event){
-console.log(event);
-console.log(this.htmlContent);
+console.log(event[0]);
+this.image= event[0]
+const formdata = new FormData();
+     formdata.append('userprofile', event[0], 'dp.jpg')
+     formdata.append('id', localStorage.getItem('uid'))
+}
+UserProfileUpdate(){
+  let id =localStorage.getItem('uid');
+  this.api.getUser(id).subscribe(res=>{
+    this.userData=res;
+    // this.name=this.userData.name;
+    // this.email=this.userData.email;
+    // this.about=this.userData.about;
+    let data={
+      name:this.name,
+      email:this.email,
+      about:this.about,
+      country:this.country,
+      image:this.image,
+    }
+    this.api.updateProfile(id,data).subscribe(res=>{
+      console.log("profile Updated");
+    })
+  })
+}
+addShippingAddress(){
+  let id =localStorage.getItem('uid');
+  let data={
+    name:this.shipping.name,
+    address:this.shipping.address,
+    apt:this.shipping.apt,
+    city:this.shipping.city,
+    country:this.shipping.sCountry,
+    state:this.shipping.state,
+    postCode:this.shipping.postCode
+  }
+  this.api.addShipping(id,data).subscribe(res=>{
+
+    console.log("Shipping updated");
+  })
 }
 }

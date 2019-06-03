@@ -14,4 +14,10 @@ export class DatabaseService {
 updatePassword(id,data){
   return this.httpClient.post(this.baseUrl+'/users/'+id,data);
 }
+updateProfile(id,data){
+  return this.httpClient.post(this.baseUrl+'/users/'+id,data);
+}
+addShipping(id,data){
+  return this.httpClient.post(this.baseUrl+'/users/'+id,data);
+}
 }
