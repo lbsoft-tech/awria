@@ -23,12 +23,12 @@
 <br>
 
 <label for="email">Password</label><br>
-<input autocomplete="on" type="password"  class="form-control" />
+<input autocomplete="on" type="password" [(ngModel)]="user.password" class="form-control" name="password" />
 
 <br>
 
 <button class="btn-fp">Forget Your password</button><br>
-  <button class="btn" (click)="login()" type="button" disabled="">Login</button>
+  <button class="btn" (click)="login()" type="button" >Login</button>
   <br>
 
   <button class="btn btn-fb">Continue with Facebook</button><br>

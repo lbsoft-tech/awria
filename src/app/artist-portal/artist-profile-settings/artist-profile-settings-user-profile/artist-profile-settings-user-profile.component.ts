@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import{ FormGroup,FormBuilder} from '@angular/forms';
+import { DatabaseService } from '../../../services/database/database.service';
+
 
 @Component({
   selector: 'app-artist-profile-settings-user-profile',
@@ -22,6 +23,7 @@ user={
   about:'',
 
 }
+userData;
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -45,11 +47,10 @@ user={
       },
     ]
   }
-form:FormGroup
-  constructor(private fb:FormBuilder) {
-this.form=this.fb.group([
-  
-])
+
+  constructor(
+    private api:DatabaseService) {
+
 
 
    }
@@ -60,6 +61,10 @@ country(event:any){
   console.log(event.target.value);
 }
 changePasssword(){
+  let id =localStorage.getItem('uid');
+  this.api.getUser(id).subscribe(res=>{
+this.userData=res;
+  })
   
 
 

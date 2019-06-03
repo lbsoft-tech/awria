@@ -112,13 +112,13 @@ const routes: Routes = [
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'posts',
         component: ArtistPostsComponent,
-        canActivate: [RoleGuard],
-        data: { role: 'Artist' },
+        // canActivate: [RoleGuard],
+        // data: { role: 'Artist' },
         children: [
           {
             path: 'new',
