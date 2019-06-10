@@ -89,12 +89,6 @@ changePasssword(){
   this.api.updatePassword(id,data).subscribe(res=>{
   console.log("PasswordUpdated");
   })
-<<<<<<< HEAD
-
-
-
-
-=======
   
   }
   else{
@@ -106,7 +100,6 @@ changePasssword(){
   else{
     console.log("Incorrect passwords");
   }
->>>>>>> fe6eefc2e07f66505d647bc682f145904f8ebd75
 }
 imageUpload(event){
 console.log(event[0]);
