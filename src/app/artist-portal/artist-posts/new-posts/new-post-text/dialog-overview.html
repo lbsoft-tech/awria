@@ -19,7 +19,7 @@
                         font-size: 50px;
                         opacity: 0;
                         right: 0;
-                        top: 0;" type="file" name="file"/>
+                        top: 0;" type="file" (change)="imageUpload($event.target.files)" name="textPhoto"/>
                       </div>
                </div>
                 <div class="col-4"></div>
@@ -36,7 +36,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroup-sizing-lg"><mat-icon>link</mat-icon></span>
                 </div>
-                <input type="text" placeholder="Type or paste image URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                <input type="text" [(ngModel)]="api.textPhotoUrl" name="textPhotoUrl" placeholder="Type or paste image URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
               </div>
         </div>
       </div>
