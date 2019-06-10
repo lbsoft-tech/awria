@@ -1,0 +1,51 @@
+.center {
+    justify-content: center;
+    text-align: center;
+    margin: 0 0 300px 0;
+ }
+
+ @media (max-width: 600px) {
+    .center
+  {
+    margin: 0px 0 50px 0px;
+  }
+  .custompadding
+  {
+      padding: 2rem 0;
+  }
+  }
+
+ .p_text
+ {
+    color: rgb(36, 30, 18);
+    font-family: aktiv-grotesk, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+ }
+
+ .extended-fab-button {
+    width: 135px;
+    padding: 0 7px;
+    border-radius: 29px;
+    background: #004c81;
+    color: white;
+    height: 50px;
+    line-height: 0px !important;
+    margin: 0px 0 0 0;
+    transition: none !important;
+    box-shadow: none !important;
+
+    .mat-icon {
+      margin-right: 10px;
+    }
+
+    .extended-fab-button__text {
+      font-weight: 500;
+      letter-spacing: .01em;
+      text-transform: none;
+      line-height: 0px !important;
+      margin: 0px 0px 0 0;
+      font-size: initial;
+    }
+  }

@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import{RouterModule}from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import { AngularEditorModule} from '@kolkov/angular-editor';
-// import { NgxCountrySelectModule } from 'ngx-country-select/dist';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,13 +32,8 @@ import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
 
-// import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
-// import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-// import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
-
-import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
-import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent, IDialogOverviewExampleDialogComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
@@ -68,11 +62,35 @@ import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
-import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
+
 import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
-import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
 import { ArtistHomeAllpostComponent } from './artist-portal/artist-home/artist-home-allpost/artist-home-allpost.component';
-import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/artist-home-patrononlypost/artist-home-patrononlypost.component';
+import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
+import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
+import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
+import { MyMembershipComponent } from './my-membership/my-membership.component';
+import { ActiveMembershipsComponent } from './my-membership/active-memberships/active-memberships.component';
+import { BillingHistoryComponent } from './my-membership/billing-history/billing-history.component';
+import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
+import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
+import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
+import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
+import { ArtistIncomePayoutComponent } from './artist-portal/artist-income/artist-income-payout/artist-income-payout.component';
+import { ArtistIncomePayoutTaxformComponent } from './artist-portal/artist-income/artist-income-payout/artist-income-payout-taxform/artist-income-payout-taxform.component';
+import { ArtistPatronsExitSurveyComponent } from './artist-portal/artist-patrons/artist-patrons-exit-survey/artist-patrons-exit-survey.component';
+import { ArtistPatronsBlockedUsersComponent } from './artist-portal/artist-patrons/artist-patrons-blocked-users/artist-patrons-blocked-users.component';
+import { ArtistIncomeEarningsComponent } from './artist-portal/artist-income/artist-income-earnings/artist-income-earnings.component';
+import { ArtistIncomePledgeGrowthComponent } from './artist-portal/artist-income/artist-income-pledge-growth/artist-income-pledge-growth.component';
+import { ArtistProfileSettingsComponent } from './artist-portal/artist-profile-settings/artist-profile-settings.component';
+import { ArtistProfileSettingsEmailComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-email/artist-profile-settings-email.component';
+import { ArtistProfileSettingsUserProfileComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-user-profile/artist-profile-settings-user-profile.component';
+import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
+import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-home-all-posts/artist-home-all-posts.component';
+import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
+import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
+import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
+import { TokenInterceptor } from './services/auth/token.interceptor';
+
 
 
 @NgModule({
@@ -96,7 +114,7 @@ import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/a
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
     LoginComponent,
-    DialogOverviewExampleDialogComponent,
+    // DialogOverviewExampleDialogComponent,
     IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,
@@ -111,7 +129,6 @@ import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/a
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
     ArtistMessageProfileUnreadComponent,
-    NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
 
@@ -147,7 +164,30 @@ import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/a
     ArtistPayoutComponent,
     ArtistHomeComponent,
     ArtistHomeAllpostComponent,
-    ArtistHomePatrononlypostComponent,
+    DraftsComponent,
+    ScheduledComponent,
+    PublishedComponent,
+    MyMembershipComponent,
+    ActiveMembershipsComponent,
+    BillingHistoryComponent,
+    PaymentMethodsComponent,
+    YourTiersComponent,
+    BestPracticesComponent,
+    ArtistIncomeComponent,
+    ArtistIncomePayoutComponent,
+    ArtistIncomePayoutTaxformComponent,
+    ArtistPatronsExitSurveyComponent,
+    ArtistPatronsBlockedUsersComponent,
+    ArtistIncomeEarningsComponent,
+    ArtistIncomePledgeGrowthComponent,
+    ArtistProfileSettingsComponent,
+    ArtistProfileSettingsEmailComponent,
+    ArtistProfileSettingsUserProfileComponent,
+    ArtistHomeComponent,
+    ArtistHomeAllPostsComponent,
+    ArtistHomePatronPostsComponent,
+    HomePageHomeComponent,
+    HomePagePricingComponent,
   ],
   imports: [
     BrowserModule,
@@ -165,11 +205,19 @@ import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/a
     AngularEditorModule
     // NgxCountrySelectModule
   ],
-  entryComponents: [DialogOverviewExampleDialogComponent,IDialogOverviewExampleDialogComponent,
+  entryComponents: [
+    // DialogOverviewExampleDialogComponent, 
+    IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

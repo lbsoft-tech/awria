@@ -3,7 +3,7 @@
     <p class="p_title">Choose what to offer your patrons</p>
   </div>
 
-  <div class="container">
+  <div class="container" *ngIf="!upgradflag" >
 
     <div class="center">
         <h2 class="h2_leftbar">Upgrade to Pro Plan </h2>
@@ -13,8 +13,90 @@
          benefits at different levels.
       </span>
 
-      <button class="extended-fab-button" mat-fab >
+      <button class="extended-fab-button" mat-fab (click)="upgrade()">
           <p class="extended-fab-button__text">Upgrade</p>
       </button>
     </div>
   </div>
+
+  <div class="container" *ngIf="upgradflag">
+
+    <div class="left70">
+
+        <div class="border extra_border_padding">
+          <div class="tabs" style="margin-top: 12px;" >
+              <nav mat-tab-nav-bar mat-align-tabs="left" color="primary" class="navExpand">
+                  <a mat-tab-link color="primary" 
+                    *ngFor="let link of navLinks"
+                    [routerLink]="['/'+link.path]"
+                    routerLinkActive #rla="routerLinkActive"
+                    [active]="rla.isActive">
+                    {{link.label}}
+                  </a>
+                </nav>
+          </div>
+
+          <router-outlet></router-outlet>
+
+
+        </div>
+
+    </div>
+
+  <div class="right30">
+
+    <!-- <button mat-flat-button class="btn1">
+      <span class="bt1_text"> Save Changes </span>
+    </button>
+
+    <div class="border">
+
+      <h2 class="h2_rightbar">Launch Checklist</h2>
+        <mat-list role="list" >
+            <mat-list-item role="listitem"  class="mat_item" style="margin-top: 8px">
+              <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+              Upload profile picture</mat-list-item>
+            <mat-list-item role="listitem" class="mat_item">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+                Upload cover image</mat-list-item>
+            <mat-list-item role="listitem" class="mat_item">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+                Create about section</mat-list-item>
+            <mat-list-item role="listitem" class="mat_item" style="margin-bottom: 8px">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;margin-right: 12px;"></i>
+                Verify phone number</mat-list-item>
+          </mat-list>
+      </div>
+
+
+      <div class="border">
+
+          <h2 class="h2_rightbar">Learn More</h2>
+          <ul >
+            <li class="ul_li">
+              <span><a href="#" class="aa">Membership 101: Best Practices</a></span>
+            </li>
+            <li class="ul_li">
+                <span><a href="#" class="aa">How to choose your business model</a></span>
+            </li>
+            <li class="ul_li">
+                <span><a href="#" class="aa">How to talk about Patreon to your audience</a></span>
+            </li>
+            <li class="ul_li">
+                <span><a href="#" class="aa">Knowing your worth as a creator</a></span>
+            </li>
+          </ul>
+        </div> -->
+
+        <div class="border" style="margin-top: 0px;">
+            <h2 class="h2_tips">Tips</h2>
+
+            <div class="row" style=" padding: 34px;">
+              <p>
+                Avoid making titles that are too long. Consider creating a title that connects to your brand. Some creators also like to use the title to create nicknames for their patrons.
+              </p>
+            </div>
+
+        </div>
+</div>
+</div>

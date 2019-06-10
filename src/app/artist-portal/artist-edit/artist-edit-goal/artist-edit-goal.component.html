@@ -3,7 +3,7 @@
     <p class="p_title">Tell your patrons what you're working towards with their support</p>
   </div>
 
-  <div class="container">
+  <div class="container" *ngIf="!upgradflag" >
 
     <div class="center">
         <h2 class="h2_leftbar">Upgrade to Pro Plan </h2>
@@ -12,8 +12,199 @@
          milestones with your patrons and encourage them to join you on your journey.
       </span>
 
-      <button class="extended-fab-button" mat-fab >
+      <button class="extended-fab-button" mat-fab (click)="upgrade()">
           <p class="extended-fab-button__text">Upgrade</p>
       </button>
     </div>
   </div>
+
+
+<div *ngIf="upgradflag">
+  <div class="row">
+    <div class="col-lg-8 col-sm-12 border">
+
+      <p class="p_orange">What would you like to work toward with your patrons?</p>
+
+      <p class="p_text">Goals are the best way to get patrons excited about the next big step of your creative journey. Paint a picture of what you'll work towards together.
+      </p>
+
+      <mat-divider></mat-divider>
+
+      <div class="row custom_row_padding" >
+        <div class="col-lg-3">
+            <p class="black_bold">Goal Type</p>
+        </div>
+        <div class="col-lg-7">
+            <p class="p_text" style="margin:0px !important">
+                <i class="fa fa-dollar-sign" aria-hidden="true"></i>
+                <!-- <i class="fa fa-dollar-sign chkbtn " aria-hidden="true" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;margin: 3px 0 0 0;padding: 16px 18px 16px 18px;"></i> -->
+                Earnings-based goals
+             </p>
+        </div>
+        <div class="col-lg-2" style="text-align: right;">
+            <a (click)="edit()">Edit</a>
+        </div>  
+      </div>
+
+      <div *ngIf="edit_flag">
+          <div class="row custom_row_padding" >
+              <div class="col-lg-8 col-xs-8">
+                  <p class="black_bold">What type of goal are you working towards?</p>
+              </div>
+              <div class="col-lg-4 col-xs-4">
+                  <p class="p_text" style="margin:0px !important; text-align: right">
+                      <a (click)="showless()">Show Less</a>
+                  </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <p class="small_text">You can change your mind at any time. You’ll keep your Patreon earnings regardless of hitting your goals.</p>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <mat-radio-group class="smallRadio">
+                        <mat-radio-button value="1" class="radio1" >
+                          <div class="row">
+                            <div  class="col-lg-12 col-sm-12">
+                                <p>Earnings-based goals  </p>
+                            </div>
+                            <div  class="col-lg-12 col-sm-12">
+                                 <p>Your goals are based on how much you earn on Patreon.</p>
+                              </div>
+                              <div  class="col-lg-12 col-sm-12">
+                                  <p class="italic_text">"When I reach <strong>$500 per month</strong>, I’ll start a special podcast series where I interview 1 patron every month."</p>
+                                </div>
+                                
+                           
+                             
+                          </div>
+                        </mat-radio-button><br>
+                        <mat-radio-button value="2">
+                          <div>
+                              <p>Community-based goals </p>
+                              <p>Your goals are based on how many patrons you have on Patreon.</p>
+                              <p class="italic_text">"When I reach <strong>$500 per month</strong>, I’ll hire an editor to help me release 2 videos per week instead of 1."</p>
+                          </div>
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+              </div>
+        </div>
+
+         
+
+      <div class="border" *ngIf="firstgoal_flag">
+        <div class="row ">
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                  <p class="black_bold">Goal earnings amount</p>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" style="margin-top: -27px !important;padding: 0px !important;">
+                  <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <mat-form-field  appearance="none" class="input_mat" style="width: 62px; padding: 0px 0px 0px 0px;">
+                            <input matInput type="text" name="btn" class="chkbtn" disabled value="$" style="border-top-right-radius: 0px;border-bottom-right-radius: 0px;">
+                          </mat-form-field>
+      
+                          <mat-form-field  appearance="none" class="input_mat">
+                              <input matInput type="text" name="btn" class="chkbtn" placeholder="0" style="border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+                          </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-2 col-sm-2 trash_custom" >
+                        <p (click)="delete()"><i class="fa fa-trash-alt" aria-hidden="true"></i></p>
+                      </div>
+                  </div>  
+               
+              </div>
+
+          
+          </div>
+
+          <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                  <p class="black_bold">Goal earnings amount</p>
+              </div>
+
+              <div class="col-lg-8 col-md-8 col-sm-12" style="padding-left: 0px;">
+                  <div class="editor_container">
+                      <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+                  </div>
+              </div>
+            </div>
+       </div>
+
+
+      <div class="row" style="margin: 0px 4px 0 4px;">
+          <button class="Long_extended-fab-button" mat-fab (click)="firstgoal()">
+              <p class="extended-fab-button__text">
+                  <i class="fa fa-plus icon_style" aria-hidden="true"></i>
+                  Add your first goal
+               </p>
+          </button>
+      </div>
+
+
+    </div>
+
+
+    <!-- Right side -->
+    <div class="col-lg-4 col-sm-12">
+
+        <button class="gray_extended-fab-button" mat-fab>
+            <p class="extended-fab-button__text">
+                Save Changes
+             </p>
+        </button>
+
+      <div class="border">
+        
+          <p class="rightside_title">LAUNCH CHECKLIST</p>
+          <p class="underline"></p>
+
+
+          <mat-list role="list" >
+              <mat-list-item role="listitem"  class="mat_item" style="margin-top: 0px;width: -webkit-fill-available;">
+                <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;padding-right: 10px"></i>
+                Upload profile picture</mat-list-item>
+              <mat-list-item role="listitem" class="mat_item"  style="width: -webkit-fill-available;">
+                  <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;padding-right: 10px"></i>
+                  Upload cover image</mat-list-item>
+              <mat-list-item role="listitem" class="mat_item" style="width: -webkit-fill-available;">
+                  <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;padding-right: 10px"></i>
+                  Create about section</mat-list-item>
+              <mat-list-item role="listitem" class="mat_item" style="margin-bottom: -10px; width: -webkit-fill-available;">
+                  <i class="fa fa-check-circle" style="font-size:20px;color:#1c8659;padding-right: 10px"></i>
+                  Verify phone number</mat-list-item>
+            </mat-list>
+
+      </div>
+
+      <div class="border">
+        
+          <p class="rightside_title">LAUNCH CHECKLIST</p>
+          <p class="underline"></p>
+
+          <ul class="ul">
+              <li class="ul_li">
+                <span><a href="#" class="aa">Membership 101: Best Practices</a></span>
+              </li>
+              <li class="ul_li">
+                  <span><a href="#" class="aa">How to choose your business model</a></span>
+              </li>
+              <li class="ul_li">
+                  <span><a href="#" class="aa">How to talk about Patreon to your audience</a></span>
+              </li>
+              <li class="ul_li">
+                  <span><a href="#" class="aa">Knowing your worth as a creator</a></span>
+              </li>
+            </ul>
+
+      </div>
+      
+      </div>
+
+  </div>
+</div>

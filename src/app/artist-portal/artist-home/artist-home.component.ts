@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistHomeComponent implements OnInit {
 
-  
   navLinks = [
-    { path: 'artist-portal/home/allpost', label: 'All posts' },
-    { path: 'artist-portal/home/patrononlypost', label: 'Patron-only posts' },
+    { path: 'artist-portal/home/all', label: 'All posts' },
+    { path: 'artist-portal/home/patron', label: 'Patron-only posts' },
   ];
+
   constructor() { }
 
   ngOnInit() {

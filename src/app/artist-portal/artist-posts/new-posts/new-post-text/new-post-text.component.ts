@@ -3,6 +3,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { DatabaseService } from 'src/app/services/database/database.service';
 export interface DialogData {
   animal: string;
   name: string;
@@ -17,11 +18,19 @@ export class DialogOverviewExampleDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,private api:DatabaseService) { }
 
   onNoClick(): void {
     this.dialogRef.close();
+    
   }
+    imageUpload(event){
+    console.log(event[0]);
+    this.api.textPhoto= event[0]
+    const formdata = new FormData();
+         formdata.append('textPhoto', event[0], 'textPhoto.jpg')
+         formdata.append('id', localStorage.getItem('uid'))
+    }
 }
 
 @Component({
@@ -30,6 +39,23 @@ export class DialogOverviewExampleDialogComponent {
   styleUrls: ['./new-post-text.component.scss']
 })
 export class NewPostTextComponent implements OnInit {
+title;
+story;
+image;
+attachment;
+type;
+postingType;
+earlyAccess:boolean;
+TeaserText;
+earlyAccessTime:any;
+earlyAccessDate:'';
+scheduleDate:'';
+scheduleTime:any;
+publishType;
+
+
+
+
 
   visible = true;
   chekckbox = false;
@@ -47,11 +73,57 @@ export class NewPostTextComponent implements OnInit {
   saveasdrafted = false;
   publicpost = true;
   patronspost = false;
+  
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,private api:DatabaseService) { }
 
   ngOnInit() {
   }
+
+    fileUpload(event){
+      console.log(event[0]);
+      this.image= event[0]
+      const formdata = new FormData();
+           formdata.append('textFile', event[0], 'TextFile.jpg')
+           formdata.append('id', localStorage.getItem('uid'))
+    }
+
+publishPost(){
+this.publishType="publish";
+}
+schedulePost(){
+  this.publishType="schedule";
+}
+draftPost(){
+  this.publishType="draft";
+}
+createPost(){
+  let id=localStorage.getItem('uid');
+  let data={
+    title:this.title,
+story:this.story,
+image:this.api.textPhoto,
+attachment:this.attachment,
+type:'text',
+postingType:this.type,
+earlyAccess:this.earlyAccess,
+TeaserText:this.TeaserText,
+earlyAccessTime:this.earlyAccessTime,
+earlyAccessDate:this.earlyAccessDate,
+scheduleDate:this.scheduleDate,
+scheduleTime:this.scheduleTime,
+publishType:this.publishType,
+userId:id,
+tags:this.tags,
+imageUrl:this.api.textPhotoUrl
+  }
+  console.log(data);
+  this.api.addPost(data).subscribe(res=>{
+    console.log("Added");
+  })
+  
+}
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
       width: '550px',
@@ -94,29 +166,42 @@ export class NewPostTextComponent implements OnInit {
     this.published = true;
     this.scheduled = false;
     this.saveasdrafted = false;
+    this.createPost();
   }
   schedule() {
     this.published = false;
     this.scheduled = true;
     this.saveasdrafted = false;
+    this.createPost();
   }
   saveasdraft() {
     this.published = false;
     this.scheduled = false;
     this.saveasdrafted = true;
+    this.createPost();
   }
   patrons() {
     this.patronspost = true;
     this.publicpost = false;
+    this.type="patrons"
   }
   public() {
     this.patronspost = false;
     this.publicpost = true;
+    this.type="public"
   }
   open() {
     const amazingTimePicker = this.atp.open();
     amazingTimePicker.afterClose().subscribe(time => {
-      console.log(time);
+      // console.log(time);
+      this.scheduleTime=time
+    });
+  }
+  open1() {
+    const amazingTimePicker = this.atp.open();
+    amazingTimePicker.afterClose().subscribe(time => {
+      // console.log(time);
+      this.earlyAccessTime=time
     });
   }
 }

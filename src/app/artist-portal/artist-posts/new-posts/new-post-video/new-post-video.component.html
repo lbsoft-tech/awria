@@ -32,7 +32,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-lg"><mat-icon>link</mat-icon></span>
                       </div>
-                      <input type="text" placeholder="Type or paste image URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                      <input type="text" [(ngModel)]="videoUrl" name="videoUrl" placeholder="Type or paste video URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
                     </div>
               </div>
             </div>
@@ -40,12 +40,12 @@
         </div>
       <div class="card-body">
         <div class="row">
-          <div class="col-12"> <input type="text" class="title" placeholder="Post Title (required)"></div>
+          <div class="col-12"> <input type="text" class="title"  [(ngModel)]="title" name="title"  placeholder="Post Title (required)"></div>
         </div>
         <div class="row">
           <div class="col-12 tarea">
 
-            <textarea rows="6" class="textarea" placeholder="Tell a story "></textarea>
+            <textarea rows="6" class="textarea" [(ngModel)]="story" name="story" placeholder="Tell a story "></textarea>
           </div>
         </div>
         <div class="row">
@@ -67,7 +67,7 @@
           </div>
           <div class="col-8"></div>
           <div class="col-1">   <label class="btn btn-default btn-file">
-              <u>UPLOAD</u> <input type="file" style="display: none;">
+              <u>UPLOAD</u> <input (change)="fileUpload($event.target.files)" name="videoFile" type="file" name="videoFile" style="display: none;">
           </label></div>
           <div class="col-1"></div>
         </div>
@@ -102,10 +102,10 @@
     <div class="col-sm-4">
       <div class="row sidebuttons">
         <div class="col-9 side">
-          <button type="button" *ngIf="published" class="btn button">Publish now</button>
-          <button type="button" *ngIf="scheduled" class="btn button">Schedule</button>
-          <button type="button" *ngIf="saveasdrafted" class="btn button">Save as draft</button>
-        </div>
+          <button type="button" *ngIf="published" (click)="publishPost()" name="published" class="btn button">Publish now</button>
+          <button type="button" *ngIf="scheduled" (click)="schedulePost()" value="schedule" name="schedule" class="btn button">Schedule</button>
+          <button type="button" *ngIf="saveasdrafted" class="btn button" (click)="draftPost()" value="draft" name="draft">Save as draft</button>
+          </div>
         <div class="col-3 side">
 
           <button mat-button [matMenuTriggerFor]="menu" class="matbutton">
@@ -132,7 +132,7 @@
       <div class="col-1"></div>
       <div class="col-11">
           <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="scheduleDate" name="scheduleDate" placeholder="Choose a date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker touchUi #picker></mat-datepicker>
             </mat-form-field>
@@ -182,7 +182,7 @@
           </div>
           <div class="col-5"></div>
           <div class="col-1">
-              <mat-checkbox [(ngModel)]="chekckbox" value="true"></mat-checkbox>
+              <mat-checkbox [(ngModel)]="earlyAccess" value="true"></mat-checkbox>
           </div>
         </div>
         <div class="row">
@@ -197,17 +197,17 @@
             <p style="color: blue"> <u>Learn more</u></p>
           </div>
         </div>
-        <div class="row" *ngIf="chekckbox">
+        <div class="row" *ngIf="earlyAccess">
           <div class="col-1"></div>
           <div class="col-11">
             <p><b>This post will become public on:</b></p>
           </div>
         </div>
-        <div class="row" *ngIf="chekckbox">
+        <div class="row" *ngIf="earlyAccess">
             <div class="col-1"></div>
             <div class="col-11">
                 <mat-form-field class="example-full-width">
-                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="earlyAccessDate" name="earlyAccessDate" >
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi #picker></mat-datepicker>
                   </mat-form-field>
@@ -215,9 +215,9 @@
 
             </div>
           </div>
-          <div class="row" *ngIf="chekckbox">
+          <div class="row" *ngIf="earlyAccess">
             <div class="col-1"></div>
-            <div class="col-8"> <input style="width: 100%" (click)="open()" placeholder=" Choose time"/> <mat-icon>access_time</mat-icon></div>
+            <div class="col-8"> <input style="width: 100%" (click)="open1 ()" placeholder=" Choose time"/> <mat-icon>access_time</mat-icon></div>
 
           </div>
 
@@ -246,6 +246,7 @@
                       <mat-label>Add public teaser text ..</mat-label>
                       <textarea matInput
                                 cdkTextareaAutosize
+                                [(ngModel)]="TeaserText" name="TeaserText"
                                 #autosize="cdkTextareaAutosize"
                                 cdkAutosizeMinRows="4"
                                 cdkAutosizeMaxRows="6"></textarea>

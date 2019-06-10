@@ -1,0 +1,804 @@
+<div class="card" style="margin-top: 20px">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-10 col-sm-10">
+        <span><b>Log in with Facebook</b></span>
+      </div>
+    </div>
+
+    <div class="row mt-lg-2">
+      <div class="col-lg-10 col-sm-10">
+        <i class="fab fa-2x fa-facebook-square blue"></i>
+        Facebook
+      </div>
+      <div class="col-lg-2 col-sm-2">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <button class="btnn" mat-button>Connect</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <span><b>Password</b></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <p>Change your Password</p>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>Old Password</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <input type="password" placeholder="Old Password" name="old" [(ngModel)]="password.oldPassword" class="form-control" /><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>New Password</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <form>
+          <div class="form-group" [class.has-error]="pass.invalid && pass.touched">
+
+              <input required pattern="(?=.*[#/?//&/@/$/!/%////\/'/'/}/{/}])(?=.*\d).{7,}" autocomplete="off" type="password"
+                placeholder="Enter Password" name="psw" #pass="ngModel" [(ngModel)]="password.newPassword" class="form-control" >
+
+              <!-- <small id="msg" style="color:red" class="help-block" *ngIf="pass.touched && pass.errors?.required">
+                Required
+              </small> -->
+              <small id="msg" style="color:red;font-size: 15px" class="help-block"
+                *ngIf=" pass.touched && pass.errors?.pattern">
+                Must contain at least one number and Special character, and at least 7.
+              </small>
+            </div>        <br>
+          </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>Confirm Password</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+          <input type="password" placeholder="New Password" name="new" [(ngModel)]="password.cPassword" class="form-control" /><br>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 text-right">
+        <button (click) = 'changePasssword()' class="btnn" mat-button>Update Password</button>
+      </div>
+    </div>
+
+    <!-- Information -->
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <span><b>Information</b></span>
+      </div>
+    </div>
+    <div class="row mt-lg-4">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>User Profile</label>
+      </div>
+      <div class="col-lg-2 col-sm-2">
+        <img class="profile-img" src="../../../../assets/images/profile-pic.png">
+      </div>
+      <div class="col-lg-3 col-sm-3">
+       <div class="file btn btn-lg btn-primary" style="  position: relative ; background-color: #00497C;border-radius: 50px ;
+                    overflow: hidden;">
+                   <small  style="font-size:small !important">Choose new Image</small>
+                        <input (change)="imageUpload($event.target.files)" style="  position: absolute;
+                        font-size: 50px;
+                        opacity: 0;
+                        right: 0;
+                        top: 0;" type="file" name="userprofile"/>
+                      </div>
+      </div>
+      <div class="col-lg-3 col-sm-3">
+        <a href="#">Remove Image</a>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>User Profile Name</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <input type="text" [(ngModel)]="name" name="name" placeholder="Samantha" class="form-control" /><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>Email</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <input type="email" [(ngModel)]="email" name="email" placeholder="samantha@gmail.com" class="form-control" /><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>Country Of Residence (Required)</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <div class="s1lpyrmr-2 hoIGRd">
+       <select id="countryCode" class="b7czoh-0 dWjmVZ" style="width: 100% ;height:55px"  (change)="getCountry($event)">
+              <option value="" hidden="" class="b7czoh-1 hXuMII">Please select a country...</option>
+              <option value="Afghanistan" class="b7czoh-1 hXuMII">Afghanistan (&#8235;افغانستان&#8236;&lrm;)</option>
+              <option value="Albania" class="b7czoh-1 hXuMII">Albania (Shqipëri)</option>
+              <option value="Algeria" class="b7czoh-1 hXuMII">Algeria (&#8235;الجزائر&#8236;&lrm;)</option>
+              <option value="American Samoa" class="b7czoh-1 hXuMII">American Samoa</option>
+              <option value="Andorra" class="b7czoh-1 hXuMII">Andorra</option>
+              <option value="Angola" class="b7czoh-1 hXuMII">Angola</option>
+              <option value="Anguilla" class="b7czoh-1 hXuMII">Anguilla</option>
+              <option value="Antigua and Barbuda" class="b7czoh-1 hXuMII">Antigua and Barbuda</option>
+              <option value="Argentina" class="b7czoh-1 hXuMII">Argentina</option>
+              <option value="Armenia" class="b7czoh-1 hXuMII">Armenia (Հայաստան)</option>
+              <option value="Aruba" class="b7czoh-1 hXuMII">Aruba</option>
+              <option value="Australia" class="b7czoh-1 hXuMII">Australia</option>
+              <option value="Austria" class="b7czoh-1 hXuMII">Austria (Österreich)</option>
+              <option value="Azerbaijan" class="b7czoh-1 hXuMII">Azerbaijan (Azərbaycan)</option>
+              <option value="Bahamas" class="b7czoh-1 hXuMII">Bahamas</option>
+              <option value="Bahrain" class="b7czoh-1 hXuMII">Bahrain (&#8235;البحرين&#8236;&lrm;)</option>
+              <option value="Bangladesh" class="b7czoh-1 hXuMII">Bangladesh (বাংলাদেশ)</option>
+              <option value="Barbados" class="b7czoh-1 hXuMII">Barbados</option>
+              <option value="Belarus" class="b7czoh-1 hXuMII">Belarus (Беларусь)</option>
+              <option value="Belgium" class="b7czoh-1 hXuMII">Belgium (België)</option>
+              <option value="Belize" class="b7czoh-1 hXuMII">Belize</option>
+              <option value="Benin" class="b7czoh-1 hXuMII">Benin (Bénin)</option>
+              <option value="Bermuda" class="b7czoh-1 hXuMII">Bermuda</option>
+              <option value="Bhutan" class="b7czoh-1 hXuMII">Bhutan (འབྲུག)</option>
+              <option value="Bolivia" class="b7czoh-1 hXuMII">Bolivia</option>
+              <option value="Bosnia and Herzegovina" class="b7czoh-1 hXuMII">Bosnia and Herzegovina (Босна и Херцеговина)</option>
+              <option value="Botswana" class="b7czoh-1 hXuMII">Botswana</option>
+              <option value="Brazil " class="b7czoh-1 hXuMII">Brazil (Brasil)</option>
+              <option value="British Indian Ocean Territory" class="b7czoh-1 hXuMII">British Indian Ocean Territory</option>
+              <option value="British Virgin Islands" class="b7czoh-1 hXuMII">British Virgin Islands</option>
+              <option value="Brunei" class="b7czoh-1 hXuMII">Brunei</option>
+              <option value="Bulgaria" class="b7czoh-1 hXuMII">Bulgaria (България)</option>
+              <option value="Burkina" class="b7czoh-1 hXuMII">Burkina Faso</option>
+              <option value="Burundi" class="b7czoh-1 hXuMII">Burundi (Uburundi)</option>
+              <option value="Cambodia" class="b7czoh-1 hXuMII">Cambodia (កម្ពុជា)</option>
+              <option value="Cameroon" class="b7czoh-1 hXuMII">Cameroon (Cameroun)</option>
+              <option value="Canada" class="b7czoh-1 hXuMII">Canada</option>
+              <option value="Cape Verde" class="b7czoh-1 hXuMII">Cape Verde (Kabu Verdi)</option>
+              <option value="Caribbean Netherlands" class="b7czoh-1 hXuMII">Caribbean Netherlands</option>
+              <option value="Cayman Islands" class="b7czoh-1 hXuMII">Cayman Islands</option>
+              <option value="Central African Republic" class="b7czoh-1 hXuMII">Central African Republic (République centrafricaine)</option>
+              <option value="Chad" class="b7czoh-1 hXuMII">Chad (Tchad)</option>
+              <option value="Chile" class="b7czoh-1 hXuMII">Chile</option>
+              <option value="China" class="b7czoh-1 hXuMII">China (中国)</option>
+              <option value="Colombia" class="b7czoh-1 hXuMII">Colombia</option>
+              <option value="Comoros" class="b7czoh-1 hXuMII">Comoros (&#8235;جزر القمر&#8236;&lrm;)</option>
+              <option value="Congo (DRC)" class="b7czoh-1 hXuMII">Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)</option>
+              <option value="Congo (Republic)" class="b7czoh-1 hXuMII">Congo (Republic) (Congo-Brazzaville)</option>
+              <option value="Cook Islands" class="b7czoh-1 hXuMII">Cook Islands</option>
+              <option value="Costa Rica" class="b7czoh-1 hXuMII">Costa Rica</option>
+              <option value="Côte d’Ivoire" class="b7czoh-1 hXuMII">Côte d’Ivoire</option>
+              <option value="Croatia" class="b7czoh-1 hXuMII">Croatia (Hrvatska)</option>
+              <option value="Cuba" class="b7czoh-1 hXuMII">Cuba</option>
+              <option value="Curaçao" class="b7czoh-1 hXuMII">Curaçao</option>
+              <option value="Cyprus" class="b7czoh-1 hXuMII">Cyprus (Κύπρος)</option>
+              <option value="Czech" class="b7czoh-1 hXuMII">Czech Republic (Česká republika)</option>
+              <option value="Denmark" class="b7czoh-1 hXuMII">Denmark (Danmark)</option>
+              <option value="Djibouti" class="b7czoh-1 hXuMII">Djibouti</option>
+              <option value="Dominica" class="b7czoh-1 hXuMII">Dominica</option>
+              <option value="Dominican Republic" class="b7czoh-1 hXuMII">Dominican Republic (República Dominicana)</option>
+              <option value="Ecuador" class="b7czoh-1 hXuMII">Ecuador</option>
+              <option value="Egypt" class="b7czoh-1 hXuMII">Egypt (&#8235;مصر&#8236;&lrm;)</option>
+              <option value="El Salvador" class="b7czoh-1 hXuMII">El Salvador</option>
+              <option value="Equatorial Guinea" class="b7czoh-1 hXuMII">Equatorial Guinea (Guinea Ecuatorial)</option>
+              <option value="Eritrea" class="b7czoh-1 hXuMII">Eritrea</option>
+              <option value="Estonia" class="b7czoh-1 hXuMII">Estonia (Eesti)</option>
+              <option value="Ethiopia" class="b7czoh-1 hXuMII">Ethiopia</option>
+              <option value="Falkland Islands" class="b7czoh-1 hXuMII">Falkland Islands (Islas Malvinas)</option>
+              <option value="Faroe Islands " class="b7czoh-1 hXuMII">Faroe Islands (Føroyar)</option>
+              <option value="Fiji" class="b7czoh-1 hXuMII">Fiji</option>
+              <option value="Finland" class="b7czoh-1 hXuMII">Finland (Suomi)</option>
+              <option value="France" class="b7czoh-1 hXuMII">France</option>
+              <option value="French Guiana" class="b7czoh-1 hXuMII">French Guiana (Guyane française)</option>
+              <option value="French Polynesia" class="b7czoh-1 hXuMII">French Polynesia (Polynésie française)</option>
+              <option value="Gabon" class="b7czoh-1 hXuMII">Gabon</option>
+              <option value="Gambia" class="b7czoh-1 hXuMII">Gambia</option>
+              <option value="Georgia" class="b7czoh-1 hXuMII">Georgia (საქართველო)</option>
+              <option value="Germany" class="b7czoh-1 hXuMII">Germany (Deutschland)</option>
+              <option value="Ghana" class="b7czoh-1 hXuMII">Ghana (Gaana)</option>
+              <option value="Gibraltar" class="b7czoh-1 hXuMII">Gibraltar</option>
+              <option value="Greece" class="b7czoh-1 hXuMII">Greece (Ελλάδα)</option>
+              <option value="Greenland" class="b7czoh-1 hXuMII">Greenland (Kalaallit Nunaat)</option>
+              <option value="Grenada" class="b7czoh-1 hXuMII">Grenada</option>
+              <option value="Guadeloupe" class="b7czoh-1 hXuMII">Guadeloupe</option>
+              <option value="Guam" class="b7czoh-1 hXuMII">Guam</option>
+              <option value="Guatemala" class="b7czoh-1 hXuMII">Guatemala</option>
+              <option value="Guinea" class="b7czoh-1 hXuMII">Guinea (Guinée)</option>
+              <option value="Guinea-Bissau " class="b7czoh-1 hXuMII">Guinea-Bissau (Guiné Bissau)</option>
+              <option value="Guyana" class="b7czoh-1 hXuMII">Guyana</option>
+              <option value="Haiti" class="b7czoh-1 hXuMII">Haiti</option>
+              <option value="Honduras" class="b7czoh-1 hXuMII">Honduras</option>
+              <option value="Hong Kong " class="b7czoh-1 hXuMII">Hong Kong (香港)</option>
+              <option value="Hungary" class="b7czoh-1 hXuMII">Hungary (Magyarország)</option>
+              <option value="Iceland" class="b7czoh-1 hXuMII">Iceland (Ísland)</option>
+              <option value="India" class="b7czoh-1 hXuMII">India (भारत)</option>
+              <option value="Indonesia" class="b7czoh-1 hXuMII">Indonesia</option>
+              <option value="Iran" class="b7czoh-1 hXuMII">Iran (&#8235;ایران&#8236;&lrm;)</option>
+              <option value="Iraq" class="b7czoh-1 hXuMII">Iraq (&#8235;العراق&#8236;&lrm;)</option>
+              <option value="Ireland" class="b7czoh-1 hXuMII">Ireland</option>
+              <option value="Isle of Man" class="b7czoh-1 hXuMII">Isle of Man</option>
+              <option value="Israel" class="b7czoh-1 hXuMII">Israel (&#8235;ישראל&#8236;&lrm;)</option>
+              <option value="Italy" class="b7czoh-1 hXuMII">Italy (Italia)</option>
+              <option value="Jamaica" class="b7czoh-1 hXuMII">Jamaica</option>
+              <option value="Japan" class="b7czoh-1 hXuMII">Japan (日本)</option>
+              <option value="Jordan" class="b7czoh-1 hXuMII">Jordan (&#8235;الأردن&#8236;&lrm;)</option>
+              <option value="Kazakhstan" class="b7czoh-1 hXuMII">Kazakhstan (Казахстан)</option>
+              <option value="Kenya" class="b7czoh-1 hXuMII">Kenya</option>
+              <option value="Kiribati" class="b7czoh-1 hXuMII">Kiribati</option>
+              <option value="Kuwait" class="b7czoh-1 hXuMII">Kuwait (&#8235;الكويت&#8236;&lrm;)</option>
+              <option value="Kyrgyzstan" class="b7czoh-1 hXuMII">Kyrgyzstan (Кыргызстан)</option>
+              <option value="Laos" class="b7czoh-1 hXuMII">Laos (ລາວ)</option>
+              <option value="Latvia" class="b7czoh-1 hXuMII">Latvia (Latvija)</option>
+              <option value="Lebanon" class="b7czoh-1 hXuMII">Lebanon (&#8235;لبنان&#8236;&lrm;)</option>
+              <option value="Lesotho" class="b7czoh-1 hXuMII">Lesotho</option>
+              <option value="Liberia" class="b7czoh-1 hXuMII">Liberia</option>
+              <option value="Libya" class="b7czoh-1 hXuMII">Libya (&#8235;ليبيا&#8236;&lrm;)</option>
+              <option value="Liechtenstein" class="b7czoh-1 hXuMII">Liechtenstein</option>
+              <option value="Lithuania" class="b7czoh-1 hXuMII">Lithuania (Lietuva)</option>
+              <option value="Luxembourg" class="b7czoh-1 hXuMII">Luxembourg</option>
+              <option value="Macau" class="b7czoh-1 hXuMII">Macau (澳門)</option>
+              <option value="Macedonia" class="b7czoh-1 hXuMII">Macedonia (FYROM) (Македонија)</option>
+              <option value="Madagascar" class="b7czoh-1 hXuMII">Madagascar (Madagasikara)</option>
+              <option value="Malawi" class="b7czoh-1 hXuMII">Malawi</option>
+              <option value="Malaysia" class="b7czoh-1 hXuMII">Malaysia</option>
+              <option value="Maldives" class="b7czoh-1 hXuMII">Maldives</option>
+              <option value="Mali" class="b7czoh-1 hXuMII">Mali</option>
+              <option value="Malta" class="b7czoh-1 hXuMII">Malta</option>
+              <option value="Marshall Islands" class="b7czoh-1 hXuMII">Marshall Islands</option>
+              <option value="Martinique" class="b7czoh-1 hXuMII">Martinique</option>
+              <option value="Mauritania" class="b7czoh-1 hXuMII">Mauritania (&#8235;موريتانيا&#8236;&lrm;)</option>
+              <option value="Mauritius" class="b7czoh-1 hXuMII">Mauritius (Moris)</option>
+              <option value="Mexico" class="b7czoh-1 hXuMII">Mexico (México)</option>
+              <option value="Micronesia" class="b7czoh-1 hXuMII">Micronesia</option>
+              <option value="Moldova" class="b7czoh-1 hXuMII">Moldova (Republica Moldova)</option>
+              <option value="Monaco" class="b7czoh-1 hXuMII">Monaco</option>
+              <option value="Mongolia" class="b7czoh-1 hXuMII">Mongolia (Монгол)</option>
+              <option value="Montenegro" class="b7czoh-1 hXuMII">Montenegro (Crna Gora)</option>
+              <option value="Montserrat" class="b7czoh-1 hXuMII">Montserrat</option>
+              <option value="Morocco" class="b7czoh-1 hXuMII">Morocco (&#8235;المغرب&#8236;&lrm;)</option>
+              <option value="Mozambique" class="b7czoh-1 hXuMII">Mozambique (Moçambique)</option>
+              <option value="Myanmar" class="b7czoh-1 hXuMII">Myanmar (Burma) (မြန်မာ)</option>
+              <option value="Namibia" class="b7czoh-1 hXuMII">Namibia (Namibië)</option>
+              <option value="Nauru" class="b7czoh-1 hXuMII">Nauru</option>
+              <option value="Nepal" class="b7czoh-1 hXuMII">Nepal (नेपाल)</option>
+              <option value="Netherlands" class="b7czoh-1 hXuMII">Netherlands (Nederland)</option>
+              <option value="New Caledonia" class="b7czoh-1 hXuMII">New Caledonia (Nouvelle-Calédonie)</option>
+              <option value="New Zealand" class="b7czoh-1 hXuMII">New Zealand</option>
+              <option value="Nicaragua" class="b7czoh-1 hXuMII">Nicaragua</option>
+              <option value="Niger" class="b7czoh-1 hXuMII">Niger (Nijar)</option>
+              <option value="Nigeria" class="b7czoh-1 hXuMII">Nigeria</option>
+              <option value="Niue" class="b7czoh-1 hXuMII">Niue</option>
+              <option value="Norfolk Island" class="b7czoh-1 hXuMII">Norfolk Island</option>
+              <option value="North Korea" class="b7czoh-1 hXuMII">North Korea (조선 민주주의 인민 공화국)</option>
+              <option value="Northern Mariana Islands" class="b7czoh-1 hXuMII">Northern Mariana Islands</option>
+              <option value="Norway" class="b7czoh-1 hXuMII">Norway (Norge)</option>
+              <option value="Oman" class="b7czoh-1 hXuMII">Oman (&#8235;عُمان&#8236;&lrm;)</option>
+              <option value="Pakistan" class="b7czoh-1 hXuMII">Pakistan (&#8235;پاکستان&#8236;&lrm;)</option>
+              <option value="Palau" class="b7czoh-1 hXuMII">Palau</option>
+              <option value="Palestine" class="b7czoh-1 hXuMII">Palestine (&#8235;فلسطين&#8236;&lrm;)</option>
+              <option value="Panama " class="b7czoh-1 hXuMII">Panama (Panamá)</option>
+              <option value="Papua New Guinea" class="b7czoh-1 hXuMII">Papua New Guinea</option>
+              <option value="Paraguay" class="b7czoh-1 hXuMII">Paraguay</option>
+              <option value="Peru " class="b7czoh-1 hXuMII">Peru (Perú)</option>
+              <option value="Philippines" class="b7czoh-1 hXuMII">Philippines</option>
+              <option value="Poland" class="b7czoh-1 hXuMII">Poland (Polska)</option>
+              <option value="Portugal" class="b7czoh-1 hXuMII">Portugal</option>
+              <option value="Puerto Rico" class="b7czoh-1 hXuMII">Puerto Rico</option>
+              <option value="Qatar" class="b7czoh-1 hXuMII">Qatar (&#8235;قطر&#8236;&lrm;)</option>
+              <option value="Réunion" class="b7czoh-1 hXuMII">Réunion (La Réunion)</option>
+              <option value="Romania" class="b7czoh-1 hXuMII">Romania (România)</option>
+              <option value="Russia" class="b7czoh-1 hXuMII">Russia (Россия)</option>
+              <option value="Rwanda" class="b7czoh-1 hXuMII">Rwanda</option>
+              <option value="Saint Barthélemy" class="b7czoh-1 hXuMII">Saint Barthélemy (Saint-Barthélemy)</option>
+              <option value="Saint Helena" class="b7czoh-1 hXuMII">Saint Helena</option>
+              <option value="Saint Kitts and Nevis" class="b7czoh-1 hXuMII">Saint Kitts and Nevis</option>
+              <option value="Saint Lucia" class="b7czoh-1 hXuMII">Saint Lucia</option>
+              <option value="Saint Martin" class="b7czoh-1 hXuMII">Saint Martin (Saint-Martin (partie française))</option>
+              <option value="Saint Pierre and Miquelon " class="b7czoh-1 hXuMII">Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)</option>
+              <option value="Saint Vincent and the Grenadines" class="b7czoh-1 hXuMII">Saint Vincent and the Grenadines</option>
+              <option value="WS" class="b7czoh-1 hXuMII">Samoa</option>
+              <option value="San Marino" class="b7czoh-1 hXuMII">San Marino</option>
+              <option value="São Tomé and Príncipe" class="b7czoh-1 hXuMII">São Tomé and Príncipe (São Tomé e Príncipe)</option>
+              <option value="Saudi Arabia" class="b7czoh-1 hXuMII">Saudi Arabia (&#8235;المملكة العربية السعودية&#8236;&lrm;)
+              </option>
+              <option value="Senegal" class="b7czoh-1 hXuMII">Senegal (Sénégal)</option>
+              <option value="Serbia" class="b7czoh-1 hXuMII">Serbia (Србија)</option>
+              <option value="Seychelles" class="b7czoh-1 hXuMII">Seychelles</option>
+              <option value="Sierra Leone" class="b7czoh-1 hXuMII">Sierra Leone</option>
+              <option value="Singapore" class="b7czoh-1 hXuMII">Singapore</option>
+              <option value="Sint Maarten" class="b7czoh-1 hXuMII">Sint Maarten</option>
+              <option value="Slovakia" class="b7czoh-1 hXuMII">Slovakia (Slovensko)</option>
+              <option value="Slovenia" class="b7czoh-1 hXuMII">Slovenia (Slovenija)</option>
+              <option value="Solomon Islands" class="b7czoh-1 hXuMII">Solomon Islands</option>
+              <option value="Somalia" class="b7czoh-1 hXuMII">Somalia (Soomaaliya)</option>
+              <option value="South Africa" class="b7czoh-1 hXuMII">South Africa</option>
+              <option value="South Korea" class="b7czoh-1 hXuMII">South Korea (대한민국)</option>
+              <option value="South Sudan" class="b7czoh-1 hXuMII">South Sudan (&#8235;جنوب السودان&#8236;&lrm;)</option>
+              <option value="Spain" class="b7czoh-1 hXuMII">Spain (España)</option>
+              <option value="Sri Lanka " class="b7czoh-1 hXuMII">Sri Lanka (ශ්&zwj;රී ලංකාව)</option>
+              <option value="Sudan" class="b7czoh-1 hXuMII">Sudan (&#8235;السودان&#8236;&lrm;)</option>
+              <option value="Suriname" class="b7czoh-1 hXuMII">Suriname</option>
+              <option value="Svalbard and Jan Mayen" class="b7czoh-1 hXuMII">Svalbard and Jan Mayen</option>
+              <option value="Swaziland" class="b7czoh-1 hXuMII">Swaziland</option>
+              <option value="Sweden" class="b7czoh-1 hXuMII">Sweden (Sverige)</option>
+              <option value="Switzerland" class="b7czoh-1 hXuMII">Switzerland (Schweiz)</option>
+              <option value="Syria" class="b7czoh-1 hXuMII">Syria (&#8235;سوريا&#8236;&lrm;)</option>
+              <option value="Taiwan" class="b7czoh-1 hXuMII">Taiwan (台灣)</option>
+              <option value="Tajikistan" class="b7czoh-1 hXuMII">Tajikistan</option>
+              <option value="Tanzania" class="b7czoh-1 hXuMII">Tanzania</option>
+              <option value="Thailand" class="b7czoh-1 hXuMII">Thailand (ไทย)</option>
+              <option value="Timor-Leste" class="b7czoh-1 hXuMII">Timor-Leste</option>
+              <option value="Togo" class="b7czoh-1 hXuMII">Togo</option>
+              <option value="Tokelau" class="b7czoh-1 hXuMII">Tokelau</option>
+              <option value="Tonga" class="b7czoh-1 hXuMII">Tonga</option>
+              <option value="Trinidad and Tobago" class="b7czoh-1 hXuMII">Trinidad and Tobago</option>
+              <option value="Tunisia" class="b7czoh-1 hXuMII">Tunisia (&#8235;تونس&#8236;&lrm;)</option>
+              <option value="Turkey" class="b7czoh-1 hXuMII">Turkey (Türkiye)</option>
+              <option value="Turkmenistan" class="b7czoh-1 hXuMII">Turkmenistan</option>
+              <option value="Turks and Caicos Islands" class="b7czoh-1 hXuMII">Turks and Caicos Islands</option>
+              <option value="Tuvalu" class="b7czoh-1 hXuMII">Tuvalu</option>
+              <option value="U.S. Virgin Islands" class="b7czoh-1 hXuMII">U.S. Virgin Islands</option>
+              <option value="Uganda" class="b7czoh-1 hXuMII">Uganda</option>
+              <option value="Ukraine" class="b7czoh-1 hXuMII">Ukraine (Україна)</option>
+              <option value="United Arab Emirates " class="b7czoh-1 hXuMII">United Arab Emirates (&#8235;الإمارات العربية
+                المتحدة&#8236;&lrm;)</option>
+              <option value="United Kingdom" class="b7czoh-1 hXuMII">United Kingdom</option>
+              <option value="United States" class="b7czoh-1 hXuMII">United States</option>
+              <option value="Uruguay" class="b7czoh-1 hXuMII">Uruguay</option>
+              <option value="Uzbekistan" class="b7czoh-1 hXuMII">Uzbekistan (Oʻzbekiston)</option>
+              <option value="Vanuatu" class="b7czoh-1 hXuMII">Vanuatu</option>
+              <option value="Vatican City" class="b7czoh-1 hXuMII">Vatican City (Città del Vaticano)</option>
+              <option value="Venezuela" class="b7czoh-1 hXuMII">Venezuela</option>
+              <option value="Vietnam" class="b7czoh-1 hXuMII">Vietnam (Việt Nam)</option>
+              <option value="Wallis and Futuna" class="b7czoh-1 hXuMII">Wallis and Futuna</option>
+              <option value="Yemen" class="b7czoh-1 hXuMII">Yemen (&#8235;اليمن&#8236;&lrm;)</option>
+              <option value="Zambia" class="b7czoh-1 hXuMII">Zambia</option>
+              <option value="Zimbabwe" class="b7czoh-1 hXuMII">Zimbabwe</option>
+            </select>
+          </div>
+
+        <!-- <input #countrySelect="ngx-country-select" ngxCountrySelect> -->
+      </div>
+    </div>
+
+
+    <!-- Shipping Address -->
+    <div class="row">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>Shipping Addresses</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <p>If your pledge includes a physical benefit, enter your shipping address below.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-sm-3">
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <label>Full Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <input type="text" [(ngModel)]="shipping.name" name="shippingName" class="form-control" /><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-sm-4 text-left">
+                <label>Address</label>
+              </div>
+              <div class="col-lg-4 col-sm-4  text-left">
+                <label>Apt, suite, etc..</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-sm-6">
+                <input type="text" [(ngModel)]="shipping.address" name="shippingAddress" class="form-control" />
+              </div>
+              <div class="col-lg-6 col-sm-6">
+                <input type="text" [(ngModel)]="shipping.apt" name="shippingApt" class="form-control" /><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <label>City</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <input [(ngModel)]="shipping.city" name="shippingCity" type="text" class="form-control" /><br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-sm-4 text-left">
+                <label>Country</label>
+              </div>
+              <div class="col-lg-4 col-sm-4 text-left">
+                <label>State</label>
+              </div>
+              <div class="col-lg-4 col-sm-4 text-left">
+                <label>Postal Code</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-sm-4 text-left">
+                <div class="s1lpyrmr-2 hoIGRd">
+                  <select id="countryCode" class="b7czoh-0 dWjmVZ" style="width: 100% ;height:55px"  (change)="getShippingCountry($event)">
+                         <option value="" hidden="" class="b7czoh-1 hXuMII">Please select a country...</option>
+                         <option value="Afghanistan" class="b7czoh-1 hXuMII">Afghanistan (&#8235;افغانستان&#8236;&lrm;)</option>
+                         <option value="Albania" class="b7czoh-1 hXuMII">Albania (Shqipëri)</option>
+                         <option value="Algeria" class="b7czoh-1 hXuMII">Algeria (&#8235;الجزائر&#8236;&lrm;)</option>
+                         <option value="American Samoa" class="b7czoh-1 hXuMII">American Samoa</option>
+                         <option value="Andorra" class="b7czoh-1 hXuMII">Andorra</option>
+                         <option value="Angola" class="b7czoh-1 hXuMII">Angola</option>
+                         <option value="Anguilla" class="b7czoh-1 hXuMII">Anguilla</option>
+                         <option value="Antigua and Barbuda" class="b7czoh-1 hXuMII">Antigua and Barbuda</option>
+                         <option value="Argentina" class="b7czoh-1 hXuMII">Argentina</option>
+                         <option value="Armenia" class="b7czoh-1 hXuMII">Armenia (Հայաստան)</option>
+                         <option value="Aruba" class="b7czoh-1 hXuMII">Aruba</option>
+                         <option value="Australia" class="b7czoh-1 hXuMII">Australia</option>
+                         <option value="Austria" class="b7czoh-1 hXuMII">Austria (Österreich)</option>
+                         <option value="Azerbaijan" class="b7czoh-1 hXuMII">Azerbaijan (Azərbaycan)</option>
+                         <option value="Bahamas" class="b7czoh-1 hXuMII">Bahamas</option>
+                         <option value="Bahrain" class="b7czoh-1 hXuMII">Bahrain (&#8235;البحرين&#8236;&lrm;)</option>
+                         <option value="Bangladesh" class="b7czoh-1 hXuMII">Bangladesh (বাংলাদেশ)</option>
+                         <option value="Barbados" class="b7czoh-1 hXuMII">Barbados</option>
+                         <option value="Belarus" class="b7czoh-1 hXuMII">Belarus (Беларусь)</option>
+                         <option value="Belgium" class="b7czoh-1 hXuMII">Belgium (België)</option>
+                         <option value="Belize" class="b7czoh-1 hXuMII">Belize</option>
+                         <option value="Benin" class="b7czoh-1 hXuMII">Benin (Bénin)</option>
+                         <option value="Bermuda" class="b7czoh-1 hXuMII">Bermuda</option>
+                         <option value="Bhutan" class="b7czoh-1 hXuMII">Bhutan (འབྲུག)</option>
+                         <option value="Bolivia" class="b7czoh-1 hXuMII">Bolivia</option>
+                         <option value="Bosnia and Herzegovina" class="b7czoh-1 hXuMII">Bosnia and Herzegovina (Босна и Херцеговина)</option>
+                         <option value="Botswana" class="b7czoh-1 hXuMII">Botswana</option>
+                         <option value="Brazil " class="b7czoh-1 hXuMII">Brazil (Brasil)</option>
+                         <option value="British Indian Ocean Territory" class="b7czoh-1 hXuMII">British Indian Ocean Territory</option>
+                         <option value="British Virgin Islands" class="b7czoh-1 hXuMII">British Virgin Islands</option>
+                         <option value="Brunei" class="b7czoh-1 hXuMII">Brunei</option>
+                         <option value="Bulgaria" class="b7czoh-1 hXuMII">Bulgaria (България)</option>
+                         <option value="Burkina" class="b7czoh-1 hXuMII">Burkina Faso</option>
+                         <option value="Burundi" class="b7czoh-1 hXuMII">Burundi (Uburundi)</option>
+                         <option value="Cambodia" class="b7czoh-1 hXuMII">Cambodia (កម្ពុជា)</option>
+                         <option value="Cameroon" class="b7czoh-1 hXuMII">Cameroon (Cameroun)</option>
+                         <option value="Canada" class="b7czoh-1 hXuMII">Canada</option>
+                         <option value="Cape Verde" class="b7czoh-1 hXuMII">Cape Verde (Kabu Verdi)</option>
+                         <option value="Caribbean Netherlands" class="b7czoh-1 hXuMII">Caribbean Netherlands</option>
+                         <option value="Cayman Islands" class="b7czoh-1 hXuMII">Cayman Islands</option>
+                         <option value="Central African Republic" class="b7czoh-1 hXuMII">Central African Republic (République centrafricaine)</option>
+                         <option value="Chad" class="b7czoh-1 hXuMII">Chad (Tchad)</option>
+                         <option value="Chile" class="b7czoh-1 hXuMII">Chile</option>
+                         <option value="China" class="b7czoh-1 hXuMII">China (中国)</option>
+                         <option value="Colombia" class="b7czoh-1 hXuMII">Colombia</option>
+                         <option value="Comoros" class="b7czoh-1 hXuMII">Comoros (&#8235;جزر القمر&#8236;&lrm;)</option>
+                         <option value="Congo (DRC)" class="b7czoh-1 hXuMII">Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)</option>
+                         <option value="Congo (Republic)" class="b7czoh-1 hXuMII">Congo (Republic) (Congo-Brazzaville)</option>
+                         <option value="Cook Islands" class="b7czoh-1 hXuMII">Cook Islands</option>
+                         <option value="Costa Rica" class="b7czoh-1 hXuMII">Costa Rica</option>
+                         <option value="Côte d’Ivoire" class="b7czoh-1 hXuMII">Côte d’Ivoire</option>
+                         <option value="Croatia" class="b7czoh-1 hXuMII">Croatia (Hrvatska)</option>
+                         <option value="Cuba" class="b7czoh-1 hXuMII">Cuba</option>
+                         <option value="Curaçao" class="b7czoh-1 hXuMII">Curaçao</option>
+                         <option value="Cyprus" class="b7czoh-1 hXuMII">Cyprus (Κύπρος)</option>
+                         <option value="Czech" class="b7czoh-1 hXuMII">Czech Republic (Česká republika)</option>
+                         <option value="Denmark" class="b7czoh-1 hXuMII">Denmark (Danmark)</option>
+                         <option value="Djibouti" class="b7czoh-1 hXuMII">Djibouti</option>
+                         <option value="Dominica" class="b7czoh-1 hXuMII">Dominica</option>
+                         <option value="Dominican Republic" class="b7czoh-1 hXuMII">Dominican Republic (República Dominicana)</option>
+                         <option value="Ecuador" class="b7czoh-1 hXuMII">Ecuador</option>
+                         <option value="Egypt" class="b7czoh-1 hXuMII">Egypt (&#8235;مصر&#8236;&lrm;)</option>
+                         <option value="El Salvador" class="b7czoh-1 hXuMII">El Salvador</option>
+                         <option value="Equatorial Guinea" class="b7czoh-1 hXuMII">Equatorial Guinea (Guinea Ecuatorial)</option>
+                         <option value="Eritrea" class="b7czoh-1 hXuMII">Eritrea</option>
+                         <option value="Estonia" class="b7czoh-1 hXuMII">Estonia (Eesti)</option>
+                         <option value="Ethiopia" class="b7czoh-1 hXuMII">Ethiopia</option>
+                         <option value="Falkland Islands" class="b7czoh-1 hXuMII">Falkland Islands (Islas Malvinas)</option>
+                         <option value="Faroe Islands " class="b7czoh-1 hXuMII">Faroe Islands (Føroyar)</option>
+                         <option value="Fiji" class="b7czoh-1 hXuMII">Fiji</option>
+                         <option value="Finland" class="b7czoh-1 hXuMII">Finland (Suomi)</option>
+                         <option value="France" class="b7czoh-1 hXuMII">France</option>
+                         <option value="French Guiana" class="b7czoh-1 hXuMII">French Guiana (Guyane française)</option>
+                         <option value="French Polynesia" class="b7czoh-1 hXuMII">French Polynesia (Polynésie française)</option>
+                         <option value="Gabon" class="b7czoh-1 hXuMII">Gabon</option>
+                         <option value="Gambia" class="b7czoh-1 hXuMII">Gambia</option>
+                         <option value="Georgia" class="b7czoh-1 hXuMII">Georgia (საქართველო)</option>
+                         <option value="Germany" class="b7czoh-1 hXuMII">Germany (Deutschland)</option>
+                         <option value="Ghana" class="b7czoh-1 hXuMII">Ghana (Gaana)</option>
+                         <option value="Gibraltar" class="b7czoh-1 hXuMII">Gibraltar</option>
+                         <option value="Greece" class="b7czoh-1 hXuMII">Greece (Ελλάδα)</option>
+                         <option value="Greenland" class="b7czoh-1 hXuMII">Greenland (Kalaallit Nunaat)</option>
+                         <option value="Grenada" class="b7czoh-1 hXuMII">Grenada</option>
+                         <option value="Guadeloupe" class="b7czoh-1 hXuMII">Guadeloupe</option>
+                         <option value="Guam" class="b7czoh-1 hXuMII">Guam</option>
+                         <option value="Guatemala" class="b7czoh-1 hXuMII">Guatemala</option>
+                         <option value="Guinea" class="b7czoh-1 hXuMII">Guinea (Guinée)</option>
+                         <option value="Guinea-Bissau " class="b7czoh-1 hXuMII">Guinea-Bissau (Guiné Bissau)</option>
+                         <option value="Guyana" class="b7czoh-1 hXuMII">Guyana</option>
+                         <option value="Haiti" class="b7czoh-1 hXuMII">Haiti</option>
+                         <option value="Honduras" class="b7czoh-1 hXuMII">Honduras</option>
+                         <option value="Hong Kong " class="b7czoh-1 hXuMII">Hong Kong (香港)</option>
+                         <option value="Hungary" class="b7czoh-1 hXuMII">Hungary (Magyarország)</option>
+                         <option value="Iceland" class="b7czoh-1 hXuMII">Iceland (Ísland)</option>
+                         <option value="India" class="b7czoh-1 hXuMII">India (भारत)</option>
+                         <option value="Indonesia" class="b7czoh-1 hXuMII">Indonesia</option>
+                         <option value="Iran" class="b7czoh-1 hXuMII">Iran (&#8235;ایران&#8236;&lrm;)</option>
+                         <option value="Iraq" class="b7czoh-1 hXuMII">Iraq (&#8235;العراق&#8236;&lrm;)</option>
+                         <option value="Ireland" class="b7czoh-1 hXuMII">Ireland</option>
+                         <option value="Isle of Man" class="b7czoh-1 hXuMII">Isle of Man</option>
+                         <option value="Israel" class="b7czoh-1 hXuMII">Israel (&#8235;ישראל&#8236;&lrm;)</option>
+                         <option value="Italy" class="b7czoh-1 hXuMII">Italy (Italia)</option>
+                         <option value="Jamaica" class="b7czoh-1 hXuMII">Jamaica</option>
+                         <option value="Japan" class="b7czoh-1 hXuMII">Japan (日本)</option>
+                         <option value="Jordan" class="b7czoh-1 hXuMII">Jordan (&#8235;الأردن&#8236;&lrm;)</option>
+                         <option value="Kazakhstan" class="b7czoh-1 hXuMII">Kazakhstan (Казахстан)</option>
+                         <option value="Kenya" class="b7czoh-1 hXuMII">Kenya</option>
+                         <option value="Kiribati" class="b7czoh-1 hXuMII">Kiribati</option>
+                         <option value="Kuwait" class="b7czoh-1 hXuMII">Kuwait (&#8235;الكويت&#8236;&lrm;)</option>
+                         <option value="Kyrgyzstan" class="b7czoh-1 hXuMII">Kyrgyzstan (Кыргызстан)</option>
+                         <option value="Laos" class="b7czoh-1 hXuMII">Laos (ລາວ)</option>
+                         <option value="Latvia" class="b7czoh-1 hXuMII">Latvia (Latvija)</option>
+                         <option value="Lebanon" class="b7czoh-1 hXuMII">Lebanon (&#8235;لبنان&#8236;&lrm;)</option>
+                         <option value="Lesotho" class="b7czoh-1 hXuMII">Lesotho</option>
+                         <option value="Liberia" class="b7czoh-1 hXuMII">Liberia</option>
+                         <option value="Libya" class="b7czoh-1 hXuMII">Libya (&#8235;ليبيا&#8236;&lrm;)</option>
+                         <option value="Liechtenstein" class="b7czoh-1 hXuMII">Liechtenstein</option>
+                         <option value="Lithuania" class="b7czoh-1 hXuMII">Lithuania (Lietuva)</option>
+                         <option value="Luxembourg" class="b7czoh-1 hXuMII">Luxembourg</option>
+                         <option value="Macau" class="b7czoh-1 hXuMII">Macau (澳門)</option>
+                         <option value="Macedonia" class="b7czoh-1 hXuMII">Macedonia (FYROM) (Македонија)</option>
+                         <option value="Madagascar" class="b7czoh-1 hXuMII">Madagascar (Madagasikara)</option>
+                         <option value="Malawi" class="b7czoh-1 hXuMII">Malawi</option>
+                         <option value="Malaysia" class="b7czoh-1 hXuMII">Malaysia</option>
+                         <option value="Maldives" class="b7czoh-1 hXuMII">Maldives</option>
+                         <option value="Mali" class="b7czoh-1 hXuMII">Mali</option>
+                         <option value="Malta" class="b7czoh-1 hXuMII">Malta</option>
+                         <option value="Marshall Islands" class="b7czoh-1 hXuMII">Marshall Islands</option>
+                         <option value="Martinique" class="b7czoh-1 hXuMII">Martinique</option>
+                         <option value="Mauritania" class="b7czoh-1 hXuMII">Mauritania (&#8235;موريتانيا&#8236;&lrm;)</option>
+                         <option value="Mauritius" class="b7czoh-1 hXuMII">Mauritius (Moris)</option>
+                         <option value="Mexico" class="b7czoh-1 hXuMII">Mexico (México)</option>
+                         <option value="Micronesia" class="b7czoh-1 hXuMII">Micronesia</option>
+                         <option value="Moldova" class="b7czoh-1 hXuMII">Moldova (Republica Moldova)</option>
+                         <option value="Monaco" class="b7czoh-1 hXuMII">Monaco</option>
+                         <option value="Mongolia" class="b7czoh-1 hXuMII">Mongolia (Монгол)</option>
+                         <option value="Montenegro" class="b7czoh-1 hXuMII">Montenegro (Crna Gora)</option>
+                         <option value="Montserrat" class="b7czoh-1 hXuMII">Montserrat</option>
+                         <option value="Morocco" class="b7czoh-1 hXuMII">Morocco (&#8235;المغرب&#8236;&lrm;)</option>
+                         <option value="Mozambique" class="b7czoh-1 hXuMII">Mozambique (Moçambique)</option>
+                         <option value="Myanmar" class="b7czoh-1 hXuMII">Myanmar (Burma) (မြန်မာ)</option>
+                         <option value="Namibia" class="b7czoh-1 hXuMII">Namibia (Namibië)</option>
+                         <option value="Nauru" class="b7czoh-1 hXuMII">Nauru</option>
+                         <option value="Nepal" class="b7czoh-1 hXuMII">Nepal (नेपाल)</option>
+                         <option value="Netherlands" class="b7czoh-1 hXuMII">Netherlands (Nederland)</option>
+                         <option value="New Caledonia" class="b7czoh-1 hXuMII">New Caledonia (Nouvelle-Calédonie)</option>
+                         <option value="New Zealand" class="b7czoh-1 hXuMII">New Zealand</option>
+                         <option value="Nicaragua" class="b7czoh-1 hXuMII">Nicaragua</option>
+                         <option value="Niger" class="b7czoh-1 hXuMII">Niger (Nijar)</option>
+                         <option value="Nigeria" class="b7czoh-1 hXuMII">Nigeria</option>
+                         <option value="Niue" class="b7czoh-1 hXuMII">Niue</option>
+                         <option value="Norfolk Island" class="b7czoh-1 hXuMII">Norfolk Island</option>
+                         <option value="North Korea" class="b7czoh-1 hXuMII">North Korea (조선 민주주의 인민 공화국)</option>
+                         <option value="Northern Mariana Islands" class="b7czoh-1 hXuMII">Northern Mariana Islands</option>
+                         <option value="Norway" class="b7czoh-1 hXuMII">Norway (Norge)</option>
+                         <option value="Oman" class="b7czoh-1 hXuMII">Oman (&#8235;عُمان&#8236;&lrm;)</option>
+                         <option value="Pakistan" class="b7czoh-1 hXuMII">Pakistan (&#8235;پاکستان&#8236;&lrm;)</option>
+                         <option value="Palau" class="b7czoh-1 hXuMII">Palau</option>
+                         <option value="Palestine" class="b7czoh-1 hXuMII">Palestine (&#8235;فلسطين&#8236;&lrm;)</option>
+                         <option value="Panama " class="b7czoh-1 hXuMII">Panama (Panamá)</option>
+                         <option value="Papua New Guinea" class="b7czoh-1 hXuMII">Papua New Guinea</option>
+                         <option value="Paraguay" class="b7czoh-1 hXuMII">Paraguay</option>
+                         <option value="Peru " class="b7czoh-1 hXuMII">Peru (Perú)</option>
+                         <option value="Philippines" class="b7czoh-1 hXuMII">Philippines</option>
+                         <option value="Poland" class="b7czoh-1 hXuMII">Poland (Polska)</option>
+                         <option value="Portugal" class="b7czoh-1 hXuMII">Portugal</option>
+                         <option value="Puerto Rico" class="b7czoh-1 hXuMII">Puerto Rico</option>
+                         <option value="Qatar" class="b7czoh-1 hXuMII">Qatar (&#8235;قطر&#8236;&lrm;)</option>
+                         <option value="Réunion" class="b7czoh-1 hXuMII">Réunion (La Réunion)</option>
+                         <option value="Romania" class="b7czoh-1 hXuMII">Romania (România)</option>
+                         <option value="Russia" class="b7czoh-1 hXuMII">Russia (Россия)</option>
+                         <option value="Rwanda" class="b7czoh-1 hXuMII">Rwanda</option>
+                         <option value="Saint Barthélemy" class="b7czoh-1 hXuMII">Saint Barthélemy (Saint-Barthélemy)</option>
+                         <option value="Saint Helena" class="b7czoh-1 hXuMII">Saint Helena</option>
+                         <option value="Saint Kitts and Nevis" class="b7czoh-1 hXuMII">Saint Kitts and Nevis</option>
+                         <option value="Saint Lucia" class="b7czoh-1 hXuMII">Saint Lucia</option>
+                         <option value="Saint Martin" class="b7czoh-1 hXuMII">Saint Martin (Saint-Martin (partie française))</option>
+                         <option value="Saint Pierre and Miquelon " class="b7czoh-1 hXuMII">Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)</option>
+                         <option value="Saint Vincent and the Grenadines" class="b7czoh-1 hXuMII">Saint Vincent and the Grenadines</option>
+                         <option value="WS" class="b7czoh-1 hXuMII">Samoa</option>
+                         <option value="San Marino" class="b7czoh-1 hXuMII">San Marino</option>
+                         <option value="São Tomé and Príncipe" class="b7czoh-1 hXuMII">São Tomé and Príncipe (São Tomé e Príncipe)</option>
+                         <option value="Saudi Arabia" class="b7czoh-1 hXuMII">Saudi Arabia (&#8235;المملكة العربية السعودية&#8236;&lrm;)
+                         </option>
+                         <option value="Senegal" class="b7czoh-1 hXuMII">Senegal (Sénégal)</option>
+                         <option value="Serbia" class="b7czoh-1 hXuMII">Serbia (Србија)</option>
+                         <option value="Seychelles" class="b7czoh-1 hXuMII">Seychelles</option>
+                         <option value="Sierra Leone" class="b7czoh-1 hXuMII">Sierra Leone</option>
+                         <option value="Singapore" class="b7czoh-1 hXuMII">Singapore</option>
+                         <option value="Sint Maarten" class="b7czoh-1 hXuMII">Sint Maarten</option>
+                         <option value="Slovakia" class="b7czoh-1 hXuMII">Slovakia (Slovensko)</option>
+                         <option value="Slovenia" class="b7czoh-1 hXuMII">Slovenia (Slovenija)</option>
+                         <option value="Solomon Islands" class="b7czoh-1 hXuMII">Solomon Islands</option>
+                         <option value="Somalia" class="b7czoh-1 hXuMII">Somalia (Soomaaliya)</option>
+                         <option value="South Africa" class="b7czoh-1 hXuMII">South Africa</option>
+                         <option value="South Korea" class="b7czoh-1 hXuMII">South Korea (대한민국)</option>
+                         <option value="South Sudan" class="b7czoh-1 hXuMII">South Sudan (&#8235;جنوب السودان&#8236;&lrm;)</option>
+                         <option value="Spain" class="b7czoh-1 hXuMII">Spain (España)</option>
+                         <option value="Sri Lanka " class="b7czoh-1 hXuMII">Sri Lanka (ශ්&zwj;රී ලංකාව)</option>
+                         <option value="Sudan" class="b7czoh-1 hXuMII">Sudan (&#8235;السودان&#8236;&lrm;)</option>
+                         <option value="Suriname" class="b7czoh-1 hXuMII">Suriname</option>
+                         <option value="Svalbard and Jan Mayen" class="b7czoh-1 hXuMII">Svalbard and Jan Mayen</option>
+                         <option value="Swaziland" class="b7czoh-1 hXuMII">Swaziland</option>
+                         <option value="Sweden" class="b7czoh-1 hXuMII">Sweden (Sverige)</option>
+                         <option value="Switzerland" class="b7czoh-1 hXuMII">Switzerland (Schweiz)</option>
+                         <option value="Syria" class="b7czoh-1 hXuMII">Syria (&#8235;سوريا&#8236;&lrm;)</option>
+                         <option value="Taiwan" class="b7czoh-1 hXuMII">Taiwan (台灣)</option>
+                         <option value="Tajikistan" class="b7czoh-1 hXuMII">Tajikistan</option>
+                         <option value="Tanzania" class="b7czoh-1 hXuMII">Tanzania</option>
+                         <option value="Thailand" class="b7czoh-1 hXuMII">Thailand (ไทย)</option>
+                         <option value="Timor-Leste" class="b7czoh-1 hXuMII">Timor-Leste</option>
+                         <option value="Togo" class="b7czoh-1 hXuMII">Togo</option>
+                         <option value="Tokelau" class="b7czoh-1 hXuMII">Tokelau</option>
+                         <option value="Tonga" class="b7czoh-1 hXuMII">Tonga</option>
+                         <option value="Trinidad and Tobago" class="b7czoh-1 hXuMII">Trinidad and Tobago</option>
+                         <option value="Tunisia" class="b7czoh-1 hXuMII">Tunisia (&#8235;تونس&#8236;&lrm;)</option>
+                         <option value="Turkey" class="b7czoh-1 hXuMII">Turkey (Türkiye)</option>
+                         <option value="Turkmenistan" class="b7czoh-1 hXuMII">Turkmenistan</option>
+                         <option value="Turks and Caicos Islands" class="b7czoh-1 hXuMII">Turks and Caicos Islands</option>
+                         <option value="Tuvalu" class="b7czoh-1 hXuMII">Tuvalu</option>
+                         <option value="U.S. Virgin Islands" class="b7czoh-1 hXuMII">U.S. Virgin Islands</option>
+                         <option value="Uganda" class="b7czoh-1 hXuMII">Uganda</option>
+                         <option value="Ukraine" class="b7czoh-1 hXuMII">Ukraine (Україна)</option>
+                         <option value="United Arab Emirates " class="b7czoh-1 hXuMII">United Arab Emirates (&#8235;الإمارات العربية
+                           المتحدة&#8236;&lrm;)</option>
+                         <option value="United Kingdom" class="b7czoh-1 hXuMII">United Kingdom</option>
+                         <option value="United States" class="b7czoh-1 hXuMII">United States</option>
+                         <option value="Uruguay" class="b7czoh-1 hXuMII">Uruguay</option>
+                         <option value="Uzbekistan" class="b7czoh-1 hXuMII">Uzbekistan (Oʻzbekiston)</option>
+                         <option value="Vanuatu" class="b7czoh-1 hXuMII">Vanuatu</option>
+                         <option value="Vatican City" class="b7czoh-1 hXuMII">Vatican City (Città del Vaticano)</option>
+                         <option value="Venezuela" class="b7czoh-1 hXuMII">Venezuela</option>
+                         <option value="Vietnam" class="b7czoh-1 hXuMII">Vietnam (Việt Nam)</option>
+                         <option value="Wallis and Futuna" class="b7czoh-1 hXuMII">Wallis and Futuna</option>
+                         <option value="Yemen" class="b7czoh-1 hXuMII">Yemen (&#8235;اليمن&#8236;&lrm;)</option>
+                         <option value="Zambia" class="b7czoh-1 hXuMII">Zambia</option>
+                         <option value="Zimbabwe" class="b7czoh-1 hXuMII">Zimbabwe</option>
+                       </select>
+                     </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 text-left">
+                <div class="dropdown ">
+                  <input type="text" [(ngModel)]="shipping.state" name="shippingState" class="form-control" />
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-4 text-left">
+                <input type="text" [(ngModel)]="shipping.postCode" name="shippingPostCode" class="form-control" /><br>
+              </div>
+            </div>
+
+            <div class="row ">
+              <div class="col-lg-12 col-sm-12 text-right bt">
+                <br><button class="btnn" mat-button (click)="addShippingAddress()">Add Address</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- About you -->
+    <div class="row pt-3">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>About you</label>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <div class="editor_container">
+          <angular-editor [(ngModel)]="about" [config]="config"></angular-editor>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- social links -->
+    <div class="row pt-3">
+      <div class="col-lg-3 col-sm-3 text-right">
+        <label>Social Links</label>
+      </div>
+      <div class="col-lg-8 col-sm-8 ">
+        <div class="card mb">
+          <div class="row p">
+            <div class="col-lg-8 col-sm-1">
+              <i class="fab fa-facebook-square"></i>
+              Facebook
+            </div>
+            <div class="col-lg-2 col-sm-2">
+              <button class="btnn" mat-button>Connect</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb">
+          <div class="row p">
+            <div class="col-lg-8 col-sm-1">
+              <i class="fab fa-instagram"></i>
+              Instagram
+            </div>
+            <div class="col-lg-2 col-sm-2">
+              <button class="btnn" mat-button>Connect</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb">
+          <div class="row p">
+            <div class="col-lg-8 col-sm-1">
+              <i class="fab fa-twitter-square"></i>
+              Twitter
+            </div>
+            <div class="col-lg-2 col-sm-2">
+              <button class="btnn" mat-button>Connect</button>
+            </div>
+          </div>
+        </div>
+        <div class="card mb">
+          <div class="row p">
+            <div class="col-lg-8 col-sm-1">
+              <i class="fab fa-youtube"></i>
+              Youtube
+            </div>
+            <div class="col-lg-2 col-sm-2">
+              <button class="btnn" mat-button>Connect</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disable account -->
+    <div class="row">
+      <div class="col-lg-8 col-sm-10">
+        <span><b>Disable account</b></span>
+      </div>
+      <div class="col-lg-4 col-sm-2 text-left">
+        <div class="row ">
+          <div class="col-lg-12 col-sm-12 text-right">
+            <button class="buttons" mat-button>Disable account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 offset-1">
+        <p>Careful! This will permanently disable your account. You won’t be able to log in again after you do this.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10 col-sm-10">
+      </div>
+      <div class="col-lg-2 col-sm-2">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <button class="buttons iv" mat-button>Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!--  card body -->
+</div> <!--  card -->

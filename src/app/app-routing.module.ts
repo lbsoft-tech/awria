@@ -42,6 +42,30 @@ import { ArtistMessagePageComponent } from './artist-portal/artist-message/artis
 import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
 import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
 import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
+import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
+import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
+import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
+import { MyMembershipComponent } from './my-membership/my-membership.component';
+import { ActiveMembershipsComponent } from './my-membership/active-memberships/active-memberships.component';
+import { BillingHistoryComponent } from './my-membership/billing-history/billing-history.component';
+import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
+import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
+import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
+import { ArtistIncomePayoutComponent } from './artist-portal/artist-income/artist-income-payout/artist-income-payout.component';
+import { ArtistIncomePayoutTaxformComponent } from './artist-portal/artist-income/artist-income-payout/artist-income-payout-taxform/artist-income-payout-taxform.component';
+import { ArtistPatronsExitSurveyComponent } from './artist-portal/artist-patrons/artist-patrons-exit-survey/artist-patrons-exit-survey.component';
+import { ArtistPatronsBlockedUsersComponent } from './artist-portal/artist-patrons/artist-patrons-blocked-users/artist-patrons-blocked-users.component';
+import { ArtistIncomeEarningsComponent } from './artist-portal/artist-income/artist-income-earnings/artist-income-earnings.component';
+import { ArtistIncomePledgeGrowthComponent } from './artist-portal/artist-income/artist-income-pledge-growth/artist-income-pledge-growth.component';
+import { ArtistProfileSettingsComponent } from './artist-portal/artist-profile-settings/artist-profile-settings.component';
+import { ArtistProfileSettingsUserProfileComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-user-profile/artist-profile-settings-user-profile.component';
+import { ArtistProfileSettingsEmailComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-email/artist-profile-settings-email.component';
+import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
+import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-home-all-posts/artist-home-all-posts.component';
+import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
+import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
+import { AuthGuard } from './_guards/authguard/auth.guard';
+import { RoleGuard } from './_guards/roleguard/role.guard';
 
 import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-profile/artist-profile-emailsettings/artist-profile-emailsettings.component';
 import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
@@ -49,7 +73,6 @@ import { HomeComponent } from './home-page/home/home.component';
 import { PricingComponent } from './home-page/pricing/pricing.component';
 import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
 import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
-import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
 import { ArtistHomeAllpostComponent } from './artist-portal/artist-home/artist-home-allpost/artist-home-allpost.component';
 import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/artist-home-patrononlypost/artist-home-patrononlypost.component';
 
@@ -59,7 +82,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/home-page'
+    redirectTo: '/home-page/home'
   },
   {
     path: 'home-page',
@@ -78,19 +101,39 @@ const routes: Routes = [
         component: RegisterComponent
       },
       {
-        path: 'pricing',
-        component: PricingComponent,
+        path: 'home',
+        component: HomePageHomeComponent
+      }
+    ]
+  },
+  {
+    path: 'my-membership',
+    component: MyMembershipComponent,
+    children: [
+      {
+        path: 'active-memberships',
+        component: ActiveMembershipsComponent
       },
+      {
+        path: 'billing-history',
+        component: BillingHistoryComponent
+      },
+      {
+        path: 'payment-methods',
+        component: PaymentMethodsComponent
+      }
     ]
   },
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
-
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'posts',
         component: ArtistPostsComponent,
+        // canActivate: [RoleGuard],
+        // data: { role: 'Artist' },
         children: [
           {
             path: 'new',
@@ -107,6 +150,18 @@ const routes: Routes = [
           {
             path: 'image',
             component: NewPostImageComponent
+          },
+          {
+            path: 'drafts',
+            component: DraftsComponent
+          },
+          {
+            path: 'scheduled',
+            component: ScheduledComponent
+          },
+          {
+            path: 'published',
+            component: PublishedComponent
           }
         ]
       },
@@ -115,57 +170,32 @@ const routes: Routes = [
         component: ArtistHomeComponent,
         children: [
           {
-            path: 'allpost',
-            component: ArtistHomeAllpostComponent,
+            path: 'all',
+            component: ArtistHomeAllPostsComponent
           },
           {
-            path: 'patrononlypost',
-            component: ArtistHomePatrononlypostComponent
-          },
+            path: 'patron',
+            component: ArtistHomePatronPostsComponent
+          }
         ]
       },
       {
-        path: 'message',
-        component: ArtistMessageComponent,
+        path: 'profile-settings',
+        component: ArtistProfileSettingsComponent,
         children: [
           {
-            path: 'page',
-            component: ArtistMessagePageComponent,
-            children: [
-              {
-                path: 'all',
-                component: ArtistMessageAllComponent
-              },
-              {
-                path: 'unread',
-                component: ArtistMessageUnreadComponent
-              },
-              {
-                path: 'read',
-                component: ArtistMessageReadComponent
-              },
-            ]
+            path: 'my-profile',
+            component: ArtistProfileSettingsUserProfileComponent
           },
           {
-            path: 'profile',
-            component: ArtistMessageProfileComponent,
-            children: [
-              {
-                path: 'all',
-                component: ArtistMessageProfileAllComponent
-              },
-              {
-                path: 'unread',
-                component: ArtistMessageProfileUnreadComponent
-              },
-              {
-                path: 'read',
-                component: ArtistMessageProfileReadComponent
-              },
-            ]
-          },
+            path: 'my-email',
+            component: ArtistProfileSettingsEmailComponent
+          }
         ]
+
+
       },
+
       {
         path: 'edit',
         component: ArtistEditComponent,
@@ -176,7 +206,17 @@ const routes: Routes = [
           },
           {
             path: 'tiers',
-            component: ArtistEditTiersComponent
+            component: ArtistEditTiersComponent,
+            children: [
+              {
+                path: 'your-tiers',
+                component: YourTiersComponent
+              },
+              {
+                path: 'best-practices',
+                component: BestPracticesComponent
+              }
+            ]
           },
           {
             path: 'goals',
@@ -253,7 +293,15 @@ const routes: Routes = [
           {
             path: 'relationship',
             component: ArtistPatronsRelationshipComponent
-          }
+          },
+          {
+            path: 'exit-survey',
+            component: ArtistPatronsExitSurveyComponent
+          },
+          {
+            path: 'blocked-users',
+            component: ArtistPatronsBlockedUsersComponent
+          },
         ]
       },
       {
@@ -311,6 +359,28 @@ const routes: Routes = [
       {
         path: 'notifications',
         component: ArtistNotificationsComponent
+      },
+      {
+        path: 'income',
+        component: ArtistIncomeComponent,
+        children: [
+          {
+            path: 'payout',
+            component: ArtistIncomePayoutComponent
+          },
+          {
+            path: 'payout/tax-form',
+            component: ArtistIncomePayoutTaxformComponent
+          },
+          {
+            path: 'earnings',
+            component: ArtistIncomeEarningsComponent
+          },
+          {
+            path: 'pledge-growth',
+            component: ArtistIncomePledgeGrowthComponent
+          }
+        ]
       }
     ]
   }

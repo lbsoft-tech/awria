@@ -1,0 +1,59 @@
+.btn1 {
+  background: #d8ecf9;
+  color: #266896;
+  border-radius: 50px;
+}
+.jlogeD {
+  background-color: rgb(99, 214, 163);
+  box-sizing: border-box;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  margin-top: 0rem;
+  margin-right: 0rem;
+  margin-bottom: 0rem;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+@media only screen and (min-width: 800px) {
+  .jlogeD {
+    width: 80px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .jlogeD {
+    width: 63px;
+  }
+  .card1 {
+    height: 250px;
+  }
+  .man {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .jlogeD {
+    width: 53px;
+  }
+}
+
+td.mat-cell {
+  padding: 3px;
+}
+th.mat-header-cell {
+  padding: 3px;
+}
+@media only screen and (max-width: 822px) {
+  .table {
+    display: none;
+  }
+}
+@media only screen and (min-width: 823px) {
+  .table2 {
+    display: none;
+  }
+}
