@@ -13,6 +13,9 @@ export class AuthService {
     this.User = null;
   }
 
+  setUser(obj: User) {
+    this.User = obj;
+  }
   isAuthenticated() {
     return this.User != null;
   }

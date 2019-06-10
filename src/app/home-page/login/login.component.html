@@ -1,7 +1,7 @@
 <h2>Log In</h2>
 <div class="container col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2" >
 
-<form>
+<form id="login_form" #login_form="ngForm">
 
     <div class="form-group" [class.has-error]="email.invalid && email.touched">
         <!-- <label class="control-label"> -->
@@ -23,12 +23,12 @@
 <br>
 
 <label for="email">Password</label><br>
-<input autocomplete="on" type="password"  class="form-control" />
+<input autocomplete="on" type="password" [(ngModel)]="user.password" class="form-control" name="password" required/>
 
 <br>
 
 <button class="btn-fp">Forget Your password</button><br>
-  <button class="btn" (click)="login()" type="button">Login</button>
+  <button class="btn" (click)="login()" type="button" [disabled]="!login_form.form.valid">Login</button>
   <br>
 
   <button class="btn btn-fb">Continue with Facebook</button><br>

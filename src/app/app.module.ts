@@ -82,6 +82,7 @@ import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
