@@ -24,7 +24,7 @@ export class DialogOverviewExampleDialogComponent {
     this.dialogRef.close();
     
   }
-    imageUpload(event){
+    imageUpload(event:any){
     console.log(event[0]);
     this.api.textPhoto= event[0]
     const formdata = new FormData();
@@ -82,7 +82,7 @@ publishType;
 
     fileUpload(event){
       console.log(event[0]);
-      this.image= event[0]
+      this.attachment= event[0]
       const formdata = new FormData();
            formdata.append('textFile', event[0], 'TextFile.jpg')
            formdata.append('id', localStorage.getItem('uid'))
@@ -90,12 +90,15 @@ publishType;
 
 publishPost(){
 this.publishType="publish";
+this.createPost();
 }
 schedulePost(){
   this.publishType="schedule";
+  this.createPost();
 }
 draftPost(){
   this.publishType="draft";
+  this.createPost();
 }
 createPost(){
   let id=localStorage.getItem('uid');

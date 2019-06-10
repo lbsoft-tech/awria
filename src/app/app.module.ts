@@ -33,7 +33,7 @@ import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
 import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 
-import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent,DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent, IDialogOverviewExampleDialogComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
@@ -108,6 +108,7 @@ import { HomePagePricingComponent } from './home-page/home-page-pricing/home-pag
     IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,
+    DeleteVideoPostDialog,
     RegisterComponent,
     HeaderProfileBtnComponent,
     NewPostTextComponent,
