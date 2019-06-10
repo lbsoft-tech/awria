@@ -151,7 +151,6 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
       })
     })
   }
-<<<<<<< HEAD
   addShippingAddress() {
     let id = localStorage.getItem('uid');
     let data = {
@@ -162,33 +161,10 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
       country: this.shipping.sCountry,
       state: this.shipping.state,
       postCode: this.shipping.postCode
-=======
-}
-imageUpload(event){
-console.log(event[0]);
-this.image= event[0]
-const formdata = new FormData();
-     formdata.append('userprofile', event[0], 'dp.jpg')
-     formdata.append('id', localStorage.getItem('uid'))
-}
-UserProfileUpdate(){
-  let id =localStorage.getItem('uid');
-  this.api.getUser(id).subscribe(res=>{
-    this.userData=res;
-    // this.name=this.userData.name;
-    // this.email=this.userData.email;
-    // this.about=this.userData.about;
-    let data={
-      name:this.name,
-      email:this.email,
-      about:this.about,
-      country:this.country,
-      image:this.image,
->>>>>>> 772c55b3c8c197a2b21448c1123e7cd4dc4438f2
     }
     this.api.addShipping(id, data).subscribe(res => {
 
       console.log("Shipping updated");
-    })
+    });
   }
 }
