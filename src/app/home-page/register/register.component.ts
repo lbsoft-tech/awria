@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import Swal from 'sweetalert2';
 import { User } from 'src/app/_models/user/user';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -50,25 +51,34 @@ export class RegisterComponent implements OnInit {
           user.token = registerResponse.access_token;
           user.tokenexpiresin = registerResponse.expires_in;
 
-          this.auth.setUser(user);
-
-          this.router.navigateByUrl('/artist-portal/home/all');
         },
-          (error) => {
-            Swal.fire({
-              title: 'Error',
-              text: error.error.message,
-              type: 'error',
-              confirmButtonText: 'Ok'
-            });
+        (error) => {
+          Swal.fire({
+            title: 'Error',
+            text: error.error.message,
+            type: 'error',
+            confirmButtonText: 'Ok'
           });
+        });
       }
       else {
         console.log("Email is not in format")
+        Swal.fire({
+          title: 'Error',
+          text: 'Email is not formated',
+          type: 'error',
+          confirmButtonText: 'Ok'
+        });
       }
     }
     catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: 'Error',
+        text: error.error.message,
+        type: 'error',
+        confirmButtonText: 'Ok'
+      });
     }
   }
 }

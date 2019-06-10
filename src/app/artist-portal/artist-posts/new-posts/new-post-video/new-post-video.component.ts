@@ -63,6 +63,18 @@ export class NewPostVideoComponent implements OnInit {
       this.animal = result;
     });
   }
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(DeleteVideoPostDialog, {
+      width: '500px',
+      // height:'550px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -129,7 +141,6 @@ videoUrl:this.videoUrl
 this.api.addPost(data).subscribe(res=>{
   console.log("Added");
 })
-
 }
   publish() {
     console.log("object");
@@ -197,4 +208,21 @@ export class VDialogOverviewExampleDialogComponent {
          formdata.append('videoPhoto', event[0], 'videoPhoto.jpg')
          formdata.append('id', localStorage.getItem('uid'))
     }
+}
+@Component({
+  selector: 'deleteVideoPostDialog',
+  templateUrl: './deletePostDialog.html',
+  styleUrls: ['./deletePostDialog.scss']
+})
+export class DeleteVideoPostDialog {
+
+  constructor(
+    public dialogRef1: MatDialogRef<DeleteVideoPostDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private api:DatabaseService) {}
+
+  onNoClick(): void {
+    this.dialogRef1.close();
+  }
+
 }

@@ -185,7 +185,7 @@ console.log(data);
       this.earlyAccessTime=time
     });
   }
-  imageUpload(event){
+  imageUpload(event:any){
     console.log(event[0]);
     this.api.imagePhoto= event[0]
     const formdata = new FormData();

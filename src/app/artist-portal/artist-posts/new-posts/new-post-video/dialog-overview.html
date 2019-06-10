@@ -12,15 +12,15 @@
             <div class="row">
                 <div class="col-lg-4 col-sm-0"></div>
                 <div class="col-lg-4 col-sm-12" style="text-align: center !important;    margin: 65px 0 65px 0;">
-                    <div class="file btn btn-lg btn-primary" style="  position: relative ; background-color: #00497C;
-                    overflow: hidden;">
-                   <small  style="font-size:x-small !important">Select image file</small>   
-                        <input style="  position: absolute;
-                        font-size: 50px;
-                        opacity: 0;
-                        right: 0;
-                        top: 0;" type="file" name="file"/>
-                      </div>
+                  <div class="file btn btn-lg btn-primary" style="  position: relative ; background-color: #00497C;
+                  overflow: hidden;">
+                 <small  style="font-size:x-small !important">Select image file</small>   
+                      <input style="  position: absolute;
+                      font-size: 50px;
+                      opacity: 0;
+                      right: 0;
+                      top: 0;" type="file" (change)="imageUpload($event.target.files)" name="videoPhoto"/>
+                    </div>
                </div>
                 <div class="col-4"></div>
 
