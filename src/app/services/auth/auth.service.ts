@@ -25,7 +25,6 @@ export class AuthService {
   }
 
   login(data) {
-    console.log(data.password);
     return this.httpClient.post(this.baseUrl + '/auth/login', data);
   }
 

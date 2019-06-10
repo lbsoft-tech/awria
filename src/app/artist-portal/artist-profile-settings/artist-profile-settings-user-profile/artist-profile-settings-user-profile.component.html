@@ -47,10 +47,10 @@
       <div class="col-lg-8 col-sm-8">
         <form>
           <div class="form-group" [class.has-error]="pass.invalid && pass.touched">
-       
+
               <input required pattern="(?=.*[#/?//&/@/$/!/%////\/'/'/}/{/}])(?=.*\d).{7,}" autocomplete="off" type="password"
                 placeholder="Enter Password" name="psw" #pass="ngModel" [(ngModel)]="password.newPassword" class="form-control" >
-            
+
               <!-- <small id="msg" style="color:red" class="help-block" *ngIf="pass.touched && pass.errors?.required">
                 Required
               </small> -->
@@ -73,7 +73,7 @@
     </div>
     <div class="row">
       <div class="col-lg-12 col-sm-12 text-right">
-        <button class="btnn" mat-button>Update Password</button>
+        <button (click) = 'changePasssword()' class="btnn" mat-button>Update Password</button>
       </div>
     </div>
 
@@ -93,11 +93,11 @@
       <div class="col-lg-3 col-sm-3">
        <div class="file btn btn-lg btn-primary" style="  position: relative ; background-color: #00497C;border-radius: 50px ;
                     overflow: hidden;">
-                   <small  style="font-size:small !important">Choose new Image</small>   
+                   <small  style="font-size:small !important">Choose new Image</small>
                         <input (change)="imageUpload($event.target.files)" style="  position: absolute;
                         font-size: 50px;
                         opacity: 0;
-                        right: 0;  
+                        right: 0;
                         top: 0;" type="file" name="userprofile"/>
                       </div>
       </div>
@@ -712,7 +712,7 @@
         <div class="editor_container">
           <angular-editor [(ngModel)]="about" [config]="config"></angular-editor>
         </div>
-        
+
       </div>
     </div>
 
