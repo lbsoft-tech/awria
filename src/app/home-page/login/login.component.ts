@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
         this.auth.setUser(user);
 
-        this.router.navigateByUrl('/artist-portal/home');
+        this.router.navigateByUrl('/artist-portal/home/all');
       },
         (error) => {
           Swal.fire({

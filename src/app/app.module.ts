@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AvatarModule } from 'ngx-avatar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -80,6 +80,7 @@ import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
+import { TokenInterceptor } from './services/auth/token.interceptor';
 
 
 
@@ -177,7 +178,13 @@ import { HomePagePricingComponent } from './home-page/home-page-pricing/home-pag
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
