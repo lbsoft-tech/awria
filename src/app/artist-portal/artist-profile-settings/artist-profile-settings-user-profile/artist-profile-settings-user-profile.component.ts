@@ -77,18 +77,25 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
   }
   changePasssword() {
     var compareResponse;
-    console.log('change pass called');
+    var updatePasswordResponse;
     if (this.password.newPassword === this.password.cPassword) {
-
       const id = this.auth.getCurrentUser().id;
       const old_pass = this.password.oldPassword;
-
       this.api.comparePassword(id, old_pass).subscribe((res) => {
         compareResponse = res;
         if (compareResponse.match) {
           const new_pass = this.password.newPassword;
           this.api.updatePassword(id, new_pass).subscribe((update_pass_res) => {
-            console.log(update_pass_res);
+            updatePasswordResponse = update_pass_res;
+            if(updatePasswordResponse.status)
+            {
+              Swal.fire({
+                title: 'Success',
+                text: 'Password updated.',
+                type: 'success',
+                confirmButtonText: 'Ok'
+              });
+            }
           },
             (error) => {
               console.log(error);

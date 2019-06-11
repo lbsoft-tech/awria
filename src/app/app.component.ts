@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material';
 import { isPlatformBrowser } from '@angular/common';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthService } from './services/auth/auth.service';
 
 
 @Component({
@@ -17,7 +18,14 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor() {
+  constructor(private _auth: AuthService) {
 
+  }
+
+  initializeApp() {
+    if(this._auth.isAuthValid() && !this._auth.isAuthenticated())
+    {
+
+    }
   }
 }

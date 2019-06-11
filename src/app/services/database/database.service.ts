@@ -26,7 +26,11 @@ export class DatabaseService {
     return this.httpClient.post(this.baseUrl + '/users/comparePassword', req);
   }
   updatePassword(id, data) {
-    return this.httpClient.put(this.baseUrl + '/users/' + id, data);
+    const req = {
+      user_id: id,
+      password: data
+    };
+    return this.httpClient.post(this.baseUrl + '/users/updatePassword', req);
   }
   updateProfile(id, data) {
     return this.httpClient.put(this.baseUrl + '/users/' + id, data);
