@@ -32,8 +32,13 @@ import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
 
-import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent,DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent, IDialogOverviewExampleDialogComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+// import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+// import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+// import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+
+import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
@@ -53,18 +58,13 @@ import { PricingComponent } from './home-page/pricing/pricing.component';
 import { ArtistMessageComponent } from './artist-portal/artist-message/artist-message.component';
 import { ArtistMessageProfileComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile.component';
 import { ArtistMessagePageComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page.component';
-import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
-import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
-import { ArtistMessageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-read/artist-message-read.component';
 import { ArtistMessagePageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-all/artist-message-page-all.component';
 import { ArtistMessagePageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-read/artist-message-page-read.component';
 import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-page-unread/artist-message-page-unread.component';
 import { ArtistMessageProfileUnreadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-unread/artist-message-profile-unread.component';
 import { ArtistMessageProfileReadComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-read/artist-message-profile-read.component';
 import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message/artist-message-profile/artist-message-profile-all/artist-message-profile-all.component';
-
 import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
-import { ArtistHomeAllpostComponent } from './artist-portal/artist-home/artist-home-allpost/artist-home-allpost.component';
 import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
 import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
 import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
@@ -90,6 +90,22 @@ import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/arti
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
 import { TokenInterceptor } from './services/auth/token.interceptor';
+import { UserPortalComponent } from './user-portal/user-portal.component';
+import { UserMessageComponent } from './user-portal/user-message/user-message.component';
+import { UserProfileComponent } from './user-portal/user-profile/user-profile.component';
+import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
+import { UserMembershipsComponent } from './user-portal/user-memberships/user-memberships.component';
+import { UserHomeComponent } from './user-portal/user-home/user-home.component';
+import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
+import { UserHomePatronPostsComponent } from './user-portal/user-home/user-home-patron-posts/user-home-patron-posts.component';
+import { HeaderUserComponent } from './shared/header-user/header-user.component';
+import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
+import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
+import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-icon.component';
+import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
+import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
+import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
+import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
 
 
 
@@ -114,22 +130,19 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     ArtistEditPoststabComponent,
     ArtistEditOffersComponent,
     LoginComponent,
-    // DialogOverviewExampleDialogComponent,
+    DialogOverviewExampleDialogComponent,
     IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,
-    DeleteVideoPostDialog,
     RegisterComponent,
     HeaderProfileBtnComponent,
     ArtistMessageComponent,
-    ArtistMessageAllComponent,
-    ArtistMessageUnreadComponent,
-    ArtistMessageReadComponent,
     ArtistMessageProfileComponent,
     ArtistMessagePageComponent,
     ArtistMessageProfileReadComponent,
     ArtistMessageProfileAllComponent,
     ArtistMessageProfileUnreadComponent,
+    NewPostTextComponent,
     NewPostVideoComponent,
     NewPostImageComponent,
 
@@ -164,7 +177,6 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     ArtistIncomeComponent,
     ArtistPayoutComponent,
     ArtistHomeComponent,
-    ArtistHomeAllpostComponent,
     DraftsComponent,
     ScheduledComponent,
     PublishedComponent,
@@ -189,6 +201,22 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     ArtistHomePatronPostsComponent,
     HomePageHomeComponent,
     HomePagePricingComponent,
+    UserPortalComponent,
+    UserMessageComponent,
+    UserProfileComponent,
+    UserSettingComponent,
+    UserMembershipsComponent,
+    UserHomeComponent,
+    UserHomeAllPostsComponent,
+    UserHomePatronPostsComponent,
+    HeaderUserComponent,
+    UserProfileSettingComponent,
+    UserProfileEmailComponent,
+    ProfileIconComponent,
+    UserMessageProfileComponent,
+    UserMessageProfileAllComponent,
+    UserMessageProfileReadComponent,
+    UserMessageProfileUnreadComponent,
   ],
   imports: [
     BrowserModule,
@@ -206,9 +234,7 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     AngularEditorModule
     // NgxCountrySelectModule
   ],
-  entryComponents: [
-    // DialogOverviewExampleDialogComponent, 
-    IDialogOverviewExampleDialogComponent,
+  entryComponents: [DialogOverviewExampleDialogComponent, IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog
   ],

@@ -15,9 +15,6 @@ import { ArtistEditPoststabComponent } from './artist-portal/artist-edit/artist-
 import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-edit-offers/artist-edit-offers.component';
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
-import { ArtistMessageAllComponent } from './artist-portal/artist-message/artist-message-page/artist-message-all/artist-message-all.component';
-import { ArtistMessageUnreadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-unread/artist-message-unread.component';
-import { ArtistMessageReadComponent } from './artist-portal/artist-message/artist-message-page/artist-message-read/artist-message-read.component';
 import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
@@ -73,9 +70,21 @@ import { HomeComponent } from './home-page/home/home.component';
 import { PricingComponent } from './home-page/pricing/pricing.component';
 import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
 import { ArtistPayoutComponent } from './artist-portal/artist-income/artist-payout/artist-payout.component';
-import { ArtistHomeAllpostComponent } from './artist-portal/artist-home/artist-home-allpost/artist-home-allpost.component';
-import { ArtistHomePatrononlypostComponent } from './artist-portal/artist-home/artist-home-patrononlypost/artist-home-patrononlypost.component';
 
+import { UserPortalComponent } from './user-portal/user-portal.component';
+import { UserMessageComponent } from './user-portal/user-message/user-message.component';
+import { UserProfileComponent } from './user-portal/user-profile/user-profile.component';
+import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
+import { UserMembershipsComponent } from './user-portal/user-memberships/user-memberships.component';
+import { UserHomeComponent } from './user-portal/user-home/user-home.component';
+import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
+import { UserHomePatronPostsComponent } from './user-portal/user-home/user-home-patron-posts/user-home-patron-posts.component';
+import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
+import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
+import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
+import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
+import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
+import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
 
 
 const routes: Routes = [
@@ -383,7 +392,66 @@ const routes: Routes = [
         ]
       }
     ]
-  }
+  },
+  {
+    path: 'user-portal',
+    component: UserPortalComponent,
+    children: [
+      {
+        path: 'home',
+        component: UserHomeComponent,
+        children: [
+          {
+            path: 'all',
+            component: UserHomeAllPostsComponent
+          },
+          {
+            path: 'patron',
+            component: UserHomePatronPostsComponent
+          }
+        ]
+      },
+      {
+        path: 'message',
+        component: UserMessageComponent,
+        children: [
+          {
+            path: 'profile',
+            component: UserMessageProfileComponent,
+            children: [
+              {
+                path: 'all',
+                component: UserMessageProfileAllComponent
+              },
+              {
+                path: 'read',
+                component: UserMessageProfileReadComponent
+              },
+              {
+                path: 'unread',
+                component: UserMessageProfileUnreadComponent
+              }
+            ]
+          },
+          
+        ]
+      },
+      {
+        path: 'setting',
+        component: UserSettingComponent,
+        children: [
+          {
+            path: 'profile',
+            component: UserProfileSettingComponent
+          },
+          {
+            path: 'email',
+            component: UserProfileEmailComponent
+          },
+        ]
+      },
+    ]
+  },
 ];
 
 @NgModule({
