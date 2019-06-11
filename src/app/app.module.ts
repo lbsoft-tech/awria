@@ -31,7 +31,7 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostTextComponent, DialogOverviewExampleDialogComponent,DeleteTextPostDialog } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 
 import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent,DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent, IDialogOverviewExampleDialogComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
@@ -109,6 +109,7 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,
+    DeleteTextPostDialog,
     DeleteVideoPostDialog,
     RegisterComponent,
     HeaderProfileBtnComponent,
@@ -176,7 +177,7 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
   ],
   entryComponents: [DialogOverviewExampleDialogComponent, IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
-    DeletePostDialog
+    DeletePostDialog,DeleteTextPostDialog,DeleteVideoPostDialog
   ],
   providers: [
     {

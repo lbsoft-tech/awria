@@ -207,5 +207,34 @@ imageUrl:this.api.textPhotoUrl
       this.earlyAccessTime=time
     });
   }
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(DeleteTextPostDialog, {
+      width: '500px',
+      // height:'550px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
 }
 
+@Component({
+  selector: 'deleteTextPostDialog',
+  templateUrl: './deletePostDialog.html',
+  styleUrls: ['./deletePostDialog.scss']
+})
+export class DeleteTextPostDialog {
+
+  constructor(
+    public dialogRef1: MatDialogRef<DeleteTextPostDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private api:DatabaseService) {}
+
+  onNoClick(): void {
+    this.dialogRef1.close();
+  }
+
+}
