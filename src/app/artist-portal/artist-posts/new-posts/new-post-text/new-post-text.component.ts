@@ -4,6 +4,8 @@ import { MatChipInputEvent } from '@angular/material';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { DatabaseService } from 'src/app/services/database/database.service';
+import Swal from 'sweetalert2';
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -101,6 +103,9 @@ draftPost(){
   this.createPost();
 }
 createPost(){
+  if(this.title!=null){
+
+  
   let id=localStorage.getItem('uid');
   let data={
     title:this.title,
@@ -124,7 +129,15 @@ imageUrl:this.api.textPhotoUrl
   this.api.addPost(data).subscribe(res=>{
     console.log("Added");
   })
-  
+}
+else{
+  Swal.fire({
+    title: 'Error',
+    text: "Add a title to your post before continuning",
+    type: 'warning',
+    confirmButtonText: 'Ok'
+  });
+} 
 }
 
   openDialog(): void {

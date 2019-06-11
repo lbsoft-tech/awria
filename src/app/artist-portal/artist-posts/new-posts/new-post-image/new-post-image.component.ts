@@ -4,6 +4,8 @@ import { AmazingTimePickerService } from 'amazing-time-picker';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { DatabaseService } from '../../../../services/database/database.service';
+import Swal from 'sweetalert2';
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -68,6 +70,9 @@ draftPost(){
 this.publishType="draft";
 }
 createPost(){
+  if(this.title!=null){
+
+  
 let id=localStorage.getItem('uid');
 let data={
   title:this.title,
@@ -91,7 +96,15 @@ console.log(data);
 // this.api.addPost(data).subscribe(res=>{
 //   console.log("Added");
 // })
-
+  }
+  else{
+    Swal.fire({
+      title: 'Error',
+      text: "Add a title to your post before continuning",
+      type: 'warning',
+      confirmButtonText: 'Ok'
+    });
+  }
 }
   openDialog(): void {
     const dialogRef = this.dialog.open(IDialogOverviewExampleDialogComponent, {
