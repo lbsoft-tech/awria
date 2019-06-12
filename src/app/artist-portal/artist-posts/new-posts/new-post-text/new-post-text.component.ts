@@ -20,7 +20,7 @@ export class DialogOverviewExampleDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private api:DatabaseService) { }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,public api:DatabaseService) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -77,7 +77,7 @@ publishType;
   patronspost = false;
   
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,private api:DatabaseService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,public api:DatabaseService) { }
 
   ngOnInit() {
   }
@@ -244,7 +244,7 @@ export class DeleteTextPostDialog {
   constructor(
     public dialogRef1: MatDialogRef<DeleteTextPostDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private api:DatabaseService) {}
+    ) {}
 
   onNoClick(): void {
     this.dialogRef1.close();

@@ -47,7 +47,7 @@ publishType;
   publicpost = true;
   patronspost = false;
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,private api:DatabaseService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,public api:DatabaseService) { }
 
   ngOnInit() {
   }
@@ -231,7 +231,7 @@ export class IDialogOverviewExampleDialogComponent {
     constructor(
       public dialogRef1: MatDialogRef<DeletePostDialog>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData,
-      private api:DatabaseService) {}
+    ) {}
   
     onNoClick(): void {
       this.dialogRef1.close();

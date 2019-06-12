@@ -49,7 +49,7 @@ export class NewPostVideoComponent implements OnInit {
   publicpost = true;
   patronspost = false;
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog ,private api:DatabaseService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog ,public api:DatabaseService) { }
 
   ngOnInit() {
   }
@@ -208,7 +208,7 @@ export class VDialogOverviewExampleDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<VDialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private api:DatabaseService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,public api:DatabaseService) {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -231,7 +231,7 @@ export class DeleteVideoPostDialog {
   constructor(
     public dialogRef1: MatDialogRef<DeleteVideoPostDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private api:DatabaseService) {}
+  ) {}
 
   onNoClick(): void {
     this.dialogRef1.close();
