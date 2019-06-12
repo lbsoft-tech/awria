@@ -62,7 +62,7 @@
 <br>
 
 <input type="checkbox" [(ngModel)]="terms" name="terms"  class="checkbox" ng-class = "{'checked': register.term, 'unchecked' : !register.term}"><p>You agree to our <a (click)="signup()">Term of use</a> and <a href="#">Privacy Policy</a></p><br>
-  <button (click)="signup()" class="btn" type="button" [disabled]="!login_form.form.valid && terms">Sign Up</button>
+  <button (click)="signup()" class="btn" type="button" [disabled]="!login_form.form.valid ">Sign Up</button>
   <br>
 <p class="text" >or sign up with Facebook</p>
   <button class="btn btn-fb">Sign up with Facebook</button><br>
