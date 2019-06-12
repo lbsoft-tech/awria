@@ -28,11 +28,7 @@ export class RegisterComponent implements OnInit {
     var registerResponse;
     var userData;
     try {
-      if (this.user.email.match("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
-        && this.user.password.match("(?=.*[#/?//&/@/_/-/~/^/+/=/*/(/)/$/!/>/</,/./;/:/-|//%////\/'/'/}/{/}])(?=.*\d).{7,}")
-        && this.user.name != ''
-        && this.user.email == this.user.cemail
-      ) {
+      
         const data = {
           name: this.user.name,
           email: this.user.email,
@@ -53,16 +49,8 @@ export class RegisterComponent implements OnInit {
             }
 
           });
-      }
-      else {
-        console.log("Email is not in format")
-        Swal.fire({
-          title: 'Error',
-          text: 'Email is not formated',
-          type: 'error',
-          confirmButtonText: 'Ok'
-        });
-      }
+      
+   
     }
     catch (error) {
       console.log(error.message);
