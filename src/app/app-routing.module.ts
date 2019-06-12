@@ -62,7 +62,7 @@ import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { AuthGuard } from './_guards/authguard/auth.guard';
-import { RoleGuard } from './_guards/roleguard/role.guard';
+import { GuestGuard } from './_guards/guestguard/guest.guard';
 
 
 
@@ -76,6 +76,7 @@ const routes: Routes = [
   {
     path: 'home-page',
     component: HomePageComponent,
+    canActivate: [GuestGuard],
     children: [
       {
         path: 'login',
@@ -112,13 +113,11 @@ const routes: Routes = [
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
-    // canActivate: [AuthGuard],
+     canActivate: [AuthGuard],
     children: [
       {
         path: 'posts',
         component: ArtistPostsComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Artist' },
         children: [
           {
             path: 'new',

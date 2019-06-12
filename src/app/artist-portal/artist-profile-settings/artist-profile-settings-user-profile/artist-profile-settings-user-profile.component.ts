@@ -79,7 +79,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
     var compareResponse;
     var updatePasswordResponse;
     if (this.password.newPassword === this.password.cPassword) {
-      const id = this.auth.getCurrentUser().id;
+      const id = this.auth.currentUserValue.id;
       const old_pass = this.password.oldPassword;
       this.api.comparePassword(id, old_pass).subscribe((res) => {
         compareResponse = res;

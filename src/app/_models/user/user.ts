@@ -5,5 +5,5 @@ export class User {
   name: string;
   role: string;
   token?: string;
-  tokenexpiresin?: number;
+  tokenexpiresin?: string;
 }

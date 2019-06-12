@@ -80,7 +80,8 @@ import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
-import { TokenInterceptor } from './services/auth/token.interceptor';
+import { TokenInterceptor } from './services/token.interceptor';
+import { ErrorInterceptor } from './services/error.interceptor';
 
 
 
@@ -180,11 +181,9 @@ import { TokenInterceptor } from './services/auth/token.interceptor';
     DeletePostDialog,DeleteTextPostDialog,DeleteVideoPostDialog
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
   ],
   bootstrap: [AppComponent]
 })
