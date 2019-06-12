@@ -85,6 +85,7 @@ import { UserMessageProfileComponent } from './user-portal/user-message/user-mes
 import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
 import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
 import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
+import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
 
 
 const routes: Routes = [
@@ -112,6 +113,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomePageHomeComponent
+      },
+      {
+        path: 'pricing',
+        component: PricingComponent
       }
     ]
   },
@@ -410,6 +415,10 @@ const routes: Routes = [
             component: UserHomePatronPostsComponent
           }
         ]
+      },
+      {
+        path:'follow',
+        component:UserFollowComponent
       },
       {
         path: 'message',

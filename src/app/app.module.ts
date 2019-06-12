@@ -106,6 +106,7 @@ import { UserMessageProfileComponent } from './user-portal/user-message/user-mes
 import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
 import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
 import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
+import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
 
 
 
@@ -217,6 +218,7 @@ import { UserMessageProfileUnreadComponent } from './user-portal/user-message/us
     UserMessageProfileAllComponent,
     UserMessageProfileReadComponent,
     UserMessageProfileUnreadComponent,
+    UserFollowComponent,
   ],
   imports: [
     BrowserModule,
