@@ -1,37 +1,53 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { first } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { User } from 'src/app/_models/user/user';
 import * as moment from 'moment';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   readonly baseUrl = 'http://localhost:3000';
-  private User: User;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
   constructor(private httpClient: HttpClient) {
-    this.User = null;
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+  retrieveUser() {
+    return this.httpClient.get(this.baseUrl + '/auth/getUser');
   }
 
-  setUser(obj: User) {
-    this.User = obj;
-  }
-  isAuthenticated() {
-    return this.User != null;
-  }
-
-  getCurrentUser() {
-    return this.User;
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
   }
 
   public isAuthValid() {
-        return moment().isBefore(this.getExpiration());
-    }
+    return moment().isBefore(this.getExpiration());
+  }
 
   login(data) {
-    return this.httpClient.post(this.baseUrl + '/auth/login', data);
+    return this.httpClient.post<any>(this.baseUrl + '/auth/login', data).pipe(map( res => {
+      // login successful if there's a jwt token in the response
+      const user = new User();
+      if (res.user && res.access_token) {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        user.id = res.user._id;
+        user.email = res.user.email;
+        user.name = res.user.name;
+        user.role = res.user.role;
+        user.password = res.user.password;
+        user.token = res.access_token;
+        user.tokenexpiresin = JSON.stringify(moment().add(res.expires_in, 'second'));
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+      }
+
+      return user;
+    }));
   }
 
   signup(data) {
@@ -42,5 +58,11 @@ export class AuthService {
     const expiration = localStorage.getItem('expires_at');
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
+  }
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 }

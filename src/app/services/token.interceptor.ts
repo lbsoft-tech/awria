@@ -6,7 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -14,13 +14,16 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(public auth: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.auth.getCurrentUser()) {
+    // add authorization header with jwt token if available
+    let currentUser = this.auth.currentUserValue;
+    if (currentUser && currentUser.token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${this.auth.getCurrentUser().token}`
+          Authorization: `Bearer ${currentUser.token}`
         }
       });
     }
+
     return next.handle(request);
   }
 }

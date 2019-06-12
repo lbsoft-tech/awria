@@ -4,6 +4,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
+import { User } from './_models/user/user';
 
 
 @Component({
@@ -18,14 +19,30 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private _auth: AuthService) {
-
+  constructor(private _auth: AuthService, private router:Router) {
+    //this.initializeApp();
   }
 
-  initializeApp() {
-    if(this._auth.isAuthValid() && !this._auth.isAuthenticated())
-    {
+  // initializeApp() {
+  //   var userData;
+  //   if (this._auth.isAuthValid() && !this._auth.isAuthenticated()) {
+  //     var user = new User();
+  //     this._auth.retrieveUser().subscribe((res) => {
+  //       console.log(res);
+  //       userData = res;
+  //       user.id = userData._id;
+  //       user.email = userData.email;
+  //       user.name = userData.name;
+  //       user.role = userData.role;
+  //       user.password = userData.password;
+  //       user.token = userData.access_token;
+  //       user.tokenexpiresin = userData.expires_in;
 
-    }
-  }
+  //       this._auth.setUser(user);
+
+  //       this.router.navigateByUrl('/artist-portal/home/all');
+  //     });
+
+  //   }
+  // }
 }

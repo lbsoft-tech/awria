@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { User } from 'src/app/_models/user/user';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-login',
@@ -30,20 +31,21 @@ export class LoginComponent implements OnInit {
         password: this.user.password
       };
       this.auth.login(data).subscribe((res) => {
-        loginResponse = res;
-        localStorage.setItem('_token', loginResponse.access_token);
-        localStorage.setItem('expires_at', JSON.stringify(loginResponse.expires_in));
-        const userData = loginResponse.user;
-        const user = new User();
-        user.id = userData._id;
-        user.email = userData.email;
-        user.name = userData.name;
-        user.role = userData.role;
-        user.password = userData.password;
-        user.token = loginResponse.access_token;
-        user.tokenexpiresin = loginResponse.expires_in;
+        // loginResponse = res;
+        // localStorage.setItem('_token', loginResponse.access_token);
 
-        this.auth.setUser(user);
+        // localStorage.setItem('expires_at', JSON.stringify(expiresAt));
+        // const userData = loginResponse.user;
+        // const user = new User();
+        // user.id = userData._id;
+        // user.email = userData.email;
+        // user.name = userData.name;
+        // user.role = userData.role;
+        // user.password = userData.password;
+        // user.token = loginResponse.access_token;
+        // user.tokenexpiresin = loginResponse.expires_in;
+
+        // this.auth.setUser(user);
 
         this.router.navigateByUrl('/artist-portal/home/all');
       },
