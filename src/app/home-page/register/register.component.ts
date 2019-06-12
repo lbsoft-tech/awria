@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     password: '',
     cemail: ''
   }
-  terms=false;
+  terms = false;
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
