@@ -72,7 +72,7 @@ this.publishType="draft";
 createPost(){
   if(this.title!=null){
 
-  
+
 let id=localStorage.getItem('uid');
 let data={
   title:this.title,
@@ -106,18 +106,6 @@ console.log(data);
     });
   }
 }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(IDialogOverviewExampleDialogComponent, {
-      width: '550px',
-      // height:'550px',
-      data: {name: this.name, animal: this.animal}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
-  }
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(DeletePostDialog, {
       width: '500px',
@@ -206,33 +194,18 @@ console.log(data);
          formdata.append('id', localStorage.getItem('uid'))
     }
 }
-@Component({
-  selector: 'dialog-overview',
-  templateUrl: './dialog-overview.html',
-  styleUrls: ['./dialog-overview.scss']
-})
-export class IDialogOverviewExampleDialogComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<IDialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }}
-
   @Component({
     selector: 'deletePostDialog',
     templateUrl: './deletePostDialog.html',
     styleUrls: ['./deletePostDialog.scss']
   })
   export class DeletePostDialog {
-  
+
     constructor(
       public dialogRef1: MatDialogRef<DeletePostDialog>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData,
     ) {}
-  
+
     onNoClick(): void {
       this.dialogRef1.close();
     }

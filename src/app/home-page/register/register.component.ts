@@ -38,28 +38,20 @@ export class RegisterComponent implements OnInit {
           password: this.user.password
         };
         this.auth.signup(data).subscribe(res => {
-          registerResponse = res;
-          localStorage.setItem('_token', registerResponse.access_token);
-          localStorage.setItem('expires_at', JSON.stringify(registerResponse.expires_in));
-          const userData = registerResponse.user;
-          const user = new User();
-          user.id = userData._id;
-          user.email = userData.email;
-          user.name = userData.name;
-          user.role = userData.role;
-          user.password = userData.password;
-          user.token = registerResponse.access_token;
-          user.tokenexpiresin = registerResponse.expires_in;
+          this.router.navigateByUrl('/artist-portal/home/all');
 
         },
-        (error) => {
-          Swal.fire({
-            title: 'Error',
-            text: error.error.message,
-            type: 'error',
-            confirmButtonText: 'Ok'
+          (error) => {
+            if (error) {
+              Swal.fire({
+                title: 'Error',
+                text: error,
+                type: 'error',
+                confirmButtonText: 'Ok'
+              });
+            }
+
           });
-        });
       }
       else {
         console.log("Email is not in format")

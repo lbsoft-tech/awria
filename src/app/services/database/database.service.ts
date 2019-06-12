@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DatabaseService {
-  readonly baseUrl = 'http://localhost:3000';
+  readonly baseUrl = 'http://127.0.0.1:3000';
   textPhoto;
   textPhotoUrl = '';
   imagePhoto;

@@ -34,7 +34,7 @@ import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile
 import { NewPostTextComponent, DialogOverviewExampleDialogComponent,DeleteTextPostDialog } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 
 import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent,DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent, IDialogOverviewExampleDialogComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
+import { NewPostImageComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
@@ -107,7 +107,6 @@ import { ErrorInterceptor } from './services/error.interceptor';
     ArtistEditOffersComponent,
     LoginComponent,
     DialogOverviewExampleDialogComponent,
-    IDialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,
     DeleteTextPostDialog,
@@ -176,7 +175,7 @@ import { ErrorInterceptor } from './services/error.interceptor';
     AmazingTimePickerModule,
     AngularEditorModule
   ],
-  entryComponents: [DialogOverviewExampleDialogComponent, IDialogOverviewExampleDialogComponent,
+  entryComponents: [DialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,DeleteTextPostDialog,DeleteVideoPostDialog
   ],

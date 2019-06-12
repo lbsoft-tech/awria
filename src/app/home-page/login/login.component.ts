@@ -31,31 +31,18 @@ export class LoginComponent implements OnInit {
         password: this.user.password
       };
       this.auth.login(data).subscribe((res) => {
-        // loginResponse = res;
-        // localStorage.setItem('_token', loginResponse.access_token);
-
-        // localStorage.setItem('expires_at', JSON.stringify(expiresAt));
-        // const userData = loginResponse.user;
-        // const user = new User();
-        // user.id = userData._id;
-        // user.email = userData.email;
-        // user.name = userData.name;
-        // user.role = userData.role;
-        // user.password = userData.password;
-        // user.token = loginResponse.access_token;
-        // user.tokenexpiresin = loginResponse.expires_in;
-
-        // this.auth.setUser(user);
 
         this.router.navigateByUrl('/artist-portal/home/all');
       },
         (error) => {
-          Swal.fire({
-            title: 'Error',
-            text: error.error.message,
-            type: 'error',
-            confirmButtonText: 'Ok'
-          });
+          if (error) {
+            Swal.fire({
+              title: 'Error',
+              text: error,
+              type: 'error',
+              confirmButtonText: 'Ok'
+            });
+          }
         });
     } else {
       console.log('invalid data entry');

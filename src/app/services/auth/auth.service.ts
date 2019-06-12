@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  readonly baseUrl = 'http://localhost:3000';
+  readonly baseUrl = 'http://127.0.0.1:3000';
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
@@ -51,7 +51,24 @@ export class AuthService {
   }
 
   signup(data) {
-    return this.httpClient.post(this.baseUrl + '/auth/register', data);
+    return this.httpClient.post<any>(this.baseUrl + '/auth/register', data).pipe(map(res => {
+      // login successful if there's a jwt token in the response
+      const user = new User();
+      if (res.user && res.access_token) {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        user.id = res.user._id;
+        user.email = res.user.email;
+        user.name = res.user.name;
+        user.role = res.user.role;
+        user.password = res.user.password;
+        user.token = res.access_token;
+        user.tokenexpiresin = JSON.stringify(moment().add(res.expires_in, 'second'));
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+      }
+
+      return user;
+    }));
   }
 
   getExpiration() {
