@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
     var userData;
     try {
       if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")
-        && this.user.password.match("(?=.*[#/?//&/@/$/!/%////\/'/'/}/{/}])(?=.*).{7,}")
+        && this.user.password.match("(?=.*[#/?//&/@/_/-/~/^/+/=/*/(/)/$/!/>/</,/./;/:/-|//%////\/'/'/}/{/}])(?=.*\d).{7,}")
         && this.user.name != ''
         && this.user.email == this.user.cemail
       ) {
