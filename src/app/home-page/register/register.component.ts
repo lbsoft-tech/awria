@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     password: '',
     cemail: ''
   }
+  terms=false;
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
     var registerResponse;
     var userData;
     try {
-      if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")
+      if (this.user.email.match("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
         && this.user.password.match("(?=.*[#/?//&/@/_/-/~/^/+/=/*/(/)/$/!/>/</,/./;/:/-|//%////\/'/'/}/{/}])(?=.*\d).{7,}")
         && this.user.name != ''
         && this.user.email == this.user.cemail

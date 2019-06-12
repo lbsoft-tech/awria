@@ -18,7 +18,7 @@
 
     <div class="form-group" [class.has-error]="email.invalid && email.touched">
       <label for="email" class="control-label">Email</label>
-      <input required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" name="email" #email="ngModel"
+      <input required pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" name="email" #email="ngModel"
         [(ngModel)]="user.email" id="email" placeholder="Enter Email" class="form-control">
 
       <small style="color:red" class="help-block" *ngIf="email.errors?.required  && email.touched">
@@ -61,8 +61,8 @@
 <input type="text" type="password"  [(ngModel)]="password" name="password" class="form-control" /> -->
 <br>
 
-<input type="checkbox"  class="checkbox" ng-class = "{'checked': register.term, 'unchecked' : !register.term}"><p>You agree to our <a (click)="signup()">Term of use</a> and <a href="#">Privacy Policy</a></p><br>
-  <button (click)="signup()" class="btn" type="button" [disabled]="!login_form.form.valid">Sign Up</button>
+<input type="checkbox" [(ngModel)]="terms" name="terms"  class="checkbox" ng-class = "{'checked': register.term, 'unchecked' : !register.term}"><p>You agree to our <a (click)="signup()">Term of use</a> and <a href="#">Privacy Policy</a></p><br>
+  <button (click)="signup()" class="btn" type="button" [disabled]="!login_form.form.valid && terms">Sign Up</button>
   <br>
 <p class="text" >or sign up with Facebook</p>
   <button class="btn btn-fb">Sign up with Facebook</button><br>
