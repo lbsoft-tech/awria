@@ -25,27 +25,23 @@ export class LoginComponent implements OnInit {
   login() {
     var loginResponse;
     var userData;
-    if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")) {
-      const data = {
-        email: this.user.email,
-        password: this.user.password
-      };
-      this.auth.login(data).subscribe((res) => {
+    const data = {
+      email: this.user.email,
+      password: this.user.password
+    };
+    this.auth.login(data).subscribe((res) => {
 
-        this.router.navigateByUrl('/artist-portal/home/all');
-      },
-        (error) => {
-          if (error) {
-            Swal.fire({
-              title: 'Error',
-              text: error,
-              type: 'error',
-              confirmButtonText: 'Ok'
-            });
-          }
-        });
-    } else {
-      console.log('invalid data entry');
-    }
+      this.router.navigateByUrl('/artist-portal/home/all');
+    },
+      (error) => {
+        if (error) {
+          Swal.fire({
+            title: 'Error',
+            text: error,
+            type: 'error',
+            confirmButtonText: 'Ok'
+          });
+        }
+      });
   }
 }
