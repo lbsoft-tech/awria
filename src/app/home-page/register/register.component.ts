@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
       
         const data = {
           name: this.user.name,
-          email: this.user.email,
+          email: this.user.email.toLowerCase(),
           password: this.user.password
         };
         this.auth.signup(data).subscribe(res => {

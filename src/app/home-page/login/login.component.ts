@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     var loginResponse;
     var userData;
     const data = {
-      email: this.user.email,
+      email: this.user.email.toLowerCase(),
       password: this.user.password
     };
     this.auth.login(data).subscribe((res) => {
