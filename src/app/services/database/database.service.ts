@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DatabaseService {
-  readonly baseUrl = 'http://127.0.0.1:3000';
+  readonly baseUrl = 'http://localhost:3000';
   textPhoto;
   textPhotoUrl = '';
   imagePhoto;
@@ -33,7 +33,11 @@ export class DatabaseService {
     return this.httpClient.post(this.baseUrl + '/users/updatePassword', req);
   }
   updateProfile(id, data) {
-    return this.httpClient.put(this.baseUrl + '/users/' + id, data);
+    const request = {
+      id: id,
+      data: data
+    }
+    return this.httpClient.post<any>(this.baseUrl + '/artist/updateProfile', request);
   }
   addShipping(id, data) {
     return this.httpClient.post(this.baseUrl + '/users/' + id, data);

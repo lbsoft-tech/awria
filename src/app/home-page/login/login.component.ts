@@ -23,8 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    var loginResponse;
-    var userData;
     const data = {
       email: this.user.email.toLowerCase(),
       password: this.user.password

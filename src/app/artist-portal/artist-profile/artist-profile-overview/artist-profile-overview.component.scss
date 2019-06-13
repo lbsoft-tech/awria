@@ -1,0 +1,146 @@
+.bt{
+    border-top: 1px solid rgb(229, 227, 221);
+}
+.p{
+      padding: 10px 0;
+}
+b{
+    position: relative;
+    font-weight: 700 !important;
+    font-size: 1.625rem !important;
+    line-height: 1.25 !important;
+    margin: 0px;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+
+.mat-radio-button{
+      padding: 0 25px
+}
+.btnn{
+    align-items: center;
+    text-align: center;
+      border-radius: 50px;
+      color: white
+}
+.fb{
+    background-color: rgb(66, 103, 178);
+}
+.tw{
+    background-color: rgb(85, 172, 238);
+}
+.container {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 0 0 0 0;
+}
+.btn{
+     border-radius: 50px;
+        margin-top: 15px ;
+        align-items: center;
+        backface-visibility: hidden;
+        background-color: rgb(250, 235, 232);
+        box-sizing: border-box;
+        cursor: default;
+        display: inline-flex;
+        font-weight: 500;
+        height: unset;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: relative;
+        pointer-events: none;
+        text-align: center;
+        text-transform: none;
+        user-select: none;
+        white-space: unset;
+        width: unset;
+        color: rgb(232, 91, 70) !important;
+        font-size: 0.875rem !important;
+        border-width: initial;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        padding: 0.594rem 1rem;
+        text-decoration: none;
+    }
+    .card-header{
+      background-color: white !important;
+  }
+  .date{
+    color: rgb(112, 108, 100);
+    display: inline-block;
+    font-weight: 400;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    font-size: 0.875rem !important;
+    line-height: 1.5 !important;
+    overflow: hidden;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    text-decoration: underline !important;
+  }
+  .post{
+      padding: 0 0 35px;
+  }
+  .post-card{
+      width: 100%;
+      margin: 20px 0;
+  }
+  input{
+    max-height: 5rem;
+    resize: none;
+    width: 100%;
+    font-weight: normal;
+    -webkit-appearance: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: rgb(36, 30, 18);
+    height: 3rem;
+    font-size: 0.875rem !important;
+    background: rgb(245, 244, 242);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(229, 227, 221);
+    border-image: initial;
+    outline: none;
+    padding: 0.75rem 1rem;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    border-radius: 4px;
+  }
+  input:focus{
+      background: white;
+      color: black;
+  }
+  input:hover{
+    border-color: rgb(177, 172, 163);
+  }
+  .profile-img{
+    box-sizing: border-box;
+    padding-top: 0rem;
+    padding-right: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+    margin-top: 0rem;
+    margin-right: 1rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  }
+  .comment-section{
+      padding: 30px 0 0;
+  }
+  .avatar{
+    margin: -23px 0 0;
+  }
+  .post-img{
+    width: 100%;
+    height: auto;
+  }
+  .fa-lg{
+    color: rgb(112, 108, 100);
+  }
+  .fa-lg:hover{
+    color:  rgb(66, 103, 178);
+  }
