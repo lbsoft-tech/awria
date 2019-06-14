@@ -340,3 +340,16 @@
     box-sizing: border-box;
     font-size: 1rem !important;
 }
+.custom-btn{
+    color: rgb(232, 91, 70) !important;
+    background-color: rgb(250, 235, 232);
+    font-size: 16px !important;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0.875rem 1.5rem;
+    font-weight: 300;
+}
+.custom-btn:hover{
+    background-color:rgb(232, 91, 70);
+    color: white !important; 
+}
