@@ -25,10 +25,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   signup() {
-    var registerResponse;
-    var userData;
     try {
-      
+
         const data = {
           name: this.user.name,
           email: this.user.email.toLowerCase(),
@@ -49,8 +47,8 @@ export class RegisterComponent implements OnInit {
             }
 
           });
-      
-   
+
+
     }
     catch (error) {
       console.log(error.message);

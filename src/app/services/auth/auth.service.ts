@@ -4,25 +4,41 @@ import { first, map } from 'rxjs/operators';
 import { User } from 'src/app/_models/user/user';
 import * as moment from 'moment';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { UserProfile } from 'src/app/_models/UserProfile/user-profile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  readonly baseUrl = 'http://127.0.0.1:3000';
+  readonly baseUrl = 'http://localhost:3000';
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  private currentUserProfileSubject: BehaviorSubject<UserProfile>;
+  public currentUserProfile: Observable<UserProfile>;
 
   constructor(private httpClient: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-  }
-  retrieveUser() {
-    return this.httpClient.get(this.baseUrl + '/auth/getUser');
+    if (this.currentUserSubject.value) {
+      this.currentUserProfileSubject = new BehaviorSubject<UserProfile>(null);
+      this.getUserProfile(this.currentUserSubject.value.id);
+      this.currentUserProfile = this.currentUserProfileSubject.asObservable();
+    }
   }
 
+  getUserProfile(id) {
+    const data = { id: id };
+    return this.httpClient.post<any>(this.baseUrl + '/artist/getProfile', data);
+  }
+
+  public set nextProfile(profile){
+    this.currentUserProfileSubject.next(profile);
+  }
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
+  }
+  public get currentUserProfileValue(): UserProfile {
+    return this.currentUserProfileSubject.value;
   }
 
   public isAuthValid() {
@@ -30,7 +46,7 @@ export class AuthService {
   }
 
   login(data) {
-    return this.httpClient.post<any>(this.baseUrl + '/auth/login', data).pipe(map( res => {
+    return this.httpClient.post<any>(this.baseUrl + '/auth/login', data).pipe(map(res => {
       // login successful if there's a jwt token in the response
       const user = new User();
       if (res.user && res.access_token) {
@@ -44,6 +60,7 @@ export class AuthService {
         user.tokenexpiresin = JSON.stringify(moment().add(res.expires_in, 'second'));
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
+        this.getUserProfile(user.id);
       }
 
       return user;
@@ -65,6 +82,7 @@ export class AuthService {
         user.tokenexpiresin = JSON.stringify(moment().add(res.expires_in, 'second'));
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
+        this.getUserProfile(user.id);
       }
 
       return user;
