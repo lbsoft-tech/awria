@@ -31,6 +31,7 @@ export class NewPostVideoComponent implements OnInit {
   scheduleTime:any;
   publishType;
   videoUrl;
+  attachmentName;
 
   visible = true;
   chekckbox = false;
@@ -106,6 +107,7 @@ export class NewPostVideoComponent implements OnInit {
     console.log(event[0]);
     this.image= event[0]
     const formdata = new FormData();
+    this.attachmentName = this.attachment.name.split(".")[1];
          formdata.append('videoFile', event[0], 'videoFile.jpg')
          formdata.append('id', localStorage.getItem('uid'))
   }
@@ -122,26 +124,44 @@ this.publishType="draft";
 createPost(){
   if(this.title!=null){
 let id=localStorage.getItem('uid');
-let data={
-  title:this.title,
-story:this.story,
-image:this.api.textPhoto,
-attachment:this.attachment,
-type:'video',
-postingType:this.type,
-earlyAccess:this.earlyAccess,
-TeaserText:this.TeaserText,
-earlyAccessTime:this.earlyAccessTime,
-earlyAccessDate:this.earlyAccessDate,
-scheduleDate:this.scheduleDate,
-scheduleTime:this.scheduleTime,
-publishType:this.publishType,
-userId:id,
-tags:this.tags,
-imageUrl:this.api.textPhotoUrl,
-videoUrl:this.videoUrl
-}
-this.api.addPost(data).subscribe(res=>{
+// let data={
+//   title:this.title,
+// story:this.story,
+// image:this.api.textPhoto,
+// attachment:this.attachment,
+// type:'video',
+// postingType:this.type,
+// earlyAccess:this.earlyAccess,
+// TeaserText:this.TeaserText,
+// earlyAccessTime:this.earlyAccessTime,
+// earlyAccessDate:this.earlyAccessDate,
+// scheduleDate:this.scheduleDate,
+// scheduleTime:this.scheduleTime,
+// publishType:this.publishType,
+// userId:id,
+// tags:this.tags,
+// imageUrl:this.api.textPhotoUrl,
+// videoUrl:this.videoUrl
+// }
+const formdata = new FormData();
+formdata.append('title',this.story)
+formdata.append('story',this.story)
+formdata.append('image',this.api.videoPhoto,this.api.videoPhoto.name)
+formdata.append('attachment',this.attachment,this.attachment.name)
+formdata.append('type','video ')
+formdata.append('postingType',this.type)
+// formdata.append('earlyAccess',this.earlyAccess)
+formdata.append('TeaserText',this.TeaserText)
+formdata.append('earlyAccessTime',this.earlyAccessTime)
+formdata.append('earlyAccessDate',this.earlyAccessDate)
+formdata.append('scheduleDate',this.scheduleDate)
+formdata.append('scheduleTime',this.scheduleTime)
+formdata.append('publishType',this.publishType)
+formdata.append('userId',id)
+formdata.append('tags',JSON.stringify(['this.tags']))
+formdata.append('imageUrl',this.api.videoPhotoUrl)
+formdata.append('videoUrl',this.videoUrl)
+this.api.addPost(formdata).subscribe(res=>{
   console.log("Added");
 })
   }

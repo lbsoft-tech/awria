@@ -29,7 +29,10 @@ export class DialogOverviewExampleDialogComponent {
     imageUpload(event:any){
     console.log(event[0]);
     this.api.textPhoto= event[0]
+
     const formdata = new FormData();
+    this.api.textPhotoName = this.api.textPhoto.name.split(".")[1];
+    console.log(name);
          formdata.append('textPhoto', event[0], 'textPhoto.jpg')
          formdata.append('id', localStorage.getItem('uid'))
     }
@@ -54,6 +57,8 @@ earlyAccessDate:'';
 scheduleDate:'';
 scheduleTime:any;
 publishType;
+
+attachmentName;
 
 
 
@@ -86,6 +91,7 @@ publishType;
       console.log(event[0]);
       this.attachment= event[0]
       const formdata = new FormData();
+      this.attachmentName = this.attachment.name.split(".")[1];
            formdata.append('textFile', event[0], 'TextFile.jpg')
            formdata.append('id', localStorage.getItem('uid'))
     }
@@ -105,30 +111,53 @@ draftPost(){
 createPost(){
   if(this.title!=null){
 
-  
+    if(this.api.textPhoto==null ){
+      this.api.textPhoto.name=null;
+      this.attachment.name=null
+    
   let id=localStorage.getItem('uid');
+  const formdata = new FormData();
+  formdata.append('title',this.story)
+  formdata.append('story',this.story)
+  formdata.append('image',this.api.textPhoto,this.api.textPhoto.name)
+  formdata.append('attachment',this.attachment,this.attachment.name)
+  formdata.append('type','text')
+  formdata.append('postingType',this.type)
+  // formdata.append('earlyAccess',this.earlyAccess)
+  formdata.append('TeaserText',this.TeaserText)
+  formdata.append('earlyAccessTime',this.earlyAccessTime)
+  formdata.append('earlyAccessDate',this.earlyAccessDate)
+  formdata.append('scheduleDate',this.scheduleDate)
+  formdata.append('scheduleTime',this.scheduleTime)
+  formdata.append('publishType',this.publishType)
+  formdata.append('userId',id)
+  formdata.append('tags',JSON.stringify(['this.tags']))
+  formdata.append('imageUrl',this.api.textPhotoUrl)
   let data={
-    title:this.title,
-story:this.story,
-image:this.api.textPhoto,
-attachment:this.attachment,
-type:'text',
-postingType:this.type,
-earlyAccess:this.earlyAccess,
-TeaserText:this.TeaserText,
-earlyAccessTime:this.earlyAccessTime,
-earlyAccessDate:this.earlyAccessDate,
-scheduleDate:this.scheduleDate,
-scheduleTime:this.scheduleTime,
-publishType:this.publishType,
-userId:id,
-tags:this.tags,
-imageUrl:this.api.textPhotoUrl
+  
+//     title:this.title,
+// story:this.story,
+// image:this.api.textPhoto,
+// attachment:this.attachment,
+// type:'text',
+// postingType:this.type,
+// earlyAccess:this.earlyAccess,
+// TeaserText:this.TeaserText,
+// earlyAccessTime:this.earlyAccessTime,
+// earlyAccessDate:this.earlyAccessDate,
+// scheduleDate:this.scheduleDate,
+// scheduleTime:this.scheduleTime,
+// publishType:this.publishType,
+// userId:id,
+// tags:this.tags,
+// imageUrl:this.api.textPhotoUrl
   }
-  console.log(data);
-  this.api.addPost(data).subscribe(res=>{
+
+  // console.log(data);
+  this.api.addPost(formdata).subscribe(res=>{
     console.log("Added");
   })
+}
 }
 else{
   Swal.fire({

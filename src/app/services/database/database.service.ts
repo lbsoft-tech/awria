@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class DatabaseService {
   readonly baseUrl = 'http://127.0.0.1:3000';
   textPhoto;
+  textPhotoName;
+  videoPhotoName;
+  
   textPhotoUrl = '';
   imagePhoto;
   imagePhotoUrl = '';
@@ -39,6 +42,7 @@ export class DatabaseService {
     return this.httpClient.post(this.baseUrl + '/users/' + id, data);
   }
   addPost(data) {
+    console.log(data);
     return this.httpClient.post(this.baseUrl + '/posts', data);
   }
 }
