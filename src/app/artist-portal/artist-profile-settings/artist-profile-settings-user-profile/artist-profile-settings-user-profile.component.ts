@@ -271,7 +271,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
   name;
   email;
-  country;
+  country = '';
   about;
   image;
   shipping = {
@@ -325,6 +325,16 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
       if (userProfile) {
         this.country = userProfile.country;
         this.about = userProfile.about;
+        if(userProfile.shipping)
+        {
+          this.shipping.address = userProfile.shipping.address;
+          this.shipping.apt = userProfile.shipping.apartment;
+          this.shipping.city = userProfile.shipping.city;
+          this.shipping.postCode = userProfile.shipping.postcode;
+          this.shipping.state = userProfile.shipping.state;
+          this.shipping.sCountry = userProfile.shipping.country;
+          this.shipping.name = userProfile.shipping.name;
+        }
       }
 
     });
@@ -333,7 +343,6 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
   ngOnInit() {
   }
   getCountry(event: any) {
-    console.log(event.target.value);
     this.country = event.target.value;
   }
   getShippingCountry(event: any) {
@@ -353,6 +362,9 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
           this.api.updatePassword(id, new_pass).subscribe((update_pass_res) => {
             updatePasswordResponse = update_pass_res;
             if (updatePasswordResponse.status) {
+              this.password.cPassword = '';
+              this.password.oldPassword = '';
+              this.password.newPassword = '';
               Swal.fire({
                 title: 'Success',
                 text: 'Password updated.',
@@ -384,76 +396,80 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
       });
     }
   }
-  imageUpload(event) {
-    //this.image = event[0]
-    // var formdata = new FormData();
-    const reader = new FileReader();
-    reader.onload = (res: ProgressEvent) => {
-      this.image = reader.result;
-      const data = {
-        image: this.image,
-        id: this.auth.currentUserValue.id
-      }
-      this.api.updatePhoto(data).subscribe(result => {
-        if (result.status) {
-          Swal.fire({
-            title: 'Success',
-            text: 'Profile picture updated.',
-            type: 'success',
-            confirmButtonText: 'Ok'
-          });
-        }
-      }, err => {
-        Swal.fire({
-          title: 'Error',
-          text: err,
-          type: 'error',
-          confirmButtonText: 'Ok'
-        });
-      });
-      //formdata.append('picture', new Blob([reader.result]), event[0].name)
-      //console.log(formdata);
-    };
-    reader.readAsDataURL(event[0]);
-
-    //formdata.append('id', localStorage.getItem('uid'))
-    //console.log(this.image);
-  }
-  UserProfileUpdate() {
-    const id = this.auth.currentUserValue.id;
-    const data = {
-      about: this.about,
-      country: this.country,
-      image: null
-    }
-    if (this.image) {
-      data.image = this.image;
-    }
-    this.api.updateProfile(id, data).subscribe(res => {
-      if (res.status) {
+  imageUpload(files) {
+    let formData = new FormData();
+    const file_name = Date.now() + files[0].name ;
+    formData.append('file_name', file_name);
+    formData.append('upload', files[0]);
+    formData.append('id',this.auth.currentUserValue.id);
+    this.api.updatePhoto(formData).subscribe(result => {
+      if (result.status) {
         Swal.fire({
           title: 'Success',
-          text: 'Password updated.',
+          text: 'Profile picture updated.',
           type: 'success',
           confirmButtonText: 'Ok'
         });
       }
+    }, err => {
+      Swal.fire({
+        title: 'Error',
+        text: err,
+        type: 'error',
+        confirmButtonText: 'Ok'
+      });
+    });
+  }
+
+  UserProfileUpdate() {
+    const id = this.auth.currentUserValue.id;
+    const data = {
+      about: this.about,
+      country: this.country
+    };
+    this.api.updateProfile(id, data).subscribe(res => {
+      if (res.status) {
+        Swal.fire({
+          title: 'Success',
+          text: 'Profile updated.',
+          type: 'success',
+          confirmButtonText: 'Ok'
+        });
+      }
+    },
+    (error) => {
+      Swal.fire({
+        title: 'Error',
+        text: error,
+        type: 'error',
+        confirmButtonText: 'Ok'
+      });
     });
   }
   addShippingAddress() {
-    let id = localStorage.getItem('uid');
-    let data = {
-      name: this.shipping.name,
-      address: this.shipping.address,
-      apt: this.shipping.apt,
-      city: this.shipping.city,
-      country: this.shipping.sCountry,
-      state: this.shipping.state,
-      postCode: this.shipping.postCode
-    }
-    this.api.addShipping(id, data).subscribe(res => {
+    let id = this.auth.currentUserValue.id;
+    const data = {
+      data: this.shipping,
+      id: id
+    };
 
-      console.log("Shipping updated");
+    this.api.addShipping(data).subscribe(result => {
+      if (result.status) {
+        Swal.fire({
+          title: 'Success',
+          text: 'Shipping address updated.',
+          type: 'success',
+          confirmButtonText: 'Ok'
+        });
+      }
+    },
+    (error) => {
+      Swal.fire({
+        title: 'Error',
+        text: error,
+        type: 'error',
+        confirmButtonText: 'Ok'
+      });
     });
   }
 }
