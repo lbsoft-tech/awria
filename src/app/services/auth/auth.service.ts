@@ -21,7 +21,6 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
     if (this.currentUserSubject.value) {
       this.currentUserProfileSubject = new BehaviorSubject<UserProfile>(null);
-      this.getUserProfile(this.currentUserSubject.value.id);
       this.currentUserProfile = this.currentUserProfileSubject.asObservable();
     }
   }

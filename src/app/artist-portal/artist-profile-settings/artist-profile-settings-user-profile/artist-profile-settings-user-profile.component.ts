@@ -376,15 +376,48 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
     }
     else {
-      console.log("Incorrect passwords");
+      Swal.fire({
+        title: 'Error',
+        text: 'Password mismatch.',
+        type: 'error',
+        confirmButtonText: 'Ok'
+      });
     }
   }
   imageUpload(event) {
-    console.log(event[0]);
-    this.image = event[0]
-    const formdata = new FormData();
-    formdata.append('userprofile', event[0], 'dp.jpg')
-    formdata.append('id', localStorage.getItem('uid'))
+    //this.image = event[0]
+    // var formdata = new FormData();
+    const reader = new FileReader();
+    reader.onload = (res: ProgressEvent) => {
+      this.image = reader.result;
+      const data = {
+        image: this.image,
+        id: this.auth.currentUserValue.id
+      }
+      this.api.updatePhoto(data).subscribe(result => {
+        if (result.status) {
+          Swal.fire({
+            title: 'Success',
+            text: 'Profile picture updated.',
+            type: 'success',
+            confirmButtonText: 'Ok'
+          });
+        }
+      }, err => {
+        Swal.fire({
+          title: 'Error',
+          text: err,
+          type: 'error',
+          confirmButtonText: 'Ok'
+        });
+      });
+      //formdata.append('picture', new Blob([reader.result]), event[0].name)
+      //console.log(formdata);
+    };
+    reader.readAsDataURL(event[0]);
+
+    //formdata.append('id', localStorage.getItem('uid'))
+    //console.log(this.image);
   }
   UserProfileUpdate() {
     const id = this.auth.currentUserValue.id;
@@ -397,8 +430,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
       data.image = this.image;
     }
     this.api.updateProfile(id, data).subscribe(res => {
-      if(res.status)
-      {
+      if (res.status) {
         Swal.fire({
           title: 'Success',
           text: 'Password updated.',
