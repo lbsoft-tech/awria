@@ -22,17 +22,22 @@ export class AppComponent implements OnInit {
 
   constructor(private _auth: AuthService, private router: Router) {
 
-    _auth.getUserProfile(this._auth.currentUserValue.id).subscribe((res) => {
-      const user_profile = new UserProfile();
-      if (res.profile) {
-        user_profile._id = res.profile._id;
-        user_profile.user_id = res.profile.user_id;
-        user_profile.country = res.profile.country;
-        user_profile.about = res.profile.about;
-        this._auth.nextProfile = user_profile;
+    this._auth.currentUser.subscribe((res) => {
+      if (res) {
+        _auth.getUserProfile(res.id).subscribe((res1) => {
+          const user_profile = new UserProfile();
+          if (res1.profile != null) {
+            user_profile._id = res1.profile._id;
+            user_profile.user_id = res1.profile.user_id;
+            user_profile.country = res1.profile.country;
+            user_profile.about = res1.profile.about;
+            this._auth.nextProfile = user_profile;
+          }
+          return user_profile;
+        });
       }
-      return user_profile;
     });
+
   }
 
 

@@ -35,6 +35,11 @@ export class DatabaseService {
     };
     return this.httpClient.post(this.baseUrl + '/users/updatePassword', req);
   }
+
+  updatePhoto(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/updateProfilePicture', data);
+  }
+
   updateProfile(id, data) {
     const request = {
       id: id,
