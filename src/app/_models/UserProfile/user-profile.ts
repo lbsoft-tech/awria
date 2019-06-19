@@ -3,6 +3,7 @@ export class UserProfile {
   user_id: string;
   country: string;
   about: string;
+  profile_photo: string;
   shipping?: {
     name: string,
     address: string,

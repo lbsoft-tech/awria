@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
             user_profile.user_id = res1.profile.user_id;
             user_profile.country = res1.profile.country;
             user_profile.about = res1.profile.about;
+            user_profile.profile_photo = res1.profile.ProfilePhoto;
             if (res1.profile.shipping) {
               user_profile.shipping = {
                 name: res1.profile.shipping.Name,

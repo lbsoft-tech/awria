@@ -261,6 +261,10 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
     { name: 'Zimbabwe', code: 'ZW' }
   ];
 
+  profile_img = '';
+  profile_img_default = '../../../../assets/images/profile-pic.png';
+
+
   password = {
     oldPassword: '',
     newPassword: '',
@@ -313,6 +317,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
     private api: DatabaseService,
     private auth: AuthService
   ) {
+    this.profile_img = this.profile_img_default;
     this.auth.currentUser.subscribe((user: User) => {
       if (user) {
         this.name = user.name;
@@ -323,10 +328,13 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
     this.auth.currentUserProfile.subscribe((userProfile: UserProfile) => {
       if (userProfile) {
+        if (userProfile.profile_photo) {
+          this.profile_img = 'http://localhost:3000/static/uploads/' + this.auth.currentUserValue.id + '/profile_pictures/' + userProfile.profile_photo;
+          console.log(this.profile_img);
+        }
         this.country = userProfile.country;
         this.about = userProfile.about;
-        if(userProfile.shipping)
-        {
+        if (userProfile.shipping) {
           this.shipping.address = userProfile.shipping.address;
           this.shipping.apt = userProfile.shipping.apartment;
           this.shipping.city = userProfile.shipping.city;
@@ -398,10 +406,10 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
   }
   imageUpload(files) {
     let formData = new FormData();
-    const file_name = Date.now() + files[0].name ;
+    const file_name = Date.now() + files[0].name;
     formData.append('file_name', file_name);
     formData.append('upload', files[0]);
-    formData.append('id',this.auth.currentUserValue.id);
+    formData.append('id', this.auth.currentUserValue.id);
     this.api.updatePhoto(formData).subscribe(result => {
       if (result.status) {
         Swal.fire({
@@ -437,14 +445,14 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
         });
       }
     },
-    (error) => {
-      Swal.fire({
-        title: 'Error',
-        text: error,
-        type: 'error',
-        confirmButtonText: 'Ok'
+      (error) => {
+        Swal.fire({
+          title: 'Error',
+          text: error,
+          type: 'error',
+          confirmButtonText: 'Ok'
+        });
       });
-    });
   }
   addShippingAddress() {
     let id = this.auth.currentUserValue.id;
@@ -463,13 +471,13 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
         });
       }
     },
-    (error) => {
-      Swal.fire({
-        title: 'Error',
-        text: error,
-        type: 'error',
-        confirmButtonText: 'Ok'
+      (error) => {
+        Swal.fire({
+          title: 'Error',
+          text: error,
+          type: 'error',
+          confirmButtonText: 'Ok'
+        });
       });
-    });
   }
 }
