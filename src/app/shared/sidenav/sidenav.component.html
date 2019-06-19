@@ -14,8 +14,8 @@
       [round]="true"
     ></ngx-avatar
   ></a>
-  <h5 class="navbar-brand">Samantha Jones</h5>
-  <small>Creator Account</small>
+  <h5 class="navbar-brand navbar-brand-custom">{{(this.user | async).name}}</h5>
+  <small>{{(this.user | async).role}}</small>
   <mat-grid-list cols="3" rowHeight="100px">
     <mat-grid-tile
       class="iconheight"

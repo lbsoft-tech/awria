@@ -26,14 +26,14 @@ export class DatabaseService {
       user_id: id,
       password: data
     };
-    return this.httpClient.post(this.baseUrl + '/users/comparePassword', req);
+    return this.httpClient.post(this.baseUrl + '/artist/comparePassword', req);
   }
   updatePassword(id, data) {
     const req = {
       user_id: id,
       password: data
     };
-    return this.httpClient.post(this.baseUrl + '/users/updatePassword', req);
+    return this.httpClient.post(this.baseUrl + '/artist/updatePassword', req);
   }
 
   updatePhoto(data) {
@@ -47,8 +47,8 @@ export class DatabaseService {
     }
     return this.httpClient.post<any>(this.baseUrl + '/artist/updateProfile', request);
   }
-  addShipping(id, data) {
-    return this.httpClient.post(this.baseUrl + '/users/' + id, data);
+  addShipping(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/updateShipping', data);
   }
   addPost(data) {
     console.log(data);

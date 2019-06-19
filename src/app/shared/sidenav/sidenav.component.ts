@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/_models/user/user';
 
 
 @Component({
@@ -9,12 +12,18 @@ import { Component, OnInit } from '@angular/core';
 export class SidenavComponent implements OnInit {
 
   tiles = [
-    {text: 'forum', cols: 1, rows: 1, color: 'lightblue', route: 'message/page/all'},
-    { text: 'edit', cols: 1, rows: 1, color: 'lightgreen', route: 'edit/about'},
-    { text: 'settings', cols: 1, rows: 1, color: 'lightpink', route: 'setting/setting-account'},
+    { text: 'forum', cols: 1, rows: 1, color: 'lightblue', route: 'message/page/all' },
+    { text: 'edit', cols: 1, rows: 1, color: 'lightgreen', route: 'edit/about' },
+    { text: 'settings', cols: 1, rows: 1, color: 'lightpink', route: 'setting/setting-account' },
     // {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
-  constructor() { }
+
+  user: Observable<User>;
+
+  constructor(private _auth: AuthService) {
+    this.user = this._auth.currentUser;
+    this.user.subscribe();
+  }
 
   ngOnInit() {
     var toggler = document.getElementsByClassName('caret-reciept');

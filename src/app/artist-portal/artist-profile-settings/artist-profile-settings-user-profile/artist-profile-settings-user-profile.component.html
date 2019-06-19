@@ -170,7 +170,7 @@
         <div class="s1lpyrmr-2 hoIGRd">
           <select id="countryCode" style="width: 100% ;height:55px" (change)="getCountry($event)">
             <option value="No Country">Please select a country...</option>
-            <option *ngFor="let country of this.country_list" value="{{ country.name }}">{{ country.name }}</option>
+            <option *ngFor="let country_value of this.country_list" value="{{ country_value.name }}" [selected] = "this.country == country_value.name">{{ country_value.name }}</option>
           </select>
         </div>
 
@@ -249,7 +249,7 @@
                     (change)="getShippingCountry($event)"
                   >
                     <option value="No Country">Please select a country...</option>
-                    <option *ngFor="let country of this.country_list" value="{{ country.name }}">{{
+                    <option *ngFor="let country of this.country_list" value="{{ country.name }}" [selected] = "country.name == this.shipping.sCountry">{{
                       country.name
                     }}</option>
                   </select>

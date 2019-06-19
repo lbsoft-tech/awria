@@ -31,6 +31,18 @@ export class AppComponent implements OnInit {
             user_profile.user_id = res1.profile.user_id;
             user_profile.country = res1.profile.country;
             user_profile.about = res1.profile.about;
+            if (res1.profile.shipping) {
+              user_profile.shipping = {
+                name: res1.profile.shipping.Name,
+                address: res1.profile.shipping.Address,
+                city: res1.profile.shipping.City,
+                country: res1.profile.shipping.Country,
+                state: res1.profile.shipping.State,
+                postcode: res1.profile.shipping.PostCode,
+                apartment: res1.profile.shipping.Apartment,
+              };
+            }
+
             this._auth.nextProfile = user_profile;
           }
           return user_profile;
