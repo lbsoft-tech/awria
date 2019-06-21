@@ -19,10 +19,8 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    if (this.currentUserSubject.value) {
-      this.currentUserProfileSubject = new BehaviorSubject<UserProfile>(null);
-      this.currentUserProfile = this.currentUserProfileSubject.asObservable();
-    }
+    this.currentUserProfileSubject = new BehaviorSubject<UserProfile>(null);
+    this.currentUserProfile = this.currentUserProfileSubject.asObservable();
   }
 
   getUserProfile(id) {
