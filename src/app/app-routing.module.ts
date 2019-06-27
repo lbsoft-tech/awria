@@ -63,6 +63,22 @@ import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/arti
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { AuthGuard } from './_guards/authguard/auth.guard';
 import { GuestGuard } from './_guards/guestguard/guest.guard';
+import { UserPortalComponent } from './user-portal/user-portal.component';
+import { UserHomeComponent } from './user-portal/user-home/user-home.component';
+import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
+import { UserHomeAwriaPostsComponent } from './user-portal/user-home/user-home-awria-posts/user-home-awria-posts.component';
+import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
+import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout.component';
+import { UserMessageComponent } from './user-portal/user-message/user-message.component';
+
+import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
+import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
+import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
+import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
+import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
+import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
+import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
+import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
 
 
 
@@ -85,6 +101,11 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'pricing',
+        component: HomePagePricingComponent
+
       },
       {
         path: 'home',
@@ -347,6 +368,78 @@ const routes: Routes = [
           }
         ]
       }
+    ]
+  },
+  {
+    path: 'user-portal',
+    component: UserPortalComponent,
+    children: [
+      {
+        path: 'home',
+        component: UserHomeComponent,
+        children: [
+          {
+            path: 'all',
+            component: UserHomeAllPostsComponent
+          },
+          {
+            path: 'patron',
+            component: UserHomeAwriaPostsComponent
+          }
+        ]
+      },
+      {
+        path: 'pricing',
+        component: HomePagePricingComponent
+
+      },
+      {
+        path: 'follow',
+        component: UserFollowComponent
+      },
+      {
+        path: 'checkout',
+        component: UserCheckoutComponent
+      },
+      {
+        path: 'message',
+        component: UserMessageComponent,
+        children: [
+          {
+            path: 'profile',
+            component: UserMessageProfileComponent,
+            children: [
+              {
+                path: 'all',
+                component: UserMessageProfileAllComponent
+              },
+              {
+                path: 'read',
+                component: UserMessageProfileReadComponent
+              },
+              {
+                path: 'unread',
+                component: UserMessageProfileUnreadComponent
+              }
+            ]
+          },
+
+        ]
+      },
+      {
+        path: 'setting',
+        component: UserSettingComponent,
+        children: [
+          {
+            path: 'profile',
+            component: UserProfileSettingComponent
+          },
+          {
+            path: 'email',
+            component: UserProfileEmailComponent
+          },
+        ]
+      },
     ]
   }
 ];

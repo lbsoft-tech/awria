@@ -1,0 +1,8 @@
+.container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 0 0 0;
+}

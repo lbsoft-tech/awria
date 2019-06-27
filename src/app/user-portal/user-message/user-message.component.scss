@@ -1,0 +1,39 @@
+.container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 0 0 0;
+  }
+  .custom-avatar{
+      display: inline-block;
+    }
+    .mat-tab-link{
+      height: auto;
+      // display: inline-block;
+    }
+    .mat-tab-link:hover{
+      opacity: 1;
+      text-decoration: none;
+      color: black;
+    }
+    .mat-tab-link:active{
+      opacity: 1;
+    }
+    
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+    @media (min-width: 600px) {
+        .matExpand {
+          display: none
+        }
+    
+      }
+    
+      @media (max-width: 600px) {
+        .navExpand {
+          display: none
+        }
+    
+      }
+    

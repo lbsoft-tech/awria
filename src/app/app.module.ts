@@ -82,6 +82,25 @@ import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
 import { TokenInterceptor } from './services/token.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
+import { UserPortalComponent } from './user-portal/user-portal.component';
+import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout.component';
+import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
+import { UserHomeComponent } from './user-portal/user-home/user-home.component';
+import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
+import { UserHomeAwriaPostsComponent } from './user-portal/user-home/user-home-awria-posts/user-home-awria-posts.component';
+import { UserMembershipsComponent } from './user-portal/user-memberships/user-memberships.component';
+import { UserMessageComponent } from './user-portal/user-message/user-message.component';
+
+import { UserProfileComponent } from './user-portal/user-profile/user-profile.component';
+import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
+import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
+import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
+import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
+import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
+import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
+import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
+import { HeaderUserComponent } from './shared/header-user/header-user.component';
+import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-icon.component';
 
 
 
@@ -159,6 +178,24 @@ import { ErrorInterceptor } from './services/error.interceptor';
     ArtistHomePatronPostsComponent,
     HomePageHomeComponent,
     HomePagePricingComponent,
+    UserPortalComponent,
+    UserCheckoutComponent,
+    UserFollowComponent,
+    UserHomeComponent,
+    UserHomeAllPostsComponent,
+    UserHomeAwriaPostsComponent,
+    UserMembershipsComponent,
+    UserMessageComponent,
+    UserMessageProfileComponent,
+    UserProfileComponent,
+    UserSettingComponent,
+    UserProfileEmailComponent,
+    UserProfileSettingComponent,
+    UserMessageProfileAllComponent,
+    UserMessageProfileReadComponent,
+    UserMessageProfileUnreadComponent,
+    HeaderUserComponent,
+    ProfileIconComponent,
   ],
   imports: [
     BrowserModule,
