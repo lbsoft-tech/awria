@@ -57,7 +57,6 @@ export class AuthService {
         user.tokenexpiresin = JSON.stringify(moment().add(res.expires_in, 'second'));
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-        this.getUserProfile(user.id);
       }
 
       return user;
@@ -79,7 +78,6 @@ export class AuthService {
         user.tokenexpiresin = JSON.stringify(moment().add(res.expires_in, 'second'));
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-        this.getUserProfile(user.id);
       }
 
       return user;
@@ -96,5 +94,6 @@ export class AuthService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.currentUserProfileSubject.next(null);
   }
 }

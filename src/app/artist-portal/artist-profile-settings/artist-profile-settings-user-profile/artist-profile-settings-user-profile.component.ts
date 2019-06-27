@@ -330,7 +330,6 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
       if (userProfile) {
         if (userProfile.profile_photo) {
           this.profile_img = 'http://localhost:3000/static/uploads/' + this.auth.currentUserValue.id + '/profile_pictures/' + userProfile.profile_photo;
-          console.log(this.profile_img);
         }
         this.country = userProfile.country;
         this.about = userProfile.about;
