@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class DatabaseService {
   readonly baseUrl = 'http://localhost:3000';
   textPhoto;
+  textPhotoName;
+  videoPhotoName;
+  
   textPhotoUrl = '';
   imagePhoto;
   imagePhotoUrl = '';
@@ -60,7 +63,32 @@ export class DatabaseService {
   addShipping(data) {
     return this.httpClient.post<any>(this.baseUrl + '/artist/updateShipping', data);
   }
-  addPost(data) {
-    return this.httpClient.post(this.baseUrl + '/posts', data);
+  addTextPost(data) {
+    
+    console.log(data);
+    return this.httpClient.post(this.baseUrl + '/artist/post/new/text/text', data);
+  }
+  uploadTextImage(data){
+    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/text/uploadImage',data)
+  }
+  uploadTextAttachment(data){
+    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/text/uploadAttachment',data)
+  }
+  addImagePost(data) {
+    
+    console.log(data);
+    return this.httpClient.post(this.baseUrl + '/artist/post/new/image/image', data);
+  }
+  uploadImagePhoto(data){
+    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/image/uploadImage',data)
+  }
+  uploadImageAttachment(data){
+    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/image/uploadAttachment',data)
+  }
+  uploadVideoImage(data){
+    return this.httpClient.post<any>(this.baseUrl+'/artist/post/new/video/uploadImage',data)
+  }
+  addVideoPost(data){
+    return this.httpClient.post<any>(this.baseUrl+'/artist/post/new/video/video',data)
   }
 }
