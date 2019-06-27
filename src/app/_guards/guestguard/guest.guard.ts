@@ -19,8 +19,13 @@ export class GuestGuard implements CanActivate {
       // check if route is restricted by role
       if (currentUser.role == Roles.User) {
         // role not authorised so redirect to home page
-        this._router.navigate(['/artist-portal/home/all']);
+        this._router.navigate(['/user-portal/home/all']);
         return false;
+      }
+      if(currentUser.role == Roles.Artist)
+      {
+        // role not authorised so redirect to home page
+        this._router.navigate(['/artist-portal/home/all']);
       }
       return false;
     }
