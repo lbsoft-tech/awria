@@ -17,10 +17,23 @@ export class DatabaseService {
   videoPhotoUrl = '';
   constructor(private httpClient: HttpClient) { }
 
+  get_artist_page() {
+    return this.httpClient.get<any>(this.baseUrl + '/artist/get_artist_page');
+  }
+
+  update_artist_page(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/update_artist_page', data);
+  }
   getUser(id) {
     return this.httpClient.get(this.baseUrl + '/users/' + id);
   }
 
+  update_page_img(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/update_page_img', data);
+  }
+  update_page_cover(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/update_page_cover', data);
+  }
   comparePassword(id, data) {
     const req = {
       user_id: id,
