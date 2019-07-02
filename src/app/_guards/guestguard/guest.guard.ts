@@ -14,21 +14,23 @@ export class GuestGuard implements CanActivate {
     private _router: Router
   ) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    const currentUser = this._authService.currentUserValue;
-    if (currentUser) {
-      // check if route is restricted by role
-      if (currentUser.role == Roles.User) {
-        // role not authorised so redirect to home page
-        this._router.navigate(['/user-portal/home/all']);
+    this._authService.currentUser.subscribe((currentUser) => {
+      if (currentUser) {
+        // check if route is restricted by role
+        if (currentUser.role == Roles.User) {
+          // role not authorised so redirect to home page
+          this._router.navigate(['/user-portal/home/all']);
+          return false;
+        }
+        if (currentUser.role == Roles.Artist) {
+          // role not authorised so redirect to home page
+          this._router.navigate(['/artist-portal/home/all']);
+        }
         return false;
       }
-      if(currentUser.role == Roles.Artist)
-      {
-        // role not authorised so redirect to home page
-        this._router.navigate(['/artist-portal/home/all']);
-      }
-      return false;
-    }
+    }, (error) => {
+      console.log(error);
+    });
     // unauthorised so return true
     return true;
   }

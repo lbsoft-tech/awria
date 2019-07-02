@@ -4,6 +4,7 @@ import { User } from 'src/app/_models/user/user';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { Roles } from 'src/app/_models/roles.enum';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,25 @@ export class LoginComponent implements OnInit {
     };
     this.auth.login(data).subscribe((res) => {
 
-      this.router.navigateByUrl('/artist-portal/home/all');
+      this.auth.currentUser.subscribe(
+        (user) => {
+          if(user)
+          {
+            if(user.role == Roles.Artist)
+            {
+
+              this.router.navigateByUrl('/artist-portal/home/all');
+            }
+            else if(user.role == Roles.User)
+            {
+
+              this.router.navigateByUrl('/user-portal/home/all');
+            }
+          }
+        },
+      (error) => {
+        console.log(error);
+      });
     },
       (error) => {
         if (error) {
