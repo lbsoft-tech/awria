@@ -24,12 +24,17 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
   }
+  s(){
+    let email= this.user.email.replace(/\s/g, '');
+    console.log(email);
+  }
   signup() {
+    let email= this.user.email.replace(/\s/g, '');
     try {
 
         const data = {
           name: this.user.name,
-          email: this.user.email.toLowerCase(),
+          email: email.toLowerCase(),
           password: this.user.password
         };
         this.auth.signup(data).subscribe(res => {
