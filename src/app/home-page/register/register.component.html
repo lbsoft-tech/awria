@@ -44,7 +44,7 @@
 
 <div class="form-group" [class.has-error]="pass.invalid && pass.touched">
   <label for="psw"><b>Password</b></label>
-  <input required pattern="(?=.*[#/?//&/@/_/-/~/^/+/=/*/(/)/$/!/>/</,/./;/:/-|//%////\/'/'/}/{/}])(?=.*\d).{7,}" autocomplete="off" type="password"
+  <input required pattern="(?=^.{6,20}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" autocomplete="off" type="password"
     placeholder="Enter Password" name="psw" #pass="ngModel" [(ngModel)]="user.password" class="form-control" >
 
   <small id="msg" style="color:red" class="help-block" *ngIf="pass.touched && pass.errors?.required">
@@ -52,7 +52,7 @@
   </small>
   <small id="msg" style="color:red;font-size: 15px" class="help-block"
     *ngIf=" pass.touched && pass.errors?.pattern">
-    Must contain at least one number and Special character, and at least 7.
+    Must contain at least one number and Special character, and at least 8.
   </small>
 </div>
 
