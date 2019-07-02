@@ -1,94 +1,138 @@
 <div class="container">
   <div class="col-lg-3">
-    <div class="card">
-      <div class="card-header">
-          <ngx-avatar
-          src="../../../assets/images/posts/icon-camera.png"
-          name="Jane Doe"
-          value="30%"
-          bgColor="#000000"
-          fgColor="#58D3F7"
-          size="120"
-          textSizeRatio="2.5"
-          [round]="true"
-          class="custom-avatar"
-        ></ngx-avatar>
-        <div class="row">          
-            <div class="col-lg-12 text-center">
-          <span><b>myinnerworld</b></span>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-body-avatar">
+              <ngx-avatar
+                src="../../../assets/images/posts/icon-camera.png"
+                name="Jane Doe"
+                value="30%"
+                bgColor="#000000"
+                fgColor="#58D3F7"
+                size="120"
+                textSizeRatio="2.5"
+                [round]="true"
+                class="custom-avatar"
+              ></ngx-avatar>
             </div>
-        </div>
-        <div class="row">          
-            <div class="col-lg-12 text-center">
-            <p>are creating drawing</p>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <span><b>myinnerworld</b></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <p>are creating drawing</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-      </div>    
-        <div class="card-body">
-          <div class="row bb">
-                  <span><b>SUPPORTING</b></span>
-          </div><br>
-          <div class="row">
-           <p>You aren’t supporting any creators yet.</p>
-          </div>
-          <div class="row">
-              <span><b>FOLLOWING</b></span>
-      </div><br>
-      <div class="row follow">
-        <a class="follow-a" href="#">
-          <div class="col-lg-3 avatar">
-              <ngx-avatar src="../../../assets/images/follow1.png" name="Jane Doe" value="30%"
-                fgColor="#58D3F7" size="50" [round]="true" class="profile-img"></ngx-avatar>
-            </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-8">
-              <span class="follow-name"><b>Ross Tran</b></span>
-            </div></a>
-      </div>     
         </div>
+        <div class="card">
+          <div class="card-header">
+            <span><b>SUPPORTING</b></span>
+          </div>
+          <div class="card-body">
+            <span><p>You aren’t supporting any creators yet.</p></span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <span><b>FOLLOWING</b></span>
+          </div>
+          <div class="card-body">
+            <div class="row follow">
+              <a class="follow-a" href="#">
+                <div class="col-lg-3 avatar">
+                  <ngx-avatar
+                    src="../../../assets/images/follow1.png"
+                    name="Jane Doe"
+                    value="30%"
+                    fgColor="#58D3F7"
+                    size="50"
+                    [round]="true"
+                    class="profile-img"
+                  ></ngx-avatar>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-8">
+                  <span class="follow-name"><b>Ross Tran</b></span>
+                </div></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-lg-6">
     <div class="row">
-        <nav mat-tab-nav-bar class="navExpand">
-            <a mat-tab-link
-               *ngFor="let link of navLinks"
-               [routerLink]="['/'+link.path]"
-               routerLinkActive #rla="routerLinkActive"
-               [active]="rla.isActive">
-              {{link.label}}
-            </a>
-          </nav>
+      <nav mat-tab-nav-bar class="navExpand">
+        <a
+          mat-tab-link
+          *ngFor="let link of navLinks"
+          [routerLink]="['/' + link.path]"
+          routerLinkActive
+          #rla="routerLinkActive"
+          [active]="rla.isActive"
+        >
+          {{ link.label }}
+        </a>
+      </nav>
     </div>
-    <br>
+    <br />
     <router-outlet></router-outlet>
-    <br>
+    <br />
   </div>
   <div class="col-lg-3">
-      <div class="card">
-      <div class="card-header">
-          <span><b>BECOME A CREATOR</b></span>
-      </div>
-      <div class="card-body">
-        <div class="row">
-        <p>Build a membership for your fans and get paid to create on your own terms.</p>
-       </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-            <button routerLink='/user-portal/pricing' class="btn" mat-button>Get Started</button>
-            </div>
-        </div>
-      </div>
+    <div class="row pb-2">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <span><b>BECOME A CREATOR</b></span>
+          </div>
           <div class="card-body">
             <div class="row">
-            <p>The creators you already love may be on Awria – connect your social media to find them.</p>
-           </div>
+              <div class="col-lg-12">
+                <span><p>Build a membership for your fans and get paid to create on your own terms</p></span>
+              </div>
+            </div>
             <div class="row">
-                <div class="col-lg-12 text-center">
-                <button class="btn" mat-button>Find Creators</button>
-                </div>
+              <div class="col-lg-12 text-center">
+                <button routerLink="/user-portal/pricing" class="btn" mat-button>Get Started</button>
+              </div>
             </div>
           </div>
+        </div>
       </div>
+    </div>
+    <div class="row pt-2">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <span><b>FIND CREATORS YOU LOVE</b></span>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <span>
+                  <p>The creators you already love may be on Awria – connect your social media to find them.</p>
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <button class="btn" mat-button>Find Creators</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

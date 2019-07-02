@@ -6,6 +6,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 import { User } from './_models/user/user';
 import { UserProfile } from './_models/UserProfile/user-profile';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @Component({

@@ -26,17 +26,17 @@ export class ArtistEditAboutComponent implements OnInit {
   Subject_Page_Form: BehaviorSubject<ArtistPageForm>;
   Observable_Page_Form: Observable<ArtistPageForm>;
   public page_form: ArtistPageForm = {
-    name: 'Demo',
-    about: 'Demo',
-    sub_title: 'Demo',
-    singular: true,
+    name: '',
+    about: '',
+    sub_title: '',
+    singular: false,
     profile_img_url: '../../../assets/images/posts/egg-person.jpg',
     cover_img_url: '../../../assets/images/posts/its_easy_if_you_try-5332.jpg',
-    patreon_page_url: 'Demo',
-    adult_content: true,
-    rss_feed: true,
-    ga_tracking_id: 'Demo',
-    into_video_url: 'Demo',
+    patreon_page_url: '',
+    adult_content: false,
+    rss_feed: false,
+    ga_tracking_id: '',
+    into_video_url: '',
   }
 
   Subject_Launch_Checklist: BehaviorSubject<LaunchChecklist>;
@@ -152,6 +152,7 @@ export class ArtistEditAboutComponent implements OnInit {
       formData.append('id', this._auth.currentUserValue.id);
       this._db.update_page_img(formData).subscribe((res) => {
         if (res.status) {
+          this.update_artist_page_info();
           Swal.fire({
             title: 'Success',
             text: 'Page image updated.',
@@ -181,6 +182,7 @@ export class ArtistEditAboutComponent implements OnInit {
       console.log(this._auth.currentUserValue.id);
       this._db.update_page_cover(formData).subscribe((res) => {
         if (res.status) {
+          this.update_artist_page_info();
           Swal.fire({
             title: 'Success',
             text: 'Page cover updated.',

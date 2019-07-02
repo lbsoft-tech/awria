@@ -72,9 +72,6 @@ import { ArtistPatronsExitSurveyComponent } from './artist-portal/artist-patrons
 import { ArtistPatronsBlockedUsersComponent } from './artist-portal/artist-patrons/artist-patrons-blocked-users/artist-patrons-blocked-users.component';
 import { ArtistIncomeEarningsComponent } from './artist-portal/artist-income/artist-income-earnings/artist-income-earnings.component';
 import { ArtistIncomePledgeGrowthComponent } from './artist-portal/artist-income/artist-income-pledge-growth/artist-income-pledge-growth.component';
-import { ArtistProfileSettingsComponent } from './artist-portal/artist-profile-settings/artist-profile-settings.component';
-import { ArtistProfileSettingsEmailComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-email/artist-profile-settings-email.component';
-import { ArtistProfileSettingsUserProfileComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-user-profile/artist-profile-settings-user-profile.component';
 import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
 import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-home-all-posts/artist-home-all-posts.component';
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
@@ -92,15 +89,17 @@ import { UserMembershipsComponent } from './user-portal/user-memberships/user-me
 import { UserMessageComponent } from './user-portal/user-message/user-message.component';
 
 import { UserProfileComponent } from './user-portal/user-profile/user-profile.component';
-import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
-import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
-import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
 import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
 import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
 import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
 import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
 import { HeaderUserComponent } from './shared/header-user/header-user.component';
 import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-icon.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
+import { ProfileSettingsEmailComponent } from './profile-settings/profile-settings-email/profile-settings-email.component';
+import { ProfileSettingsUserProfileComponent } from './profile-settings/profile-settings-user-profile/profile-settings-user-profile.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 
 
@@ -170,9 +169,6 @@ import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-
     ArtistPatronsBlockedUsersComponent,
     ArtistIncomeEarningsComponent,
     ArtistIncomePledgeGrowthComponent,
-    ArtistProfileSettingsComponent,
-    ArtistProfileSettingsEmailComponent,
-    ArtistProfileSettingsUserProfileComponent,
     ArtistHomeComponent,
     ArtistHomeAllPostsComponent,
     ArtistHomePatronPostsComponent,
@@ -188,14 +184,14 @@ import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-
     UserMessageComponent,
     UserMessageProfileComponent,
     UserProfileComponent,
-    UserSettingComponent,
-    UserProfileEmailComponent,
-    UserProfileSettingComponent,
     UserMessageProfileAllComponent,
     UserMessageProfileReadComponent,
     UserMessageProfileUnreadComponent,
     HeaderUserComponent,
     ProfileIconComponent,
+    ProfileSettingsComponent,
+    ProfileSettingsEmailComponent,
+    ProfileSettingsUserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -210,7 +206,9 @@ import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-
     FormsModule,
     ReactiveFormsModule,
     AmazingTimePickerModule,
-    AngularEditorModule
+    AngularEditorModule,
+    NgxSpinnerModule,
+    LoadingBarRouterModule
   ],
   entryComponents: [DialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,

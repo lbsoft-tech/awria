@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { DatabaseService } from '../../../services/database/database.service';
+import { DatabaseService } from 'src/app/services/database/database.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import Swal from 'sweetalert2';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/_models/user/user';
 import { UserProfile } from 'src/app/_models/UserProfile/user-profile';
-
+import Swal from 'sweetalert2';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: 'app-artist-profile-settings-user-profile',
-  templateUrl: './artist-profile-settings-user-profile.component.html',
-  styleUrls: ['./artist-profile-settings-user-profile.component.scss']
+  selector: 'app-profile-settings-user-profile',
+  templateUrl: './profile-settings-user-profile.component.html',
+  styleUrls: ['./profile-settings-user-profile.component.scss']
 })
-export class ArtistProfileSettingsUserProfileComponent implements OnInit {
+export class ProfileSettingsUserProfileComponent implements OnInit {
 
   country_list = [
     { name: 'Afghanistan', code: 'AF' },
@@ -315,7 +314,8 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
   constructor(
     private api: DatabaseService,
-    private auth: AuthService
+    private auth: AuthService,
+    private ngxspinnerservice: NgxSpinnerService,
   ) {
     this.profile_img = this.profile_img_default;
     this.auth.currentUser.subscribe((user: User) => {
@@ -372,6 +372,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
               this.password.cPassword = '';
               this.password.oldPassword = '';
               this.password.newPassword = '';
+              this.update_profile_data();
               Swal.fire({
                 title: 'Success',
                 text: 'Password updated.',
@@ -409,8 +410,13 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
     formData.append('file_name', file_name);
     formData.append('upload', files[0]);
     formData.append('id', this.auth.currentUserValue.id);
+    //this.ngxUiLoaderService.startBackgroundLoader(this.ngxUiLoaderService..loaderId, 'fg-default');
+    this.ngxspinnerservice.show();
     this.api.updatePhoto(formData).subscribe(result => {
       if (result.status) {
+        this.update_profile_data();
+        this.ngxspinnerservice.hide();
+        //this.ngxUiLoaderService.stopBackgroundLoader(this.ngxUiLoaderService.getLoader().loaderId, 'fg-default');
         Swal.fire({
           title: 'Success',
           text: 'Profile picture updated.',
@@ -436,6 +442,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
     };
     this.api.updateProfile(id, data).subscribe(res => {
       if (res.status) {
+        this.update_profile_data();
         Swal.fire({
           title: 'Success',
           text: 'Profile updated.',
@@ -462,6 +469,7 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
 
     this.api.addShipping(data).subscribe(result => {
       if (result.status) {
+        this.update_profile_data();
         Swal.fire({
           title: 'Success',
           text: 'Shipping address updated.',
@@ -478,5 +486,36 @@ export class ArtistProfileSettingsUserProfileComponent implements OnInit {
           confirmButtonText: 'Ok'
         });
       });
+  }
+
+  update_profile_data() {
+    this.auth.currentUser.subscribe((res) => {
+      if (res) {
+        this.auth.getUserProfile(res.id).subscribe((res1) => {
+          const user_profile = new UserProfile();
+          if (res1.profile != null) {
+            user_profile._id = res1.profile._id;
+            user_profile.user_id = res1.profile.user_id;
+            user_profile.country = res1.profile.country;
+            user_profile.about = res1.profile.about;
+            user_profile.profile_photo = res1.profile.ProfilePhoto;
+            if (res1.profile.shipping) {
+              user_profile.shipping = {
+                name: res1.profile.shipping.Name,
+                address: res1.profile.shipping.Address,
+                city: res1.profile.shipping.City,
+                country: res1.profile.shipping.Country,
+                state: res1.profile.shipping.State,
+                postcode: res1.profile.shipping.PostCode,
+                apartment: res1.profile.shipping.Apartment,
+              };
+            }
+
+            this.auth.nextProfile = user_profile;
+          }
+          return user_profile;
+        });
+      }
+    });
   }
 }

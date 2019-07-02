@@ -54,9 +54,6 @@ import { ArtistPatronsExitSurveyComponent } from './artist-portal/artist-patrons
 import { ArtistPatronsBlockedUsersComponent } from './artist-portal/artist-patrons/artist-patrons-blocked-users/artist-patrons-blocked-users.component';
 import { ArtistIncomeEarningsComponent } from './artist-portal/artist-income/artist-income-earnings/artist-income-earnings.component';
 import { ArtistIncomePledgeGrowthComponent } from './artist-portal/artist-income/artist-income-pledge-growth/artist-income-pledge-growth.component';
-import { ArtistProfileSettingsComponent } from './artist-portal/artist-profile-settings/artist-profile-settings.component';
-import { ArtistProfileSettingsUserProfileComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-user-profile/artist-profile-settings-user-profile.component';
-import { ArtistProfileSettingsEmailComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-email/artist-profile-settings-email.component';
 import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
 import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-home-all-posts/artist-home-all-posts.component';
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
@@ -74,11 +71,11 @@ import { UserMessageComponent } from './user-portal/user-message/user-message.co
 import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
 import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
 import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
-import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
-import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
-import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
 import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
+import { ProfileSettingsUserProfileComponent } from './profile-settings/profile-settings-user-profile/profile-settings-user-profile.component';
+import { ProfileSettingsEmailComponent } from './profile-settings/profile-settings-email/profile-settings-email.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 
 
@@ -187,15 +184,15 @@ const routes: Routes = [
       },
       {
         path: 'profile-settings',
-        component: ArtistProfileSettingsComponent,
+        component: ProfileSettingsComponent,
         children: [
           {
-            path: 'my-profile',
-            component: ArtistProfileSettingsUserProfileComponent
+            path: 'profile',
+            component: ProfileSettingsUserProfileComponent
           },
           {
-            path: 'my-email',
-            component: ArtistProfileSettingsEmailComponent
+            path: 'email',
+            component: ProfileSettingsEmailComponent
           }
         ]
 
@@ -430,16 +427,16 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'setting',
-        component: UserSettingComponent,
+        path: 'settings',
+        component: ProfileSettingsComponent,
         children: [
           {
             path: 'profile',
-            component: UserProfileSettingComponent
+            component: ProfileSettingsUserProfileComponent
           },
           {
             path: 'email',
-            component: UserProfileEmailComponent
+            component: ProfileSettingsEmailComponent
           },
         ]
       },
