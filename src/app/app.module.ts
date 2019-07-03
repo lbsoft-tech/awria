@@ -108,6 +108,13 @@ import { UserMessageProfileReadComponent } from './user-portal/user-message/user
 import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
 import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
 import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout.component';
+import { UserCreatePageComponent } from './user-portal/user-create-page/user-create-page.component';
+import { NameComponent } from './user-portal/user-create-page/name/name.component';
+import { CategoryComponent } from './user-portal/user-create-page/category/category.component';
+import { SocialAccountComponent } from './user-portal/user-create-page/social-account/social-account.component';
+import { ContentComponent } from './user-portal/user-create-page/content/content.component';
+import { AgeValidationComponent } from './user-portal/user-create-page/age-validation/age-validation.component';
+import { VerifyEmailComponent } from './user-portal/user-create-page/verify-email/verify-email.component';
 
 
 
@@ -221,6 +228,13 @@ import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout
     UserMessageProfileUnreadComponent,
     UserFollowComponent,
     UserCheckoutComponent,
+    UserCreatePageComponent,
+    NameComponent,
+    CategoryComponent,
+    SocialAccountComponent,
+    ContentComponent,
+    AgeValidationComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,
