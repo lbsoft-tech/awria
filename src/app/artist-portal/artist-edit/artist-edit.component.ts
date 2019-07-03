@@ -26,7 +26,7 @@ export class ArtistEditComponent implements OnInit {
     this.active_item = "About";
   }
 
-  clickactive() {
+  clickactive() { 
     this.panelOpenState = false;
   }
 

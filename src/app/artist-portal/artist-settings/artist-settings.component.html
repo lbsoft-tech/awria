@@ -12,9 +12,9 @@
     {{link.label}}
   </a>
 </nav>
-<!-- <mat-expansion-panel class="matExpand">
+<mat-expansion-panel class="matExpand" (click)="clickactive()" [expanded]="panelOpenState">
   <mat-expansion-panel-header >
-Expand For Mor Settings
+    {{active_item}}
   </mat-expansion-panel-header>
 
   <mat-action-row class="forhover" (click)="account()">
@@ -35,7 +35,7 @@ Expand For Mor Settings
 
 
 
-</mat-expansion-panel> -->
+</mat-expansion-panel>
 <div class="row">
   <div class="col-lg-10 col-sm-12 offset-lg-1">
     <router-outlet></router-outlet>

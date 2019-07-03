@@ -1,0 +1,21 @@
+@media (min-width: 1100px) {
+    .matExpand {
+      display: none
+    }
+
+  }
+
+  @media (max-width: 1100px) {
+    .navExpand {
+      display: none
+    }
+
+  }
+  .mat-action-row {
+    border-top-style: solid;
+    border-top-width: 1px;
+    display: flex;
+    flex-direction: row;
+     justify-content: flex-start !important;
+    padding: 16px 8px 16px 24px;
+}
