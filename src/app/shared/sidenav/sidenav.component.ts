@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/_models/user/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class SidenavComponent implements OnInit {
   profile_image_default = '../../../assets/images/posts/icon-camera.png';
   user: Observable<User>;
 
-  constructor(private _auth: AuthService) {
+  constructor(private _auth: AuthService,
+    private router:Router) {
     this.profile_image = this.profile_image_default;
     this.user = this._auth.currentUser;
     this.user.subscribe();
@@ -42,6 +44,9 @@ export class SidenavComponent implements OnInit {
         this.parentElement.querySelector('.nested-reciept-list').classList.toggle('active-reciept-list');
       });
     }
+  }
+  PostNew(){
+    
   }
 
 }

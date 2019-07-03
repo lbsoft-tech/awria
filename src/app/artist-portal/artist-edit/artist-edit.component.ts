@@ -23,6 +23,7 @@ export class ArtistEditComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.active_item = "About";
   }
 
   clickactive() {
