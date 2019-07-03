@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/_models/user/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,12 +13,28 @@ import { Component, OnInit } from '@angular/core';
 export class SidenavComponent implements OnInit {
 
   tiles = [
-    {text: 'forum', cols: 1, rows: 1, color: 'lightblue', route: 'message/page/all'},
-    { text: 'edit', cols: 1, rows: 1, color: 'lightgreen', route: 'edit/about'},
-    { text: 'settings', cols: 1, rows: 1, color: 'lightpink', route: 'setting/setting-account'},
+    { text: 'forum', cols: 1, rows: 1, color: 'lightblue', route: 'message/page/all' },
+    { text: 'edit', cols: 1, rows: 1, color: 'lightgreen', route: 'edit/about' },
+    { text: 'settings', cols: 1, rows: 1, color: 'lightpink', route: 'setting/setting-account' },
     // {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
-  constructor() { }
+
+  profile_image = '';
+  profile_image_default = '../../../assets/images/posts/icon-camera.png';
+  user: Observable<User>;
+
+  constructor(private _auth: AuthService,
+    private router:Router) {
+    this.profile_image = this.profile_image_default;
+    this.user = this._auth.currentUser;
+    this.user.subscribe();
+    this._auth.currentUserProfile.subscribe((profile) => {
+      if(profile && profile.profile_photo)
+      {
+        this.profile_image = 'http://localhost:3000/static/uploads/' + this._auth.currentUserValue.id + '/profile_pictures/' + profile.profile_photo;
+      }
+    });
+  }
 
   ngOnInit() {
     var toggler = document.getElementsByClassName('caret-reciept');
@@ -24,6 +44,9 @@ export class SidenavComponent implements OnInit {
         this.parentElement.querySelector('.nested-reciept-list').classList.toggle('active-reciept-list');
       });
     }
+  }
+  PostNew(){
+    
   }
 
 }

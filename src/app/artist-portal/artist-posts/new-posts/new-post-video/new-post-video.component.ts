@@ -4,6 +4,9 @@ import { MatChipInputEvent } from '@angular/material';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { DatabaseService } from '../../../../services/database/database.service';
+import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -29,6 +32,7 @@ export class NewPostVideoComponent implements OnInit {
   scheduleTime:any;
   publishType;
   videoUrl;
+  attachmentName;
 
   visible = true;
   chekckbox = false;
@@ -47,7 +51,7 @@ export class NewPostVideoComponent implements OnInit {
   publicpost = true;
   patronspost = false;
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog ,private api:DatabaseService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog ,public api:DatabaseService) { }
 
   ngOnInit() {
   }
@@ -104,6 +108,7 @@ export class NewPostVideoComponent implements OnInit {
     console.log(event[0]);
     this.image= event[0]
     const formdata = new FormData();
+    this.attachmentName = this.attachment.name.split(".")[1];
          formdata.append('videoFile', event[0], 'videoFile.jpg')
          formdata.append('id', localStorage.getItem('uid'))
   }
@@ -118,29 +123,57 @@ draftPost(){
 this.publishType="draft";
 }
 createPost(){
+  if(this.title!=null){
 let id=localStorage.getItem('uid');
-let data={
-  title:this.title,
-story:this.story,
-image:this.api.textPhoto,
-attachment:this.attachment,
-type:'video',
-postingType:this.type,
-earlyAccess:this.earlyAccess,
-TeaserText:this.TeaserText,
-earlyAccessTime:this.earlyAccessTime,
-earlyAccessDate:this.earlyAccessDate,
-scheduleDate:this.scheduleDate,
-scheduleTime:this.scheduleTime,
-publishType:this.publishType,
-userId:id,
-tags:this.tags,
-imageUrl:this.api.textPhotoUrl,
-videoUrl:this.videoUrl
-}
-this.api.addPost(data).subscribe(res=>{
+// let data={
+//   title:this.title,
+// story:this.story,
+// image:this.api.textPhoto,
+// attachment:this.attachment,
+// type:'video',
+// postingType:this.type,
+// earlyAccess:this.earlyAccess,
+// TeaserText:this.TeaserText,
+// earlyAccessTime:this.earlyAccessTime,
+// earlyAccessDate:this.earlyAccessDate,
+// scheduleDate:this.scheduleDate,
+// scheduleTime:this.scheduleTime,
+// publishType:this.publishType,
+// userId:id,
+// tags:this.tags,
+// imageUrl:this.api.textPhotoUrl,
+// videoUrl:this.videoUrl
+// }
+const formdata = new FormData();
+formdata.append('title',this.story)
+formdata.append('story',this.story)
+formdata.append('image',this.api.videoPhoto,this.api.videoPhoto.name)
+formdata.append('attachment',this.attachment,this.attachment.name)
+formdata.append('type','video ')
+formdata.append('postingType',this.type)
+// formdata.append('earlyAccess',this.earlyAccess)
+formdata.append('TeaserText',this.TeaserText)
+formdata.append('earlyAccessTime',this.earlyAccessTime)
+formdata.append('earlyAccessDate',this.earlyAccessDate)
+formdata.append('scheduleDate',this.scheduleDate)
+formdata.append('scheduleTime',this.scheduleTime)
+formdata.append('publishType',this.publishType)
+formdata.append('userId',id)
+formdata.append('tags',JSON.stringify(['this.tags']))
+formdata.append('imageUrl',this.api.videoPhotoUrl)
+formdata.append('videoUrl',this.videoUrl)
+this.api.addVideoPost(formdata).subscribe(res=>{
   console.log("Added");
 })
+  }
+  else{
+    Swal.fire({
+      title: 'Error',
+      text: "Add a title to your post before continuning",
+      type: 'warning',
+      confirmButtonText: 'Ok'
+    });
+  }
 }
   publish() {
     console.log("object");
@@ -166,6 +199,8 @@ this.api.addPost(data).subscribe(res=>{
     this.publicpost = false;
     this.type="patrons"
   }
+
+ 
   public() {
     this.patronspost = false;
     this.publicpost = true;
@@ -196,18 +231,42 @@ export class VDialogOverviewExampleDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<VDialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,private api:DatabaseService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,public api:DatabaseService,private auth:AuthService) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-  imageUpload(event){
+  imageUpload(files){
     console.log(event[0]);
     this.api.videoPhoto= event[0]
     const formdata = new FormData();
          formdata.append('videoPhoto', event[0], 'videoPhoto.jpg')
          formdata.append('id', localStorage.getItem('uid'))
+         
+         let formData = new FormData();
+         const file_name = Date.now() + files[0].name ;
+         formData.append('videoPhoto', file_name);
+         formData.append('upload', files[0]);
+         formData.append('id',this.auth.currentUserValue.id);
+         this.api.uploadVideoImage(formData).subscribe(result => {
+           if (result.status) {
+             Swal.fire({
+               title: 'Success',
+               text: 'Image Uploaded Successfully',
+               type: 'success',
+               confirmButtonText: 'Ok'
+             });
+           }
+         }, err => {
+           Swal.fire({
+             title: 'Error',
+             text: err,
+             type: 'error',
+             confirmButtonText: 'Ok'
+           });
+         });
     }
+    
 }
 @Component({
   selector: 'deleteVideoPostDialog',
@@ -219,7 +278,7 @@ export class DeleteVideoPostDialog {
   constructor(
     public dialogRef1: MatDialogRef<DeleteVideoPostDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private api:DatabaseService) {}
+  ) {}
 
   onNoClick(): void {
     this.dialogRef1.close();

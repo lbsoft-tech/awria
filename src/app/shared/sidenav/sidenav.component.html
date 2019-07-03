@@ -4,7 +4,7 @@
     routerLink="/artist-portal/profile/overview"
     routerLinkActive="active"
     ><ngx-avatar
-      src="../../../assets/images/posts/icon-camera.png"
+      src="{{this.profile_image}}"
       name="Jane Doe"
       value="30%"
       bgColor="#000000"
@@ -14,8 +14,8 @@
       [round]="true"
     ></ngx-avatar
   ></a>
-  <h5 class="navbar-brand">Samantha Jones</h5>
-  <small>Creator Account</small>
+  <h5 class="navbar-brand navbar-brand-custom">{{(this.user | async).name}}</h5>
+  <small>{{(this.user | async).role}}</small>
   <mat-grid-list cols="3" rowHeight="100px">
     <mat-grid-tile
       class="iconheight"
@@ -52,6 +52,7 @@
           <a
             class="nav-link custom-navlink"
             routerLinkActive="active"
+            (click)="PostNew()"
             routerLink="/artist-portal/posts/new"
           >
             <span class="">New</span>

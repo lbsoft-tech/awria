@@ -3,6 +3,8 @@ import { AuthService } from '../../services/auth/auth.service';
 import { User } from 'src/app/_models/user/user';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
+import { Roles } from 'src/app/_models/roles.enum';
 
 @Component({
   selector: 'app-login',
@@ -22,41 +24,41 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    var loginResponse;
-    var userData;
-    if (this.user.email.match("^[a-z0-9._%+-]+\.@[a-z0-9.-]+\.[a-z]{2,4}$")) {
-      const data = {
-        email: this.user.email,
-        password: this.user.password
-      };
-      this.auth.login(data).subscribe((res) => {
-        loginResponse = res;
-        localStorage.setItem('_token', loginResponse.access_token);
-        localStorage.setItem('expires_at', JSON.stringify(loginResponse.expires_in));
-        const userData = loginResponse.user;
-        const user = new User();
-        user.id = userData._id;
-        user.email = userData.email;
-        user.name = userData.name;
-        user.role = userData.role;
-        user.password = userData.password;
-        user.token = loginResponse.access_token;
-        user.tokenexpiresin = loginResponse.expires_in;
+    const data = {
+      email: this.user.email.toLowerCase(),
+      password: this.user.password
+    };
+    this.auth.login(data).subscribe((res) => {
 
-        this.auth.setUser(user);
+      this.auth.currentUser.subscribe(
+        (user) => {
+          if(user)
+          {
+            if(user.role == Roles.Artist)
+            {
 
-        this.router.navigateByUrl('/artist-portal/home/all');
-      },
-        (error) => {
+              this.router.navigateByUrl('/artist-portal/home/all');
+            }
+            else if(user.role == Roles.User)
+            {
+
+              this.router.navigateByUrl('/user-portal/home/all');
+            }
+          }
+        },
+      (error) => {
+        console.log(error);
+      });
+    },
+      (error) => {
+        if (error) {
           Swal.fire({
             title: 'Error',
-            text: error.error.message,
+            text: error,
             type: 'error',
             confirmButtonText: 'Ok'
           });
-        });
-    } else {
-      console.log('invalid data entry');
-    }
+        }
+      });
   }
 }

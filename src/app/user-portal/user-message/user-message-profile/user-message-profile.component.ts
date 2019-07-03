@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-message-profile.component.scss']
 })
 export class UserMessageProfileComponent implements OnInit {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
   navLinks = [
     { path: 'user-portal/message/profile/all', label: 'All' },
     { path: 'user-portal/message/profile/read', label: 'Read' },

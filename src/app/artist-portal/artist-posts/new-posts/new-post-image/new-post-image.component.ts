@@ -4,6 +4,9 @@ import { AmazingTimePickerService } from 'amazing-time-picker';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { DatabaseService } from '../../../../services/database/database.service';
+import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -45,16 +48,36 @@ publishType;
   publicpost = true;
   patronspost = false;
   @ViewChild("drop") drop: ElementRef;
-  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,private api:DatabaseService) { }
+  constructor(private atp: AmazingTimePickerService,public dialog: MatDialog,public api:DatabaseService,private auth:AuthService) { }
 
   ngOnInit() {
   }
-  fileUpload(event){
-    console.log(event[0]);
-    this.image= event[0]
-    const formdata = new FormData();
-         formdata.append('imageFile', event[0], 'imageFile.jpg')
-         formdata.append('id', localStorage.getItem('uid'))
+  fileUpload(files){
+
+
+
+         let formData = new FormData();
+         const file_name = Date.now() + files[0].name ;
+         formData.append('imageFile', file_name);
+         formData.append('upload', files[0]);
+         formData.append('id',this.auth.currentUserValue.id);
+         this.api.uploadImageAttachment(formData).subscribe(result => {
+           if (result.status) {
+             Swal.fire({
+               title: 'Success',
+               text: 'Attachment Uploaded Successfully',
+               type: 'success',
+               confirmButtonText: 'Ok'
+             });
+           }
+         }, err => {
+           Swal.fire({
+             title: 'Error',
+             text: err,
+             type: 'error',
+             confirmButtonText: 'Ok'
+           });
+         });
   }
 
 
@@ -68,43 +91,59 @@ draftPost(){
 this.publishType="draft";
 }
 createPost(){
+  if(this.title!=null){
+
+
 let id=localStorage.getItem('uid');
-let data={
-  title:this.title,
-story:this.story,
-image:this.api.imagePhoto,
-attachment:this.attachment,
-type:'image',
-postingType:this.type,
-earlyAccess:this.earlyAccess,
-TeaserText:this.TeaserText,
-earlyAccessTime:this.earlyAccessTime,
-earlyAccessDate:this.earlyAccessDate,
-scheduleDate:this.scheduleDate,
-scheduleTime:this.scheduleTime,
-publishType:this.publishType,
-userId:id,
-tags:this.tags,
-imageUrl:this.api.imagePhotoUrl
-}
-console.log(data);
-// this.api.addPost(data).subscribe(res=>{
-//   console.log("Added");
-// })
+// let data={
+//   title:this.title,
+// story:this.story,
+// image:this.api.imagePhoto,
+// attachment:this.attachment,
+// type:'image',
+// postingType:this.type,
+// earlyAccess:this.earlyAccess,
+// TeaserText:this.TeaserText,
+// earlyAccessTime:this.earlyAccessTime,
+// earlyAccessDate:this.earlyAccessDate,
+// scheduleDate:this.scheduleDate,
+// scheduleTime:this.scheduleTime,
+// publishType:this.publishType,
+// userId:id,
+// tags:this.tags,
+// imageUrl:this.api.imagePhotoUrl
+// }
+// console.log(data);
+const formdata = new FormData();
+formdata.append('title',this.story)
+formdata.append('story',this.story)
 
-}
-  openDialog(): void {
-    const dialogRef = this.dialog.open(IDialogOverviewExampleDialogComponent, {
-      width: '550px',
-      // height:'550px',
-      data: {name: this.name, animal: this.animal}
-    });
+formdata.append('type','image')
+formdata.append('postingType',this.type)
+// formdata.append('earlyAccess',this.earlyAccess)
+formdata.append('TeaserText',this.TeaserText)
+formdata.append('earlyAccessTime',this.earlyAccessTime)
+formdata.append('earlyAccessDate',this.earlyAccessDate)
+formdata.append('scheduleDate',this.scheduleDate)
+formdata.append('scheduleTime',this.scheduleTime)
+formdata.append('publishType',this.publishType)
+formdata.append('userId',id)
+formdata.append('tags',JSON.stringify(['this.tags']))
+formdata.append('imageUrl',this.api.videoPhotoUrl)
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
+this.api.addImagePost(formdata).subscribe(res=>{
+  console.log("Added");
+})
+  }
+  else{
+    Swal.fire({
+      title: 'Error',
+      text: "Add a title to your post before continuning",
+      type: 'warning',
+      confirmButtonText: 'Ok'
     });
   }
+}
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(DeletePostDialog, {
       width: '500px',
@@ -185,41 +224,48 @@ console.log(data);
       this.earlyAccessTime=time
     });
   }
-  imageUpload(event:any){
-    console.log(event[0]);
-    this.api.imagePhoto= event[0]
-    const formdata = new FormData();
-         formdata.append('imagePhoto', event[0], 'imagePhoto.jpg')
-         formdata.append('id', localStorage.getItem('uid'))
+  imageUpload(files:any){
+
+
+         let formData = new FormData();
+         const file_name = Date.now() + files[0].name ;
+         formData.append('imagePhoto', file_name);
+         formData.append('upload', files[0]);
+         formData.append('id',this.auth.currentUserValue.id);
+         this.api.uploadImagePhoto(formData).subscribe(result => {
+           if (result.status) {
+             Swal.fire({
+               title: 'Success',
+               text: 'Image Uploaded Successfully',
+               type: 'success',
+               confirmButtonText: 'Ok'
+             });
+           }
+         }, err => {
+           Swal.fire({
+             title: 'Error',
+             text: err,
+             type: 'error',
+             confirmButtonText: 'Ok'
+           });
+         });
     }
+
+
+    
 }
-@Component({
-  selector: 'dialog-overview',
-  templateUrl: './dialog-overview.html',
-  styleUrls: ['./dialog-overview.scss']
-})
-export class IDialogOverviewExampleDialogComponent {
-
-  constructor(
-    public dialogRef: MatDialogRef<IDialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }}
-
   @Component({
     selector: 'deletePostDialog',
     templateUrl: './deletePostDialog.html',
     styleUrls: ['./deletePostDialog.scss']
   })
   export class DeletePostDialog {
-  
+
     constructor(
       public dialogRef1: MatDialogRef<DeletePostDialog>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData,
-      private api:DatabaseService) {}
-  
+    ) {}
+
     onNoClick(): void {
       this.dialogRef1.close();
     }

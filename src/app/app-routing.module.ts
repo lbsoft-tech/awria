@@ -54,15 +54,28 @@ import { ArtistPatronsExitSurveyComponent } from './artist-portal/artist-patrons
 import { ArtistPatronsBlockedUsersComponent } from './artist-portal/artist-patrons/artist-patrons-blocked-users/artist-patrons-blocked-users.component';
 import { ArtistIncomeEarningsComponent } from './artist-portal/artist-income/artist-income-earnings/artist-income-earnings.component';
 import { ArtistIncomePledgeGrowthComponent } from './artist-portal/artist-income/artist-income-pledge-growth/artist-income-pledge-growth.component';
-import { ArtistProfileSettingsComponent } from './artist-portal/artist-profile-settings/artist-profile-settings.component';
-import { ArtistProfileSettingsUserProfileComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-user-profile/artist-profile-settings-user-profile.component';
-import { ArtistProfileSettingsEmailComponent } from './artist-portal/artist-profile-settings/artist-profile-settings-email/artist-profile-settings-email.component';
 import { ArtistHomeComponent } from './artist-portal/artist-home/artist-home.component';
 import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-home-all-posts/artist-home-all-posts.component';
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { AuthGuard } from './_guards/authguard/auth.guard';
-import { RoleGuard } from './_guards/roleguard/role.guard';
+import { GuestGuard } from './_guards/guestguard/guest.guard';
+// import { UserPortalComponent } from './user-portal/user-portal.component';
+// import { UserHomeComponent } from './user-portal/user-home/user-home.component';
+// import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
+// import { UserHomeAwriaPostsComponent } from './user-portal/user-home/user-home-awria-posts/user-home-awria-posts.component';
+// import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
+// import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout.component';
+// import { UserMessageComponent } from './user-portal/user-message/user-message.component';
+
+// import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
+// import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
+// import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
+// import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
+import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
+import { ProfileSettingsUserProfileComponent } from './profile-settings/profile-settings-user-profile/profile-settings-user-profile.component';
+import { ProfileSettingsEmailComponent } from './profile-settings/profile-settings-email/profile-settings-email.component';
+import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
 
 import { ArtistProfileEmailsettingsComponent } from './artist-portal/artist-profile/artist-profile-emailsettings/artist-profile-emailsettings.component';
 import { ArtistProfileUserprofileComponent } from './artist-portal/artist-profile/artist-profile-userprofile/artist-profile-userprofile.component';
@@ -78,7 +91,7 @@ import { UserSettingComponent } from './user-portal/user-setting/user-setting.co
 import { UserMembershipsComponent } from './user-portal/user-memberships/user-memberships.component';
 import { UserHomeComponent } from './user-portal/user-home/user-home.component';
 import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
-import { UserHomePatronPostsComponent } from './user-portal/user-home/user-home-patron-posts/user-home-patron-posts.component';
+import { UserHomeAwriaPostsComponent } from './user-portal/user-home/user-home-awria-posts/user-home-awria-posts.component';
 import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
 import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
 import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
@@ -98,6 +111,7 @@ const routes: Routes = [
   {
     path: 'home-page',
     component: HomePageComponent,
+  
     children: [
       {
         path: 'home',
@@ -110,6 +124,11 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'pricing',
+        component: HomePagePricingComponent
+
       },
       {
         path: 'home',
@@ -142,13 +161,12 @@ const routes: Routes = [
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
+    data: { roles: ['Artist'] },
     children: [
       {
         path: 'posts',
         component: ArtistPostsComponent,
-        // canActivate: [RoleGuard],
-        // data: { role: 'Artist' },
         children: [
           {
             path: 'new',
@@ -196,15 +214,15 @@ const routes: Routes = [
       },
       {
         path: 'profile-settings',
-        component: ArtistProfileSettingsComponent,
+        component: ProfileSettingsComponent,
         children: [
           {
-            path: 'my-profile',
-            component: ArtistProfileSettingsUserProfileComponent
+            path: 'profile',
+            component: ProfileSettingsUserProfileComponent
           },
           {
-            path: 'my-email',
-            component: ArtistProfileSettingsEmailComponent
+            path: 'email',
+            component: ProfileSettingsEmailComponent
           }
         ]
 
@@ -402,6 +420,8 @@ const routes: Routes = [
   {
     path: 'user-portal',
     component: UserPortalComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
     children: [
       {
         path: 'home',
@@ -413,13 +433,18 @@ const routes: Routes = [
           },
           {
             path: 'patron',
-            component: UserHomePatronPostsComponent
+            component: UserHomeAwriaPostsComponent
           }
         ]
       },
       {
-        path:'follow',
-        component:UserFollowComponent
+        path: 'pricing',
+        component: HomePagePricingComponent
+
+      },
+      {
+        path: 'follow',
+        component: UserFollowComponent
       },
       {
         path: 'checkout',
@@ -447,25 +472,25 @@ const routes: Routes = [
               }
             ]
           },
-          
+
         ]
       },
       {
-        path: 'setting',
-        component: UserSettingComponent,
+        path: 'settings',
+        component: ProfileSettingsComponent,
         children: [
           {
             path: 'profile',
-            component: UserProfileSettingComponent
+            component: ProfileSettingsUserProfileComponent
           },
           {
             path: 'email',
-            component: UserProfileEmailComponent
+            component: ProfileSettingsEmailComponent
           },
         ]
       },
     ]
-  },
+  }
 ];
 
 @NgModule({

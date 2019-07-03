@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "@kolkov/angular-editor": "^0.14.5",
+    "@ngx-loading-bar/core": "^4.2.0",
+    "@ngx-loading-bar/router": "^4.2.0",
     "amazing-time-picker": "^1.8.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
@@ -29,8 +31,12 @@
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
     "ngx-avatar": "^3.5.0",
+<<<<<<< HEAD
     "ngx-bootstrap": "^4.1.1",
     "ngx-country-select": "^2.0.6",
+=======
+    "ngx-spinner": "^7.1.4",
+>>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
     "popper": "^1.0.1",
     "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
@@ -40,12 +46,13 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "~7.3.9",
+    "@angular/cli": "^7.3.9",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "angular-file": "^1.2.2",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
