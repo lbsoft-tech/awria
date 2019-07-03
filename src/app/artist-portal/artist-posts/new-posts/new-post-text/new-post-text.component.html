@@ -48,8 +48,8 @@
           <!-- <mat-icon>attach_file</mat-icon> -->
           <p><b>ATTACHMENTS</b></p>
         </div>
-        <div class="col-8"></div>
-        <div class="col-1 curso" style="cursor: pointer" >   <label style="cursor: pointer" class="btn btn-default btn-file">
+        <div class="col-lg-8 col-md-6 col-sm-5"></div>
+        <div class="col-1  curso" style="cursor: pointer" >   <label style="cursor: pointer" class="btn btn-default btn-file">
             <u style="cursor: pointer">UPLOAD</u> <input (change)="fileUpload($event.target.files)" name="textFile" type="file" style="display: none;">
         </label></div>
         <div class="col-1"></div>
@@ -137,12 +137,10 @@
 
 
       <div class="row  content">
-        <div class="col-1">
-          <mat-icon>lock</mat-icon>
+        <div class="col-12" style="text-align: left">
+            <span> <i class="fas fa-lock" style="color:#607D8B;margin-right: 5px"></i> <b>WHO CAN SEE THIS POST?</b></span>
         </div>
-        <div class="col-7 post">
-          <p><b>WHO CAN SEE THIS POST?</b></p>
-        </div>
+     
       </div>
       <div class="row">
         <div class="col-1"></div>
@@ -240,11 +238,13 @@
         </div>
     </div>
   </div>
-    <div class="row deletepost">
-      <div class="col-3"></div>
-      <div class="col-sm-1"><mat-icon>delete</mat-icon></div>
-      <div class="col-5"><a (click)="openDeleteDialog()"><b>DELETE POST</b></a></div>
-    </div>
+  <div class="row deletepost">
+      <div class="col-12" style="text-align: center">
+        
+          <i class="fas fa-trash" style="margin-right: 5px;color: #607D8B"></i>
+      <a (click)="openDeleteDialog()"><b>DELETE POST</b></a>
+      </div>
+     </div>
 
 
   </div>
