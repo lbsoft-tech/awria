@@ -410,13 +410,11 @@ export class ProfileSettingsUserProfileComponent implements OnInit {
     formData.append('file_name', file_name);
     formData.append('upload', files[0]);
     formData.append('id', this.auth.currentUserValue.id);
-    //this.ngxUiLoaderService.startBackgroundLoader(this.ngxUiLoaderService..loaderId, 'fg-default');
     this.ngxspinnerservice.show();
     this.api.updatePhoto(formData).subscribe(result => {
       if (result.status) {
         this.update_profile_data();
         this.ngxspinnerservice.hide();
-        //this.ngxUiLoaderService.stopBackgroundLoader(this.ngxUiLoaderService.getLoader().loaderId, 'fg-default');
         Swal.fire({
           title: 'Success',
           text: 'Profile picture updated.',

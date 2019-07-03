@@ -3,7 +3,7 @@
   width: inherit;
 }
 
-.black-overlay {
-  position: fixed;
-  height: max-content;
+.loading_spinner /deep/ .black-overlay {
+  position: fixed !important;
+  //height: max-content;
 }
