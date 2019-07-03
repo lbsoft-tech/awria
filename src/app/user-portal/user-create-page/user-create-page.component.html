@@ -1,3 +1,30 @@
-<p>
-  user-create-page works!
-</p>
+<div class="container">
+  <!-- <div class="col-lg-3">
+  </div> -->
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="row ">
+      <div class="col-6">
+         <p><strong>Welcome</strong> >
+      Edit page > Submit for review
+      </p>
+      </div>      
+     <div class="col-2">       
+     </div>
+     <div class="col-4">
+        <a routerLink="/user-portal/create-page/category" routerLinkActive="active">
+        <i class="fas fa-arrow-circle-left arrow"></i>
+        </a>
+        <a routerLink="/user-portal/create-page/content" routerLinkActive="active">
+          <i class="fas fa-arrow-circle-right arrow"></i>
+        </a>
+     </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+    <router-outlet></router-outlet>
+</div>
+</div>
+  </div>
+  <!-- <div class="col-lg-3">
+  </div> -->
+</div>

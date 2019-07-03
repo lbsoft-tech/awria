@@ -31,21 +31,10 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-<<<<<<< HEAD
-
-// import { NewPostTextComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
-// import { NewPostVideoComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-// import { NewPostImageComponent } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
-
-import { NewPostTextComponent, DialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
-import { NewPostVideoComponent,VDialogOverviewExampleDialogComponent } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
-import { NewPostImageComponent ,IDialogOverviewExampleDialogComponent,DeletePostDialog} from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
-=======
 import { NewPostTextComponent, DialogOverviewExampleDialogComponent,DeleteTextPostDialog } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 
 import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent,DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
 import { ArtistNotificationsComponent } from './artist-portal/artist-notifications/artist-notifications.component';
@@ -93,26 +82,9 @@ import { ArtistHomeAllPostsComponent } from './artist-portal/artist-home/artist-
 import { ArtistHomePatronPostsComponent } from './artist-portal/artist-home/artist-home-patron-posts/artist-home-patron-posts.component';
 import { HomePageHomeComponent } from './home-page/home-page-home/home-page-home.component';
 import { HomePagePricingComponent } from './home-page/home-page-pricing/home-page-pricing.component';
-<<<<<<< HEAD
-import { TokenInterceptor } from './services/auth/token.interceptor';
-import { UserPortalComponent } from './user-portal/user-portal.component';
-import { UserMessageComponent } from './user-portal/user-message/user-message.component';
-import { UserProfileComponent } from './user-portal/user-profile/user-profile.component';
 import { UserSettingComponent } from './user-portal/user-setting/user-setting.component';
-import { UserMembershipsComponent } from './user-portal/user-memberships/user-memberships.component';
-import { UserHomeComponent } from './user-portal/user-home/user-home.component';
-import { UserHomeAllPostsComponent } from './user-portal/user-home/user-home-all-posts/user-home-all-posts.component';
-import { UserHomePatronPostsComponent } from './user-portal/user-home/user-home-patron-posts/user-home-patron-posts.component';
-import { HeaderUserComponent } from './shared/header-user/header-user.component';
 import { UserProfileSettingComponent } from './user-portal/user-setting/user-profile-setting/user-profile-setting.component';
 import { UserProfileEmailComponent } from './user-portal/user-setting/user-profile-email/user-profile-email.component';
-import { ProfileIconComponent } from './shared/header-user/profile-icon/profile-icon.component';
-import { UserMessageProfileComponent } from './user-portal/user-message/user-message-profile/user-message-profile.component';
-import { UserMessageProfileAllComponent } from './user-portal/user-message/user-message-profile/user-message-profile-all/user-message-profile-all.component';
-import { UserMessageProfileReadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-read/user-message-profile-read.component';
-import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
-import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
-import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout.component';
 import { UserCreatePageComponent } from './user-portal/user-create-page/user-create-page.component';
 import { NameComponent } from './user-portal/user-create-page/name/name.component';
 import { CategoryComponent } from './user-portal/user-create-page/category/category.component';
@@ -120,7 +92,6 @@ import { SocialAccountComponent } from './user-portal/user-create-page/social-ac
 import { ContentComponent } from './user-portal/user-create-page/content/content.component';
 import { AgeValidationComponent } from './user-portal/user-create-page/age-validation/age-validation.component';
 import { VerifyEmailComponent } from './user-portal/user-create-page/verify-email/verify-email.component';
-=======
 import { TokenInterceptor } from './services/token.interceptor';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { UserPortalComponent } from './user-portal/user-portal.component';
@@ -144,7 +115,6 @@ import { ProfileSettingsEmailComponent } from './profile-settings/profile-settin
 import { ProfileSettingsUserProfileComponent } from './profile-settings/profile-settings-user-profile/profile-settings-user-profile.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
 
 
 
@@ -172,11 +142,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     DialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
     DeletePostDialog,
-<<<<<<< HEAD
-=======
     DeleteTextPostDialog,
     DeleteVideoPostDialog,
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
     RegisterComponent,
     HeaderProfileBtnComponent,
     ArtistMessageComponent,
@@ -242,14 +209,12 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     HomePageHomeComponent,
     HomePagePricingComponent,
     UserPortalComponent,
-<<<<<<< HEAD
     UserMessageComponent,
     UserProfileComponent,
     UserSettingComponent,
     UserMembershipsComponent,
     UserHomeComponent,
     UserHomeAllPostsComponent,
-    UserHomePatronPostsComponent,
     HeaderUserComponent,
     UserProfileSettingComponent,
     UserProfileEmailComponent,
@@ -267,7 +232,6 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     ContentComponent,
     AgeValidationComponent,
     VerifyEmailComponent,
-=======
     UserCheckoutComponent,
     UserFollowComponent,
     UserHomeComponent,
@@ -285,7 +249,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     ProfileSettingsComponent,
     ProfileSettingsEmailComponent,
     ProfileSettingsUserProfileComponent,
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
+    
   ],
   imports: [
     BrowserModule,
@@ -300,17 +264,12 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     FormsModule,
     ReactiveFormsModule,
     AmazingTimePickerModule,
-<<<<<<< HEAD
-    AngularEditorModule
-    // NgxCountrySelectModule
-=======
     AngularEditorModule,
     NgxSpinnerModule,
     LoadingBarRouterModule
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
   ],
   entryComponents: [DialogOverviewExampleDialogComponent,
-    VDialogOverviewExampleDialogComponent,
+    VDialogOverviewExampleDialogComponent,DeleteTextPostDialog, 
     DeletePostDialog,DeleteTextPostDialog,DeleteVideoPostDialog
   ],
   providers: [

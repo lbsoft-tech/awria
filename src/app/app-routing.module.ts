@@ -100,6 +100,13 @@ import { UserMessageProfileReadComponent } from './user-portal/user-message/user
 import { UserMessageProfileUnreadComponent } from './user-portal/user-message/user-message-profile/user-message-profile-unread/user-message-profile-unread.component';
 import { UserFollowComponent } from './user-portal/user-follow/user-follow.component';
 import { UserCheckoutComponent } from './user-portal/user-checkout/user-checkout.component';
+import { UserCreatePageComponent } from './user-portal/user-create-page/user-create-page.component';
+import { NameComponent } from './user-portal/user-create-page/name/name.component';
+import { CategoryComponent } from './user-portal/user-create-page/category/category.component';
+import { SocialAccountComponent } from './user-portal/user-create-page/social-account/social-account.component';
+import { ContentComponent } from './user-portal/user-create-page/content/content.component';
+import { AgeValidationComponent } from './user-portal/user-create-page/age-validation/age-validation.component';
+import { VerifyEmailComponent } from './user-portal/user-create-page/verify-email/verify-email.component';
 
 
 const routes: Routes = [
@@ -161,7 +168,7 @@ const routes: Routes = [
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: { roles: ['Artist'] },
     children: [
       {
@@ -420,7 +427,7 @@ const routes: Routes = [
   {
     path: 'user-portal',
     component: UserPortalComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     data: { roles: ['User'] },
     children: [
       {
@@ -441,6 +448,37 @@ const routes: Routes = [
         path: 'pricing',
         component: HomePagePricingComponent
 
+      },
+      {
+        path: 'create-page',
+        component: UserCreatePageComponent,
+        children: [
+          {
+            
+            path: 'name',
+            component: NameComponent
+          },
+          {
+            path: 'category',
+            component: CategoryComponent
+          },
+          {
+            path: 'account',
+            component: SocialAccountComponent
+          },
+          {
+            path: 'content',
+            component: ContentComponent
+          },
+          {
+            path: 'age',
+            component: AgeValidationComponent
+          },
+          {
+            path: 'verify',
+            component: VerifyEmailComponent
+          },
+        ]
       },
       {
         path: 'follow',

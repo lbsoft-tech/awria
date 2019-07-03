@@ -1,41 +1,4 @@
 <div class="container">
-<<<<<<< HEAD
-    <div class="col-lg-1">
-    </div>
-    <div class="col-lg-10">
-<h3>Message</h3>
-<nav mat-tab-nav-bar class="navExpand">
-  <div class="row">
-    <div class="col-12">
-      <a mat-tab-link
-       *ngFor="let link of navLinks"
-       [routerLink]="['/'+link.path]"
-       routerLinkActive #rla="routerLinkActive"
-       [active]="rla.isActive">
-      <ngx-avatar
-      [src]=link.src
-      value="30%"
-      bgColor="#000000"
-      fgColor="#58D3F7"
-      size="50"
-      textSizeRatio="2.5"
-      [round]="true"
-      class="custom-avatar"></ngx-avatar>
-      <div class="col-10">
-       <h5 class="navbar-brand">{{link.name}}</h5><br>
-    <small>{{link.type}}</small> 
-      </div>
-    </a>
-    </div>
-  </div>
-  </nav>
-<router-outlet></router-outlet>
-</div>
-<div class="col-lg-1">
-  </div>
-  </div>
-  
-=======
   <div class="col-lg-1">
   </div>
   <div class="col-lg-10">
@@ -70,4 +33,3 @@
 <div class="col-lg-1">
 </div>
 </div>
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c

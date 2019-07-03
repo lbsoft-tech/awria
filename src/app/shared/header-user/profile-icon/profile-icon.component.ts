@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
 
 @Component({
   selector: 'app-profile-icon',
@@ -12,13 +9,6 @@ import { Router } from '@angular/router';
 })
 export class ProfileIconComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-=======
   constructor(private authenticationService: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -27,5 +17,4 @@ export class ProfileIconComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/']);
   }
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
 }

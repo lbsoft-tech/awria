@@ -30,21 +30,12 @@
               "src/styles.scss",
               "src/material_theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-<<<<<<< HEAD
-              "node_modules/country-select-js/build/css/countrySelect.css"
-=======
               "src/assets/libs/fontawesome/css/all.css"
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
               "node_modules/hammerjs/hammer.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-<<<<<<< HEAD
-              "node_modules/country-select-js/build/js/countrySelect.js"
-=======
               "src/assets/libs/fontawesome/js/all.js"
->>>>>>> 1dbb997e0ed2f3e153d193b3c79f89feb4aa002c
             ],
             "es5BrowserSupport": true
           },
