@@ -52,6 +52,7 @@ export class ArtistProfileComponent implements OnInit {
       (page_load) => {
         if (page_load.status) {
           var page_form = {
+            name: page_load.page.name,
             profile_img_url: page_load.page.profile_img_url ? this._url.get_page_profile_img_url(this._auth.currentUserValue.id, page_load.page.profile_img_url) : this.dummy_urls.profile,
             cover_img_url: page_load.page.cover_img_url ? this._url.get_page_cover_img_url(this._auth.currentUserValue.id, page_load.page.cover_img_url) : this.dummy_urls.cover,
             sub_title: page_load.page.sub_title,

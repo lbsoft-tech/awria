@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class UrlService {
 
   constructor() { }
-
+  get_post_image_url(id,name){
+    return 'http://localhost:3000/static/uploads/' + id + '/page/post/text/image/' + name;
+  }
   get_page_profile_img_url(id,name){
     return 'http://localhost:3000/static/uploads/' + id + '/page/profile_pictures/' + name;
   }

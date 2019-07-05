@@ -9,7 +9,7 @@ export class DatabaseService {
   textPhoto;
   textPhotoName;
   videoPhotoName;
-  
+
   textPhotoUrl = '';
   imagePhoto;
   imagePhotoUrl = '';
@@ -19,6 +19,22 @@ export class DatabaseService {
 
   get_artist_page() {
     return this.httpClient.get<any>(this.baseUrl + '/artist/get_artist_page');
+  }
+
+  create_text_post(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/create_text_post', data);
+  }
+
+  save_text_post_photo(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/save_text_post_photo', data);
+  }
+
+  save_text_post_attachment(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/save_text_post_attachment', data);
+  }
+
+  get_artist_posts() {
+     return this.httpClient.get<any>(this.baseUrl + '/artist/get_artist_posts');
   }
 
   update_artist_page(data) {
@@ -64,31 +80,31 @@ export class DatabaseService {
     return this.httpClient.post<any>(this.baseUrl + '/artist/updateShipping', data);
   }
   addTextPost(data) {
-    
+
     console.log(data);
     return this.httpClient.post(this.baseUrl + '/artist/post/new/text/text', data);
   }
-  uploadTextImage(data){
-    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/text/uploadImage',data)
+  uploadTextImage(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/post/new/text/uploadImage', data)
   }
-  uploadTextAttachment(data){
-    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/text/uploadAttachment',data)
+  uploadTextAttachment(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/post/new/text/uploadAttachment', data)
   }
   addImagePost(data) {
-    
+
     console.log(data);
     return this.httpClient.post(this.baseUrl + '/artist/post/new/image/image', data);
   }
-  uploadImagePhoto(data){
-    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/image/uploadImage',data)
+  uploadImagePhoto(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/post/new/image/uploadImage', data)
   }
-  uploadImageAttachment(data){
-    return this.httpClient.post<any>(this.baseUrl +'/artist/post/new/image/uploadAttachment',data)
+  uploadImageAttachment(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/post/new/image/uploadAttachment', data)
   }
-  uploadVideoImage(data){
-    return this.httpClient.post<any>(this.baseUrl+'/artist/post/new/video/uploadImage',data)
+  uploadVideoImage(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/post/new/video/uploadImage', data)
   }
-  addVideoPost(data){
-    return this.httpClient.post<any>(this.baseUrl+'/artist/post/new/video/video',data)
+  addVideoPost(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/post/new/video/video', data)
   }
 }

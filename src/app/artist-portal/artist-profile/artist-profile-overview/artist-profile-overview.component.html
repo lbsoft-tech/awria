@@ -56,7 +56,67 @@
         <p class="recent_posts text-capitalize">RECENT POSTS BY {{ (this.Page_Observable | async).name }}</p>
       </div>
       <br />
-      <div class="card post-card">
+      <div class="row">
+        <div class="col-lg-12">
+          <div *ngIf="(this.Posts_Observable | async) != null; else no_posts_available">
+            <div *ngFor="let post of this.Posts_Observable | async" class="card post-card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 text-left">
+                    <p class="date">May 21 at 11:00pm</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>
+                      <b>{{ post.title }}</b>
+                    </p>
+                    <p>{{ post.story }}</p>
+                    <img *ngIf="post.image_file" class="post-img" src="{{post.image_file}}" />
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-lg-4"></div>
+                  <div class="col-lg-2">
+                    <a href="#"><i class="fa fa-lg fa-trash-o" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="col-lg-2">
+                    <a href="#"><i class="fa fa-lg fa-pencil" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="col-lg-2">
+                    <a href="#"> <i class="fa fa-lg fa-upload" aria-hidden="true"></i> </a>
+                  </div>
+                  <div class="col-lg-2">
+                    <a href="#"> <i class="fa fa-lg fa-heart" aria-hidden="true"></i></a>
+                  </div>
+                  <br />
+                </div>
+                <div class="row bt comment-section">
+                  <div class="col-lg-2 avatar">
+                    <ngx-avatar
+                      src="../../../assets/images/posts/profile-img.png"
+                      name="Jane Doe"
+                      value="30%"
+                      fgColor="#58D3F7"
+                      size="50"
+                      [round]="true"
+                      class="profile-img"
+                    ></ngx-avatar>
+                  </div>
+                  <div class="col-lg-10">
+                    <input placeholder="Write Comment" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #no_posts_available>
+            <p>No posts available</p>
+          </ng-template>
+        </div>
+      </div>
+      <!-- <div class="card post-card">
         <div class="card-body">
           <div class="row">
             <div class="col-lg-12 text-left">
@@ -101,56 +161,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="card post-card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-12 text-left">
-              <p class="date">May 21 at 11:00pm</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <p><b>Pool cover up</b></p>
-              <img class="post-img" src="../../../../assets/images/1.jpg" />
-            </div>
-          </div>
-          <br />
-          <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-2">
-              <a href="#"><i class="fa fa-lg fa-trash-o" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-lg-2">
-              <a href="#"><i class="fa fa-lg fa-pencil" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-lg-2">
-              <a href="#"> <i class="fa fa-lg fa-upload" aria-hidden="true"></i> </a>
-            </div>
-            <div class="col-lg-2">
-              <a href="#"> <i class="fa fa-lg fa-heart" aria-hidden="true"></i></a>
-            </div>
-            <br />
-          </div>
-          <div class="row bt comment-section">
-            <div class="col-lg-2 avatar">
-              <ngx-avatar
-                src="../../../assets/images/posts/profile-img.png"
-                name="Jane Doe"
-                value="30%"
-                fgColor="#58D3F7"
-                size="50"
-                [round]="true"
-                class="profile-img"
-              ></ngx-avatar>
-            </div>
-            <div class="col-lg-10">
-              <input placeholder="Write Comment" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <!--  -->
     </div>
   </div>
   <div class="col-lg-3"></div>
