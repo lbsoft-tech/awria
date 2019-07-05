@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import Swal from 'sweetalert2';
 import { User } from 'src/app/_models/user/user';
 import { Router } from '@angular/router';
+import { Roles } from 'src/app/_models/roles.enum';
 
 
 
@@ -33,7 +34,22 @@ export class RegisterComponent implements OnInit {
           password: this.user.password
         };
         this.auth.signup(data).subscribe(res => {
-          this.router.navigateByUrl('/artist-portal/home/all');
+          this.auth.currentUser.subscribe(
+            (user) => {
+              if (user) {
+                if (user.role == Roles.Artist) {
+
+                  this.router.navigateByUrl('/artist-portal/home/all');
+                }
+                else if (user.role == Roles.User) {
+
+                  this.router.navigateByUrl('/user-portal/home/all');
+                }
+              }
+            },
+            (error) => {
+              console.log(error);
+            });
 
         },
           (error) => {

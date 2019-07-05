@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { ArtistPageForm } from 'src/app/_models/ArtistPageForm/artist-page-form';
 import { LaunchChecklist } from 'src/app/_models/LaunchChecklist/launch-checklist';
+import { UrlService } from 'src/app/services/url/url.service';
 
 @Component({
   selector: 'app-artist-edit-about',
@@ -71,7 +72,7 @@ export class ArtistEditAboutComponent implements OnInit {
 
   }
 
-  constructor(private _db: DatabaseService, private _auth: AuthService) {
+  constructor(private _db: DatabaseService, private _auth: AuthService, private _url:UrlService) {
     this.Default_Page_Form = {
       name: 'Demo',
       about: 'Demo',
@@ -109,8 +110,8 @@ export class ArtistEditAboutComponent implements OnInit {
           about: artist_page.about,
           sub_title: artist_page.sub_title,
           singular: artist_page.singular,
-          profile_img_url: artist_page.profile_img_url ? 'http://localhost:3000/static/uploads/' + this._auth.currentUserValue.id + '/page/profile_pictures/' + artist_page.profile_img_url : this.page_form.profile_img_url,
-          cover_img_url: artist_page.cover_img_url ? 'http://localhost:3000/static/uploads/' + this._auth.currentUserValue.id + '/page/cover_pictures/' + artist_page.cover_img_url : this.page_form.cover_img_url,
+          profile_img_url: artist_page.profile_img_url ? this._url.get_page_profile_img_url(this._auth.currentUserValue.id, artist_page.profile_img_url) : this.Default_Page_Form.profile_img_url,
+          cover_img_url: artist_page.cover_img_url ? this._url.get_page_cover_img_url(this._auth.currentUserValue.id, artist_page.cover_img_url) : this.Default_Page_Form.cover_img_url,
           patreon_page_url: artist_page.patreon_page_url,
           adult_content: artist_page.adult_content,
           rss_feed: artist_page.rss_feed,

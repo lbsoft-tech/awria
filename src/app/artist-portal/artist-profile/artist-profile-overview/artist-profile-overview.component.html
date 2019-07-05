@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-3">
   <div class="col-lg-3">
     <div class="card">
       <div class="card-body">
@@ -18,7 +18,8 @@
           <button class="btn" mat-button><i class="fa fa-upload"></i> Share</button>
         </div>
       </div>
-    </div><br>
+    </div>
+    <br />
     <div class="card">
       <div class="card-body">
         <div class="row">
@@ -30,12 +31,12 @@
           </div>
         </div>
       </div>
-    </div><br>
+    </div>
+    <br />
     <div class="card">
       <div class="card-body">
         <div class="row">
           <div class="col-lg-12 text-center">
-
             <i class="fa fa-plus"></i><span><b> Add Goals</b></span>
           </div>
         </div>
@@ -44,23 +45,17 @@
   </div>
   <div class="col-lg-6">
     <div class="row">
-
-      <div class="card">
+      <div class="card card-about">
         <div class="card-body">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>{{ (this.Page_Observable | async).about }}</p>
         </div>
       </div>
-      <br>
+      <br />
 
-      <div class="col-lg-12 text-center">
-        <p>RECENT POSTS BY MYINNERWORLD</p>
+      <div class="col-lg-12 text-center pt-4">
+        <p class="recent_posts text-capitalize">RECENT POSTS BY {{ (this.Page_Observable | async).name }}</p>
       </div>
-      <br>
+      <br />
       <div class="card post-card">
         <div class="card-body">
           <div class="row">
@@ -74,28 +69,35 @@
             </div>
           </div>
           <div class="row">
-              <div class="col-lg-4"></div>
-              <div class="col-lg-2">
-                <a href="#"><i class="fa fa-lg fa-trash-o" aria-hidden="true"></i></a>
-              </div>
-              <div class="col-lg-2">
-                <a href="#"><i class="fa fa-lg fa-pencil" aria-hidden="true"></i></a>
-              </div>
-              <div class="col-lg-2">
-                <a href="#"> <i class="fa fa-lg fa-upload" aria-hidden="true"></i> </a>
-              </div>
-              <div class="col-lg-2">
-                <a href="#"> <i class="fa fa-lg fa-heart" aria-hidden="true"></i></a>
-              </div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-2">
+              <a href="#"><i class="fa fa-lg fa-trash-o" aria-hidden="true"></i></a>
             </div>
-            <br>
+            <div class="col-lg-2">
+              <a href="#"><i class="fa fa-lg fa-pencil" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-lg-2">
+              <a href="#"> <i class="fa fa-lg fa-upload" aria-hidden="true"></i> </a>
+            </div>
+            <div class="col-lg-2">
+              <a href="#"> <i class="fa fa-lg fa-heart" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <br />
           <div class="row bt comment-section">
             <div class="col-lg-2 avatar">
-              <ngx-avatar src="../../../assets/images/posts/profile-img.png" name="Jane Doe" value="30%"
-                fgColor="#58D3F7" size="50" [round]="true" class="profile-img"></ngx-avatar>
+              <ngx-avatar
+                src="../../../assets/images/posts/profile-img.png"
+                name="Jane Doe"
+                value="30%"
+                fgColor="#58D3F7"
+                size="50"
+                [round]="true"
+                class="profile-img"
+              ></ngx-avatar>
             </div>
             <div class="col-lg-10">
-              <input placeholder="Write Comment">
+              <input placeholder="Write Comment" />
             </div>
           </div>
         </div>
@@ -111,10 +113,10 @@
           <div class="row">
             <div class="col-lg-12">
               <p><b>Pool cover up</b></p>
-              <img class="post-img" src="../../../../assets/images/1.jpg">
+              <img class="post-img" src="../../../../assets/images/1.jpg" />
             </div>
           </div>
-          <br>
+          <br />
           <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-2">
@@ -129,22 +131,27 @@
             <div class="col-lg-2">
               <a href="#"> <i class="fa fa-lg fa-heart" aria-hidden="true"></i></a>
             </div>
-            <br>
+            <br />
           </div>
           <div class="row bt comment-section">
             <div class="col-lg-2 avatar">
-              <ngx-avatar src="../../../assets/images/posts/profile-img.png" name="Jane Doe" value="30%"
-                fgColor="#58D3F7" size="50" [round]="true" class="profile-img"></ngx-avatar>
+              <ngx-avatar
+                src="../../../assets/images/posts/profile-img.png"
+                name="Jane Doe"
+                value="30%"
+                fgColor="#58D3F7"
+                size="50"
+                [round]="true"
+                class="profile-img"
+              ></ngx-avatar>
             </div>
             <div class="col-lg-10">
-              <input placeholder="Write Comment">
+              <input placeholder="Write Comment" />
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-3">
-
-  </div>
+  <div class="col-lg-3"></div>
 </div>
