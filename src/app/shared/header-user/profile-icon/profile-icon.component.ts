@@ -15,6 +15,6 @@ export class ProfileIconComponent implements OnInit {
   }
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/']);
+    this.router.navigate(['/home-page/home']);
   }
 }

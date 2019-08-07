@@ -89,7 +89,8 @@ const routes: Routes = [
   {
     path: 'home-page',
     component: HomePageComponent,
-  
+    canActivate: [GuestGuard],
+
     children: [
       {
         path: 'login',

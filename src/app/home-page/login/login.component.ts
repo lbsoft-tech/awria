@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Roles } from 'src/app/_models/roles.enum';
-
+declare var FB: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,9 +18,51 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router) {
+
+  }
 
   ngOnInit() {
+    (window as any).fbAsyncInit = function () {
+      FB.init({
+        appId: '359197421460735',
+        cookie: true,
+        xfbml: true,
+        version: 'v3.1'
+      });
+      FB.AppEvents.logPageView();
+    };
+  }
+
+  login_fb() {
+    this.auth.fbLogin().finally(() => {
+      this.auth.currentUser.subscribe(
+        (user) => {
+          console.log(user);
+          if (user) {
+            if (user.role == Roles.Artist) {
+
+              this.router.navigateByUrl('/artist-portal/home/all');
+            }
+            else if (user.role == Roles.User) {
+
+              this.router.navigateByUrl('/user-portal/home/all');
+            }
+          }
+        },
+        (error) => {
+          console.log(error);
+        });
+    }).catch((error) => {
+      if (error) {
+        Swal.fire({
+          title: 'Error',
+          text: error,
+          type: 'error',
+          confirmButtonText: 'Ok'
+        });
+      }
+    });
   }
 
   login() {
@@ -32,23 +74,20 @@ export class LoginComponent implements OnInit {
 
       this.auth.currentUser.subscribe(
         (user) => {
-          if(user)
-          {
-            if(user.role == Roles.Artist)
-            {
+          if (user) {
+            if (user.role == Roles.Artist) {
 
               this.router.navigateByUrl('/artist-portal/home/all');
             }
-            else if(user.role == Roles.User)
-            {
+            else if (user.role == Roles.User) {
 
               this.router.navigateByUrl('/user-portal/home/all');
             }
           }
         },
-      (error) => {
-        console.log(error);
-      });
+        (error) => {
+          console.log(error);
+        });
     },
       (error) => {
         if (error) {

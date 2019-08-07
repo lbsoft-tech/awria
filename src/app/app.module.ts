@@ -100,6 +100,9 @@ import { ProfileSettingsEmailComponent } from './profile-settings/profile-settin
 import { ProfileSettingsUserProfileComponent } from './profile-settings/profile-settings-user-profile/profile-settings-user-profile.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+// Import your library
+import { NgxStripeModule } from 'ngx-stripe';
+import { StripeModalComponent } from './shared/stripe-modal/stripe-modal.component';
 
 
 
@@ -192,6 +195,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     ProfileSettingsComponent,
     ProfileSettingsEmailComponent,
     ProfileSettingsUserProfileComponent,
+    StripeModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -208,7 +212,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
     AmazingTimePickerModule,
     AngularEditorModule,
     NgxSpinnerModule,
-    LoadingBarRouterModule
+    LoadingBarRouterModule,
+    NgxStripeModule.forRoot('pk_test_clCAleITyd9e7LXOXD7Ld1EI'),
   ],
   entryComponents: [DialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,

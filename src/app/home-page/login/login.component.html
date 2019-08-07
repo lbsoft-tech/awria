@@ -31,11 +31,11 @@
   <button class="btn" (click)="login()" type="button" [disabled]="!login_form.form.valid">Login</button>
   <br>
 
-  <button class="btn btn-fb">Continue with Facebook</button><br>
+  <button class="btn btn-fb" (click)="this.login_fb()">Continue with Facebook</button><br>
   <div style="    text-align: center;" >
     <p>New to Awria?</p><button class="btn-fp" routerLink="/home-page/register">SignUp</button>
   </div>
-  
+
 </form>
 
 </div>

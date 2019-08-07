@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --ssl true",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -32,6 +32,7 @@
     "jquery": "^3.4.1",
     "ngx-avatar": "^3.5.0",
     "ngx-spinner": "^7.1.4",
+    "ngx-stripe": "^7.4.3",
     "popper": "^1.0.1",
     "rxjs": "~6.3.3",
     "sweetalert2": "^8.11.7",

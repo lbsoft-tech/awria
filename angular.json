@@ -70,7 +70,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "awira:build"
+            "browserTarget": "awira:build",
+            "sslKey": "src/assets/key/private.key",
+            "sslCert": "src/assets/key/certificate.crt",
+            "ssl": true,
           },
           "configurations": {
             "production": {
