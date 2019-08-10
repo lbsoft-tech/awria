@@ -12,7 +12,7 @@ export class DatabaseService {
 
   textPhotoUrl = '';
   imagePhoto;
-  imagePhotoUrl = '';
+  // imagePhotoUrl = '';
   videoPhoto;
   videoPhotoUrl = '';
   constructor(private httpClient: HttpClient) { }
@@ -25,16 +25,36 @@ export class DatabaseService {
     return this.httpClient.post<any>(this.baseUrl + '/artist/create_text_post', data);
   }
 
+  create_image_post(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/create_image_post', data);
+  }
+
+  create_video_post(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/create_video_post', data);
+  }
+
   save_text_post_photo(data) {
     return this.httpClient.post<any>(this.baseUrl + '/artist/save_text_post_photo', data);
+  }
+
+  save_image_post_photo(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/save_image_post_photo', data);
   }
 
   save_text_post_attachment(data) {
     return this.httpClient.post<any>(this.baseUrl + '/artist/save_text_post_attachment', data);
   }
 
+  save_image_post_attachment(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/save_image_post_attachment', data);
+  }
+
+  save_video_post_attachment(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/artist/save_video_post_attachment', data);
+  }
+
   get_artist_posts() {
-     return this.httpClient.get<any>(this.baseUrl + '/artist/get_artist_posts');
+    return this.httpClient.get<any>(this.baseUrl + '/artist/get_artist_posts');
   }
 
   update_artist_page(data) {

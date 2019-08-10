@@ -1,234 +1,263 @@
-
 <div class="row">
-    <!-- <div class="col-sm-1">
+  <!-- <div class="col-sm-1">
       <div class="row">
           <mat-icon>cancel</mat-icon>
       </div> -->
 
-    <!-- </div> -->
-    <div class="col-sm-8">
+  <!-- </div> -->
+  <div class="col-sm-8">
 
-      <div class="card-header bg-white ">
-        <div class="row">
-          <div class="col-1 textalign"><mat-icon>videocam</mat-icon></div>
-          <div class="col-1">
-            <h6 class="text-uppercase text">VIDEO</h6>
-          </div>
-          <div class="col-9"></div>
-          <div class="col-1 cancel">
-            <mat-icon routerLink="/artist-portal/posts/new">cancel</mat-icon>
-          </div>
+    <div class="card-header bg-white ">
+      <div class="row">
+        <div class="col-1 textalign">
+          <mat-icon>videocam</mat-icon>
         </div>
-
+        <div class="col-1">
+          <h6 class="text-uppercase text">VIDEO</h6>
+        </div>
+        <div class="col-9"></div>
+        <div class="col-1 cancel">
+          <mat-icon routerLink="/artist-portal/posts/new">cancel</mat-icon>
+        </div>
       </div>
-      <div class="card">
-          <div class="card-body">
 
-
-            <div class="row">
-              <div class="col-1"></div>
-              <div class="col-10">
-                  <div class="input-group input-group-lg" style="padding: 55px 0 35px 0 !important">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-lg"><mat-icon>link</mat-icon></span>
-                      </div>
-                      <input type="text" [(ngModel)]="videoUrl" name="videoUrl" placeholder="video URL" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="card">
       <div class="card-body">
-        <div class="row">
-          <div class="col-12"> <input type="text" class="title"  [(ngModel)]="title" name="title"  placeholder="Post Title (required)"></div>
-        </div>
-        <div class="row">
-          <div class="col-12 tarea">
-
-            <textarea rows="6" class="textarea" [(ngModel)]="story" name="story" placeholder="Tell a story "></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-1">
-  
-              <label class="btn btn-default btn-file">
-                  <mat-icon (click)="openDialog()" >camera</mat-icon>
-              </label>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-1">
-            <mat-icon>attach_file</mat-icon>
-          </div>
-          <div class="col-1">
-            <!-- <mat-icon>attach_file</mat-icon> -->
-            <p><b>ATTACHMENTS</b></p>
-          </div>
-          <div class="col-lg-8 col-md-6 col-sm-5"></div>
-          <div class="col-1 curso" style="cursor: pointer"  >   <label style="cursor: pointer" class="btn btn-default btn-file" style="cursor:pointer">
-              <u style="cursor: pointer" >UPLOAD</u> <input (change)="fileUpload($event.target.files)" name="videoFile" type="file" name="videoFile" style="display: none;">
-          </label></div>
-          <div class="col-1"></div>
-        </div>
-
-      </div>
-      <div class="card-footer bg-white">
-        <div class="row">
-          <div class="col-1">
-            <mat-icon>label</mat-icon>
-          </div>
-          <div class="col-1">
-            <p><b>TAGS</b></p>
-          </div>
-        </div>
-        <div class="row">
-          <mat-form-field class="example-chip-list">
-            <mat-chip-list #chipList>
-              <mat-chip *ngFor="let fruit of tags" [selectable]="selectable" [removable]="removable"
-                (removed)="remove(fruit)">
-                {{fruit.name}}
-                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-              </mat-chip>
-              <input placeholder="Add Tags..." [matChipInputFor]="chipList"
-                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="add($event)">
-            </mat-chip-list>
-          </mat-form-field>
-        </div>
-
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="row sidebuttons">
-        <div class="col-9 side">
-          <button type="button" *ngIf="published" (click)="publishPost()" name="published" class="btn button">Publish now</button>
-          <button type="button" *ngIf="scheduled" (click)="schedulePost()" value="schedule" name="schedule" class="btn button">Schedule</button>
-          <button type="button" *ngIf="saveasdrafted" class="btn button" (click)="draftPost()" value="draft" name="draft">Save as draft</button>
-          </div>
-        <div class="col-3 side">
-
-          <button mat-button [matMenuTriggerFor]="menu" class="matbutton">
-            <mat-icon>keyboard_arrow_down</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="publish()">Publish now </button>
-            <button mat-menu-item (click)="schedule()">Schedule</button>
-            <button mat-menu-item (click)="saveasdraft()">Save as draft</button>
-          </mat-menu>
-
-
-        </div>
-      </div>
-      <div class="card sidetab" *ngIf="scheduled">
-        <div class="card-body">
-  <div class="row">
-    <div class="col-1" style="padding-left: 10px !important"><mat-icon>calendar_today</mat-icon></div>
-    <div class="col-11">
-      <p><b>SCHEDULE</b></p>
-    </div>
-  </div>
-  <div class="row" >
-      <div class="col-1"></div>
-      <div class="col-11">
-          <mat-form-field class="example-full-width">
-              <input matInput [matDatepicker]="picker" [(ngModel)]="scheduleDate" name="scheduleDate" placeholder="Choose a date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker touchUi #picker></mat-datepicker>
-            </mat-form-field>
-
-
-      </div>
-    </div>
-    <div class="row" >
-      <div class="col-1"></div>
-      <div class="col-8"> <input (click)="open()" placeholder=" Choose time"/> <mat-icon>access_time</mat-icon></div>
-
-    </div>
-
-
-        </div>
-      </div>
-      <div class="card sidetab">
-      <div class="card-body ">
-
-
-          <div class="row  content">
-              <div class="col-12" style="text-align: left">
-                  <span> <i class="fas fa-lock" style="color:#607D8B;margin-right: 5px"></i> <b>WHO CAN SEE THIS POST?</b></span>
-              </div>
-           
-            </div>
-        <div class="row">
-          <div class="col-1"></div>
-          <div class="col-4">
-            <mat-radio-button (click)="public()" checked value="2">Public</mat-radio-button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-1"></div>
-          <div class="col-4">
-            <mat-radio-button (click)="patrons()" value="2">Patrons Only</mat-radio-button>
-          </div>
-          <hr>
-        </div>
-        <div *ngIf="patronspost">
-        <div class="row" style="padding-top:30px !important">
-          <div class="col-1"></div>
-          <div class="col-5" >
-            <p style="margin-bottom: 0px !important"> <b>EARLY ACCESS</b></p>
-          </div>
-          <div class="col-5"></div>
-          <div class="col-1">
-              <mat-checkbox [(ngModel)]="earlyAccess" value="true"></mat-checkbox>
-          </div>
-        </div>
         <div class="row">
           <div class="col-1"></div>
           <div class="col-10">
-            <p style="margin-bottom: 0px !important">Offer patrons early access to content before the rest of the world.</p>
+            <div class="input-group input-group-lg" style="padding: 55px 0 35px 0 !important">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">
+                  <mat-icon>link</mat-icon>
+                </span>
+              </div>
+              <input type="text" [(ngModel)]="this.post.video_url" name="videoUrl" placeholder="video URL"
+                class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12"> <input type="text" class="title" [(ngModel)]="this.post.title" name="title"
+            placeholder="Post Title (required)"></div>
+      </div>
+      <div class="row">
+        <div class="col-12 tarea">
+
+          <textarea rows="6" class="textarea" [(ngModel)]="this.post.story" name="story"
+            placeholder="Tell a story "></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+
+          <label class="btn btn-default btn-file">
+            <mat-icon (click)="openDialog()">camera</mat-icon>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-1">
+          <mat-icon>attach_file</mat-icon>
+        </div>
+        <div class="col-1">
+          <!-- <mat-icon>attach_file</mat-icon> -->
+          <p><b>ATTACHMENTS</b></p>
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-5"></div>
+        <div class="col-1 curso" style="cursor: pointer"> <label style="cursor: pointer"
+            class="btn btn-default btn-file" style="cursor:pointer">
+            <u style="cursor: pointer">UPLOAD</u> <input (change)="fileUpload($event)" name="videoFile" type="file"
+              name="videoFile" style="display: none;">
+          </label></div>
+        <div class="col-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-group" *ngIf="this.post.attachment_files != null;else No_Attachments">
+            <li class="list-group-item" *ngFor="let file of this.post.attachment_files">{{file.name}}</li>
+          </ul>
+          <ng-template #No_Attachments>
+            <p>No Attachments</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer bg-white">
+      <div class="row">
+        <div class="col-1">
+          <mat-icon>label</mat-icon>
+        </div>
+        <div class="col-1">
+          <p><b>TAGS</b></p>
+        </div>
+      </div>
+      <div class="row">
+        <mat-form-field class="example-chip-list">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let fruit of this.post.tags" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(fruit)">
+              {{fruit}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Add Tags..." [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+        </mat-form-field>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="row sidebuttons">
+      <div class="col-9 side">
+        <button type="button" *ngIf="this.post.delivery_type == 'Publish'" (click)="this.save()" name="published"
+          class="btn button">Publish now</button>
+        <button type="button" *ngIf="this.post.delivery_type == 'Schedule'" (click)="this.save()" value="schedule"
+          name="schedule" class="btn button">Schedule</button>
+        <button type="button" *ngIf="this.post.delivery_type == 'Draft'" class="btn button" (click)="this.save()"
+          value="draft" name="draft">Save as draft</button>
+      </div>
+      <div class="col-3 side">
+
+        <button mat-button [matMenuTriggerFor]="menu" class="matbutton">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="this.switch_delivery_types('Publish')">Publish now </button>
+          <button mat-menu-item (click)="this.switch_delivery_types('Schedule')">Schedule</button>
+          <button mat-menu-item (click)="this.switch_delivery_types('Draft')">Save as draft</button>
+        </mat-menu>
+
+
+      </div>
+    </div>
+    <div class="card sidetab" *ngIf="this.post.delivery_type == 'Schedule'">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-1" style="padding-left: 10px !important">
+            <mat-icon>calendar_today</mat-icon>
+          </div>
+          <div class="col-11">
+            <p><b>SCHEDULE</b></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-11">
+            <mat-form-field class="example-full-width">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="scheduleDate" name="scheduleDate"
+                placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker touchUi #picker (closed)="this.schedule_date_change()"></mat-datepicker>
+            </mat-form-field>
+
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-8"> <input (click)="open()" placeholder=" Choose time" />
+            <mat-icon>access_time</mat-icon>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+    <div class="card sidetab">
+      <div class="card-body ">
+
+
+        <div class="row  content">
+          <div class="col-12" style="text-align: left">
+            <span> <i class="fas fa-lock" style="color:#607D8B;margin-right: 5px"></i> <b>WHO CAN SEE THIS
+                POST?</b></span>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4">
+            <mat-radio-button (click)="this.set_post_type('Public')" checked value="2">Public</mat-radio-button>
           </div>
         </div>
         <div class="row">
           <div class="col-1"></div>
           <div class="col-4">
-            <p style="color: blue"> <u>Learn more</u></p>
+            <mat-radio-button (click)="this.set_post_type('Patron')" value="2">Patrons Only</mat-radio-button>
           </div>
+          <hr>
         </div>
-        <div class="row" *ngIf="earlyAccess">
-          <div class="col-1"></div>
-          <div class="col-11">
-            <p><b>This post will become public on:</b></p>
+        <div *ngIf="this.post.post_type == 'Patron'">
+          <div class="row" style="padding-top:30px !important">
+            <div class="col-1"></div>
+            <div class="col-5">
+              <p style="margin-bottom: 0px !important"> <b>EARLY ACCESS</b></p>
+            </div>
+            <div class="col-5"></div>
+            <div class="col-1">
+              <mat-checkbox [(ngModel)]="this.post.early_access" value="true"></mat-checkbox>
+            </div>
           </div>
-        </div>
-        <div class="row" *ngIf="earlyAccess">
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <p style="margin-bottom: 0px !important">Offer patrons early access to content before the rest of the
+                world.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-4">
+              <p style="color: blue"> <u>Learn more</u></p>
+            </div>
+          </div>
+          <div class="row" *ngIf="this.post.early_access">
             <div class="col-1"></div>
             <div class="col-11">
-                <mat-form-field class="example-full-width">
-                    <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="earlyAccessDate" name="earlyAccessDate" >
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker touchUi #picker></mat-datepicker>
-                  </mat-form-field>
+              <p><b>This post will become public on:</b></p>
+            </div>
+          </div>
+          <div class="row" *ngIf="this.post.early_access">
+            <div class="col-1"></div>
+            <div class="col-11">
+              <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="earlyAccessDate"
+                  name="earlyAccessDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker (closed)="this.early_access_date_change()"></mat-datepicker>
+              </mat-form-field>
 
 
             </div>
           </div>
-          <div class="row" *ngIf="earlyAccess">
+          <div class="row" *ngIf="this.post.early_access">
             <div class="col-1"></div>
-            <div class="col-8"> <input style="width: 100%" (click)="open1 ()" placeholder=" Choose time"/> <mat-icon>access_time</mat-icon></div>
+            <div class="col-8"> <input style="width: 100%" (click)="open1 ()" placeholder=" Choose time" />
+              <mat-icon>access_time</mat-icon>
+            </div>
 
           </div>
 
-        <div class="row" style="padding-top:30px !important">
+          <div class="row" style="padding-top:30px !important">
             <div class="col-1"></div>
-            <div class="col-5" >
+            <div class="col-5">
               <p style="margin-bottom: 0px !important"> <b>TEASER TEXT</b></p>
             </div>
           </div>
           <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-              <p style="margin-bottom: 0px !important">Teaser text will display publicly to fans and patrons who do not have access to this post.</p>
+              <p style="margin-bottom: 0px !important">Teaser text will display publicly to fans and patrons who do not
+                have access to this post.</p>
             </div>
           </div>
           <div class="row">
@@ -238,32 +267,28 @@
             </div>
           </div>
           <div class="row">
-              <div class="col-1"></div>
-              <div class="col-11">
-                  <mat-form-field [style.fontSize]="12">
-                      <mat-label>Add public teaser text ..</mat-label>
-                      <textarea matInput
-                                cdkTextareaAutosize
-                                [(ngModel)]="TeaserText" name="TeaserText"
-                                #autosize="cdkTextareaAutosize"
-                                cdkAutosizeMinRows="4"
-                                cdkAutosizeMaxRows="6"></textarea>
-                    </mat-form-field>
-              </div>
+            <div class="col-1"></div>
+            <div class="col-11">
+              <mat-form-field [style.fontSize]="12">
+                <mat-label>Add public teaser text ..</mat-label>
+                <textarea matInput cdkTextareaAutosize [(ngModel)]="this.post.teaser_text" name="TeaserText"
+                  #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="4" cdkAutosizeMaxRows="6"></textarea>
+              </mat-form-field>
             </div>
-
           </div>
+
+        </div>
       </div>
     </div>
-      <div class="row deletepost">
-        <div class="col-12" style="text-align: center">
-          
-            <i class="fas fa-trash" style="margin-right: 5px;color: #607D8B"></i>
+    <div class="row deletepost">
+      <div class="col-12" style="text-align: center">
+
+        <i class="fas fa-trash" style="margin-right: 5px;color: #607D8B"></i>
         <a (click)="openDeleteDialog()"><b>DELETE POST</b></a>
-        </div>
-       </div>
-     
-
-
+      </div>
     </div>
+
+
+
   </div>
+</div>

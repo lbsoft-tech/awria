@@ -44,15 +44,17 @@ export class DialogOverviewExampleDialogComponent {
   }
 
   imageUpload(files) {
-    if (this.validateFile(files[0].name)) {
-      this.dialogRef.close(files[0]);
-    } else {
-      Swal.fire({
-        title: 'Error',
-        text: 'Invalid file type',
-        type: 'error',
-        confirmButtonText: 'Ok'
-      });
+    if (files.length > 0) {
+      if (this.validateFile(files[0].name)) {
+        this.dialogRef.close(files[0]);
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'Invalid file type',
+          type: 'error',
+          confirmButtonText: 'Ok'
+        });
+      }
     }
 
     //  let formData = new FormData();
@@ -129,7 +131,7 @@ export class NewPostTextComponent implements OnInit {
   }
 
   fileUpload(event) {
-    if (event.target.files) {
+    if (event.target.files.length > 0) {
       if (!this.Post.attachment_files) {
         this.Post.attachment_files = [];
       }
@@ -308,7 +310,7 @@ export class NewPostTextComponent implements OnInit {
     if (!this.Post.title) {
       Swal.fire({
         title: 'Error',
-        text: "Add a title to your post before continuning",
+        text: 'Add a title to your post before continuning',
         type: 'warning',
         confirmButtonText: 'Ok'
       });
@@ -357,10 +359,11 @@ export class NewPostTextComponent implements OnInit {
               if (this.Post.image_file) {
                 var formData = new FormData;
                 const file_name = Date.now() + this.Post.image_file.name;
-                formData.append('file_name', file_name);
-                formData.append('upload', this.Post.image_file, file_name);
+
                 formData.append('user_id', user_id);
                 formData.append('post_id', res.post._id);
+                formData.append('file_name', file_name);
+                formData.append('upload', this.Post.image_file, file_name);
                 /// Send file here.
                 console.log(formData.getAll('post_id'));
                 this.api.save_text_post_photo(formData).subscribe((result) => {
@@ -369,14 +372,14 @@ export class NewPostTextComponent implements OnInit {
               }
               if (this.Post.attachment_files) {
                 var formData = new FormData;
+                formData.append('user_id', user_id);
+                formData.append('post_id', res.post._id);
                 this.Post.attachment_files.forEach(element => {
                   const file_name = Date.now() + element.name;
                   formData.append('file_name[]', file_name);
                   formData.append('upload[]', element, file_name);
                   // Send files here.
                 });
-                formData.append('user_id', user_id);
-                formData.append('post_id', res.post._id);
                 this.api.save_text_post_attachment(formData).subscribe();
               }
               Swal.fire({
