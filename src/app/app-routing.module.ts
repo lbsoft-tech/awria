@@ -41,10 +41,10 @@ import { ArtistMessagePageUnreadComponent } from './artist-portal/artist-message
 import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
 import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
 import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
-import { MyMembershipComponent } from './my-membership/my-membership.component';
-import { ActiveMembershipsComponent } from './my-membership/active-memberships/active-memberships.component';
-import { BillingHistoryComponent } from './my-membership/billing-history/billing-history.component';
-import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
+import { MyMembershipComponent } from './shared/my-membership/my-membership.component';
+import { ActiveMembershipsComponent } from './shared/my-membership/active-memberships/active-memberships.component';
+import { BillingHistoryComponent } from './shared/my-membership/billing-history/billing-history.component';
+import { PaymentMethodsComponent } from './shared/my-membership/payment-methods/payment-methods.component';
 import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
 import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
 import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
@@ -111,24 +111,24 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'my-membership',
-    component: MyMembershipComponent,
-    children: [
-      {
-        path: 'active-memberships',
-        component: ActiveMembershipsComponent
-      },
-      {
-        path: 'billing-history',
-        component: BillingHistoryComponent
-      },
-      {
-        path: 'payment-methods',
-        component: PaymentMethodsComponent
-      }
-    ]
-  },
+  // {
+  //   path: 'my-membership',
+  //   component: MyMembershipComponent,
+  //   children: [
+  //     {
+  //       path: 'active-memberships',
+  //       component: ActiveMembershipsComponent
+  //     },
+  //     {
+  //       path: 'billing-history',
+  //       component: BillingHistoryComponent
+  //     },
+  //     {
+  //       path: 'payment-methods',
+  //       component: PaymentMethodsComponent
+  //     }
+  //   ]
+  // },
   {
     path: 'artist-portal',
     component: ArtistPortalComponent,
@@ -199,7 +199,24 @@ const routes: Routes = [
 
 
       },
-
+      {
+        path: 'my-membership',
+        component: MyMembershipComponent,
+        children: [
+          {
+            path: 'active-memberships',
+            component: ActiveMembershipsComponent
+          },
+          {
+            path: 'billing-history',
+            component: BillingHistoryComponent
+          },
+          {
+            path: 'payment-methods',
+            component: PaymentMethodsComponent
+          }
+        ]
+      },
       {
         path: 'edit',
         component: ArtistEditComponent,
@@ -393,6 +410,24 @@ const routes: Routes = [
         path: 'pricing',
         component: HomePagePricingComponent
 
+      },
+      {
+        path: 'my-membership',
+        component: MyMembershipComponent,
+        children: [
+          {
+            path: 'active-memberships',
+            component: ActiveMembershipsComponent
+          },
+          {
+            path: 'billing-history',
+            component: BillingHistoryComponent
+          },
+          {
+            path: 'payment-methods',
+            component: PaymentMethodsComponent
+          }
+        ]
       },
       {
         path: 'follow',

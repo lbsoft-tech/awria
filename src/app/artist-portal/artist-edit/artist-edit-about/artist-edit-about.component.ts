@@ -104,6 +104,7 @@ export class ArtistEditAboutComponent implements OnInit {
     this._db.get_artist_page().subscribe((res) => {
       if (res.status) {
         let artist_page = res.page;
+        console.log(this._auth.currentUserValue.id);
         var page = new ArtistPageForm();
         page = {
           name: artist_page.name,
@@ -148,9 +149,9 @@ export class ArtistEditAboutComponent implements OnInit {
       var page_img = event.target.files[0];
       let formData = new FormData();
       const file_name = Date.now() + page_img.name;
+      formData.append('id', this._auth.currentUserValue.id);
       formData.append('file_name', file_name);
       formData.append('upload', page_img);
-      formData.append('id', this._auth.currentUserValue.id);
       this._db.update_page_img(formData).subscribe((res) => {
         if (res.status) {
           this.update_artist_page_info();

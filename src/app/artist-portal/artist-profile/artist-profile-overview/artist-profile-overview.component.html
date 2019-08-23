@@ -1,62 +1,57 @@
-<div class="container py-3">
-  <div class="col-lg-3">
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <span><b>0</b></span>
-        </div>
-        <div class="row">
-          <p>patrons · Public</p>
-        </div>
-        <div class="row">
-          <span><b>$0</b></span>
-        </div>
-        <div class="row">
-          <p>per month · Public</p>
-        </div>
-        <div class="row">
-          <button class="btn" mat-button><i class="fa fa-upload"></i> Share</button>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-5">
-            <button class="btnn fb" mat-button><i class="fab fa-facebook-square"></i> Share</button>
-          </div>
-          <div class="col-lg-5">
-            <button class="btnn tw" mat-button><i class="fab fa-twitter"></i> Tweet</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <i class="fa fa-plus"></i><span><b> Add Goals</b></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="row">
-      <div class="card card-about">
+<div class="py-3">
+  <div class="row py-2">
+    <div class="col-lg-3">
+      <div class="card">
         <div class="card-body">
-          <p>{{ (this.Page_Observable | async).about }}</p>
+          <span><b>0</b></span>
+          <p>patrons · Public</p>
+          <span><b>$0</b></span>
+          <p>per month · Public</p>
+          <div class="row">
+            <button class="form-control btn" mat-button><i class="fa fa-upload"></i> Share</button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <button class="btn btn_facebook" mat-button><i class="fab fa-facebook-square"></i> Share</button>
+            </div>
+            <div class="col-lg-6">
+              <button class="btn btn_twitter" mat-button><i class="fab fa-twitter"></i> Tweet</button>
+            </div>
+          </div>
         </div>
       </div>
       <br />
-
-      <div class="col-lg-12 text-center pt-4">
-        <p class="recent_posts text-capitalize">RECENT POSTS BY {{ (this.Page_Observable | async).name }}</p>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <i class="fa fa-plus"></i><span><b> Add Goals</b></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <br />
+    </div>
+    <div class="col-lg-8">
       <div class="row">
+        <div class="col-lg-12">
+          <div class="card card-about">
+            <div class="card-body">
+              <p>{{ (this.Page_Observable | async).about }}</p>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-lg-12 text-center">
+          <p class="recent_posts text-capitalize">RECENT POSTS BY {{ (this.Page_Observable | async).name }}</p>
+        </div>
+      </div>
+      <div class="row py-2">
         <div class="col-lg-12">
           <div *ngIf="(this.Posts_Observable | async) != null; else no_posts_available">
             <div *ngFor="let post of this.Posts_Observable | async" class="card post-card">
@@ -94,15 +89,8 @@
                 </div>
                 <div class="row bt comment-section">
                   <div class="col-lg-2 avatar">
-                    <ngx-avatar
-                      src="../../../assets/images/posts/profile-img.png"
-                      name="Jane Doe"
-                      value="30%"
-                      fgColor="#58D3F7"
-                      size="50"
-                      [round]="true"
-                      class="profile-img"
-                    ></ngx-avatar>
+                    <ngx-avatar src="../../../assets/images/posts/profile-img.png" name="Jane Doe" value="30%"
+                      fgColor="#58D3F7" size="50" [round]="true" class="profile-img"></ngx-avatar>
                   </div>
                   <div class="col-lg-10">
                     <input placeholder="Write Comment" />
@@ -116,55 +104,6 @@
           </ng-template>
         </div>
       </div>
-      <!-- <div class="card post-card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-12 text-left">
-              <p class="date">May 31 at 2:00pm</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <p class="post"><b>Post</b></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-2">
-              <a href="#"><i class="fa fa-lg fa-trash-o" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-lg-2">
-              <a href="#"><i class="fa fa-lg fa-pencil" aria-hidden="true"></i></a>
-            </div>
-            <div class="col-lg-2">
-              <a href="#"> <i class="fa fa-lg fa-upload" aria-hidden="true"></i> </a>
-            </div>
-            <div class="col-lg-2">
-              <a href="#"> <i class="fa fa-lg fa-heart" aria-hidden="true"></i></a>
-            </div>
-          </div>
-          <br />
-          <div class="row bt comment-section">
-            <div class="col-lg-2 avatar">
-              <ngx-avatar
-                src="../../../assets/images/posts/profile-img.png"
-                name="Jane Doe"
-                value="30%"
-                fgColor="#58D3F7"
-                size="50"
-                [round]="true"
-                class="profile-img"
-              ></ngx-avatar>
-            </div>
-            <div class="col-lg-10">
-              <input placeholder="Write Comment" />
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!--  -->
     </div>
   </div>
-  <div class="col-lg-3"></div>
 </div>

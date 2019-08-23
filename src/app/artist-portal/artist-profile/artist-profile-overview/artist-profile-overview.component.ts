@@ -51,10 +51,11 @@ export class ArtistProfileOverviewComponent implements OnInit {
         var Posts = [];
 
         posts_load.posts.forEach(element => {
+          console.log(element);
           var new_post_text = {
             title : element.title,
             story : element.story,
-            image_file : element.photo ? this._url.get_post_image_url(element.user_id, element.photo) : null,
+            image_file : element.photo ? /*this._url.get_post_image_url(element.user_id, element.photo)  */ '': '../../../../assets/images/posts/post_dummy.png',
             tags : element.tags,
             teaser_text : element.teaser,
             attachment_files : element.attachment_files,

@@ -1,0 +1,34 @@
+<div class="border">
+
+  <h2 class="bottom">
+    <span>PAYMENT METHODS</span>
+  </h2>
+
+
+  <div class="upper">
+    <p class="p_text" *ngIf="!(this.card_status_observable | async)">You do not currently have any payment methods.</p>
+    <p class="p_text text-success" *ngIf="this.card_status_observable | async">You have successfully registered card information. <span class="fa fa-check"></span></p>
+  </div>
+
+
+
+
+</div>
+<div *ngIf="!(this.card_status_observable | async)">
+  <button class="extended-fab-button" mat-fab (click)="this.open_stripe_dialog()">
+    <p class="extended-fab-button__text">Add Card</p>
+  </button>
+  <button class="extended-fab-button2" mat-fab>
+    <p class="extended-fab-button__text">Add Paypal</p>
+  </button>
+</div>
+<div *ngIf="this.card_status_observable | async">
+  <button class="extended-fab-button" mat-fab>
+    <p class="extended-fab-button__text">Modify</p>
+  </button>
+  <button class="extended-fab-button2" mat-fab>
+    <p class="extended-fab-button__text">Remove</p>
+  </button>
+</div>
+
+<!-- Modal -->

@@ -46,7 +46,7 @@ b {
   cursor: default;
   display: inline-flex;
   font-weight: 500;
-  height: unset;
+  height: auto;
   -webkit-box-pack: center;
   justify-content: center;
   position: relative;
@@ -55,8 +55,7 @@ b {
   text-transform: none;
   user-select: none;
   white-space: unset;
-  width: unset;
-  color: rgb(232, 91, 70) !important;
+  color: rgb(232, 91, 70);
   font-size: 0.875rem !important;
   border-width: initial;
   border-style: none;
@@ -65,6 +64,21 @@ b {
   padding: 0.594rem 1rem;
   text-decoration: none;
 }
+
+.btn span {
+  justify-content: center !important;
+}
+
+.btn_twitter {
+  background-color: rgb(85, 172, 238);
+  color: white !important;
+}
+
+.btn_facebook {
+  background-color: rgb(66, 103, 178);
+  color: white !important;
+}
+
 .card-header {
   background-color: white !important;
 }

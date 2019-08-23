@@ -408,8 +408,8 @@ export class ProfileSettingsUserProfileComponent implements OnInit {
     let formData = new FormData();
     const file_name = Date.now() + files[0].name;
     formData.append('file_name', file_name);
-    formData.append('upload', files[0]);
     formData.append('id', this.auth.currentUserValue.id);
+    formData.append('upload', files[0]);
     this.ngxspinnerservice.show();
     this.api.updatePhoto(formData).subscribe(result => {
       if (result.status) {

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StripeModalComponent } from './stripe-modal.component';
+import { StripeDialogComponent } from './stripe-dialog.component';
 
-describe('StripeModalComponent', () => {
-  let component: StripeModalComponent;
-  let fixture: ComponentFixture<StripeModalComponent>;
+describe('StripeDialogComponent', () => {
+  let component: StripeDialogComponent;
+  let fixture: ComponentFixture<StripeDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StripeModalComponent ]
+      declarations: [ StripeDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StripeModalComponent);
+    fixture = TestBed.createComponent(StripeDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

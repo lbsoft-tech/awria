@@ -17,6 +17,14 @@ export class DatabaseService {
   videoPhotoUrl = '';
   constructor(private httpClient: HttpClient) { }
 
+  get_card_status(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/stripe/get_stripe_status', data);
+  }
+
+  add_card(data) {
+    return this.httpClient.post<any>(this.baseUrl + '/stripe/create_stripe_customer', data);
+  }
+
   get_artist_page() {
     return this.httpClient.get<any>(this.baseUrl + '/artist/get_artist_page');
   }

@@ -1,0 +1,13 @@
+<pre>Card Information</pre>
+<form method="POST" (submit)= "this.save_card($event)">
+  <div mat-dialog-content>
+    <div class="card-body">
+      <pre class="text-danger">{{this.card_error}}</pre>
+      <div id="card_element"></div>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cancel</button>
+    <input mat-button cdkFocusInitial value="Save" type="submit">
+  </div>
+</form>

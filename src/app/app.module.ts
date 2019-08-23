@@ -31,9 +31,9 @@ import { ArtistEditOffersComponent } from './artist-portal/artist-edit/artist-ed
 import { LoginComponent } from './home-page/login/login.component';
 import { RegisterComponent } from './home-page/register/register.component';
 import { HeaderProfileBtnComponent } from './shared/header-artist/header-profile-btn/header-profile-btn.component';
-import { NewPostTextComponent, DialogOverviewExampleDialogComponent,DeleteTextPostDialog } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
+import { NewPostTextComponent, DialogOverviewExampleDialogComponent, DeleteTextPostDialog } from './artist-portal/artist-posts/new-posts/new-post-text/new-post-text.component';
 
-import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent,DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
+import { NewPostVideoComponent, VDialogOverviewExampleDialogComponent, DeleteVideoPostDialog } from './artist-portal/artist-posts/new-posts/new-post-video/new-post-video.component';
 import { NewPostImageComponent, DeletePostDialog } from './artist-portal/artist-posts/new-posts/new-post-image/new-post-image.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ArtistProfileComponent } from './artist-portal/artist-profile/artist-profile.component';
@@ -59,10 +59,10 @@ import { ArtistMessageProfileAllComponent } from './artist-portal/artist-message
 import { DraftsComponent } from './artist-portal/artist-posts/drafts/drafts.component';
 import { ScheduledComponent } from './artist-portal/artist-posts/scheduled/scheduled.component';
 import { PublishedComponent } from './artist-portal/artist-posts/published/published.component';
-import { MyMembershipComponent } from './my-membership/my-membership.component';
-import { ActiveMembershipsComponent } from './my-membership/active-memberships/active-memberships.component';
-import { BillingHistoryComponent } from './my-membership/billing-history/billing-history.component';
-import { PaymentMethodsComponent } from './my-membership/payment-methods/payment-methods.component';
+import { MyMembershipComponent } from './shared/my-membership/my-membership.component';
+import { ActiveMembershipsComponent } from './shared/my-membership/active-memberships/active-memberships.component';
+import { BillingHistoryComponent } from './shared/my-membership/billing-history/billing-history.component';
+import { PaymentMethodsComponent } from './shared/my-membership/payment-methods/payment-methods.component';
 import { YourTiersComponent } from './artist-portal/artist-edit/artist-edit-tiers/your-tiers/your-tiers.component';
 import { BestPracticesComponent } from './artist-portal/artist-edit/artist-edit-tiers/best-practices/best-practices.component';
 import { ArtistIncomeComponent } from './artist-portal/artist-income/artist-income.component';
@@ -102,8 +102,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 // Import your library
 import { NgxStripeModule } from 'ngx-stripe';
-import { StripeModalComponent } from './shared/stripe-modal/stripe-modal.component';
-
+import { StripeDialogComponent } from './shared/stripe-dialog/stripe-dialog.component';
 
 
 @NgModule({
@@ -195,7 +194,7 @@ import { StripeModalComponent } from './shared/stripe-modal/stripe-modal.compone
     ProfileSettingsComponent,
     ProfileSettingsEmailComponent,
     ProfileSettingsUserProfileComponent,
-    StripeModalComponent,
+    StripeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -217,7 +216,8 @@ import { StripeModalComponent } from './shared/stripe-modal/stripe-modal.compone
   ],
   entryComponents: [DialogOverviewExampleDialogComponent,
     VDialogOverviewExampleDialogComponent,
-    DeletePostDialog,DeleteTextPostDialog,DeleteVideoPostDialog
+    DeletePostDialog, DeleteTextPostDialog, DeleteVideoPostDialog,
+    StripeDialogComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
